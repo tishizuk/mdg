@@ -1,0 +1,11 @@
+# PDF files
+*.pdf
+
+# Python / Virtual Environment
+.venv/
+__pycache__/
+*.pyc
+
+# System / OS files
+.DS_Store
+Thumbs.db
