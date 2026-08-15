@@ -6896,7 +6896,7 @@ You can add grid lines with an explicitly determined frequency or a frequency de
 
 
 
-`AspectRatio` controls the ratio of height to width of the plot. The default value is `1/GoldenRatio` (also known as `ϕ` ). A value of `Automatic` uses the coordinate values to determine the aspect ratio. 
+`AspectRatio` controls the ratio of height to width of the plot. The default value is `1/GoldenRatio` (also known as `φ` ). A value of `Automatic` uses the coordinate values to determine the aspect ratio. 
 
 
 
@@ -7232,7 +7232,7 @@ _Figure 7-3. Examples of_ _`BoxRatios` option_
 
 ### **Problem** 
 
-You want to plot a surface with spherical radius `r` as a function of rotational angles `θ` (latitude) and `ϕ` (longitude). 
+You want to plot a surface with spherical radius `r` as a function of rotational angles `θ` (latitude) and `φ` (longitude). 
 
 ### **Solution** 
 
@@ -7338,13 +7338,13 @@ _Figure 7-9. Using_ _`ParametricPlot3D` to emulate_ _`Plot3D`_
 
 The relationship between `ParametricPlot3D` and `SphericalPlot3D` can be understood in terms of the following: 
 
-_fx_ = _f_ [ _θ_ ,ϕ] sin _θ_ cos ϕ 
+_fx_ = _f_ [ _θ_ ,φ] sin _θ_ cos φ 
 
-_fy_ = _f_ [ _θ_ ,ϕ] sin _θ_ sin ϕ 
+_fy_ = _f_ [ _θ_ ,φ] sin _θ_ sin φ 
 
-_fz_ = _f_ [ _θ_ ,ϕ] cos _θ_ 
+_fz_ = _f_ [ _θ_ ,φ] cos _θ_ 
 
-For example, if we pick `f[` _`θ`_ , _`ϕ`_ `]` to be the constant 1, both `SphericalPlot3D` and `ParametricPlot3D` give a sphere using this relationship. 
+For example, if we pick `f[` _`θ`_ , _`φ`_ `]` to be the constant 1, both `SphericalPlot3D` and `ParametricPlot3D` give a sphere using this relationship. 
 
 
 
@@ -7424,7 +7424,7 @@ _Table 7-1. Region functions by plot type_
 |Plot type|RegionFunction|
 |---|---|
 ||arguments|
-|`SphericalPlot3D`|`x, y, z, θ, ϕ, r`|
+|`SphericalPlot3D`|`x, y, z, θ, φ, r`|
 |`RevolutionPlot3D`|`x, y, z, t, θ, r`|
 
 
@@ -10025,7 +10025,7 @@ Integrate[g[f[v1, v2]] Norm[Cross[D[f[v1, v2], v1], D[f[v1, v2], v2]]],
 {v1, v1a, v1b}, {v2, v2a, v2b}]
 ```
 
-For example, consider the surface `fl` , which is a half sphere over the interval `{` _`ϕ`_ `, 0, Pi/2}` and `{` _`θ`_ `, 0, 2 Pi}` , and compute the surface integral given a density function given by `(x^2 + y^2) z` . 
+For example, consider the surface `fl` , which is a half sphere over the interval `{` _`φ`_ `, 0, Pi/2}` and `{` _`θ`_ `, 0, 2 Pi}` , and compute the surface integral given a density function given by `(x^2 + y^2) z` . 
 
 
 
@@ -10033,7 +10033,7 @@ If we use a constant function (uniform density), we get the surface area of the 
 
 ```
 In[97]:= g2[{x_, y_, z_}] := 1
-surfaceIntegralScalar[g2, f1, {ϕ, 0, Pi/2}, {θ, 0, 2 Pi}]
+surfaceIntegralScalar[g2, f1, {φ, 0, Pi/2}, {θ, 0, 2 Pi}]
 Out[98]= 2 π
 ```
 
@@ -10049,9 +10049,9 @@ Here is the solution to the flux described by `{3 y, -z, x^2}` through a surface
 
 - A standard result from electrostatics is that the net flux out of a unit sphere, for a field that is everywhere normal, is zero. We can verify this as follows: `In[103]:=` **`F2[{x_, y_, z_}] := {1, 1, 1}/(x^2 + y^2 + z^2)`** 
 
-   - `In[104]:=` **`f2[`** **_`θ`_** **`_,`** **_`ϕ`_** **`_] := {Sin[`** **_`ϕ`_** **`] Cos[`** **_`θ`_** **`], Sin[`** **_`ϕ`_** **`] Sin[`** **_`θ`_** **`], Cos[`** **_`ϕ`_** **`]}`** 
+   - `In[104]:=` **`f2[`** **_`θ`_** **`_,`** **_`φ`_** **`_] := {Sin[`** **_`φ`_** **`] Cos[`** **_`θ`_** **`], Sin[`** **_`φ`_** **`] Sin[`** **_`θ`_** **`], Cos[`** **_`φ`_** **`]}`** 
 
-   - `In[105]:=` **`surfaceIntegralVector[F2, f2, {θ, 0, 2 Pi}, {ϕ, 0, Pi}]`** `Out[105]= 0` 
+   - `In[105]:=` **`surfaceIntegralVector[F2, f2, {θ, 0, 2 Pi}, {φ, 0, Pi}]`** `Out[105]= 0` 
 
 ### **Discussion** 
 

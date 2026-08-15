@@ -855,7 +855,7 @@ You may get the warning "External network not set up" when launching the noteboo
 
 
 
-When you are done using Sage, choose **Shut Down…** from the System menu at the top of the window, and a dialog will appear. Click the **Shut Down** button to close the virtual machine. 
+When you are done using Sage, choose **Shut Down...** from the System menu at the top of the window, and a dialog will appear. Click the **Shut Down** button to close the virtual machine. 
 
 
 
@@ -1763,7 +1763,7 @@ In the second part of the example, we used keyword arguments to customize the pl
 keyword arguments must come after all the positional arguments. In general, a function is called using the syntax: 
 
 ```
-result = function_name(argument_1, argument_2, … , argument_n,
+result = function_name(argument_1, argument_2, ... , argument_n,
 keyword=value)
 ```
 
@@ -1904,7 +1904,7 @@ Python, like most programming languages, is very picky about how you type in the
 We defined a function and found that it can be used just like the built-in functions in Sage. Sage functions are defined using the general form: 
 
 ```
-def function_name(argument_1, argument_2, … , argument_n):
+def function_name(argument_1, argument_2, ... , argument_n):
    """
 Documentation string here
 """
@@ -1957,8 +1957,8 @@ The output is the same as the previous example.
 Declaring keyword arguments is very similar to declaring positional arguments. If there are keyword arguments, they must be defined after the positional arguments. The default value of each keyword argument must be given. The following is the general form of a function definition with positional and keyword arguments: 
 
 ```
-def function_name(argument_1, argument_2, … , argument_n,
-   keyword_arg_1=default_value,… , keyword_arg_n=default_value
+def function_name(argument_1, argument_2, ... , argument_n,
+   keyword_arg_1=default_value,... , keyword_arg_n=default_value
 ):
 ```
 
@@ -2004,7 +2004,7 @@ The result should look like this:
 We've already been using objects without knowing it—every number in Sage is actually an object! An object is a construct that consists of data (called attributes) and behaviours (called methods). An object's attributes and methods are defined by a class. We say that an object is an instance of a particular class. In our example, the object called `real_number` is an instance of a class called `RR` . We create an object using syntax that is just like a function call: 
 
 ```
-new_object = Class_Name(arg1, arg2, …)
+new_object = Class_Name(arg1, arg2, ...)
 ```
 
 The number and type of arguments (positional vs. keyword) will depend upon the class definition. 
@@ -2024,7 +2024,7 @@ real_number.str()
 ###### Methods are called with the syntax: 
 
 ```
-result = object_name.method_name(argument_1, argument_2, … ,
+result = object_name.method_name(argument_1, argument_2, ... ,
 argument_n)
 ```
 
@@ -2134,7 +2134,7 @@ In this chapter, we shall learn how to:
 
 - Store heterogeneous data in dictionaries 
 
-So, let's start programming… 
+So, let's start programming... 
 
 # **Python 2 and Python 3** 
 
@@ -3116,7 +3116,7 @@ We have collected a variety of parameters into a single data structure using a d
 
 ```
 empty_dict = {}
-my_dict = { key1:value1, key2:value2, …, keyN:valueN}
+my_dict = { key1:value1, key2:value2, ..., keyN:valueN}
 ```
 
 Many operations on dictionaries are analogous to operations on lists. We demonstrated how to get and set values of items in the dictionary using square brackets: 
@@ -3334,7 +3334,7 @@ Sage supports a wide variety of arithmetic operations on vectors. The operators 
 |---|---|
 |u.cross_product(v)|Cross product u x v|
 |u.inner_product(v)|Inner (scalar)product u.v|
-|u.pairwise_product(v<br>)|Returns the vector (u[0]*v[0], u[1]*v[1], … , u[n-<br>1]*v[n-1])|
+|u.pairwise_product(v<br>)|Returns the vector (u[0]*v[0], u[1]*v[1], ... , u[n-<br>1]*v[n-1])|
 |u.norm(p)|p-norm of vector u. p=0 is the Euclidean norm. p=1<br>is the sum of the elements, and p=Infinity is the<br>maximum element in u.|
 
 
@@ -5197,7 +5197,7 @@ The results are shown in the following screenshot:
 
 We started out by defining a simple function with a discontinuity at zero. We used the function `limit` (or `lim` ) to compute the limit as x approaches zero. The first argument to `limit` is a function, and the second argument is the value at which to compute the limit. If the `dir` keyword argument is present, a one-sided limit is computed from either above or below the specified value. The values `'+'` , `'plus'` , or `'right'` compute the limit from 
 
-above, while `'-'` , `'minus'` ¸ or `'left'` compute the limit from below. If `dir` is omitted, a two-sided limit is computed. `limit` also accepts the keyword argument `taylor` , which is `False` by default. If `taylor=True` , then a Taylor series is used to approximate the function when computing the limit. The second function we defined looks more complicated, although the limit calculation is straightforward. The third case demonstrated that Sage is able to handle indeterminate forms, where the function evaluates to 0/0 at the given point. 
+above, while `'-'` , `'minus'`  ̧ or `'left'` compute the limit from below. If `dir` is omitted, a two-sided limit is computed. `limit` also accepts the keyword argument `taylor` , which is `False` by default. If `taylor=True` , then a Taylor series is used to approximate the function when computing the limit. The second function we defined looks more complicated, although the limit calculation is straightforward. The third case demonstrated that Sage is able to handle indeterminate forms, where the function evaluates to 0/0 at the given point. 
 
 ### **Derivatives** 
 
@@ -5887,7 +5887,7 @@ We used the function `desolve_system_rk4` to solve the system. This function ope
 [[0, 2, 0],
 [0.1, 1.99093050354, -0.172638259608],
 [0.2, 1.96694849768, -0.300697407982],
-…
+...
 [0.4, 1.88817476497, -0.47282676678]]
 ```
 

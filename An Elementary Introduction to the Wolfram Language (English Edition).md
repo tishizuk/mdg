@@ -14012,9 +14012,7 @@ d k
 
 З 
 
-表 
-
-今 你 
+表今你 
 
 여 
 
@@ -16894,7 +16892,7 @@ In[1]:= [Import["https://un.org"] ](https://www.un.org/)
 
 Out[1 
 
-联合国，您的世界！ 
+联合国,您的世界! 
 
 United Nations — It's your world! 
 
@@ -16916,7 +16914,7 @@ In[2]:= [StringSplit[Import["https://un.org"],](https://www.un.org/) "\n"]
 
 ! 
 
-联合国，您的世界 
+联合国,您的世界 
 
 , 
 
@@ -17366,7 +17364,7 @@ Material Metal (Laser melting)
 
 URL [http://www.sculpteo.com/gallery/design/ext/423MbGJ... ](http://www.sculpteo.com/gallery/design/ext/423MbGJH)
 
-Report … 
+Report ... 
 
 Vocabulary 
 
@@ -19938,7 +19936,7 @@ Tech Notes
 
 ◼ The fib function is computing Fibonacci[n]. The original definition always recurses down a whole tree 
 
-of O(ϕn) values, where ϕ≈1.618 is the golden ratio (GoldenRatio). 
+of O(φn) values, where φ≈1.618 is the golden ratio (GoldenRatio). 
 
 ◼ Remembering values that a function has computed before is sometimes called memoization, sometimes 
 
@@ -21910,9 +21908,9 @@ Join[#, {0}], 2] &, {1}, 50]]
 
 28.3 If[PrimeQ[#], Style[#, Red], #] & /@ Range[20] 
 
-28.4 Select[WordList[], StringTake[#, 1] ⩵ StringTake[ 
+28.4 Select[WordList[], StringTake[#, 1] == StringTake[ 
 
-StringReverse[#], 1] ⩵ "p" &] 
+StringReverse[#], 1] == "p" &] 
 
 28.5 Select[Array[Prime, 100], Last[IntegerDigits[#]] < 3 &] 
 
