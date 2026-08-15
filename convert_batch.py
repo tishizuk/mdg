@@ -4,7 +4,7 @@ import time
 import shutil
 from pathlib import Path
 
-def convert_epub_to_md(epub_path: Path, md_path: Path):
+def convert_epub_to_md(epub_path: Path, md_path: Path) -> bool:
     import ebooklib
     from ebooklib import epub
     import html2text
@@ -40,16 +40,24 @@ def convert_epub_to_md(epub_path: Path, md_path: Path):
         except Exception as e:
             print(f"  Warning on item {item.get_name()}: {e}")
 
-    full_md = "\n\n---\n\n".join(md_parts)
+    full_md = "\n\n---\n\n".join(md_parts).strip()
+    if not full_md:
+        return False
+
     with open(md_path, "w", encoding="utf-8") as f:
         f.write(full_md)
+    return True
 
-def convert_pdf_to_md(pdf_path: Path, md_path: Path):
+def convert_pdf_to_md(pdf_path: Path, md_path: Path) -> bool:
     import pymupdf4llm
 
-    md_text = pymupdf4llm.to_markdown(str(pdf_path))
+    md_text = pymupdf4llm.to_markdown(str(pdf_path)).strip()
+    if not md_text:
+        return False
+
     with open(md_path, "w", encoding="utf-8") as f:
         f.write(md_text)
+    return True
 
 def main():
     workspace_dir = Path("/home/tishizuk/Documents/mdg")
@@ -77,14 +85,18 @@ def main():
         print(f"[{i}/{len(target_files)}] 変換中: {file_path.name} ...", flush=True)
         start_time = time.time()
         try:
+            success = False
             if file_path.suffix.lower() == ".epub":
-                convert_epub_to_md(file_path, md_path)
+                success = convert_epub_to_md(file_path, md_path)
             elif file_path.suffix.lower() == ".pdf":
-                convert_pdf_to_md(file_path, md_path)
+                success = convert_pdf_to_md(file_path, md_path)
             
             elapsed = time.time() - start_time
-            size_mb = md_path.stat().st_size / (1024 * 1024)
-            print(f"  -> 変換完了 ({elapsed:.1f}秒, {size_mb:.2f} MB)", flush=True)
+            if success:
+                size_mb = md_path.stat().st_size / (1024 * 1024)
+                print(f"  -> 変換完了 ({elapsed:.1f}秒, {size_mb:.2f} MB)", flush=True)
+            else:
+                print(f"  -> テキスト層なし（画像スキャン等）のためmdファイルを作成しませんでした ({elapsed:.1f}秒)", flush=True)
 
             # Move processed original file to processed/ folder
             dest_file = processed_dir / file_path.name
