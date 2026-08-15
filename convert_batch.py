@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import shutil
 from pathlib import Path
 
 def convert_epub_to_md(epub_path: Path, md_path: Path):
@@ -52,8 +53,10 @@ def convert_pdf_to_md(pdf_path: Path, md_path: Path):
 
 def main():
     workspace_dir = Path("/home/tishizuk/Documents/mdg")
+    processed_dir = workspace_dir / "processed"
+    processed_dir.mkdir(exist_ok=True)
     
-    # Find all pdf and epub files
+    # Find all pdf and epub files in the workspace root
     target_files = []
     for ext in ("*.pdf", "*.epub"):
         for file_path in sorted(workspace_dir.glob(ext)):
@@ -81,12 +84,17 @@ def main():
             
             elapsed = time.time() - start_time
             size_mb = md_path.stat().st_size / (1024 * 1024)
-            print(f"  -> 完了 ({elapsed:.1f}秒, {size_mb:.2f} MB)", flush=True)
+            print(f"  -> 変換完了 ({elapsed:.1f}秒, {size_mb:.2f} MB)", flush=True)
+
+            # Move processed original file to processed/ folder
+            dest_file = processed_dir / file_path.name
+            shutil.move(str(file_path), str(dest_file))
+            print(f"  -> processed/ へ移動しました", flush=True)
         except Exception as e:
             print(f"  -> エラー発生: {e}", flush=True)
 
     print("=" * 60)
-    print("すべての変換処理が完了しました。")
+    print("すべての処理が完了しました。")
 
 if __name__ == "__main__":
     main()
