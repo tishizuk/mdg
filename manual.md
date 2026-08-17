@@ -8403,7 +8403,7 @@ _▷_ MoebiusMu(n) (function)
 
 MoebiusMu computes the value of Moebius inversion function for the nonzero integer n . This is 0 for integers which are not squarefree, i.e., which are divided by a square _r_<sup>2</sup> . Otherwise it is 1 if n has a even number and _−_ 1 if n has an odd number of prime factors. 
 
-The importance of _µ_ stems from the so called inversion formula. Suppose _f_ is a multiplicative arithmetic function defined on the positive integers and let _g_ ( _n_ ) = ∑ _d|n f_ ( _d_ ). Then _f_ ( _n_ ) = ∑ _d|n µ_ ( _d_ ) _g_ ( _n/d_ ). As a special case we have _φ_ ( _n_ ) = ∑ _d|n µ_ ( _d_ ) _n/d_ since _n_ = ∑ _d|n φ_ ( _d_ ) (see Phi (15.2.2)). 
+The importance of _μ_ stems from the so called inversion formula. Suppose _f_ is a multiplicative arithmetic function defined on the positive integers and let _g_ ( _n_ ) = ∑ _d|n f_ ( _d_ ). Then _f_ ( _n_ ) = ∑ _d|n μ_ ( _d_ ) _g_ ( _n/d_ ). As a special case we have _φ_ ( _n_ ) = ∑ _d|n μ_ ( _d_ ) _n/d_ since _n_ = ∑ _d|n φ_ ( _d_ ) (see Phi (15.2.2)). 
 
 MoebiusMu usually spends all of its time factoring n (see FactorsInt (14.4.7)). Example gap> MoebiusMu( 60 ); MoebiusMu( 61 ); MoebiusMu( 62 ); 0 
 
@@ -9726,7 +9726,7 @@ The implementation of an _internally represented cyclotomic_ is based on a list 
 
 The disadvantage of this approach is that the arithmetical operations are quite expensive, so the use of internally represented cyclotomics is not recommended for doing arithmetics over number fields, such as calculations with matrices of cyclotomics. But internally represented cyclotomics are good enough for dealing with irrationalities in character tables (see chapter 71). 
 
-For the representation of cyclotomics one has to recall that the _n_ - th cyclotomic field Q( _en_ ) is a vector space of dimension _ϕ_ ( _n_ ) over the rationals where _ϕ_ denotes Euler’s phi - function (see Phi (15.2.2)). 
+For the representation of cyclotomics one has to recall that the _n_ - th cyclotomic field Q( _en_ ) is a vector space of dimension _φ_ ( _n_ ) over the rationals where _φ_ denotes Euler’s phi - function (see Phi (15.2.2)). 
 
 A special integral basis of cyclotomic fields is chosen that allows one to easily convert arbitrary sums of roots of unity into the basis, as well as to convert a cyclotomic represented w.r.t. the basis into the smallest possible cyclotomic field. This basis is accessible in GAP, see 60.3 for more information and references. 
 
@@ -22575,7 +22575,7 @@ _▷_ Omega(G, p[, n])
 
 (operation) 
 
-For a p - group G , one defines Ω n ( G ) = _⟨g ∈_ G _| g_<sup>pn</sup> = 1 _⟩_ . The default value for n is 1 . Example gap> h:=SmallGroup(16,10); <pc group of size 16 with 4 generators> gap> Omega(h,2); Group([ f2, f3, f4 ]) 
+For a p - group G , one defines Ω n ( G ) = _⟨g ∈_ G _| g_<sup>pn</sup> = 1 _⟩_ . The default value for n is 1 . Example gap> h:=SmallGroup(16,10); <pc group of size 16 with 4 generators> gap> Omega(h,2); Group([ f2, f3, f4 ]) 
 
 ##### **39.14.2 Agemo** 
 
@@ -23495,7 +23495,7 @@ _▷_ MinimalFaithfulPermutationDegree(G) (operation)
 
 _▷_ MinimalFaithfulPermutationRepresentation(G) (operation) 
 
-For a finite group G , MinimalFaithfulPermutationDegree calculates the least positive integer _n_ = _µ_ ( _G_ ) such that G is isomorphic to a subgroup of the symmetric group of degree _n_ . This can require calculating the whole subgroup lattice. The operation MinimalFaithfulPermutationRepresentation returns a corresponding isomorphism. 
+For a finite group G , MinimalFaithfulPermutationDegree calculates the least positive integer _n_ = _μ_ ( _G_ ) such that G is isomorphic to a subgroup of the symmetric group of degree _n_ . This can require calculating the whole subgroup lattice. The operation MinimalFaithfulPermutationRepresentation returns a corresponding isomorphism. 
 
 Example 
 
@@ -24775,15 +24775,15 @@ is the representation of total mappings from an fp group that give images of the
 
 ## **Group Actions** 
 
-A _group action_ is a triple ( _G,_ Ω _, µ_ ), where _G_ is a group, Ω a set and _µ_ : Ω _× G →_ Ω a function that is compatible with the group arithmetic. We call Ω the _domain_ of the action. 
+A _group action_ is a triple ( _G,_ Ω _, μ_ ), where _G_ is a group, Ω a set and _μ_ : Ω _× G →_ Ω a function that is compatible with the group arithmetic. We call Ω the _domain_ of the action. 
 
-In GAP, Ω can be a duplicate - free collection (an object that permits access to its elements via the Ω[ _n_ ] operation, for example a list), it does not need to be sorted (see IsSet (21.17.4)). 
+In GAP, Ω can be a duplicate - free collection (an object that permits access to its elements via the Ω[ _n_ ] operation, for example a list), it does not need to be sorted (see IsSet (21.17.4)). 
 
-The acting function _µ_ is a binary GAP function that returns the image _µ_ ( _x, g_ ) for a point _x ∈_ Ω and a group element _g ∈ G_ . 
+The acting function _μ_ is a binary GAP function that returns the image _μ_ ( _x, g_ ) for a point _x ∈_ Ω and a group element _g ∈ G_ . 
 
-In GAP, groups always act from the right, that is _µ_ ( _µ_ ( _x, g_ ) _, h_ ) = _µ_ ( _x, gh_ ). 
+In GAP, groups always act from the right, that is _μ_ ( _μ_ ( _x, g_ ) _, h_ ) = _μ_ ( _x, gh_ ). 
 
-GAP does not test whether the acting function _µ_ satisfies the conditions for a group operation but silently assumes that is does. (If it does not, results are unpredictable.) 
+GAP does not test whether the acting function _μ_ satisfies the conditions for a group operation but silently assumes that is does. (If it does not, results are unpredictable.) 
 
 The first section of this chapter, 41.1, describes the various ways how operations for group actions can be called. 
 
@@ -24799,13 +24799,13 @@ Finally section 41.12 describes the concept of “external sets” which represe
 
 The syntax which is used by the operations for group actions is quite flexible. For example we can call the operation OrbitsDomain (41.4.3) for the orbits of the group G on the domain Omega in the following ways: 
 
-###### OrbitsDomain ( _G,_ Ω[ _, µ_ ]) 
+###### OrbitsDomain ( _G,_ Ω[ _, μ_ ]) 
 
-The acting function _µ_ is optional. If it is not given, the built - in action OnPoints (41.2.1) (which defines an action via the caret operator ^ ) is used as a default. 
+The acting function _μ_ is optional. If it is not given, the built - in action OnPoints (41.2.1) (which defines an action via the caret operator ^ ) is used as a default. 
 
-###### OrbitsDomain ( _G,_ Ω _, gens, acts_ [ _, µ_ ]) 
+###### OrbitsDomain ( _G,_ Ω _, gens, acts_ [ _, μ_ ]) 
 
-This second version of OrbitsDomain (41.4.3) permits one to implement an action induced by a homomorphism: If the group _H_ acts on Ω via _µ_ and _ϕ_ : _G → H_ is a homomorphism, _G_ acts on Ω via the induced action _µ_<sup>_′_</sup> ( _x, g_ ) = _µ_ ( _x, g_<sup>_ϕ_</sup> ). 
+This second version of OrbitsDomain (41.4.3) permits one to implement an action induced by a homomorphism: If the group _H_ acts on Ω via _μ_ and _φ_ : _G → H_ is a homomorphism, _G_ acts on Ω via the induced action _μ_<sup>_′_</sup> ( _x, g_ ) = _μ_ ( _x, g_<sup>_φ_</sup> ). 
 
 661 
 
@@ -24813,15 +24813,15 @@ This second version of OrbitsDomain (41.4.3) permits one to implement an action 
 
 _GAP_ - _Reference Manual_ 
 
-Here _gens_ must be a set of generators of _G_ and _acts_ the images of _gens_ under _ϕ_ . _µ_ is the acting function for _H_ . Again, the function _µ_ is optional and OnPoints (41.2.1) is used as a default. 
+Here _gens_ must be a set of generators of _G_ and _acts_ the images of _gens_ under _φ_ . _μ_ is the acting function for _H_ . Again, the function _μ_ is optional and OnPoints (41.2.1) is used as a default. 
 
-The advantage of this notation is that GAP does not need to construct this homomorphism _ϕ_ and the range group H as GAP objects. (If a small group _G_ acts via complicated objects _acts_ this otherwise could lead to performance problems.) 
+The advantage of this notation is that GAP does not need to construct this homomorphism _φ_ and the range group H as GAP objects. (If a small group _G_ acts via complicated objects _acts_ this otherwise could lead to performance problems.) 
 
 GAP does not test whether the mapping _gens �→ acts_ actually induces a homomorphism and the results are unpredictable if this is not the case. 
 
 ###### OrbitsDomain ( _xset_ ) 
 
-A third variant is to call the operation with an external set, which then provides _G_ , Ω and _µ_ . You will find more about external sets in Section 41.12. 
+A third variant is to call the operation with an external set, which then provides _G_ , Ω and _μ_ . You will find more about external sets in Section 41.12. 
 
 For operations like Stabilizer (41.5.2) of course the domain must be replaced by an element of the domain of the action. 
 
@@ -25025,7 +25025,7 @@ In this case the affected domain elements have to be brought in canonical form, 
 
 #### **41.4 Orbits** 
 
-If a group _G_ acts on a set Ω, the set of all images of _x ∈_ Ω under elements of _G_ is called the _orbit_ of _x_ . The set of orbits of _G_ is a partition of Ω. 
+If a group _G_ acts on a set Ω, the set of all images of _x ∈_ Ω under elements of _G_ is called the _orbit_ of _x_ . The set of orbits of _G_ is a partition of Ω. 
 
 668 
 
@@ -25206,9 +25206,9 @@ Again the standard method for RepresentativeAction is an orbit - stabilizer algo
 
 #### **41.7 The Permutation Image of an Action** 
 
-When a group _G_ acts on a domain Ω, an enumeration of _Omega_ yields a homomorphism from _G_ into the symmetric group on _{_ 1 _,..., |_ Ω _|}_ . In GAP, the enumeration of Ω is provided by the Enumerator (30.3.2) value of Ω which of course is Ω itself if it is a list. 
+When a group _G_ acts on a domain Ω, an enumeration of _Omega_ yields a homomorphism from _G_ into the symmetric group on _{_ 1 _,..., |_ Ω _|}_ . In GAP, the enumeration of Ω is provided by the Enumerator (30.3.2) value of Ω which of course is Ω itself if it is a list. 
 
-For an action homomorphism, the operation UnderlyingExternalSet (41.12.16) will return the external set on Ω which affords the action. 
+For an action homomorphism, the operation UnderlyingExternalSet (41.12.16) will return the external set on Ω which affords the action. 
 
 ##### **41.7.1 ActionHomomorphism** 
 
@@ -25501,7 +25501,7 @@ gap> IsPrimitive(g,Orbit(g,(1,2)(3,4))); true
 
 #### **41.11 Block Systems** 
 
-A _block system_ (system of imprimitivity) for the action of a group _G_ on an action domain Ω is a partition of Ω which –as a partition– remains invariant under the action of _G_ . For operations concerning block systems, GAP assumes that _G_ acts transitively on Ω (see IsTransitive (41.10.1)). One may get wrong results or error messages (perhaps at a much later stage) if this condition is not satisfied. 
+A _block system_ (system of imprimitivity) for the action of a group _G_ on an action domain Ω is a partition of Ω which –as a partition– remains invariant under the action of _G_ . For operations concerning block systems, GAP assumes that _G_ acts transitively on Ω (see IsTransitive (41.10.1)). One may get wrong results or error messages (perhaps at a much later stage) if this condition is not satisfied. 
 
 ##### **41.11.1 Blocks** 
 
@@ -25571,7 +25571,7 @@ Example gap> g:=Group((1,2,3,4,5,6,7,8),(1,2));; gap> bs:=[[1,2,3,4],[5,6,7,8]];
 
 #### **41.12 External Sets** 
 
-When considering group actions, sometimes the concept of a _G_ - _set_ is used. This is a set Ω endowed with an action of _G_ . The elements of the _G_ - set are the same as those of Ω, however concepts like equality and equivalence of _G_ - sets do not only consider the underlying domain Ω but the group action as well. 
+When considering group actions, sometimes the concept of a _G_ - _set_ is used. This is a set Ω endowed with an action of _G_ . The elements of the _G_ - set are the same as those of Ω, however concepts like equality and equivalence of _G_ - sets do not only consider the underlying domain Ω but the group action as well. 
 
 This concept is implemented in GAP via _external sets_ . 
 
@@ -25593,7 +25593,7 @@ External sets also are implicitly underlying action homomorphisms, see Underlyin
 
 _▷_ IsExternalSet(obj) (Category) 
 
-An _external set_ specifies a group action _µ_ : Ω _× G �→_ Ω of a group _G_ on a domain Ω. The external set knows the group, the domain and the actual acting function. Mathematically, an external set is the set Ω, which is endowed with the action of a group _G_ via the group action _µ_ . For this reason GAP treats an external set as a domain whose elements are the elements of Ω. An external set is always a union of orbits. Currently the domain Ω must always be finite. If Ω is not a list, an enumerator for Ω is automatically chosen, see Enumerator (30.3.2). 
+An _external set_ specifies a group action _μ_ : Ω _× G �→_ Ω of a group _G_ on a domain Ω. The external set knows the group, the domain and the actual acting function. Mathematically, an external set is the set Ω, which is endowed with the action of a group _G_ via the group action _μ_ . For this reason GAP treats an external set as a domain whose elements are the elements of Ω. An external set is always a union of orbits. Currently the domain Ω must always be finite. If Ω is not a list, an enumerator for Ω is automatically chosen, see Enumerator (30.3.2). 
 
 ##### **41.12.2 ExternalSet** 
 
@@ -26000,7 +26000,7 @@ Example gap> f:=PartialPerm( [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], > [ 2, 7, 9, 4, 
 
 _▷_ IsPermGroup(obj) (Category) 
 
-A permutation group is a group of permutations on a finite set Ω of positive integers. GAP does _not_ require the user to specify the operation domain Ω when a permutation group is defined. 
+A permutation group is a group of permutations on a finite set Ω of positive integers. GAP does _not_ require the user to specify the operation domain Ω when a permutation group is defined. 
 
 Example gap> g:=Group((1,2,3,4),(1,2)); Group([ (1,2,3,4), (1,2) ]) 
 
@@ -26892,7 +26892,7 @@ _▷_ InvariantQuadraticForm(matgrp)
 
 For a matrix group matgrp , InvariantQuadraticForm returns a record containing at least the components matrix , whose value is a matrix _Q_ , and baseDomain , whose value is a field _F_ . 
 
-The quadratic form _q_ on the natural _F_ - vector space _V_ on which matgrp acts is given by _q_ ( _v_ ) = _vQv_<sup>_tr_</sup> , and the invariance under matgrp is given by the equation _q_ ( _v_ ) = _q_ ( _vM_ ) for all _v ∈ V_ and _M_ in matgrp . (Note that the invariance of _q_ does _not_ imply that the matrix _Q_ is invariant under matgrp .) The function _q_ is defined relative to an invariant symmetric bilinear form _b_ (see InvariantBilinearForm (44.5.1)), via the equation _q_ ( _λ x_ + _µy_ ) = _λ_<sup>2</sup> _q_ ( _x_ )+ _λµb_ ( _x, y_ )+ _µ_<sup>2</sup> _q_ ( _y_ ), see [CCN<sup>+</sup> 85, Chapter 3.4]. If _b_ is represented by the matrix _B_ then this implies _B_ = _Q_ + _Q_<sup>_tr_</sup> . In characteristic different from 2, we have _q_ ( _x_ ) = _b_ ( _x, x_ ) _/_ 2, so _Q_ can be chosen as the strictly upper triangular part of _B_ plus half of the diagonal part of _B_ . In characteristic 2, _B_ does not determine _Q_ but still _Q_ can be chosen as an upper (or lower) triangular matrix. 
+The quadratic form _q_ on the natural _F_ - vector space _V_ on which matgrp acts is given by _q_ ( _v_ ) = _vQv_<sup>_tr_</sup> , and the invariance under matgrp is given by the equation _q_ ( _v_ ) = _q_ ( _vM_ ) for all _v ∈ V_ and _M_ in matgrp . (Note that the invariance of _q_ does _not_ imply that the matrix _Q_ is invariant under matgrp .) The function _q_ is defined relative to an invariant symmetric bilinear form _b_ (see InvariantBilinearForm (44.5.1)), via the equation _q_ ( _λ x_ + _μy_ ) = _λ_<sup>2</sup> _q_ ( _x_ )+ _λμb_ ( _x, y_ )+ _μ_<sup>2</sup> _q_ ( _y_ ), see [CCN<sup>+</sup> 85, Chapter 3.4]. If _b_ is represented by the matrix _B_ then this implies _B_ = _Q_ + _Q_<sup>_tr_</sup> . In characteristic different from 2, we have _q_ ( _x_ ) = _b_ ( _x, x_ ) _/_ 2, so _Q_ can be chosen as the strictly upper triangular part of _B_ plus half of the diagonal part of _B_ . In characteristic 2, _B_ does not determine _Q_ but still _Q_ can be chosen as an upper (or lower) triangular matrix. 
 
 Whenever the InvariantQuadraticForm value is set in a matrix group then also the InvariantBilinearForm (44.5.1) value can be accessed, and the two values are compatible in the above sense. 
 
@@ -29939,13 +29939,13 @@ tries to find pairs of commuting generators _a_ and _b_ such that the exponent o
 
 #### **48.9 Tracing generator images through Tietze transformations** 
 
-Any sequence of Tietze transformations applied to a presentation, starting from some presentation _P_ 1 and ending up with some presentation _P_ 2, defines an isomorphism, _ϕ_ say, between the groups defined 
+Any sequence of Tietze transformations applied to a presentation, starting from some presentation _P_ 1 and ending up with some presentation _P_ 2, defines an isomorphism, _φ_ say, between the groups defined 
 
 806 
 
 _GAP_ - _Reference Manual_ 
 
-by _P_ 1 and _P_ 2, respectively. Sometimes it is desirable to know the images of the (old) generators of _P_ 1 or the preimages of the (new) generators of _P_ 2 under _ϕ_ . The GAP Tietze transformation functions are able to trace these images. This is not automatically done because the involved words may grow to tremendous length, but it will be done if you explicitly request for it by calling the function TzInitGeneratorImages (48.9.1). 
+by _P_ 1 and _P_ 2, respectively. Sometimes it is desirable to know the images of the (old) generators of _P_ 1 or the preimages of the (new) generators of _P_ 2 under _φ_ . The GAP Tietze transformation functions are able to trace these images. This is not automatically done because the involved words may grow to tremendous length, but it will be done if you explicitly request for it by calling the function TzInitGeneratorImages (48.9.1). 
 
 ##### **48.9.1 TzInitGeneratorImages** 
 
@@ -30239,7 +30239,7 @@ gap> Projection(p); [ f1, f2, f3, f4 ] -> [ f1, f2, <identity> of ..., <identity
 
 #### **49.3 Subdirect Products** 
 
-The subdirect product of the groups _G_ and _H_ with respect to the epimorphisms _ϕ_ : _G → A_ and _ψ_ : _H → A_ (for a common group _A_ ) is the subgroup of the direct product _G × H_ consisting of the elements ( _g, h_ ) for which _g_<sup>_ϕ_</sup> = _h_<sup>_ψ_</sup> . It is the pull - back of the following diagram. 
+The subdirect product of the groups _G_ and _H_ with respect to the epimorphisms _φ_ : _G → A_ and _ψ_ : _H → A_ (for a common group _A_ ) is the subgroup of the direct product _G × H_ consisting of the elements ( _g, h_ ) for which _g_<sup>_φ_</sup> = _h_<sup>_ψ_</sup> . It is the pull - back of the following diagram. 
 
 
 
@@ -30679,7 +30679,7 @@ The following functions return classical groups.
 
 - The generators of the general and special orthogonal groups are taken from [IE94] and [KL90], except that the generators of the groups in odd dimension in even characteristic are constructed via the isomorphism to a symplectic group, see for example [Car72]. 
 
-- The generators of the groups Ω<sup>_ε_</sup> ( _d, q_ ) are taken from [RT98], except that in odd dimension and even characteristic, the generators of SO( _d, q_ ) are taken for Ω( _d, q_ ). Note that the generators claimed in [RT98, Section 4.5 and 4.6] do not describe orthogonal groups, one would have to transpose these matrices in order to get groups that respect the required forms. The matrices from [RT98] generate groups of the right isomorphism types but not orthogonal groups, except in the case ( _d, q_ ) = (5 _,_ 2), where the matrices from [RT98] generate the simple group _S_ 4(2)<sup>_′_</sup> and not the group _S_ 4(2). 
+- The generators of the groups Ω<sup>_ε_</sup> ( _d, q_ ) are taken from [RT98], except that in odd dimension and even characteristic, the generators of SO( _d, q_ ) are taken for Ω( _d, q_ ). Note that the generators claimed in [RT98, Section 4.5 and 4.6] do not describe orthogonal groups, one would have to transpose these matrices in order to get groups that respect the required forms. The matrices from [RT98] generate groups of the right isomorphism types but not orthogonal groups, except in the case ( _d, q_ ) = (5 _,_ 2), where the matrices from [RT98] generate the simple group _S_ 4(2)<sup>_′_</sup> and not the group _S_ 4(2). 
 
 828 
 
@@ -30699,7 +30699,7 @@ _Invariant forms_
 
 - The bilinear form that is invariant up to scalars under the conformal symplectic group is stored as the value of the attribute InvariantBilinearFormUpToScalars (44.5.3). 
 
-Note that due to the different sources for the generators, the invariant forms for the groups Ω( _e, d, q_ ) are in general different from the forms for SO( _e, d, q_ ) and GO( _e, d, q_ ). If version at least 1.2.6 of the Forms package is loaded then compatible groups can be created by specifying the desired form, see the sections below. 
+Note that due to the different sources for the generators, the invariant forms for the groups Ω( _e, d, q_ ) are in general different from the forms for SO( _e, d, q_ ) and GO( _e, d, q_ ). If version at least 1.2.6 of the Forms package is loaded then compatible groups can be created by specifying the desired form, see the sections below. 
 
 ##### **50.2.1 GeneralLinearGroup** 
 
@@ -30873,11 +30873,11 @@ _▷_ Omega([filt, ]form)
 
 (operation) 
 
-constructs a group isomorphic to the group Ω( e , d , q ) of those d _×_ d matrices over the field with q elements that respect a non - singular quadratic form (see InvariantQuadraticForm (44.5.7)) specified by e , and that have square spinor norm in odd characteristic or Dickson invariant 0 in even characteristic, respectively, in the category given by the filter filt . 
+constructs a group isomorphic to the group Ω( e , d , q ) of those d _×_ d matrices over the field with q elements that respect a non - singular quadratic form (see InvariantQuadraticForm (44.5.7)) specified by e , and that have square spinor norm in odd characteristic or Dickson invariant 0 in even characteristic, respectively, in the category given by the filter filt . 
 
 For odd q and d _≥_ 2, this group has always index two in the corresponding special orthogonal group, which will be conjugate in _GL_ ( _d, q_ ) to the group returned by SO( e , d , q ), see SpecialOrthogonalGroup (50.2.7), but may fix a different form (see 50.2). 
 
-The value of e must be 0 for odd d (and can optionally be omitted in this case), respectively one of 1 or _−_ 1 for even d . If filt is not given it defaults to IsMatrixGroup (44.1.1), and the returned group is the group Ω( e , d , q ) itself. 
+The value of e must be 0 for odd d (and can optionally be omitted in this case), respectively one of 1 or _−_ 1 for even d . If filt is not given it defaults to IsMatrixGroup (44.1.1), and the returned group is the group Ω( e , d , q ) itself. 
 
 If version at least 1.2.6 of the Forms package is loaded then the desired quadratic form can be specified via form , which can be either a matrix or a form object in IsQuadraticForm ( **Forms: IsQuadraticForm** ) or a group with stored InvariantQuadraticForm (44.5.7) value (and then this form is taken). 
 
@@ -31003,7 +31003,7 @@ _▷_ ProjectiveOmega([filt, ][e, ]d, q)
 
 _▷_ POmega([filt, ][e, ]d, q) (function) 
 
-constructs a group isomorphic to the projective group PΩ( e , d , q ) of Ω( e , d , q ), modulo the centre (see Omega (50.2.8)), in the category given by the filter filt . 
+constructs a group isomorphic to the projective group PΩ( e , d , q ) of Ω( e , d , q ), modulo the centre (see Omega (50.2.8)), in the category given by the filter filt . 
 
 If filt is not given it defaults to IsPermGroup (43.1.1), and the returned group is the action on lines of the underlying vector space. 
 
@@ -31617,11 +31617,11 @@ If you want to perform calculations in such a matrix group _G_ you should be awa
 
 _▷_ IsomorphismPermGroup(G) (method) 
 
-returns an isomorphism, _ϕ_ say, from the given i.m.f. integral matrix group _G_ to a permutation group _P_ := _ϕ_ ( _G_ ) acting on a minimal orbit, _S_ say, of short vectors of _G_ such that each matrix _m ∈ G_ is mapped to the permutation induced by its action on _S_ . 
+returns an isomorphism, _φ_ say, from the given i.m.f. integral matrix group _G_ to a permutation group _P_ := _φ_ ( _G_ ) acting on a minimal orbit, _S_ say, of short vectors of _G_ such that each matrix _m ∈ G_ is mapped to the permutation induced by its action on _S_ . 
 
-Note that in case of a large orbit the construction of _ϕ_ may be space and time consuming. Fortunately, there are only six Q - classes in the library for which the smallest orbit of short vectors is of size greater than 20000, the worst case being the orbit of size 196560 for the Leech lattice ( dim = 24, q = 3). 
+Note that in case of a large orbit the construction of _φ_ may be space and time consuming. Fortunately, there are only six Q - classes in the library for which the smallest orbit of short vectors is of size greater than 20000, the worst case being the orbit of size 196560 for the Leech lattice ( dim = 24, q = 3). 
 
-The inverse isomorphism _ϕ_<sup>_−_1</sup> from _P_ to _G_ is constructed by determining a Q - base _B ⊂ S_ of Q<sup>1</sup><sup>_×dim_</sup> in _S_ and, in addition, the associated base change matrix _M_ which transforms _B_ into the standard base of Z<sup>1</sup><sup>_×dim_</sup> . This allows a simple computation of the preimage _ϕ_<sup>_−_1</sup> ( _p_ ) of any permutation _p ∈ P_ , as follows. If, for 1 _≤ i ≤_ dim , _bi_ is the position number in _S_ of the _i_ - th base vector in _B_ , it suffices to look up the vector whose position number in _S_ is the image of _bi_ under _p_ and to multiply this vector by _M_ to get the _i_ - th row of _ϕ_<sup>_−_1</sup> ( _p_ ). 
+The inverse isomorphism _φ_<sup>_−_1</sup> from _P_ to _G_ is constructed by determining a Q - base _B ⊂ S_ of Q<sup>1</sup><sup>_×dim_</sup> in _S_ and, in addition, the associated base change matrix _M_ which transforms _B_ into the standard base of Z<sup>1</sup><sup>_×dim_</sup> . This allows a simple computation of the preimage _φ_<sup>_−_1</sup> ( _p_ ) of any permutation _p ∈ P_ , as follows. If, for 1 _≤ i ≤_ dim , _bi_ is the position number in _S_ of the _i_ - th base vector in _B_ , it suffices to look up the vector whose position number in _S_ is the image of _bi_ under _p_ and to multiply this vector by _M_ to get the _i_ - th row of _φ_<sup>_−_1</sup> ( _p_ ). 
 
 You may use the functions Image (32.4.6) and PreImage (32.5.6) to switch from _G_ to _P_ and back from _P_ to _G_ . 
 
@@ -31637,7 +31637,7 @@ Example gap> # Perform the computations in an isomorphic permutation group. gap>
 
 _▷_ IsomorphismPermGroupImfGroup(G, n) (function) 
 
-IsomorphismPermGroupImfGroup returns an isomorphism, _ϕ_ say, from the given i.m.f. integral matrix group G to a permutation group _P_ acting on the n - th orbit, _S_ say, of short vectors of G such that each matrix _m ∈_ G is mapped to the permutation induced by its action on _S_ . 
+IsomorphismPermGroupImfGroup returns an isomorphism, _φ_ say, from the given i.m.f. integral matrix group G to a permutation group _P_ acting on the n - th orbit, _S_ say, of short vectors of G such that each matrix _m ∈_ G is mapped to the permutation induced by its action on _S_ . 
 
 The only difference to the above function IsomorphismPermGroup (50.7.5) is that you can specify the orbit to be used. In fact, as the orbits of short vectors are sorted by increasing sizes, the function IsomorphismPermGroup( G ) has been implemented such that it is equivalent to IsomorphismPermGroupImfGroup( G , 1 ) . 
 
@@ -35863,7 +35863,7 @@ A domain D lies in IsLeftOperatorAdditiveGroup if it is an additive group that i
 
 _▷_ IsLeftModule(M) (Category) 
 
-A domain M lies in IsLeftModule if it lies in IsLeftOperatorAdditiveGroup , _and_ the set of scalars forms a ring, _and_ ( _λ_ + _µ_ ) _∗x_ = _λ ∗x_ + _µ ∗x_ for scalars _λ , µ_ and _x ∈ M_ , _and_ scalar multiplication satisfies _λ ∗_ ( _µ ∗ x_ ) = ( _λ ∗ µ_ ) _∗ x_ for scalars _λ , µ_ and _x ∈ M_ . Example gap> V:= FullRowSpace( Rationals, 3 ); ( Rationals^3 ) gap> IsLeftModule( V ); true 
+A domain M lies in IsLeftModule if it lies in IsLeftOperatorAdditiveGroup , _and_ the set of scalars forms a ring, _and_ ( _λ_ + _μ_ ) _∗x_ = _λ ∗x_ + _μ ∗x_ for scalars _λ , μ_ and _x ∈ M_ , _and_ scalar multiplication satisfies _λ ∗_ ( _μ ∗ x_ ) = ( _λ ∗ μ_ ) _∗ x_ for scalars _λ , μ_ and _x ∈ M_ . Example gap> V:= FullRowSpace( Rationals, 3 ); ( Rationals^3 ) gap> IsLeftModule( V ); true 
 
 ##### **57.1.3 GeneratorsOfLeftOperatorAdditiveGroup** 
 
@@ -35913,7 +35913,7 @@ A domain D lies in IsRightOperatorAdditiveGroup if it is an additive group that 
 
 _▷_ IsRightModule(M) (Category) 
 
-A domain M lies in IsRightModule if it lies in IsRightOperatorAdditiveGroup , _and_ the set of scalars forms a ring, _and x∗_ ( _λ_ + _µ_ ) = _x∗λ_ + _x∗ µ_ for scalars _λ , µ_ and _x ∈ M_ , _and_ scalar multiplication satisfies ( _x ∗ µ_ ) _∗ λ_ = _x ∗_ ( _µ ∗ λ_ ) for scalars _λ , µ_ and _x ∈ M_ . 
+A domain M lies in IsRightModule if it lies in IsRightOperatorAdditiveGroup , _and_ the set of scalars forms a ring, _and x∗_ ( _λ_ + _μ_ ) = _x∗λ_ + _x∗ μ_ for scalars _λ , μ_ and _x ∈ M_ , _and_ scalar multiplication satisfies ( _x ∗ μ_ ) _∗ λ_ = _x ∗_ ( _μ ∗ λ_ ) for scalars _λ , μ_ and _x ∈ M_ . 
 
 ##### **57.1.8 GeneratorsOfRightOperatorAdditiveGroup** 
 
@@ -36273,17 +36273,17 @@ is the set of all subfields of the field F .
 
 #### **58.3 Galois Action** 
 
-Let _L > K_ be a field extension of finite degree. Then to each element _α ∈ L_ , we can associate a _K_ - linear mapping _ϕα_ on _L_ , and for a fixed _K_ - basis of _L_ , we can associate to _α_ the matrix _Mα_ (over _K_ ) of this mapping. 
+Let _L > K_ be a field extension of finite degree. Then to each element _α ∈ L_ , we can associate a _K_ - linear mapping _φα_ on _L_ , and for a fixed _K_ - basis of _L_ , we can associate to _α_ the matrix _Mα_ (over _K_ ) of this mapping. 
 
-The _norm_ of _α_ is defined as the determinant of _Mα_ , the _trace_ of _α_ is defined as the trace of _Mα_ , the _minimal polynomial µα_ and the _trace polynomial χα_ of _α_ are defined as the minimal polynomial (see 66.8.1) and the characteristic polynomial (see CharacteristicPolynomial (24.13.1) and TracePolynomial (58.3.3)) of _Mα_ . (Note that _µα_ depends only on _K_ whereas _χα_ depends on both _L_ and _K_ .) 
+The _norm_ of _α_ is defined as the determinant of _Mα_ , the _trace_ of _α_ is defined as the trace of _Mα_ , the _minimal polynomial μα_ and the _trace polynomial χα_ of _α_ are defined as the minimal polynomial (see 66.8.1) and the characteristic polynomial (see CharacteristicPolynomial (24.13.1) and TracePolynomial (58.3.3)) of _Mα_ . (Note that _μα_ depends only on _K_ whereas _χα_ depends on both _L_ and _K_ .) 
 
-Thus norm and trace of _α_ are elements of _K_ , and _µα_ and _χα_ are polynomials over _K_ , _χα_ being a power of _µα_ , and the degree of _χα_ equals the degree of the field extension _L > K_ . 
+Thus norm and trace of _α_ are elements of _K_ , and _μα_ and _χα_ are polynomials over _K_ , _χα_ being a power of _μα_ , and the degree of _χα_ equals the degree of the field extension _L > K_ . 
 
 The _conjugates_ of _α_ in _L_ are those roots of _χα_ (with multiplicity) that lie in _L_ ; note that if only _L_ is given, there is in general no way to access the roots outside _L_ . 
 
 Analogously, the _Galois group_ of the extension _L > K_ is defined as the group of all those field automorphisms of _L_ that fix _K_ pointwise. 
 
-If _L > K_ is a Galois extension then the conjugates of _α_ are all roots of _χα_ (with multiplicity), the set of conjugates equals the roots of _µα_ , the norm of _α_ equals the product and the trace of _α_ equals the sum of the conjugates of _α_ , and the Galois group in the sense of the above definition equals the usual Galois group, 
+If _L > K_ is a Galois extension then the conjugates of _α_ are all roots of _χα_ (with multiplicity), the set of conjugates equals the roots of _μα_ , the norm of _α_ equals the product and the trace of _α_ equals the sum of the conjugates of _α_ , and the Galois group in the sense of the above definition equals the usual Galois group, 
 
 Note that MinimalPolynomial( F , z ) is a polynomial _over_ F , whereas Norm( F , z ) is the norm of the element z _in_ F w.r.t. the field extension F > LeftActingDomain( F ) . 
 
@@ -36651,7 +36651,7 @@ _▷_ ConwayPolynomial(p, n)
 
 is the Conway polynomial of the finite field _GF_ ( _p_<sup>_n_</sup> ) as polynomial over the prime field in characteristic p . 
 
-The _Conway polynomial_ Φ _n,p_ of _GF_ ( _p_<sup>_n_</sup> ) is defined by the following properties. First define an ordering of polynomials of degree _n_ over _GF_ ( _p_ ), as follows. _f_ = ∑<sup>_n_</sup> _i_ =0<sup>(</sup><sup>_−_1)</sup><sup>_i fixi_is</sup> smaller than _g_ = ∑<sup>_n_</sup> _i_ =0<sup>(</sup><sup>_−_1)</sup><sup>_igixi_if and only if there is an index</sup><sup>_m ≤n_such that</sup><sup>_fi_=</sup><sup>_gi_for all</sup><sup>_i > m_,</sup> and _f_<sup>˜</sup> _m < g_ ˜ _m_ , where _c_ ˜ denotes the integer value in _{_ 0 _,_ 1 _,..., p −_ 1 _}_ that is mapped to _c ∈ GF_ ( _p_ ) under the canonical epimorphism that maps the integers onto _GF_ ( _p_ ). 
+The _Conway polynomial_ Φ _n,p_ of _GF_ ( _p_<sup>_n_</sup> ) is defined by the following properties. First define an ordering of polynomials of degree _n_ over _GF_ ( _p_ ), as follows. _f_ = ∑<sup>_n_</sup> _i_ =0<sup>(</sup><sup>_−_1)</sup><sup>_i fixi_is</sup> smaller than _g_ = ∑<sup>_n_</sup> _i_ =0<sup>(</sup><sup>_−_1)</sup><sup>_igixi_if and only if there is an index</sup><sup>_m ≤n_such that</sup><sup>_fi_=</sup><sup>_gi_for all</sup><sup>_i > m_,</sup> and _f_<sup> ̃</sup> _m < g_  ̃ _m_ , where _c_  ̃ denotes the integer value in _{_ 0 _,_ 1 _,..., p −_ 1 _}_ that is mapped to _c ∈ GF_ ( _p_ ) under the canonical epimorphism that maps the integers onto _GF_ ( _p_ ). 
 
 Φ _n,p_ is _primitive_ over _GF_ ( _p_ ) (see IsPrimitivePolynomial (66.4.12)). That is, Φ _n,p_ is irreducible, monic, and is the minimal polynomial of a primitive root of _GF_ ( _p_<sup>_n_</sup> ). 
 
@@ -36896,7 +36896,7 @@ gap> Coefficients( b, Sqrt(-2) ); [ 0, 1, 0, 1 ] gap> f:= AsField( CF(4), CF(8) 
 
 Let n and m be positive integers, such that m divides n . ZumbroichBase returns the set of exponents _i_ for which E(n )^ _i_ belongs to the (generalized) Zumbroich basis of the cyclotomic field Q _n_ , viewed as a vector space over Q _m_ . 
 
-This basis is defined as follows. Let _P_ denote the set of prime divisors of n , n = ∏ _p∈P p_<sup>_νp_</sup> , and m = ∏ _p∈P p_<sup>_µp_</sup> with _µp ≤ νp_ . Let _el_ = E ( _l_ ) for any positive integer _l_ , and _{en_<sup>_j_</sup> 1<sup>_}_</sup> _j∈J_<sup>_⊗{ek_</sup> _n_ 2<sup>_}k∈K_=</sup> _{en_<sup>_j_</sup> 1<sup>_·ek_</sup> _n_ 2<sup>_}j∈J,k∈K_.</sup> 
+This basis is defined as follows. Let _P_ denote the set of prime divisors of n , n = ∏ _p∈P p_<sup>_νp_</sup> , and m = ∏ _p∈P p_<sup>_μp_</sup> with _μp ≤ νp_ . Let _el_ = E ( _l_ ) for any positive integer _l_ , and _{en_<sup>_j_</sup> 1<sup>_}_</sup> _j∈J_<sup>_⊗{ek_</sup> _n_ 2<sup>_}k∈K_=</sup> _{en_<sup>_j_</sup> 1<sup>_·ek_</sup> _n_ 2<sup>_}j∈J,k∈K_.</sup> 
 
 Then the basis is 
 
@@ -40060,7 +40060,7 @@ This section contains functions for calculating information on representations o
 
 _▷_ DominantWeights(R, maxw) (operation) 
 
-Returns a list consisting of two lists. The first of these contains the dominant weights (written on the basis of fundamental weights) of the irreducible highest - weight module, with highest weight maxw , over the Lie algebra with the root system R . The _i_ - th element of the second list is the level of the _i_ - th dominant weight. (Where the level is defined as follows. For a weight _µ_ we write _µ_ = _λ −_ ∑ _i kiαi_ , where the _αi_ are the simple roots, and _λ_ the highest weight. Then the level of _µ_ is ∑ _i ki_ .) 
+Returns a list consisting of two lists. The first of these contains the dominant weights (written on the basis of fundamental weights) of the irreducible highest - weight module, with highest weight maxw , over the Lie algebra with the root system R . The _i_ - th element of the second list is the level of the _i_ - th dominant weight. (Where the level is defined as follows. For a weight _μ_ we write _μ_ = _λ −_ ∑ _i kiαi_ , where the _αi_ are the simple roots, and _λ_ the highest weight. Then the level of _μ_ is ∑ _i ki_ .) 
 
 ##### **64.13.2 DominantCharacter (for a semisimple Lie algebra and a highest weight)** 
 
@@ -45870,13 +45870,13 @@ gap> nat:= NaturalCharacter( S4 ); Character( CharacterTable( S4 ), [ 4, 2, 0, 1
 
 (property) 
 
-For a permutation character chi of the group _G_ that corresponds to an action on the _G_ - set Ω (see PermutationCharacter (72.7.3)), IsTransitive (41.10.1) returns true if the action of _G_ on Ω is transitive, and false otherwise. 
+For a permutation character chi of the group _G_ that corresponds to an action on the _G_ - set Ω (see PermutationCharacter (72.7.3)), IsTransitive (41.10.1) returns true if the action of _G_ on Ω is transitive, and false otherwise. 
 
 ##### **72.8.16 Transitivity (for a character)** 
 
 _▷_ Transitivity([tbl, ]chi) (attribute) 
 
-For a permutation character chi of the group _G_ that corresponds to an action on the _G_ - set Ω (see PermutationCharacter (72.7.3)), Transitivity returns the maximal nonnegative integer _k_ such that the action of _G_ on Ω is _k_ - transitive. 
+For a permutation character chi of the group _G_ that corresponds to an action on the _G_ - set Ω (see PermutationCharacter (72.7.3)), Transitivity returns the maximal nonnegative integer _k_ such that the action of _G_ on Ω is _k_ - transitive. 
 
 Example gap> IsTransitive( nat ); Transitivity( nat ); true 4 gap> Transitivity( 2 * TrivialCharacter( S4 ) ); 0 
 
@@ -52133,7 +52133,7 @@ The command ConjugateGroup( G , p ) (see ConjugateGroup (39.2.6)) for a permutat
 
 This conjugation technique can be generalized. Instead of mapping points and permutations under the same permutation p , it is sometimes desirable (e.g., in the context of permutation group homomorphisms) to map the points with an arbitrary mapping _map_ and the permutations with a homomorphism _hom_ such that the compatibility of the actions is still valid: _map_ ( _pnt_ ) _.hom_ ( _g_ ) = _map_ ( _pnt.g_ ). (Of course the ordinary conjugation is a special case of this, with _map_ ( _pnt_ ) = _pnt.p_ and _hom_ ( _g_ ) = _g_<sup>_p_</sup> .) 
 
-In the generalized case, the “conjugated” chain need not be a stabilizer chain for the image of _hom_ , since the “preimage” of the stabilizer of _map_ ( _b_ ) (where _b_ is a base point) need not fix _b_ , but only fixes the preimage _map_<sup>_−_1</sup> ( _map_ ( _b_ )) setwise. Therefore the method can be applied only to one level and the next stabilizer must be computed explicitly. But if _map_ is injective, we have _map_ ( _b_ ) _.hom_ ( _g_ ) = _map_ ( _b_ ) if and only if _b.g_ = _b_ , and if this holds, then _g_ = _w_ ( _g_ 1 _,..., gn_ ) is a word in the generators _g_ 1 _,..., gn_ of the stabilizer of _b_ and _hom_ ( _g_ ) =<sup>_∗_</sup> _w_ ( _hom_ ( _g_ 1) _,..., hom_ ( _gn_ )) is in the “conjugated” stabilizer. If, more generally, _hom_ is a right inverse to a homomorphism _ϕ_ (i.e., _ϕ_ ( _hom_ ( _g_ )) = _g_ for all _g_ ), equality _∗_ holds modulo the kernel of _ϕ_ ; in this case the “conjugated” chain can be made into a real stabilizer chain by extending each level with the generators of the kernel and appending a proper stabilizer chain of the kernel at the end. These special cases will occur in the algorithms for permutation group homomorphisms (see 40). 
+In the generalized case, the “conjugated” chain need not be a stabilizer chain for the image of _hom_ , since the “preimage” of the stabilizer of _map_ ( _b_ ) (where _b_ is a base point) need not fix _b_ , but only fixes the preimage _map_<sup>_−_1</sup> ( _map_ ( _b_ )) setwise. Therefore the method can be applied only to one level and the next stabilizer must be computed explicitly. But if _map_ is injective, we have _map_ ( _b_ ) _.hom_ ( _g_ ) = _map_ ( _b_ ) if and only if _b.g_ = _b_ , and if this holds, then _g_ = _w_ ( _g_ 1 _,..., gn_ ) is a word in the generators _g_ 1 _,..., gn_ of the stabilizer of _b_ and _hom_ ( _g_ ) =<sup>_∗_</sup> _w_ ( _hom_ ( _g_ 1) _,..., hom_ ( _gn_ )) is in the “conjugated” stabilizer. If, more generally, _hom_ is a right inverse to a homomorphism _φ_ (i.e., _φ_ ( _hom_ ( _g_ )) = _g_ for all _g_ ), equality _∗_ holds modulo the kernel of _φ_ ; in this case the “conjugated” chain can be made into a real stabilizer chain by extending each level with the generators of the kernel and appending a proper stabilizer chain of the kernel at the end. These special cases will occur in the algorithms for permutation group homomorphisms (see 40). 
 
 To “conjugate” the points (i.e., orbit ) and permutations (i.e., labels ) of the Schreier tree, a loop is set up over the orbit list constructed during the orbit algorithm, and for each vertex _b_ with unique edge _a_ ( _l_ ) _b_ ending at _b_ , the label _l_ is mapped with _hom_ and _b_ with _map_ . We assume that the orbit 
 
@@ -52193,7 +52193,7 @@ This subsection explains some GAP functions which are local to the library file 
 
 ###### domain 
 
-the set Ω on which the group _G_ operates 
+the set Ω on which the group _G_ operates 
 
 ###### base 
 
@@ -52227,7 +52227,7 @@ _GAP_ - _Reference Manual_
 
 level2 **,** lev2 
 
-a similar construction for a second group (used in intersection calculations), false otherwise. This second group _H_ activated if the R - base is constructed as EmptyRBase( [ _G, H_ ] _,_ Ω _,_ Π0 ) (if _G_ = _H_ , GAP sets level2 = true instead). 
+a similar construction for a second group (used in intersection calculations), false otherwise. This second group _H_ activated if the R - base is constructed as EmptyRBase( [ _G, H_ ] _,_ Ω _,_ Π0 ) (if _G_ = _H_ , GAP sets level2 = true instead). 
 
 ###### nextLevel 
 
@@ -52261,7 +52261,7 @@ These lines define a function R.nextLevel which is called whenever an additional
 
 **12.** This command does the necessary bookkeeping for the extra base point _q_ : It prescribes _q_ as next base in the stabilizer chain for _G_ (needed, e.g., in line 5) and returns false if _q_ was already fixed the stabilizer of the earlier base points (and true otherwise; this is not used here). Another call to ProcessFixpoint like this was implicitly made by the function NextRBasePoint to register the chosen base point. By contrast, the point _q_ was not chosen this way, so ProcessFixpoint must be called explicitly for _q_ . 
 
-**13.** This statement registers the function which will be used during the backtrack search to perform the corresponding refinements on the “image partition” Σ _i_ (to yield the refined Σ _i_ +1). After choosing an image _bi_ +1 for the base point _ai_ +1, GAP will compute Σ _i ∧_ ( _{bi_ +1 _},_ Ω _\{bi_ +1 _}_ ) and store this partition in _I_ .partition , where _I_ is a black box similar to _R_ , but corresponding to the current “image partition” (hence it is an “R - image” in analogy to the R - base). Then GAP will call the function Refinements.Centralizer( R, I, Pi.cellno[ p ], p, where ) , with the then current values of _R_ and _I_ , but where Π .cellno [ _p_ ], _p_ , where still have the values they have at the time of this AddRefinement command. This function call will further refine _I_ .partition to yield Σ _i_ +1 as it is programmed in the function Refinements.Centralizer , which is described below. (The global variable Refinements is a record which contains all refinement functions for all backtracking procedures.) 
+**13.** This statement registers the function which will be used during the backtrack search to perform the corresponding refinements on the “image partition” Σ _i_ (to yield the refined Σ _i_ +1). After choosing an image _bi_ +1 for the base point _ai_ +1, GAP will compute Σ _i ∧_ ( _{bi_ +1 _},_ Ω _\{bi_ +1 _}_ ) and store this partition in _I_ .partition , where _I_ is a black box similar to _R_ , but corresponding to the current “image partition” (hence it is an “R - image” in analogy to the R - base). Then GAP will call the function Refinements.Centralizer( R, I, Pi.cellno[ p ], p, where ) , with the then current values of _R_ and _I_ , but where Π .cellno [ _p_ ], _p_ , where still have the values they have at the time of this AddRefinement command. This function call will further refine _I_ .partition to yield Σ _i_ +1 as it is programmed in the function Refinements.Centralizer , which is described below. (The global variable Refinements is a record which contains all refinement functions for all backtracking procedures.) 
 
 ###### **14.** - **19.** 
 
@@ -52289,7 +52289,7 @@ _GAP_ - _Reference Manual_
 
 ##### **87.2.3 Refinement functions for the backtrack search** 
 
-The last subsection showed how the refinement process leading from Π _i_ to Π _i_ +1 is coded in the function _R_ .nextLevel , this has to be executed once the base point _ai_ +1. The analogous refinement step from Σ _i_ to Σ _i_ +1 must be performed for each choice of an image _bi_ +1 for _ai_ +1, and it will depend on the corresponding value of Σ _i ∧_ ( _{bi_ +1 _},_ Ω _\{bi_ +1 _}_ ). But before we can continue our centralizer example, we must, for the interested reader, document the record components of the other black box _I_ , as we did above for the R - base black box _R_ . Most of the components change as GAP walks up and down the levels of the search tree. 
+The last subsection showed how the refinement process leading from Π _i_ to Π _i_ +1 is coded in the function _R_ .nextLevel , this has to be executed once the base point _ai_ +1. The analogous refinement step from Σ _i_ to Σ _i_ +1 must be performed for each choice of an image _bi_ +1 for _ai_ +1, and it will depend on the corresponding value of Σ _i ∧_ ( _{bi_ +1 _},_ Ω _\{bi_ +1 _}_ ). But before we can continue our centralizer example, we must, for the interested reader, document the record components of the other black box _I_ , as we did above for the R - base black box _R_ . Most of the components change as GAP walks up and down the levels of the search tree. 
 
 ###### data 
 
@@ -52323,13 +52323,13 @@ a similar construction for the second stabilizer chain, false otherwise (and tru
 
 _GAP_ - _Reference Manual_ 
 
-As declared in the above code for Centralizer (35.4.4), the refinement is performed by the function Refinement.Centralizer ( _R, I,_ Π .cellno [ _p_ ] _, p, where_ ). The functions in the record Refinement always take two additional arguments before the ones specified in the AddRefinement call (in line 13 above), namely the R - base _R_ and the current value _I_ of the “R - image”. In our example, _p_ is a fixpoint of Π = Π _i ∧_ ( _{ai_ +1 _},_ Ω _\{ai_ +1 _}_ ) such that _where_ = Π .cellno [ _p_<sup>_g_</sup> ]. The Refinement functions must return false if the refinement is unsuccessful (e.g., because it leads to Σ _i_ +1 having different cell sizes from Π _i_ +1) and true otherwise. Our particular function looks like this. 
+As declared in the above code for Centralizer (35.4.4), the refinement is performed by the function Refinement.Centralizer ( _R, I,_ Π .cellno [ _p_ ] _, p, where_ ). The functions in the record Refinement always take two additional arguments before the ones specified in the AddRefinement call (in line 13 above), namely the R - base _R_ and the current value _I_ of the “R - image”. In our example, _p_ is a fixpoint of Π = Π _i ∧_ ( _{ai_ +1 _},_ Ω _\{ai_ +1 _}_ ) such that _where_ = Π .cellno [ _p_<sup>_g_</sup> ]. The Refinement functions must return false if the refinement is unsuccessful (e.g., because it leads to Σ _i_ +1 having different cell sizes from Π _i_ +1) and true otherwise. Our particular function looks like this. 
 
 Refinements.Centralizer := function( R, I, cellno, p, where ) local Sigma, q; Sigma := I.partition; q := FixpointCellNo( Sigma, cellno ) ^ I.data[ 2 ]; return IsolatePoint( Sigma, q ) = where and ProcessFixpoint( I, p, q ); end; 
 
 The list numbers below refer to the line numbers of the code immediately above. 
 
-**3.** The current value of Σ _i ∧_ ( _{bi_ +1 _},_ Ω _\{bi_ +1 _}_ ) is always found in _I_ .partition . 
+**3.** The current value of Σ _i ∧_ ( _{bi_ +1 _},_ Ω _\{bi_ +1 _}_ ) is always found in _I_ .partition . 
 
 **4.** The image of the only point in cell number _cellno_ = Π _i_ .cellno [ _p_ ] in Σ under _g_ = _I_ .data [2] is calculated. 
 
@@ -52355,7 +52355,7 @@ On the other hand, if you only want to meet a partition Π with Λ for a one - t
 
 Example gap> P := Partition( [[1,2],[3,4,5],[6]] );; Cells( P ); [ [ 1, 2 ], [ 3, 4, 5 ], [ 6 ] ] gap> Q := Partition( OnTuplesTuples( last, (1,3,6) ) );; Cells( Q ); [ [ 3, 2 ], [ 6, 4, 5 ], [ 1 ] ] gap> StratMeetPartition( P, Q ); [ ] gap> # The ``meet strategy'' was not recorded, ignore this result. gap> Cells( P ); [ [ 1 ], [ 5, 4 ], [ 6 ], [ 2 ], [ 3 ] ] 
 
-You can even say StratMeetPartition (Π _,_ ∆) where ∆ is simply a subset of Ω, it will then be interpreted as the partition (∆ _,_ Ω _\_ ∆). 
+You can even say StratMeetPartition (Π _,_ ∆) where ∆ is simply a subset of Ω, it will then be interpreted as the partition (∆ _,_ Ω _\_ ∆). 
 
 GAP makes use of the advantages of a “meet strategy” if the refinement function in Refinements contains a MeetPartitionStrat command where _strat_ is the “meet strategy” calculated by StratMeetPartition before. Such a command replaces _I_ .partition by its meet with Λ<sup>_′_</sup> , again changing the argument _I_ . The necessary reversal of these changes when backtracking from a node (and prescribing the next possible image for a base point) is automatically done by the function PartitionBacktrack . 
 
@@ -52716,7 +52716,7 @@ _GAP_ - _Reference Manual_
 
 - [The97] H. Theißen. _Eine Methode zur Normalisatorberechnung in Permutationsgruppen mit Anwendungen in der Konstruktion primitiver Gruppen_ . Dissertation, Rheinisch Westfälische Technische Hochschule, Aachen, Germany, 1997. 710 
 
-- [Tho86] J. G. Thompson. Some finite groups which appear as Gal _L/K,_ where _K ⊆_ **Q** ( _µn_ ). In H. - F. Tuan, editor, _Group theory, Beijing 1984_ , volume 1185 of _Lecture Notes in Math._ , page 210–230. Springer, Berlin, 1986. 1197 
+- [Tho86] J. G. Thompson. Some finite groups which appear as Gal _L/K,_ where _K ⊆_ **Q** ( _μn_ ). In H. - F. Tuan, editor, _Group theory, Beijing 1984_ , volume 1185 of _Lecture Notes in Math._ , page 210–230. Springer, Berlin, 1986. 1197 
 
 - [van76] R. W. van der Waall. On symplectic primitive modules and monomial groups. _Nederl. Akad. Wetensch. Proc. Ser. A 79, Indag. Math._ , 38(4):362–375, 1976. 1307 
 
@@ -52730,7 +52730,7 @@ _GAP_ - _Reference Manual_
 
 ## **Index** 
 
-!. , 1367 -q , 37 ![] , 1368 -r , 37 * , 66 -s , 37 for character tables, 1179 -x , 37 + , 66 -y , 38 - , 66 / , 66 --help , 35 for character tables, 1179 --limitworkspace , 35 ¨@ \" , 422 --line , 38 #, 51 --maxworkspace , 37 #%, 84 --minworkspace , 36 \' , 422 --packagedirs , 36 \\ , 422 --roots , 35 \0xYZ , 422 --version , 37 \XYZ , 422 --width , 37 \n , 422 -A , 33 \b , 422 -C , 38 \c , 422 -D , 34 \r , 422 -E , 34 -infinity , 254 -K , 35 \* , 486 -L , 35 for Matrix object and scalar, 405 -M , 36 for pcwords, 748 -O , 36 for permutations and partial permutations, -P , 38 927 -R , 37 for scalar and matrix object, 405 -T , 37 for scalar and vector object, 402 -b , 33 for transformations, 895 -c , 33 for two matrix objects, 405 -e , 34 for two vector objects, 402 -f , 34 for vector object and scalar, 402 -g , 34 \+ , 486 -g -g , 35 for two matrix objects, 405 -h , 35 for two vector objects, 402 -l , 35 \. , 453 -m , 36 \.\:\= , 454 -n , 36 \/ , 486 -o , 37 for a free group and a list of elements, 762 -p , 38 for a free group and a list of pairs of elements, 
+!. , 1367 -q , 37 ![] , 1368 -r , 37 * , 66 -s , 37 for character tables, 1179 -x , 37 + , 66 -y , 38 - , 66 / , 66 --help , 35 for character tables, 1179 --limitworkspace , 35  ̈@ \" , 422 --line , 38 #, 51 --maxworkspace , 37 #%, 84 --minworkspace , 36 \' , 422 --packagedirs , 36 \\ , 422 --roots , 35 \0xYZ , 422 --version , 37 \XYZ , 422 --width , 37 \n , 422 -A , 33 \b , 422 -C , 38 \c , 422 -D , 34 \r , 422 -E , 34 -infinity , 254 -K , 35 \* , 486 -L , 35 for Matrix object and scalar, 405 -M , 36 for pcwords, 748 -O , 36 for permutations and partial permutations, -P , 38 927 -R , 37 for scalar and matrix object, 405 -T , 37 for scalar and vector object, 402 -b , 33 for transformations, 895 -c , 33 for two matrix objects, 405 -e , 34 for two vector objects, 402 -f , 34 for vector object and scalar, 402 -g , 34 \+ , 486 -g -g , 35 for two matrix objects, 405 -h , 35 for two vector objects, 402 -l , 35 \. , 453 -m , 36 \.\:\= , 454 -n , 36 \/ , 486 -o , 37 for a free group and a list of elements, 762 -p , 38 for a free group and a list of pairs of elements, 
 
 1462 
 
