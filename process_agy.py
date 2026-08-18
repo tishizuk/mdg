@@ -1,3 +1,12 @@
+# /// script
+# dependencies = [
+#     "pymupdf",
+#     "pymupdf4llm",
+#     "ebooklib",
+#     "html2text",
+# ]
+# ///
+
 import os
 import sys
 import re
