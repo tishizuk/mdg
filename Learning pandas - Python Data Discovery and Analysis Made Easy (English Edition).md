@@ -1,172 +1,170 @@
-**Learning pandas** 
+**Learning pandas**
 
 # **Table of Contents** 
 
-<u>Learning pandas Credits About the Author About the Reviewers www.PacktPub.com Support files, eBooks, discount offers, and more Why subscribe? Free access for Packt account holders Preface What this book covers What you need for this book Who this book is for Conventions Reader feedback Customer support Downloading the example code Downloading the color images of this book Errata Piracy Questions 1. A Tour of pandas pandas and why it is important pandas and IPython Notebooks Referencing pandas in the application Primary pandas objects The pandas Series object The pandas DataFrame object Loading data from files and the Web Loading CSV data from files Loading data from the Web Simplicity of visualization of pandas data Summary 2. Installing pandas</u> 
+<u>Learning pandas Credits About the Author About the Reviewers www.PacktPub.com Support files, eBooks, discount offers, and more Why subscribe? Free access for Packt account holders Preface What this book covers What you need for this book Who this book is for Conventions Reader feedback Customer support Downloading the example code Downloading the color images of this book Errata Piracy Questions 1. A Tour of pandas pandas and why it is important pandas and IPython Notebooks Referencing pandas in the application Primary pandas objects The pandas Series object The pandas DataFrame object Loading data from files and the Web Loading CSV data from files Loading data from the Web Simplicity of visualization of pandas data Summary 2. Installing pandas</u>
 
-<u>Getting Anaconda Installing Anaconda Installing Anaconda on Linux Installing Anaconda on Mac OS X Installing Anaconda on Windows Ensuring pandas is up to date Running a small pandas sample in IPython Starting the IPython Notebook server Installing and running IPython Notebooks Using Wakari for pandas Summary 3. NumPy for pandas Installing and importing NumPy Benefits and characteristics of NumPy arrays Creating NumPy arrays and performing basic array operations Selecting array elements Logical operations on arrays Slicing arrays Reshaping arrays Combining arrays Splitting arrays Useful numerical methods of NumPy arrays Summary 4. The pandas Series Object The Series object Importing pandas Creating Series Size, shape, uniqueness, and counts of values Peeking at data with heads, tails, and take Looking up values in Series Alignment via index labels Arithmetic operations The special case of Not-A-Number (NaN) Boolean selection Reindexing a Series Modifying a Series in-place Slicing a Series</u> 
+<u>Getting Anaconda Installing Anaconda Installing Anaconda on Linux Installing Anaconda on Mac OS X Installing Anaconda on Windows Ensuring pandas is up to date Running a small pandas sample in IPython Starting the IPython Notebook server Installing and running IPython Notebooks Using Wakari for pandas Summary 3. NumPy for pandas Installing and importing NumPy Benefits and characteristics of NumPy arrays Creating NumPy arrays and performing basic array operations Selecting array elements Logical operations on arrays Slicing arrays Reshaping arrays Combining arrays Splitting arrays Useful numerical methods of NumPy arrays Summary 4. The pandas Series Object The Series object Importing pandas Creating Series Size, shape, uniqueness, and counts of values Peeking at data with heads, tails, and take Looking up values in Series Alignment via index labels Arithmetic operations The special case of Not-A-Number (NaN) Boolean selection Reindexing a Series Modifying a Series in-place Slicing a Series</u>
 
-<u>Summary 5. The pandas DataFrame Object Creating DataFrame from scratch Example data S&P 500 Monthly stock historical prices Selecting columns of a DataFrame Selecting rows and values of a DataFrame using the index Slicing using the [] operator Selecting rows by index label and location: .loc[] and .iloc[] Selecting rows by index label and/or location: .ix[] Scalar lookup by label or location using .at[] and .iat[] Selecting rows of a DataFrame by Boolean selection Modifying the structure and content of DataFrame Renaming columns Adding and inserting columns Replacing the contents of a column Deleting columns in a DataFrame Adding rows to a DataFrame Appending rows with .append() Concatenating DataFrame objects with pd.concat() Adding rows (and columns) via setting with enlargement Removing rows from a DataFrame Removing rows using .drop() Removing rows using Boolean selection Removing rows using a slice Changing scalar values in a DataFrame Arithmetic on a DataFrame Resetting and reindexing Hierarchical indexing Summarized data and descriptive statistics Summary</u> 
+<u>Summary 5. The pandas DataFrame Object Creating DataFrame from scratch Example data S&P 500 Monthly stock historical prices Selecting columns of a DataFrame Selecting rows and values of a DataFrame using the index Slicing using the [] operator Selecting rows by index label and location: .loc[] and .iloc[] Selecting rows by index label and/or location: .ix[] Scalar lookup by label or location using .at[] and .iat[] Selecting rows of a DataFrame by Boolean selection Modifying the structure and content of DataFrame Renaming columns Adding and inserting columns Replacing the contents of a column Deleting columns in a DataFrame Adding rows to a DataFrame Appending rows with .append() Concatenating DataFrame objects with pd.concat() Adding rows (and columns) via setting with enlargement Removing rows from a DataFrame Removing rows using .drop() Removing rows using Boolean selection Removing rows using a slice Changing scalar values in a DataFrame Arithmetic on a DataFrame Resetting and reindexing Hierarchical indexing Summarized data and descriptive statistics Summary</u>
 
-<u>6. Accessing Data Setting up the IPython notebook CSV and Text/Tabular format The sample CSV data set Reading a CSV file into a DataFrame</u> 
+<u>6. Accessing Data Setting up the IPython notebook CSV and Text/Tabular format The sample CSV data set Reading a CSV file into a DataFrame</u>
 
-<u>Specifying the index column when reading a CSV file Data type inference and specification Specifying column names Specifying specific columns to load Saving DataFrame to a CSV file General field-delimited data Handling noise rows in field-delimited data Reading and writing data in an Excel format Reading and writing JSON files Reading HTML data from the Web Reading and writing HDF5 format files Accessing data on the web and in the cloud Reading and writing from/to SQL databases Reading data from remote data services Reading stock data from Yahoo! and Google Finance Retrieving data from Yahoo! Finance Options Reading economic data from the Federal Reserve Bank of St. Louis Accessing Kenneth French's data Reading from the World Bank Summary 7. Tidying Up Your Data What is tidying your data? Setting up the IPython notebook Working with missing data Determining NaN values in Series and DataFrame objects Selecting out or dropping missing data How pandas handles NaN values in mathematical operations Filling in missing data Forward and backward filling of missing values Filling using index labels Interpolation of missing values Handling duplicate data Transforming Data Mapping Replacing values Applying functions to transform data</u> 
+<u>Specifying the index column when reading a CSV file Data type inference and specification Specifying column names Specifying specific columns to load Saving DataFrame to a CSV file General field-delimited data Handling noise rows in field-delimited data Reading and writing data in an Excel format Reading and writing JSON files Reading HTML data from the Web Reading and writing HDF5 format files Accessing data on the web and in the cloud Reading and writing from/to SQL databases Reading data from remote data services Reading stock data from Yahoo! and Google Finance Retrieving data from Yahoo! Finance Options Reading economic data from the Federal Reserve Bank of St. Louis Accessing Kenneth French's data Reading from the World Bank Summary 7. Tidying Up Your Data What is tidying your data? Setting up the IPython notebook Working with missing data Determining NaN values in Series and DataFrame objects Selecting out or dropping missing data How pandas handles NaN values in mathematical operations Filling in missing data Forward and backward filling of missing values Filling using index labels Interpolation of missing values Handling duplicate data Transforming Data Mapping Replacing values Applying functions to transform data</u>
 
-<u>Summary 8. Combining and Reshaping Data Setting up the IPython notebook Concatenating data Merging and joining data An overview of merges Specifying the join semantics of a merge operation Pivoting Stacking and unstacking Stacking using nonhierarchical indexes Unstacking using hierarchical indexes Melting Performance benefits of stacked data Summary</u> 
+<u>Summary 8. Combining and Reshaping Data Setting up the IPython notebook Concatenating data Merging and joining data An overview of merges Specifying the join semantics of a merge operation Pivoting Stacking and unstacking Stacking using nonhierarchical indexes Unstacking using hierarchical indexes Melting Performance benefits of stacked data Summary</u>
 
-<u>9. Grouping and Aggregating Data Setting up the IPython notebook The split, apply, and combine (SAC) pattern Split</u> 
+<u>9. Grouping and Aggregating Data Setting up the IPython notebook The split, apply, and combine (SAC) pattern Split</u>
 
-<u>Data for the examples Grouping by a single column's values Accessing the results of grouping Grouping using index levels Apply Applying aggregation functions to groups The transformation of group data An overview of transformation Practical examples of transformation Filtering groups Discretization and Binning Summary</u> 
+<u>Data for the examples Grouping by a single column's values Accessing the results of grouping Grouping using index levels Apply Applying aggregation functions to groups The transformation of group data An overview of transformation Practical examples of transformation Filtering groups Discretization and Binning Summary</u>
 
-<u>10. Time-series Data</u> 
+<u>10. Time-series Data</u>
 
-<u>Setting up the IPython notebook Representation of dates, time, and intervals The datetime, day, and time objects Timestamp objects Timedelta Introducing time-series data</u> 
+<u>Setting up the IPython notebook Representation of dates, time, and intervals The datetime, day, and time objects Timestamp objects Timedelta Introducing time-series data</u>
 
-<u>DatetimeIndex Creating time-series data with specific frequencies Calculating new dates using offsets Date offsets Anchored offsets Representing durations of time using Period objects The Period object PeriodIndex Handling holidays using calendars Normalizing timestamps using time zones Manipulating time-series data Shifting and lagging Frequency conversion Up and down resampling Time-series moving-window operations Summary 11. Visualization Setting up the IPython notebook Plotting basics with pandas Creating time-series charts with .plot() Adorning and styling your time-series plot Adding a title and changing axes labels Specifying the legend content and position Specifying line colors, styles, thickness, and markers Specifying tick mark locations and tick labels Formatting axes tick date labels using formatters Common plots used in statistical analyses Bar plots Histograms Box and whisker charts Area plots Scatter plots Density plot The scatter plot matrix Heatmaps Multiple plots in a single chart Summary</u> 
+<u>DatetimeIndex Creating time-series data with specific frequencies Calculating new dates using offsets Date offsets Anchored offsets Representing durations of time using Period objects The Period object PeriodIndex Handling holidays using calendars Normalizing timestamps using time zones Manipulating time-series data Shifting and lagging Frequency conversion Up and down resampling Time-series moving-window operations Summary 11. Visualization Setting up the IPython notebook Plotting basics with pandas Creating time-series charts with .plot() Adorning and styling your time-series plot Adding a title and changing axes labels Specifying the legend content and position Specifying line colors, styles, thickness, and markers Specifying tick mark locations and tick labels Formatting axes tick date labels using formatters Common plots used in statistical analyses Bar plots Histograms Box and whisker charts Area plots Scatter plots Density plot The scatter plot matrix Heatmaps Multiple plots in a single chart Summary</u>
 
-<u>12. Applications to Finance Setting up the IPython notebook Obtaining and organizing stock data from Yahoo! Plotting time-series prices Plotting volume-series data Calculating the simple daily percentage change Calculating simple daily cumulative returns Resampling data from daily to monthly returns Analyzing distribution of returns Performing a moving-average calculation The comparison of average daily returns across stocks The correlation of stocks based on the daily percentage change of the closing price Volatility calculation Determining risk relative to expected returns Summary Index</u> 
+<u>12. Applications to Finance Setting up the IPython notebook Obtaining and organizing stock data from Yahoo! Plotting time-series prices Plotting volume-series data Calculating the simple daily percentage change Calculating simple daily cumulative returns Resampling data from daily to monthly returns Analyzing distribution of returns Performing a moving-average calculation The comparison of average daily returns across stocks The correlation of stocks based on the daily percentage change of the closing price Volatility calculation Determining risk relative to expected returns Summary Index</u>
 
-**Learning pandas** 
+**Learning pandas**
 
 # **Learning pandas** 
 
-Copyright © 2015 Packt Publishing 
+Copyright © 2015 Packt Publishing
 
-All rights reserved. No part of this book may be reproduced, stored in a retrieval system, or transmitted in any form or by any means, without the prior written permission of the publisher, except in the case of brief quotations embedded in critical articles or reviews. 
+All rights reserved. No part of this book may be reproduced, stored in a retrieval system, or transmitted in any form or by any means, without the prior written permission of the publisher, except in the case of brief quotations embedded in critical articles or reviews.
 
-Every effort has been made in the preparation of this book to ensure the accuracy of the information presented. However, the information contained in this book is sold without warranty, either express or implied. Neither the author, nor Packt Publishing, and its dealers and distributors will be held liable for any damages caused or alleged to be caused directly or indirectly by this book. 
+Every effort has been made in the preparation of this book to ensure the accuracy of the information presented. However, the information contained in this book is sold without warranty, either express or implied. Neither the author, nor Packt Publishing, and its dealers and distributors will be held liable for any damages caused or alleged to be caused directly or indirectly by this book.
 
-Packt Publishing has endeavored to provide trademark information about all of the companies and products mentioned in this book by the appropriate use of capitals. However, Packt Publishing cannot guarantee the accuracy of this information. 
+Packt Publishing has endeavored to provide trademark information about all of the companies and products mentioned in this book by the appropriate use of capitals. However, Packt Publishing cannot guarantee the accuracy of this information.
 
-First published: April 2015 
+First published: April 2015
 
-Production reference: 1090415 
+Production reference: 1090415
 
-Published by Packt Publishing Ltd. 
+Published by Packt Publishing Ltd.
 
-Livery Place 
+Livery Place
 
-35 Livery Street 
+35 Livery Street
 
-Birmingham B3 2PB, UK. 
+Birmingham B3 2PB, UK.
 
-ISBN 978-1-78398-512-8 
+ISBN 978-1-78398-512-8
 
-<u>www.packtpub.com</u> 
+<u>www.packtpub.com</u>
 
 # **Credits** 
 
-**Author** 
+**Author**
 
-Michael Heydt 
+Michael Heydt
 
-**Reviewers** 
+**Reviewers**
 
-Bill Chambers 
+Bill Chambers
 
-S. Shelly Jang 
+S. Shelly Jang
 
-Arun Karunagath Rajeevan 
+Arun Karunagath Rajeevan
 
-Daniel Velkov 
+Daniel Velkov
 
-Adrian Wan 
+Adrian Wan
 
-**Commissioning Editor** 
+**Commissioning Editor**
 
-Kartikey Pandey 
+Kartikey Pandey
 
 #### **Acquisition Editor** 
 
-Neha Nagwekar 
+Neha Nagwekar
 
-**Content Development Editor** 
+**Content Development Editor**
 
-Akshay Nair 
+Akshay Nair
 
-**Technical Editors** 
+**Technical Editors**
 
-Shashank Desai 
+Shashank Desai
 
-Chinmay Puranik 
+Chinmay Puranik
 
-**Copy Editors** 
+**Copy Editors**
 
-Roshni Banerjee 
+Roshni Banerjee
 
-Pranjali Chury 
+Pranjali Chury
 
-Stuti Srivastava 
+Stuti Srivastava
 
 #### **Project Coordinator** 
 
-Mary Alex 
+Mary Alex
 
 #### **Proofreaders** 
 
-Simran Bhogal 
+Simran Bhogal
 
-Paul Hindle 
+Paul Hindle
 
-Linda Morris 
+Linda Morris
 
-Christopher Smith 
+Christopher Smith
 
 #### **Indexer** 
 
-Monica Ajmera Mehta 
+Monica Ajmera Mehta
 
 #### **Graphics** 
 
-Sheetal Aute 
+Sheetal Aute
 
 #### **Production Coordinator** 
 
-Arvindkumar Gupta 
+Arvindkumar Gupta
 
 #### **Cover Work** 
 
-Arvindkumar Gupta 
+Arvindkumar Gupta
 
 # **About the Author** 
 
-**Michael Heydt** is an independent consultant, educator, and trainer with nearly 30 years of professional software development experience, during which he focused on agile software design and implementation using advanced technologies in multiple verticals, including media, finance, energy, and healthcare. He holds an MS degree in mathematics and computer science from Drexel University and an executive master's of technology management degree from the University of Pennsylvania's School of Engineering and Wharton Business School. His studies and research have focused on technology management, software engineering, entrepreneurship, information retrieval, data sciences, and computational finance. Since 2005, he has been specializing in building energy and financial trading systems for major investment banks on Wall Street and for several global energy trading companies, utilizing .NET, C#, WPF, TPL, DataFlow, Python, R, Mono, iOS, and Android. His current interests include creating seamless applications using desktop, mobile, and wearable technologies, which utilize high concurrency, high availability, real-time data analytics, augmented and virtual reality, cloud services, messaging, computer vision, natural user interfaces, and software-defined networks. He is the author of numerous technology articles, papers, and books ( `Instant Lucene.NET` , `Learning pandas` ). He is a frequent speaker at .NET users' groups and various mobile and cloud conferences, and he regularly delivers webinars on advanced technologies. 
+**Michael Heydt** is an independent consultant, educator, and trainer with nearly 30 years of professional software development experience, during which he focused on agile software design and implementation using advanced technologies in multiple verticals, including media, finance, energy, and healthcare. He holds an MS degree in mathematics and computer science from Drexel University and an executive master's of technology management degree from the University of Pennsylvania's School of Engineering and Wharton Business School. His studies and research have focused on technology management, software engineering, entrepreneurship, information retrieval, data sciences, and computational finance. Since 2005, he has been specializing in building energy and financial trading systems for major investment banks on Wall Street and for several global energy trading companies, utilizing .NET, C#, WPF, TPL, DataFlow, Python, R, Mono, iOS, and Android. His current interests include creating seamless applications using desktop, mobile, and wearable technologies, which utilize high concurrency, high availability, real-time data analytics, augmented and virtual reality, cloud services, messaging, computer vision, natural user interfaces, and software-defined networks. He is the author of numerous technology articles, papers, and books ( `Instant Lucene.NET` , `Learning pandas` ). He is a frequent speaker at .NET users' groups and various mobile and cloud conferences, and he regularly delivers webinars on advanced technologies.
 
 # **About the Reviewers** 
 
-**Bill Chambers** is a Python developer and data scientist currently pursuing a master of information management and systems degree at the UC Berkeley School of Information. Previously, he focused on data architecture and systems using marketing, sales, and customer analytics data. Bill is passionate about delivering actionable insights and innovative solutions using data. 
+**Bill Chambers** is a Python developer and data scientist currently pursuing a master of information management and systems degree at the UC Berkeley School of Information. Previously, he focused on data architecture and systems using marketing, sales, and customer analytics data. Bill is passionate about delivering actionable insights and innovative solutions using data.
 
-You can find more information about him at <u>http://www.billchambers.me.</u> 
+You can find more information about him at <u>http://www.billchambers.me.</u>
 
-**S. Shelly Jang** received her PhD degree in electrical engineering from the University of Washington and a master's degree in chemical and biological engineering from the University of British Columbia in 2014 and 2009, respectively. She was an Insight Data Science fellow in 2014. During her tenure, she built a web app that recommends crowd-verified treatment options for various medical conditions. She is currently a senior data scientist at AT&T Big Data. Exploring complex, large-scale data sets to build models and derive insights is just a part of her job. 
+**S. Shelly Jang** received her PhD degree in electrical engineering from the University of Washington and a master's degree in chemical and biological engineering from the University of British Columbia in 2014 and 2009, respectively. She was an Insight Data Science fellow in 2014. During her tenure, she built a web app that recommends crowd-verified treatment options for various medical conditions. She is currently a senior data scientist at AT&T Big Data. Exploring complex, large-scale data sets to build models and derive insights is just a part of her job.
 
-In her free time, she participates in the Quantified Self community, sharing her insights on personal analytics and self-hacking. 
+In her free time, she participates in the Quantified Self community, sharing her insights on personal analytics and self-hacking.
 
-**Arun Karunagath Rajeevan** is a senior consultant (products) in an exciting start-up, working as an architect and coder, and is a polyglot. He is currently involved in developing the best quality management suite in the supply chain management category. 
+**Arun Karunagath Rajeevan** is a senior consultant (products) in an exciting start-up, working as an architect and coder, and is a polyglot. He is currently involved in developing the best quality management suite in the supply chain management category.
 
-Apart from this, he has experience in healthcare and multimedia (embedded) domains. When he is not working, he loves to travel and listen to music. 
+Apart from this, he has experience in healthcare and multimedia (embedded) domains. When he is not working, he loves to travel and listen to music.
 
-**Daniel Velkov** is a software engineer based in San Francisco, who has more than 10 years of programming experience. His biggest professional accomplishment was designing and implementing the search stack for MyLife.com—one of the major social websites in the US. Nowadays, he works on making Google search better. Besides Python and search, he has 
+**Daniel Velkov** is a software engineer based in San Francisco, who has more than 10 years of programming experience. His biggest professional accomplishment was designing and implementing the search stack for MyLife.com—one of the major social websites in the US. Nowadays, he works on making Google search better. Besides Python and search, he has
 
-worked on several machine learning and data analysis-oriented projects. When he is not coding, he enjoys skiing, riding motorcycles, and exploring the Californian outdoors. 
+worked on several machine learning and data analysis-oriented projects. When he is not coding, he enjoys skiing, riding motorcycles, and exploring the Californian outdoors.
 
-**Adrian Wan** is a physics and computer science major at Swarthmore College. After he graduates, he will be working at Nest, a Google company, as a software engineer and data scientist. His passion lies at the intersection of his two disciplines, where elegant mathematical models and explanations of real-life phenomena are brought to life and probed deeply with efficient, clean, and powerful code. He greatly enjoyed contributing to this book and hopes that you will be able to appreciate the power that pandas brings to Python. 
+**Adrian Wan** is a physics and computer science major at Swarthmore College. After he graduates, he will be working at Nest, a Google company, as a software engineer and data scientist. His passion lies at the intersection of his two disciplines, where elegant mathematical models and explanations of real-life phenomena are brought to life and probed deeply with efficient, clean, and powerful code. He greatly enjoyed contributing to this book and hopes that you will be able to appreciate the power that pandas brings to Python.
 
-You can find out more about him at <u>http://awan1.github.io.</u> 
+You can find out more about him at <u>http://awan1.github.io.</u>
 
 # **www.PacktPub.com Support files, eBooks, discount offers, and more** 
 
-For support files and downloads related to your book, please visit <u>www.PacktPub.com.</u> 
+For support files and downloads related to your book, please visit <u>www.PacktPub.com.</u>
 
-Did you know that Packt offers eBook versions of every book published, with PDF and ePub files available? You can upgrade to the eBook version at <u>www.PacktPub.com</u> and as a print book customer, you are entitled to a discount on the eBook copy. Get in touch with us at <u>`<service@packtpub.com>`</u> for more details. 
+Did you know that Packt offers eBook versions of every book published, with PDF and ePub files available? You can upgrade to the eBook version at <u>www.PacktPub.com</u> and as a print book customer, you are entitled to a discount on the eBook copy. Get in touch with us at <u>`<service@packtpub.com>`</u> for more details.
 
-At <u>www.PacktPub.com, you can also read a collection of free technical</u> articles, sign up for a range of free newsletters and receive exclusive discounts and offers on Packt books and eBooks. 
+At <u>www.PacktPub.com, you can also read a collection of free technical</u> articles, sign up for a range of free newsletters and receive exclusive discounts and offers on Packt books and eBooks.
 
+<u>https://www2.packtpub.com/books/subscription/packtlib</u>
 
-
-<u>https://www2.packtpub.com/books/subscription/packtlib</u> 
-
-Do you need instant solutions to your IT questions? PacktLib is Packt's online digital book library. Here, you can search, access, and read Packt's entire library of books. 
+Do you need instant solutions to your IT questions? PacktLib is Packt's online digital book library. Here, you can search, access, and read Packt's entire library of books.
 
 ## **Why subscribe?** 
 
@@ -176,57 +174,57 @@ Do you need instant solutions to your IT questions? PacktLib is Packt's online d
 
 ## **Free access for Packt account holders** 
 
-If you have an account with Packt at <u>www.PacktPub.com, you can use this</u> to access PacktLib today and view 9 entirely free books. Simply use your login credentials for immediate access. 
+If you have an account with Packt at <u>www.PacktPub.com, you can use this</u> to access PacktLib today and view 9 entirely free books. Simply use your login credentials for immediate access.
 
 # **Preface** 
 
-This book is about learning to use pandas, an open source library for Python, which was created to enable Python to easily manipulate and perform powerful statistical and mathematical analyses on tabular and multidimensional datasets. The design of pandas and its power combined with the familiarity of Python have created explosive growth in its usage over the last several years, particularly among financial firms as well as those simply looking for practical tools for statistical and data analysis. 
+This book is about learning to use pandas, an open source library for Python, which was created to enable Python to easily manipulate and perform powerful statistical and mathematical analyses on tabular and multidimensional datasets. The design of pandas and its power combined with the familiarity of Python have created explosive growth in its usage over the last several years, particularly among financial firms as well as those simply looking for practical tools for statistical and data analysis.
 
-While there exist many excellent examples of using pandas to solve many domain-specific problems, it can be difficult to find a cohesive set of examples in a form that allows one to effectively learn and apply the features of pandas. The information required to learn practical skills in using pandas is distributed across many websites, slide shares, and videos, and is generally not in a form that gives an integrated guide to all of the features with practical examples in an easy-to-understand and applicable fashion. 
+While there exist many excellent examples of using pandas to solve many domain-specific problems, it can be difficult to find a cohesive set of examples in a form that allows one to effectively learn and apply the features of pandas. The information required to learn practical skills in using pandas is distributed across many websites, slide shares, and videos, and is generally not in a form that gives an integrated guide to all of the features with practical examples in an easy-to-understand and applicable fashion.
 
-This book is therefore intended to be a go-to reference for learning pandas. It will take you all the way from installation, through to creating one- and two-dimensional indexed data structures, to grouping data and slicing-anddicing them, with common analyses used to demonstrate derivation of useful results. This will include the loading and saving of data from resources that are local and Internet-based and creating effective data visualizations that provide instant ability to visually realize insights into the meaning previously hidden within complex data. 
+This book is therefore intended to be a go-to reference for learning pandas. It will take you all the way from installation, through to creating one- and two-dimensional indexed data structures, to grouping data and slicing-anddicing them, with common analyses used to demonstrate derivation of useful results. This will include the loading and saving of data from resources that are local and Internet-based and creating effective data visualizations that provide instant ability to visually realize insights into the meaning previously hidden within complex data.
 
 # **What this book covers** 
 
-<u>Chapter 1,</u> _A Tour of pandas_ , is a hands-on introduction to the key features of pandas. It will give you a broad overview of the types of data tasks that can be performed with pandas. This chapter will set the groundwork for learning as all concepts introduced in this chapter will be expanded upon in subsequent chapters. 
+<u>Chapter 1,</u> _A Tour of pandas_ , is a hands-on introduction to the key features of pandas. It will give you a broad overview of the types of data tasks that can be performed with pandas. This chapter will set the groundwork for learning as all concepts introduced in this chapter will be expanded upon in subsequent chapters.
 
-<u>Chapter 2,</u> _Installing pandas_ , will show you how to install Anaconda Python and pandas on Windows, OS X, and Linux. This chapter also covers using the conda package manager to upgrade pandas and its dependent libraries to the most recent version. 
+<u>Chapter 2,</u> _Installing pandas_ , will show you how to install Anaconda Python and pandas on Windows, OS X, and Linux. This chapter also covers using the conda package manager to upgrade pandas and its dependent libraries to the most recent version.
 
-<u>Chapter 3,</u> _NumPy for pandas_ , will introduce you to concepts in NumPy, particularly NumPy arrays, which are core for understanding the pandas `Series` and `DataFrame` objects. 
+<u>Chapter 3,</u> _NumPy for pandas_ , will introduce you to concepts in NumPy, particularly NumPy arrays, which are core for understanding the pandas `Series` and `DataFrame` objects.
 
-<u>Chapter 4,</u> _The pandas Series Object_ , covers the pandas `Series` object and how it expands upon the functionality of the NumPy array to provide richer representation and manipulation of sequences of data through the use of high-performance indexes. 
+<u>Chapter 4,</u> _The pandas Series Object_ , covers the pandas `Series` object and how it expands upon the functionality of the NumPy array to provide richer representation and manipulation of sequences of data through the use of high-performance indexes.
 
-<u>Chapter 5,</u> _The pandas DataFrame Object_ , introduces the primary data structure of pandas, the `DataFrame` object, and how it forms a twodimensional representation of tabular data by aligning multiple `Series` objects along a common index to provide seamless access and manipulation across elements in multiple series that are related by a common index label. 
+<u>Chapter 5,</u> _The pandas DataFrame Object_ , introduces the primary data structure of pandas, the `DataFrame` object, and how it forms a twodimensional representation of tabular data by aligning multiple `Series` objects along a common index to provide seamless access and manipulation across elements in multiple series that are related by a common index label.
 
-<u>Chapter 6,</u> _Accessing Data_ , shows how data can be loaded and saved from external sources into both `Series` and `DataFrame` objects. You will learn how to access data from multiple sources such as files, HTTP servers, database systems, and web services, as well as how to process data in CSV, HTML, and JSON formats. 
+<u>Chapter 6,</u> _Accessing Data_ , shows how data can be loaded and saved from external sources into both `Series` and `DataFrame` objects. You will learn how to access data from multiple sources such as files, HTTP servers, database systems, and web services, as well as how to process data in CSV, HTML, and JSON formats.
 
-<u>Chapter 7,</u> _Tidying Up Your Data_ , instructs you on how to use the various tools provided by pandas for managing dirty and missing data. 
+<u>Chapter 7,</u> _Tidying Up Your Data_ , instructs you on how to use the various tools provided by pandas for managing dirty and missing data.
 
-<u>Chapter 8,</u> _Combining and Reshaping Data_ , covers various techniques for combining, splitting, joining, and merging data located in multiple pandas objects, and then demonstrates how to reshape data using concepts such as pivots, stacking, and melting. 
+<u>Chapter 8,</u> _Combining and Reshaping Data_ , covers various techniques for combining, splitting, joining, and merging data located in multiple pandas objects, and then demonstrates how to reshape data using concepts such as pivots, stacking, and melting.
 
-<u>Chapter 9,</u> _Grouping and Aggregating Data_ , focuses on how to use pandas to group data to enable you to perform aggregate operations on grouped data to assist in deriving analytic results. 
+<u>Chapter 9,</u> _Grouping and Aggregating Data_ , focuses on how to use pandas to group data to enable you to perform aggregate operations on grouped data to assist in deriving analytic results.
 
-<u>Chapter 10,</u> _Time-series Data_ , will instruct you on how to use pandas to represent sequences of information that is indexed by the progression of time. This chapter will first cover how pandas represents dates and time, as well as concepts such as periods, frequencies, time zones, and calendars. The focus then shifts to time-series data and various operations such as shifting, lagging, resampling, and moving window operations. 
+<u>Chapter 10,</u> _Time-series Data_ , will instruct you on how to use pandas to represent sequences of information that is indexed by the progression of time. This chapter will first cover how pandas represents dates and time, as well as concepts such as periods, frequencies, time zones, and calendars. The focus then shifts to time-series data and various operations such as shifting, lagging, resampling, and moving window operations.
 
-<u>Chapter 11,</u> _Visualization_ , dives into the integration of pandas with matplotlib to visualize pandas data. This chapter will demonstrate how to represent and present many common statistical and financial data visualizations, including bar charts, histograms, scatter plots, area plots, density plots, and heat maps. 
+<u>Chapter 11,</u> _Visualization_ , dives into the integration of pandas with matplotlib to visualize pandas data. This chapter will demonstrate how to represent and present many common statistical and financial data visualizations, including bar charts, histograms, scatter plots, area plots, density plots, and heat maps.
 
-<u>Chapter 12,</u> _Applications to Finance_ , brings together everything learned through the previous chapters with practical examples of using pandas to obtain, manipulate, analyze, and visualize stock data. 
+<u>Chapter 12,</u> _Applications to Finance_ , brings together everything learned through the previous chapters with practical examples of using pandas to obtain, manipulate, analyze, and visualize stock data.
 
 # **What you need for this book** 
 
-This book assumes some familiarity with programming concepts, but those without programming experience, or specifically Python programming experience, will be comfortable with the examples as they focus on pandas constructs more than Python or programming. The examples are based on Anaconda Python 2.7 and pandas 0.15.1. If you do not have either installed, guidance will be given in <u>Chapter 2,</u> _Installing pandas,_ on installing both on Windows, OS X, and Ubuntu systems. For those not interested in installing any software, instructions are also given on using the Warkari.io online Python data analysis service. 
+This book assumes some familiarity with programming concepts, but those without programming experience, or specifically Python programming experience, will be comfortable with the examples as they focus on pandas constructs more than Python or programming. The examples are based on Anaconda Python 2.7 and pandas 0.15.1. If you do not have either installed, guidance will be given in <u>Chapter 2,</u> _Installing pandas,_ on installing both on Windows, OS X, and Ubuntu systems. For those not interested in installing any software, instructions are also given on using the Warkari.io online Python data analysis service.
 
 # **Who this book is for** 
 
-If you are looking to get into data science and want to learn how to use the Python programming language for data analysis instead of other domainspecific data science tools such as R, then this book is for you. If you have used other data science packages and want to learn how to apply that knowledge to Python, then this book is also for you. Alternately, if you want to learn an additional tool or start with data science to enhance your career, then this book is for you. 
+If you are looking to get into data science and want to learn how to use the Python programming language for data analysis instead of other domainspecific data science tools such as R, then this book is for you. If you have used other data science packages and want to learn how to apply that knowledge to Python, then this book is also for you. Alternately, if you want to learn an additional tool or start with data science to enhance your career, then this book is for you.
 
 # **Conventions** 
 
-In this book, you will find a number of styles of text that distinguish between different kinds of information. Here are some examples of these styles, and an explanation of their meaning. 
+In this book, you will find a number of styles of text that distinguish between different kinds of information. Here are some examples of these styles, and an explanation of their meaning.
 
-Code words in text are shown as follows: "This information can be easily imported into `DataFrame` using the `pd.read_csv()` function as follows." 
+Code words in text are shown as follows: "This information can be easily imported into `DataFrame` using the `pd.read_csv()` function as follows."
 
-Any command-line / IPython input or output is written as follows: 
+Any command-line / IPython input or output is written as follows:
 
 ```
 In [1]:
@@ -236,71 +234,71 @@ In [1]:
    from pandas import DataFrame, Series
 ```
 
-**New terms** and **important words** are shown in bold. Words that you see on the screen, in menus or dialog boxes for example, appear in the text like this: "Clicking on the **New Notebook** button will present you with a notebook where you can start entering your pandas code." 
+**New terms** and **important words** are shown in bold. Words that you see on the screen, in menus or dialog boxes for example, appear in the text like this: "Clicking on the **New Notebook** button will present you with a notebook where you can start entering your pandas code."
 
-**Note** 
+**Note**
 
-Warnings or important notes appear in a box like this. 
+Warnings or important notes appear in a box like this.
 
-**Tip** 
+**Tip**
 
-Tips and tricks appear like this. 
+Tips and tricks appear like this.
 
 # **Reader feedback** 
 
-Feedback from our readers is always welcome. Let us know what you think about this book—what you liked or may have disliked. Reader feedback is important for us to develop titles that you really get the most out of. 
+Feedback from our readers is always welcome. Let us know what you think about this book—what you liked or may have disliked. Reader feedback is important for us to develop titles that you really get the most out of.
 
-To send us general feedback, simply send an e-mail to 
+To send us general feedback, simply send an e-mail to
 
-<u>`< feedback@packtpub.com>`</u> , and mention the book title through the subject of your message. 
+<u>`< feedback@packtpub.com>`</u> , and mention the book title through the subject of your message.
 
-If there is a topic that you have expertise in and you are interested in either writing or contributing to a book, see our author guide on <u>www.packtpub.com/authors.</u> 
+If there is a topic that you have expertise in and you are interested in either writing or contributing to a book, see our author guide on <u>www.packtpub.com/authors.</u>
 
 # **Customer support** 
 
-Now that you are the proud owner of a Packt book, we have a number of things to help you to get the most from your purchase. 
+Now that you are the proud owner of a Packt book, we have a number of things to help you to get the most from your purchase.
 
 ## **Downloading the example code** 
 
-You can download the example code files for all Packt books you have purchased from your account at <u>http://www.packtpub.com. If you purchased</u> this book elsewhere, you can visit <u>http://www.packtpub.com/support</u> and register to have the files e-mailed directly to you. The code examples in the book are also publicly available on Wakari.io at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u> 
+You can download the example code files for all Packt books you have purchased from your account at <u>http://www.packtpub.com. If you purchased</u> this book elsewhere, you can visit <u>http://www.packtpub.com/support</u> and register to have the files e-mailed directly to you. The code examples in the book are also publicly available on Wakari.io at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u>
 
 ### **Tip** 
 
-Although great efforts are taken to use data that will reproduce the same output when you execute the samples, there is a small set of code that uses current data and hence the result of running those samples may vary from what is published in this book. These include In [39]: and In [40]: in <u>Chapter 1,</u> _A Tour of pandas_ , which uses the data of the last three months of Google stock, as well as a small number of samples used in the later chapters that demonstrate the usage of date offsets centered on the current date. 
+Although great efforts are taken to use data that will reproduce the same output when you execute the samples, there is a small set of code that uses current data and hence the result of running those samples may vary from what is published in this book. These include In [39]: and In [40]: in <u>Chapter 1,</u> _A Tour of pandas_ , which uses the data of the last three months of Google stock, as well as a small number of samples used in the later chapters that demonstrate the usage of date offsets centered on the current date.
 
 ## **Downloading the color images of this book** 
 
-We also provide you with a PDF file that has color images of the screenshots/diagrams used in this book. The color images will help you better understand the changes in the output. You can download this file from 
+We also provide you with a PDF file that has color images of the screenshots/diagrams used in this book. The color images will help you better understand the changes in the output. You can download this file from
 
-<u>https://www.packtpub.com/sites/default/files/downloads/5128OS_ColoredI mages.pdf.</u> 
+<u>https://www.packtpub.com/sites/default/files/downloads/5128OS_ColoredI mages.pdf.</u>
 
 ## **Errata** 
 
-Although we have taken every care to ensure the accuracy of our content, mistakes do happen. If you find a mistake in one of our books — maybe a 
+Although we have taken every care to ensure the accuracy of our content, mistakes do happen. If you find a mistake in one of our books — maybe a
 
-mistake in the text or the code — we would be grateful if you would report this to us. By doing so, you can save other readers from frustration and help us improve subsequent versions of this book. If you find any errata, please report them by visiting <u>http://www.packtpub.com/support, selecting your</u> book, clicking on the **errata submission form** link, and entering the details of your errata. Once your errata are verified, your submission will be accepted and the errata will be uploaded to our website, or added to any list of existing errata, under the Errata section of that title. 
+mistake in the text or the code — we would be grateful if you would report this to us. By doing so, you can save other readers from frustration and help us improve subsequent versions of this book. If you find any errata, please report them by visiting <u>http://www.packtpub.com/support, selecting your</u> book, clicking on the **errata submission form** link, and entering the details of your errata. Once your errata are verified, your submission will be accepted and the errata will be uploaded to our website, or added to any list of existing errata, under the Errata section of that title.
 
 ## **Piracy** 
 
-Piracy of copyright material on the Internet is an ongoing problem across all media. At Packt, we take the protection of our copyright and licenses very seriously. If you come across any illegal copies of our works, in any form, on the Internet, please provide us with the location address or website name immediately so that we can pursue a remedy. 
+Piracy of copyright material on the Internet is an ongoing problem across all media. At Packt, we take the protection of our copyright and licenses very seriously. If you come across any illegal copies of our works, in any form, on the Internet, please provide us with the location address or website name immediately so that we can pursue a remedy.
 
-Please contact us at <u>`<copyright@packtpub.com>`</u> with a link to the suspected pirated material. 
+Please contact us at <u>`<copyright@packtpub.com>`</u> with a link to the suspected pirated material.
 
-We appreciate your help in protecting our authors, and our ability to bring you valuable content. 
+We appreciate your help in protecting our authors, and our ability to bring you valuable content.
 
 ## **Questions** 
 
-You can contact us at <u>`<questions@packtpub.com>`</u> if you are having a problem with any aspect of the book, and we will do our best to address it. 
+You can contact us at <u>`<questions@packtpub.com>`</u> if you are having a problem with any aspect of the book, and we will do our best to address it.
 
 # **Chapter 1. A Tour of pandas** 
 
-In this chapter, we will take a look at **pandas** , which is an open source Python-based data analysis library. It provides high-performance and easyto-use data structures and data analysis tools built with the Python programming language. The pandas library brings many of the good things from R, specifically the `DataFrame` objects and R packages such as plyr and reshape2, and places them in a single library that you can use in your Python applications. 
+In this chapter, we will take a look at **pandas** , which is an open source Python-based data analysis library. It provides high-performance and easyto-use data structures and data analysis tools built with the Python programming language. The pandas library brings many of the good things from R, specifically the `DataFrame` objects and R packages such as plyr and reshape2, and places them in a single library that you can use in your Python applications.
 
-The development of pandas was begun in 2008 by Wes McKinney when he worked at AQR Capital Management. It was opened sourced in 2009 and is currently supported and actively developed by various organizations and contributors. It was initially designed with finance in mind, specifically with its ability around time series data manipulation, but emphasizes the data manipulation part of the equation leaving statistical, financial, and other types of analyses to other Python libraries. 
+The development of pandas was begun in 2008 by Wes McKinney when he worked at AQR Capital Management. It was opened sourced in 2009 and is currently supported and actively developed by various organizations and contributors. It was initially designed with finance in mind, specifically with its ability around time series data manipulation, but emphasizes the data manipulation part of the equation leaving statistical, financial, and other types of analyses to other Python libraries.
 
-In this chapter, we will take a brief tour of pandas and some of the associated tools such as IPython notebooks. You will be introduced to a variety of concepts in pandas for data organization and manipulation in an effort to form both a base understanding and a frame of reference for deeper coverage in later sections of this book. By the end of this chapter, you will have a good understanding of the fundamentals of pandas and even be able to perform basic data manipulations. Also, you will be ready to continue with later portions of this book for more detailed understanding. 
+In this chapter, we will take a brief tour of pandas and some of the associated tools such as IPython notebooks. You will be introduced to a variety of concepts in pandas for data organization and manipulation in an effort to form both a base understanding and a frame of reference for deeper coverage in later sections of this book. By the end of this chapter, you will have a good understanding of the fundamentals of pandas and even be able to perform basic data manipulations. Also, you will be ready to continue with later portions of this book for more detailed understanding.
 
-This chapter will introduce you to: 
+This chapter will introduce you to:
 
 - pandas and why it is important IPython and IPython Notebooks Referencing pandas in your application 
 
@@ -310,13 +308,13 @@ This chapter will introduce you to:
 
 ### **Note** 
 
-pandas is always lowercase by convention in pandas documentation, and this will be a convention followed by this book. 
+pandas is always lowercase by convention in pandas documentation, and this will be a convention followed by this book.
 
 # **pandas and why it is important** 
 
-pandas is a library containing high-level data structures and tools that have been created to assist a Python programmer to perform powerful data manipulations, and discover information in that data in a simple and fast way. 
+pandas is a library containing high-level data structures and tools that have been created to assist a Python programmer to perform powerful data manipulations, and discover information in that data in a simple and fast way.
 
-The simple and effective data analysis requires the ability to index, retrieve, tidy, reshape, combine, slice, and perform various analyses on both single and multidimensional data, including heterogeneous typed data that is automatically aligned along index labels. To enable these capabilities, pandas provides the following features (and many more not explicitly mentioned here): 
+The simple and effective data analysis requires the ability to index, retrieve, tidy, reshape, combine, slice, and perform various analyses on both single and multidimensional data, including heterogeneous typed data that is automatically aligned along index labels. To enable these capabilities, pandas provides the following features (and many more not explicitly mentioned here):
 
 - High performance array and table structures for representation of homogenous and heterogeneous data sets: the `Series` and `DataFrame` objects 
 
@@ -340,29 +338,27 @@ The simple and effective data analysis requires the ability to index, retrieve, 
 
 - Built-in support to retrieve and automatically parse data from various web-based data sources such as Yahoo!, Google Finance, the World Bank, and several others 
 
-For those desiring to get into data analysis and the emerging field of data science, pandas offers an excellent means for a Python programmer (or just an enthusiast) to learn data manipulation. For those just learning or coming from a statistical language like R, pandas can offer an excellent introduction to Python as a programming language. 
+For those desiring to get into data analysis and the emerging field of data science, pandas offers an excellent means for a Python programmer (or just an enthusiast) to learn data manipulation. For those just learning or coming from a statistical language like R, pandas can offer an excellent introduction to Python as a programming language.
 
-pandas itself is not a data science toolkit. It does provide some statistical methods as a matter of convenience, but to draw conclusions from data, it leans upon other packages in the Python ecosystem, such as **SciPy** , **NumPy** , **scikit-learn** , and upon graphics libraries such as **matplotlib** and **ggvis** for data visualization. This is actually the strength of pandas over other languages such as R, as pandas applications are able to leverage an extensive network of robust Python frameworks already built and tested elsewhere. 
+pandas itself is not a data science toolkit. It does provide some statistical methods as a matter of convenience, but to draw conclusions from data, it leans upon other packages in the Python ecosystem, such as **SciPy** , **NumPy** , **scikit-learn** , and upon graphics libraries such as **matplotlib** and **ggvis** for data visualization. This is actually the strength of pandas over other languages such as R, as pandas applications are able to leverage an extensive network of robust Python frameworks already built and tested elsewhere.
 
-In this book, we will look at how to use pandas for data manipulation, with a specific focus on gathering, cleaning, and manipulation of various forms of data using pandas. Detailed specifics of data science, finance, econometrics, social network analysis, Python, and IPython are left as reference. You can refer to some other excellent books on these topics already available at <u>https://www.packtpub.com/.</u> 
+In this book, we will look at how to use pandas for data manipulation, with a specific focus on gathering, cleaning, and manipulation of various forms of data using pandas. Detailed specifics of data science, finance, econometrics, social network analysis, Python, and IPython are left as reference. You can refer to some other excellent books on these topics already available at <u>https://www.packtpub.com/.</u>
 
 # **pandas and IPython Notebooks** 
 
-A popular means of using pandas is through the use of IPython Notebooks. IPython Notebooks provide a web-based interactive computational environment, allowing the combination of code, text, mathematics, plots, and right media into a web-based document. IPython Notebooks run in a browser and contain Python code that is run in a local or server-side Python session that the notebooks communicate with using WebSockets. Notebooks can also contain markup code and rich media content, and can be converted to other formats such as PDF, HTML, and slide shows. 
+A popular means of using pandas is through the use of IPython Notebooks. IPython Notebooks provide a web-based interactive computational environment, allowing the combination of code, text, mathematics, plots, and right media into a web-based document. IPython Notebooks run in a browser and contain Python code that is run in a local or server-side Python session that the notebooks communicate with using WebSockets. Notebooks can also contain markup code and rich media content, and can be converted to other formats such as PDF, HTML, and slide shows.
 
-The following is an example of an IPython Notebook from the IPython website (http://ipython.org/notebook.html) that demonstrates the rich capabilities of notebooks: 
+The following is an example of an IPython Notebook from the IPython website (http://ipython.org/notebook.html) that demonstrates the rich capabilities of notebooks:
 
+IPython Notebooks are not strictly required for using pandas and can be installed into your development environment independently or alongside of pandas. During the course of this this book, we will install pandas and an IPython Notebook server. You will be able to perform code examples in the text directly in an IPython console interpreter, and the examples will be packaged as notebooks that can be run with a local notebook server. Additionally, the workbooks will be available online for easy and immediate access at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u>
 
+**Note**
 
-IPython Notebooks are not strictly required for using pandas and can be installed into your development environment independently or alongside of pandas. During the course of this this book, we will install pandas and an IPython Notebook server. You will be able to perform code examples in the text directly in an IPython console interpreter, and the examples will be packaged as notebooks that can be run with a local notebook server. Additionally, the workbooks will be available online for easy and immediate access at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u> 
-
-**Note** 
-
-To learn more about IPython Notebooks, visit the notebooks site at <u>http://ipython.org/ipython-doc/dev/notebook/, and for more in-depth</u> coverage, refer to another book, _Learning IPython for Interactive Computing and Data Visualization_ , _Cyrille Rossant_ , _Packt Publishing_ . 
+To learn more about IPython Notebooks, visit the notebooks site at <u>http://ipython.org/ipython-doc/dev/notebook/, and for more in-depth</u> coverage, refer to another book, _Learning IPython for Interactive Computing and Data Visualization_ , _Cyrille Rossant_ , _Packt Publishing_ .
 
 # **Referencing pandas in the application** 
 
-All pandas programs and examples in this book will always start by importing pandas (and NumPy) into the Python environment. There is a common convention used in many publications (web and print) of importing pandas and NumPy, which will also be used throughout this book. All workbooks and examples for chapters will start with code similar to the following to initialize the pandas library within Python. 
+All pandas programs and examples in this book will always start by importing pandas (and NumPy) into the Python environment. There is a common convention used in many publications (web and print) of importing pandas and NumPy, which will also be used throughout this book. All workbooks and examples for chapters will start with code similar to the following to initialize the pandas library within Python.
 
 ```
 In [1]:
@@ -383,17 +379,17 @@ In [1]:
    pd.options.display.mpl_style = 'default'
 ```
 
-NumPy and pandas go hand-in-hand, as much of pandas is built on NumPy. It is, therefore, very convenient to import NumPy and put it in a `np.` namespace. Likewise, pandas is imported and referenced with a `pd.` prefix. Since `DataFrame` and `Series` objects of pandas are used so frequently, the third line then imports the `Series` and `DataFrame` objects into the global namespace so that we can use them without a `pd.` prefix. 
+NumPy and pandas go hand-in-hand, as much of pandas is built on NumPy. It is, therefore, very convenient to import NumPy and put it in a `np.` namespace. Likewise, pandas is imported and referenced with a `pd.` prefix. Since `DataFrame` and `Series` objects of pandas are used so frequently, the third line then imports the `Series` and `DataFrame` objects into the global namespace so that we can use them without a `pd.` prefix.
 
-The three `pd.set_options()` method calls set up some defaults for IPython Notebooks and console output from pandas. These specify how wide and high any output will be, and how many columns it will contain. They can be used to modify the output of IPython and pandas to fit your personal needs to display results. The options set here are convenient for formatting the output of the examples to the constraints of the text. 
+The three `pd.set_options()` method calls set up some defaults for IPython Notebooks and console output from pandas. These specify how wide and high any output will be, and how many columns it will contain. They can be used to modify the output of IPython and pandas to fit your personal needs to display results. The options set here are convenient for formatting the output of the examples to the constraints of the text.
 
 # **Primary pandas objects** 
 
-A programmer of pandas will spend most of their time using two primary objects provided by the pandas framework: `Series` and `DataFrame` . The `DataFrame` objects will be the overall workhorse of pandas and the most frequently used as they provide the means to manipulate tabular and heterogeneous data. 
+A programmer of pandas will spend most of their time using two primary objects provided by the pandas framework: `Series` and `DataFrame` . The `DataFrame` objects will be the overall workhorse of pandas and the most frequently used as they provide the means to manipulate tabular and heterogeneous data.
 
 ## **The pandas Series object** 
 
-The base data structure of pandas is the `Series` object, which is designed to operate similar to a NumPy array but also adds index capabilities. A simple way to create a `Series` object is by initializing a `Series` object with a Python array or Python list. 
+The base data structure of pandas is the `Series` object, which is designed to operate similar to a NumPy array but also adds index capabilities. A simple way to create a `Series` object is by initializing a `Series` object with a Python array or Python list.
 
 ```
 In [2]:
@@ -411,9 +407,9 @@ Out [2]:
    dtype: int64
 ```
 
-This has created a pandas `Series` from the list. Notice that printing the series resulted in what appears to be two columns of data. The first column in the output is not a column of the `Series` object, but the index labels. The second column is the values of the `Series` object. Each row represents the index label and the value for that label. This `Series` was created without specifying an index, so pandas automatically creates indexes starting at zero and increasing by one. 
+This has created a pandas `Series` from the list. Notice that printing the series resulted in what appears to be two columns of data. The first column in the output is not a column of the `Series` object, but the index labels. The second column is the values of the `Series` object. Each row represents the index label and the value for that label. This `Series` was created without specifying an index, so pandas automatically creates indexes starting at zero and increasing by one.
 
-Elements of a `Series` object can be accessed through the index using `[]` . This informs the `Series` which value to return given one or more index values (referred to in pandas as labels). The following code retrieves the items in the series with labels `1` and `3` . 
+Elements of a `Series` object can be accessed through the index using `[]` . This informs the `Series` which value to return given one or more index values (referred to in pandas as labels). The following code retrieves the items in the series with labels `1` and `3` .
 
 ```
 In [3]:
@@ -430,9 +426,9 @@ Out [3]:
 
 ### **Note** 
 
-It is important to note that the lookup here is not by zero-based positions 1 and 3 like an array, but by the values in the index. 
+It is important to note that the lookup here is not by zero-based positions 1 and 3 like an array, but by the values in the index.
 
-A `Series` object can be created with a user-defined index by specifying the labels for the index using the `index` parameter. 
+A `Series` object can be created with a user-defined index by specifying the labels for the index using the `index` parameter.
 
 ```
 In [4]:
@@ -453,9 +449,9 @@ Out [4]:
 
 ### **Note** 
 
-Notice that the index labels in the output now have the index values that were specified in the `Series` constructor. 
+Notice that the index labels in the output now have the index values that were specified in the `Series` constructor.
 
-Data in the `Series` object can now be accessed by alphanumeric index labels by passing a list of the desired labels, as the following demonstrates: 
+Data in the `Series` object can now be accessed by alphanumeric index labels by passing a list of the desired labels, as the following demonstrates:
 
 ```
 In [5]:
@@ -475,9 +471,9 @@ Out [5]:
 
 ### **Note** 
 
-This demonstrates the previous point that the lookup is by label value and not by zero-based position. 
+This demonstrates the previous point that the lookup is by label value and not by zero-based position.
 
-It is still possible to refer to the elements of the `Series` object by their numerical position. 
+It is still possible to refer to the elements of the `Series` object by their numerical position.
 
 ```
 In [6]:
@@ -496,9 +492,9 @@ Out [6]:
 
 ### **Note** 
 
-A `Series` is still smart enough to determine that you passed a list of integers and, therefore, that you want to do value lookup by zero-based position. 
+A `Series` is still smart enough to determine that you passed a list of integers and, therefore, that you want to do value lookup by zero-based position.
 
-The `s.index` property allows direct access to the index of the `Series` object. 
+The `s.index` property allows direct access to the index of the `Series` object.
 
 ```
 In [7]:
@@ -511,9 +507,9 @@ Out [7]:
    Index([u'a', u'b', u'c', u'd'], dtype='object')
 ```
 
-The index is itself actually a pandas object. This shows us the values of the index and that the data type of each label in the index is `object` . 
+The index is itself actually a pandas object. This shows us the values of the index and that the data type of each label in the index is `object` .
 
-A common usage of a `Series` in pandas is to represent a time series that associates date/time index labels with a value. A date range can be created using the pandas method `pd.date_range()` . 
+A common usage of a `Series` in pandas is to represent a time series that associates date/time index labels with a value. A date range can be created using the pandas method `pd.date_range()` .
 
 ```
 In [8]:
@@ -523,11 +519,11 @@ In [8]:
    dates
 ```
 
-**`Out [8]: <class 'pandas.tseries.index.DatetimeIndex'> [2014-07-01, ..., 2014-07-06] Length: 6, Freq: D, Timezone: None` Note** 
+**`Out [8]: <class 'pandas.tseries.index.DatetimeIndex'> [2014-07-01, ..., 2014-07-06] Length: 6, Freq: D, Timezone: None` Note**
 
-This has created a special index in pandas referred to as a `DatetimeIndex` , which is a pandas index that is optimized to index data with dates and times. 
+This has created a special index in pandas referred to as a `DatetimeIndex` , which is a pandas index that is optimized to index data with dates and times.
 
-At this point, the index is not particularly useful without having values for each index. We can use this index to create a new `Series` object with values for each of the dates. 
+At this point, the index is not particularly useful without having values for each index. We can use this index to create a new `Series` object with values for each of the dates.
 
 ```
 In [9]:
@@ -546,7 +542,7 @@ Out [9]:
    Freq: D, dtype: int64
 ```
 
-Statistical methods provided by NumPy can be applied to a pandas `Series` . The following returns the mean of the values in the `Series` . 
+Statistical methods provided by NumPy can be applied to a pandas `Series` . The following returns the mean of the values in the `Series` .
 
 ```
 In [10]:
@@ -559,7 +555,7 @@ Out [10]:
    84.5
 ```
 
-Two `Series` objects can be applied to each other with an arithmetic operation. The following code calculates the difference in temperature between two `Series` . 
+Two `Series` objects can be applied to each other with an arithmetic operation. The following code calculates the difference in temperature between two `Series` .
 
 ```
 In [11]:
@@ -588,9 +584,9 @@ Out [11]:
 
 ### **Note** 
 
-The result of an arithmetic operation (+, -, /, *, ...) on two `Series` objects that are non-scalar values returns another `Series` object. 
+The result of an arithmetic operation (+, -, /, *, ...) on two `Series` objects that are non-scalar values returns another `Series` object.
 
-Time series data such as that shown here can also be accessed via the index or by an offset into the `Series` object. 
+Time series data such as that shown here can also be accessed via the index or by an offset into the `Series` object.
 
 ```
 In [12]:
@@ -617,13 +613,13 @@ Out [13]:
 
 ## **The pandas DataFrame object** 
 
-A pandas `Series` represents a single array of values, with an index label for each value. If you want to have more than one `Series` of data that is aligned by a common index, then a pandas `DataFrame` is used. 
+A pandas `Series` represents a single array of values, with an index label for each value. If you want to have more than one `Series` of data that is aligned by a common index, then a pandas `DataFrame` is used.
 
 ### **Note** 
 
-In a way a `DataFrame` is analogous to a database table in that it contains one or more columns of data of heterogeneous type (but a single type for all items in each respective column). 
+In a way a `DataFrame` is analogous to a database table in that it contains one or more columns of data of heterogeneous type (but a single type for all items in each respective column).
 
-The following code creates a `DataFrame` object with two columns representing the temperatures from the `Series` objects used earlier. 
+The following code creates a `DataFrame` object with two columns representing the temperatures from the `Series` objects used earlier.
 
 ```
 In [14]:
@@ -649,13 +645,11 @@ Out [14]:
 |**`2014-07-05        83`**|**`79`**|
 |**`2014-07-06        87`**|**`77`**|
 
-
-
 ### **Note** 
 
-This has created a `DataFrame` object with two columns, named `Missoula` and `Philadelphia` , and using the values from the respective `Series` objects for each. These are new `Series` objects contained within the `DataFrame` , with the values copied from the original `Series` objects. 
+This has created a `DataFrame` object with two columns, named `Missoula` and `Philadelphia` , and using the values from the respective `Series` objects for each. These are new `Series` objects contained within the `DataFrame` , with the values copied from the original `Series` objects.
 
-Columns in a `DataFrame` object can be accessed using an array indexer `[]` with the name of the column or a list of column names. The following code retrieves the `Missoula` column of the `DataFrame` object: 
+Columns in a `DataFrame` object can be accessed using an array indexer `[]` with the name of the column or a list of column names. The following code retrieves the `Missoula` column of the `DataFrame` object:
 
 ```
 In [15]
@@ -676,9 +670,7 @@ Out [15]:
 |**`2014-07-06`**|**`87`**|
 |**`Freq: D, Nam`**|**`e: Missoula, dtype: int64`**|
 
-
-
-The following code retrieves the `Philadelphia` column: 
+The following code retrieves the `Philadelphia` column:
 
 ```
 In [16]:
@@ -697,9 +689,7 @@ In [16]:
 |**`2014-07-06`**|**`77`**|
 |**`Freq: D, Nam`**|**`e: Philadelphia, dtype: int64`**|
 
-
-
-The following code returns both the columns, but reversed. 
+The following code returns both the columns, but reversed.
 
 ```
 In [17]:
@@ -720,13 +710,11 @@ Out [17]:
 |**`2014-07-05            79        83`**|
 |**`2014-07-06            77        87`**|
 
-
-
 ### **Note** 
 
-Notice that there is a subtle difference in a `DataFrame` object as compared to a `Series` object. Passing a list to the `[]` operator of `DataFrame` retrieves the specified columns, whereas `Series` uses it as index labels to retrieve rows. 
+Notice that there is a subtle difference in a `DataFrame` object as compared to a `Series` object. Passing a list to the `[]` operator of `DataFrame` retrieves the specified columns, whereas `Series` uses it as index labels to retrieve rows.
 
-Very conveniently, if the name of a column does not have spaces, you can use property-style names to access the columns in a `DataFrame` . 
+Very conveniently, if the name of a column does not have spaces, you can use property-style names to access the columns in a `DataFrame` .
 
 ```
 In [18]:
@@ -751,7 +739,7 @@ Out [18]:
    Freq: D, Name: Missoula, dtype: int64
 ```
 
-Arithmetic operations between columns within a `DataFrame` are identical in operation to those on multiple `Series` as each column in a `DataFrame` is a `Series` . To demonstrate, the following code calculates the difference between temperatures using property notation. 
+Arithmetic operations between columns within a `DataFrame` are identical in operation to those on multiple `Series` as each column in a `DataFrame` is a `Series` . To demonstrate, the following code calculates the difference between temperatures using property notation.
 
 ```
 In [19]:
@@ -774,9 +762,9 @@ Out [19]:
    Freq: D, dtype: int64
 ```
 
-A new column can be added to `DataFrame` simply by assigning another `Series` to a column using the array indexer `[]` notation. The following code 
+A new column can be added to `DataFrame` simply by assigning another `Series` to a column using the array indexer `[]` notation. The following code
 
-adds a new column in the `DataFrame` , which contains the difference in temperature on the respective dates. 
+adds a new column in the `DataFrame` , which contains the difference in temperature on the respective dates.
 
 ```
 In [20]:
@@ -803,7 +791,7 @@ Out [20]:
    2014-07-06        87            77          10
 ```
 
-The names of the columns in a `DataFrame` are object accessible via the `DataFrame` object's `.columns` property, which itself is a pandas `Index` object. 
+The names of the columns in a `DataFrame` are object accessible via the `DataFrame` object's `.columns` property, which itself is a pandas `Index` object.
 
 ```
 In [21]:
@@ -820,7 +808,7 @@ Out [21]:
 dtype='object')
 ```
 
-The `DataFrame` (and `Series` ) objects can be sliced to retrieve specific rows. A simple example here shows how to select the second through fourth rows of temperature difference values. 
+The `DataFrame` (and `Series` ) objects can be sliced to retrieve specific rows. A simple example here shows how to select the second through fourth rows of temperature difference values.
 
 ```
 In [22]:
@@ -840,7 +828,7 @@ Out [22]:
    Freq: D, Name: Difference, dtype: int64
 ```
 
-Entire rows from a `DataFrame` can be retrieved using its `.loc` and `.iloc` properties. The following code returns a `Series` object representing the second row of `temps_df` of the `DataFrame` object by zero-based position of the row using the `.iloc` property: 
+Entire rows from a `DataFrame` can be retrieved using its `.loc` and `.iloc` properties. The following code returns a `Series` object representing the second row of `temps_df` of the `DataFrame` object by zero-based position of the row using the `.iloc` property:
 
 ```
 In [23]:
@@ -856,7 +844,7 @@ Out [23]:
    Name: 2014-07-02 00:00:00, dtype: int64
 ```
 
-This has converted the row into a `Series` , with the column names of the `DataFrame` pivoted into the index labels of the resulting `Series` . 
+This has converted the row into a `Series` , with the column names of the `DataFrame` pivoted into the index labels of the resulting `Series` .
 
 ```
 In [24]:
@@ -871,7 +859,7 @@ Out [24]:
 dtype='object')
 ```
 
-Rows can be explicitly accessed via index label using the `.loc` property. The following code retrieves a row by the index label: 
+Rows can be explicitly accessed via index label using the `.loc` property. The following code retrieves a row by the index label:
 
 ```
 In [25]:
@@ -887,7 +875,7 @@ Out [25]:
    Name: 2014-07-03 00:00:00, dtype: int64
 ```
 
-Specific rows in a `DataFrame` object can be selected using a list of integer positions. The following code selects the values from the `Difference` column in rows at locations `1` , `3` , and `5` . 
+Specific rows in a `DataFrame` object can be selected using a list of integer positions. The following code selects the values from the `Difference` column in rows at locations `1` , `3` , and `5` .
 
 ```
 In [26]:
@@ -914,7 +902,7 @@ Out [26]:
    Name: Difference, dtype: int64
 ```
 
-Rows of a `DataFrame` can be selected based upon a logical expression applied to the data in each row. The following code returns the evaluation of the value in the `Missoula` temperature column being greater than `82` degrees: 
+Rows of a `DataFrame` can be selected based upon a logical expression applied to the data in each row. The following code returns the evaluation of the value in the `Missoula` temperature column being greater than `82` degrees:
 
 ```
 In [27]:
@@ -933,7 +921,7 @@ Out [27]:
    Freq: D, Name: Missoula, dtype: bool
 ```
 
-When using the result of an expression as the parameter to the `[]` operator of a `DataFrame` , the rows where the expression evaluated to `True` will be returned. 
+When using the result of an expression as the parameter to the `[]` operator of a `DataFrame` , the rows where the expression evaluated to `True` will be returned.
 
 ```
 In [28]:
@@ -955,19 +943,17 @@ Out [28]:
 |**`2014-07-05        83            79           4`**|
 |**`2014-07-06        87            77          10`**|
 
-
-
-This technique of selection in pandas terminology is referred to as a Boolean selection, and will form the basis of selecting data based upon its values. 
+This technique of selection in pandas terminology is referred to as a Boolean selection, and will form the basis of selecting data based upon its values.
 
 # **Loading data from files and the Web** 
 
-The data used in analyses is typically provided from other systems via files that are created and updated at various intervals, dynamically via access over the Web, or from various types of databases. The pandas library provides powerful facilities for easy retrieval of data from a variety of data sources and converting it into pandas objects. Here, we will briefly demonstrate this ease of use by loading data from files and from financial web services. 
+The data used in analyses is typically provided from other systems via files that are created and updated at various intervals, dynamically via access over the Web, or from various types of databases. The pandas library provides powerful facilities for easy retrieval of data from a variety of data sources and converting it into pandas objects. Here, we will briefly demonstrate this ease of use by loading data from files and from financial web services.
 
 ## **Loading CSV data from files** 
 
-The pandas library provides built-in support for loading data in `.csv` format, a common means of storing structured data in text files. Provided with the code from this book is a file `data/test1.csv` in the CSV format, which represents some time series information. The specific content isn't important right now, as we just want to demonstrate the ease of loading data into a `DataFrame` . 
+The pandas library provides built-in support for loading data in `.csv` format, a common means of storing structured data in text files. Provided with the code from this book is a file `data/test1.csv` in the CSV format, which represents some time series information. The specific content isn't important right now, as we just want to demonstrate the ease of loading data into a `DataFrame` .
 
-The following statement in IPython uses the operating system to display the content of this file (the command to use is different based upon your operating system). 
+The following statement in IPython uses the operating system to display the content of this file (the command to use is different based upon your operating system).
 
 ```
 In [29]:
@@ -990,7 +976,7 @@ In [29]:
 
 - **`00:00:00,-1.86701699823,-0.528368292754,-2.48830894087 2000-01-06 00:00:00,2.56928022646,-0.471901478927,-0.835033249865 2000-01-07 00:00:00,-0.39932258251,-0.676426550985,-0.0112559158931 2000-01-08 00:00:00,1.64299299394,1.01341997845,1.43566709724 2000-01-09 00:00:00,1.14730764657,2.13799951538,0.554171306191 2000-01-10 00:00:00,0.933765825769,1.38715526486,-0.560142729978`** 
 
-This information can be easily imported into `DataFrame` using the `pd.read_csv()` function. 
+This information can be easily imported into `DataFrame` using the `pd.read_csv()` function.
 
 ##### **`In [30]:`** 
 
@@ -1011,9 +997,7 @@ This information can be easily imported into `DataFrame` using the `pd.read_csv(
 |**`8  2000-01-09 00:00:00  1.147308  2.138000  0.554171`**|
 |**`9  2000-01-10 00:00:00  0.933766  1.387155 -0.560143`**|
 
-
-
-pandas has no idea that the first column is a date and has treated the contents of the date field as a string. This can be verified using the following Python statements: 
+pandas has no idea that the first column is a date and has treated the contents of the date field as a string. This can be verified using the following Python statements:
 
 ```
 In [31]:
@@ -1064,7 +1048,7 @@ Out [33]:
    str
 ```
 
-To guide pandas on how to convert data directly into a Python/pandas date object, we can use the `parse_dates` parameter of the `pd.read_csv()` function. The following code informs pandas to convert the content of the 'date' column into actual `TimeStamp` objects. 
+To guide pandas on how to convert data directly into a Python/pandas date object, we can use the `parse_dates` parameter of the `pd.read_csv()` function. The following code informs pandas to convert the content of the 'date' column into actual `TimeStamp` objects.
 
 ```
 In [34]:
@@ -1094,9 +1078,7 @@ Out [34]:
 |**`8 2000-01-09  1.147308  2.138000  0.554171`**|
 |**`9 2000-01-10  0.933766  1.387155 -0.560143`**|
 
-
-
-On checking whether it worked, we see it is indeed a `Timestamp` object now. 
+On checking whether it worked, we see it is indeed a `Timestamp` object now.
 
 ```
 In [35]:
@@ -1113,7 +1095,7 @@ Out [35]:
    pandas.tslib.Timestamp
 ```
 
-Unfortunately, this has not used the date field as the index for the `DataFrame` , instead it uses the default zero-based integer index labels. 
+Unfortunately, this has not used the date field as the index for the `DataFrame` , instead it uses the default zero-based integer index labels.
 
 ##### **`In [36]:`** 
 
@@ -1125,7 +1107,7 @@ Unfortunately, this has not used the date field as the index for the `DataFrame`
    Int64Index([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], dtype='int64')
 ```
 
-This can be rectified using the `index_col` parameter of the `pd.read_csv()` method to specify which column in the file should be used as the index. 
+This can be rectified using the `index_col` parameter of the `pd.read_csv()` method to specify which column in the file should be used as the index.
 
 ```
 In [37]:
@@ -1157,8 +1139,6 @@ Out [37]:
 |**`2000-01-09  1.147308  2.138000  0.554171`**|
 |**`2000-01-10  0.933766  1.387155 -0.560143`**|
 
-
-
 ##### **`In [38]:`** 
 
 ```
@@ -1174,9 +1154,9 @@ Out [38]:
 
 ## **Loading data from the Web** 
 
-Data from the Web can also be easily read via pandas. To demonstrate this, we will perform a simple load of actual stock data. The example here uses the `pandas.io.data.DataReader` class, which is able to read data from various web sources, one of which is stock data from Yahoo! Finance. 
+Data from the Web can also be easily read via pandas. To demonstrate this, we will perform a simple load of actual stock data. The example here uses the `pandas.io.data.DataReader` class, which is able to read data from various web sources, one of which is stock data from Yahoo! Finance.
 
-The following reads the data of the previous three months for GOOG (based on the current date), and prints the five most recent days of stock data: 
+The following reads the data of the previous three months for GOOG (based on the current date), and prints the five most recent days of stock data:
 
 ```
 In [39]:
@@ -1211,17 +1191,17 @@ Close
    2015-02-
 ```
 
-**`04  529.24  532.67  521.27  522.76  1656800     522.76 2015-0205  523.79  528.50  522.09  527.58  1840300     527.58 2015-0206  527.64  537.20  526.41  531.00  1744600     531.00` Tip** 
+**`04  529.24  532.67  521.27  522.76  1656800     522.76 2015-0205  523.79  528.50  522.09  527.58  1840300     527.58 2015-0206  527.64  537.20  526.41  531.00  1744600     531.00` Tip**
 
 #### **Downloading the example code** 
 
-You can download the example code files for all Packt books you have purchased from your account at <u>http://www.packtpub.com. If you purchased</u> this book elsewhere, you can visit <u>http://www.packtpub.com/support</u> and register to have the files e-mailed directly to you. The code examples in the book are also publicly available on Wakari.io at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u> 
+You can download the example code files for all Packt books you have purchased from your account at <u>http://www.packtpub.com. If you purchased</u> this book elsewhere, you can visit <u>http://www.packtpub.com/support</u> and register to have the files e-mailed directly to you. The code examples in the book are also publicly available on Wakari.io at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u>
 
-This is actually performs quite a bit of work on your behalf. It makes the web requests retrieving the CSV data and converting it into a `DataFrame` with the proper conversion of types for the various series of data. 
+This is actually performs quite a bit of work on your behalf. It makes the web requests retrieving the CSV data and converting it into a `DataFrame` with the proper conversion of types for the various series of data.
 
 # **Simplicity of visualization of pandas data** 
 
-Visualizing pandas data is incredibly simple as pandas is built with tight integration with the `matplotlib` framework. To demonstrate how simple it is to visualize data with pandas, the following code plots the stock data we just retrieved from Yahoo! Finance: 
+Visualizing pandas data is incredibly simple as pandas is built with tight integration with the `matplotlib` framework. To demonstrate how simple it is to visualize data with pandas, the following code plots the stock data we just retrieved from Yahoo! Finance:
 
 ```
 In [40]:
@@ -1229,31 +1209,29 @@ In [40]:
    goog.plot(y='Adj Close');
 ```
 
-
-
 ### **Note** 
 
-We will dive deeper and broader into pandas data visualization in a section dedicated to it later in this book. 
+We will dive deeper and broader into pandas data visualization in a section dedicated to it later in this book.
 
 # **Summary** 
 
-In this chapter we have taken a quick tour of the capabilities of pandas, and how easily you can use it to create, load, manipulate, and visualize data. Through the remainder of this book, we will dive into everything covered in this chapter in significant detail, fully demonstrating how to utilize the facilities of pandas for powerful data manipulation. 
+In this chapter we have taken a quick tour of the capabilities of pandas, and how easily you can use it to create, load, manipulate, and visualize data. Through the remainder of this book, we will dive into everything covered in this chapter in significant detail, fully demonstrating how to utilize the facilities of pandas for powerful data manipulation.
 
-In the next chapter, we will look at how to get and install both Python and pandas. Following the installation, in <u>Chapter 3,</u> _NumPy for pandas_ , we will dive into the NumPy framework as it applies to pandas, demonstrating how NumPy provides the core functionality to slice and dice array-based data in array-like manner, as the pandas `Series` and `DataFrame` objects extensively leverage the capabilities of NumPy. 
+In the next chapter, we will look at how to get and install both Python and pandas. Following the installation, in <u>Chapter 3,</u> _NumPy for pandas_ , we will dive into the NumPy framework as it applies to pandas, demonstrating how NumPy provides the core functionality to slice and dice array-based data in array-like manner, as the pandas `Series` and `DataFrame` objects extensively leverage the capabilities of NumPy.
 
 # **Chapter 2. Installing pandas** 
 
-In this chapter, we will cover how to install pandas using the Anaconda Scientific Python distribution from Continuum Analytics. Anaconda is a popular Python distribution with both free and paid components, and it has cross-platform support—including Windows, Mac, and Linux. The base distribution installs pandas as part of the default installation, so it makes getting started with pandas simple. 
+In this chapter, we will cover how to install pandas using the Anaconda Scientific Python distribution from Continuum Analytics. Anaconda is a popular Python distribution with both free and paid components, and it has cross-platform support—including Windows, Mac, and Linux. The base distribution installs pandas as part of the default installation, so it makes getting started with pandas simple.
 
-The chapter will examine installing both pandas and Python through Anaconda, as this book assumes that you are new to both pandas and Python. This can include readers who are coming from an R environment to learn data manipulation skills using pandas. Those who already have more advanced Python skills can feel free to move onto later chapters or use alternative Python distributions and package managers, as well as virtualized development environments for multiple Python distributions. 
+The chapter will examine installing both pandas and Python through Anaconda, as this book assumes that you are new to both pandas and Python. This can include readers who are coming from an R environment to learn data manipulation skills using pandas. Those who already have more advanced Python skills can feel free to move onto later chapters or use alternative Python distributions and package managers, as well as virtualized development environments for multiple Python distributions.
 
-In general, the remaining chapters of this book will focus on data manipulation with pandas. The examples can be run in any Python/pandas environment. Emphasis will not be towards learning Python programming. In fact, it is amazing how much you can do with just pandas statements in any Python / Ipython / IPython Notebook environment without performing much Python programming at all. 
+In general, the remaining chapters of this book will focus on data manipulation with pandas. The examples can be run in any Python/pandas environment. Emphasis will not be towards learning Python programming. In fact, it is amazing how much you can do with just pandas statements in any Python / Ipython / IPython Notebook environment without performing much Python programming at all.
 
-The default installation of Anaconda also installs an IPython Notebook server that can be used interactively to run the examples as well as the notebooks provided with the source of the book. IPython Notebooks are an excellent means of creating pandas applications, as well as sharing them with others on the Web. We will briefly cover starting this server and using IPython Notebooks. 
+The default installation of Anaconda also installs an IPython Notebook server that can be used interactively to run the examples as well as the notebooks provided with the source of the book. IPython Notebooks are an excellent means of creating pandas applications, as well as sharing them with others on the Web. We will briefly cover starting this server and using IPython Notebooks.
 
-An alternative to installing Python and pandas is through the use of an online Wakari account. Wakari is a web-based IPython Notebook service that has pandas installed by default and provides excellent capabilities for sharing Python applications online. Creating and getting started with Wakari will have its own brief exposition. 
+An alternative to installing Python and pandas is through the use of an online Wakari account. Wakari is a web-based IPython Notebook service that has pandas installed by default and provides excellent capabilities for sharing Python applications online. Creating and getting started with Wakari will have its own brief exposition.
 
-We will cover the following topics in this chapter: 
+We will cover the following topics in this chapter:
 
 - Getting Anaconda (and pandas) 
 
@@ -1271,36 +1249,34 @@ We will cover the following topics in this chapter:
 
 # **Getting Anaconda** 
 
-We will focus on installing Anaconda Python and ensuring that pandas is up to date within that distribution. You are not limited to using pandas with Anaconda, as pandas is supported by _most_ Python distributions—although the specific installation tasks on each distribution may differ from those covered in this chapter. If you use another Python distribution, feel free to use your package manager of choice or `pip` from PyPI. 
+We will focus on installing Anaconda Python and ensuring that pandas is up to date within that distribution. You are not limited to using pandas with Anaconda, as pandas is supported by _most_ Python distributions—although the specific installation tasks on each distribution may differ from those covered in this chapter. If you use another Python distribution, feel free to use your package manager of choice or `pip` from PyPI.
 
 ### **Note** 
 
-I would say _most_ Python distributions because—being a Mac user—I've found it very difficult (if not impossible) to install pandas into the default Python provided in OS X by Apple. 
+I would say _most_ Python distributions because—being a Mac user—I've found it very difficult (if not impossible) to install pandas into the default Python provided in OS X by Apple.
 
-At the time of writing, pandas is at Version 0.15.1. The current version of Anaconda is 2.1.9 that contains Python 2.7.8, but comes with pandas 0.14.1 by default. Therefore, we will update to v0.15.1 using the `conda` package manager provided by Anaconda. 
+At the time of writing, pandas is at Version 0.15.1. The current version of Anaconda is 2.1.9 that contains Python 2.7.8, but comes with pandas 0.14.1 by default. Therefore, we will update to v0.15.1 using the `conda` package manager provided by Anaconda.
 
-Anaconda Python can be downloaded from the Continuum Analytics website at <u>http://continuum.io/downloads. The web server will identify the</u> browser's operating system and present you with an appropriate software download file for that platform. The following screenshot shows the download page when running on Ubuntu 13.10: 
+Anaconda Python can be downloaded from the Continuum Analytics website at <u>http://continuum.io/downloads. The web server will identify the</u> browser's operating system and present you with an appropriate software download file for that platform. The following screenshot shows the download page when running on Ubuntu 13.10:
 
-
-
-Linux users are presented with a download for a shell script to download and execute, and graphical installers are available for Windows and Mac platforms. Download the package for your platform, and then proceed to the appropriate section for installation details. 
+Linux users are presented with a download for a shell script to download and execute, and graphical installers are available for Windows and Mac platforms. Download the package for your platform, and then proceed to the appropriate section for installation details.
 
 # **Installing Anaconda** 
 
-The installation of Anaconda is straightforward, but varies slightly by platform. We will cover the installation of Anaconda on Linux, Mac, and Windows platforms. After this installation, pandas will likely need to be updated, which is an identical process across platforms using the `conda` package manager. 
+The installation of Anaconda is straightforward, but varies slightly by platform. We will cover the installation of Anaconda on Linux, Mac, and Windows platforms. After this installation, pandas will likely need to be updated, which is an identical process across platforms using the `conda` package manager.
 
 ## **Installing Anaconda on Linux** 
 
-The download will place a shell script/installer on your system (the following shell script/installer assumes to be downloaded to the `~/Download` folder). The name of the file will differ depending upon the Anaconda version and the architecture of Linux selected. This example is using Ubuntu 13.10, AMD64 platform and Anaconda Version 2.1.0. The file downloaded in this scenario is `Anaconda-2.1.0-Linux-x86_64.sh` . 
+The download will place a shell script/installer on your system (the following shell script/installer assumes to be downloaded to the `~/Download` folder). The name of the file will differ depending upon the Anaconda version and the architecture of Linux selected. This example is using Ubuntu 13.10, AMD64 platform and Anaconda Version 2.1.0. The file downloaded in this scenario is `Anaconda-2.1.0-Linux-x86_64.sh` .
 
-Once downloaded, make the script executable and run it with the following command: 
+Once downloaded, make the script executable and run it with the following command:
 
 ```
 mh@ubuntu:~/Downloads$ chmod +x Anaconda-2.1.0-Linux-x86_64.sh
 mh@ubuntu:~/Downloads$ ./Anaconda-2.1.0-Linux-x86_64.sh
 ```
 
-The script will execute and you will be requested to verify the installation by pressing _Enter_ : 
+The script will execute and you will be requested to verify the installation by pressing _Enter_ :
 
 ```
 Welcome to Anaconda 2.1.0 (by Continuum Analytics, Inc.)
@@ -1314,14 +1290,14 @@ Please, press ENTER to continue
 >>>
 ```
 
-Then, verify the license terms: 
+Then, verify the license terms:
 
 ```
 Do you approve the license terms? [yes|no]
 [no] >>> yes
 ```
 
-Then, you will be requested to specify the installation location (here, the default value is accepted): 
+Then, you will be requested to specify the installation location (here, the default value is accepted):
 
 ```
 Anaconda will now be installed into this location:
@@ -1338,7 +1314,7 @@ Anaconda will now be installed into this location:
 [/home/mh/anaconda] >>>
 ```
 
-Installation will proceed for a few minutes, and then you will be asked if you want to add Python to your shell path. Accepting the default will allow Anaconda to be run from the command line without you updating your path manually: 
+Installation will proceed for a few minutes, and then you will be asked if you want to add Python to your shell path. Accepting the default will allow Anaconda to be run from the command line without you updating your path manually:
 
 ```
 creating default environment...
@@ -1349,7 +1325,7 @@ to PATH in your /home/mh/.bashrc ? [yes|no]
 [no] >>> yes
 ```
 
-Upon completion, the following messages will be displayed; at this point, Python can be run from the shell: 
+Upon completion, the following messages will be displayed; at this point, Python can be run from the shell:
 
 ```
 Prepending PATH=/home/mh/anaconda/bin to PATH in
@@ -1366,7 +1342,7 @@ terminal.
 Thank you for installing Anaconda!
 ```
 
-To ensure proper execution, close the current terminal session, open a new one, and issue the command. Successful installation of Anaconda should present the following information (or similar depending upon version): 
+To ensure proper execution, close the current terminal session, open a new one, and issue the command. Successful installation of Anaconda should present the following information (or similar depending upon version):
 
 ```
 mh@ubuntu:~$ python
@@ -1387,58 +1363,44 @@ https://binstar.org
 >>>
 ```
 
-Congratulations, you have installed Anaconda! Now proceed to the section on updating pandas. 
+Congratulations, you have installed Anaconda! Now proceed to the section on updating pandas.
 
 ## **Installing Anaconda on Mac OS X** 
 
-On downloading Anaconda on a Mac, you will get an installation package, as shown in the following screenshot: 
+On downloading Anaconda on a Mac, you will get an installation package, as shown in the following screenshot:
 
+Open the package to start the installation. You will see an installation wizard:
 
+Continue through the wizard. When completed, open a terminal session and issue the `python` command. If all went well, you will see output similar to what is shown in the following screenshot:
 
-Open the package to start the installation. You will see an installation wizard: 
-
-
-
-Continue through the wizard. When completed, open a terminal session and issue the `python` command. If all went well, you will see output similar to what is shown in the following screenshot: 
-
-
-
-Anaconda is successfully installed, and you can continue to the section on updating pandas with `conda` . 
+Anaconda is successfully installed, and you can continue to the section on updating pandas with `conda` .
 
 ## **Installing Anaconda on Windows** 
 
-Downloading Anaconda on a Windows system will provide you with an installation executable similar to the one shown in the following screenshot: 
+Downloading Anaconda on a Windows system will provide you with an installation executable similar to the one shown in the following screenshot:
 
+Run the installer, and you will see an installation wizard. It will be similar to the wizard shown in the next screenshot:
 
+Continue through the wizard. When completed, open a command window and issue the `python` command. If all went well, you will see output similar to what is shown in the following screenshot:
 
-Run the installer, and you will see an installation wizard. It will be similar to the wizard shown in the next screenshot: 
-
-
-
-Continue through the wizard. When completed, open a command window and issue the `python` command. If all went well, you will see output similar to what is shown in the following screenshot: 
-
-
-
-Anaconda is up and running and it is time to ensure pandas is up to date. 
+Anaconda is up and running and it is time to ensure pandas is up to date.
 
 # **Ensuring pandas is up to date** 
 
-Now that Anaconda is installed, we can check the version of pandas that is installed either from within the Python interpreter or from the command line. The means to perform both of these is the same on each platform, and this will be demonstrated from an OS X terminal. 
+Now that Anaconda is installed, we can check the version of pandas that is installed either from within the Python interpreter or from the command line. The means to perform both of these is the same on each platform, and this will be demonstrated from an OS X terminal.
 
-From within the Anaconda Python interpreter, you can check the version of pandas on the system by importing pandas and then examining the version with the following two Python statements: 
+From within the Anaconda Python interpreter, you can check the version of pandas on the system by importing pandas and then examining the version with the following two Python statements:
 
 ```
 >>>import pandas as pd
 >>>print (pd.__version__)
 ```
 
-The preceding commands will then report the version of pandas. The following screenshot shows that v0.14.1 is the currently installed version: 
+The preceding commands will then report the version of pandas. The following screenshot shows that v0.14.1 is the currently installed version:
 
+This has reported that pandas version is 0.14.1, which is not the most recent, so we may want to update.
 
-
-This has reported that pandas version is 0.14.1, which is not the most recent, so we may want to update. 
-
-You can also check the pandas version using the `conda` package manager from the command line as follows (which also reports that version is 0.14.1): 
+You can also check the pandas version using the `conda` package manager from the command line as follows (which also reports that version is 0.14.1):
 
 ```
 Michaels-MacBook-Pro:~ michaelheydt$ conda list pandas
@@ -1448,7 +1410,7 @@ pandas                    0.14.1               np19py27_0
 Michaels-MacBook-Pro:~ michaelheydt$
 ```
 
-To update pandas to the most recent version, use the following `conda` command: 
+To update pandas to the most recent version, use the following `conda` command:
 
 ```
 Michaels-MacBook-Pro:~ michaelheydt$ conda update pandas
@@ -1473,8 +1435,6 @@ The following packages will be downloaded:
 |**`setuptools-7.0             |           py27_0         436`**<br>**`KB`**<br>**`-----------------------------------------------------------`**<br>**`-`**<br>**`Total:         8.8`**|
 |**`MB`**|
 
-
-
 ```
 The following packages will be UPDATED:
 ```
@@ -1492,7 +1452,7 @@ The following packages will be UPDATED:
 Proceed ([y]/n)?
 ```
 
-We can see that pandas can be updated to v0.15.1, along with all required dependent packages. Press _Enter_ to proceed. The `conda` package manager will retrieve and install the required packages: 
+We can see that pandas can be updated to v0.15.1, along with all required dependent packages. Press _Enter_ to proceed. The `conda` package manager will retrieve and install the required packages:
 
 ```
 Fetching packages ...
@@ -1526,7 +1486,7 @@ Linking packages ...
 Michaels-MacBook-Pro:~ michaelheydt$
 ```
 
-You can check whether pandas v0.15.1 is installed with `conda` : 
+You can check whether pandas v0.15.1 is installed with `conda` :
 
 ```
 Michaels-MacBook-Pro:~ michaelheydt$ conda list pandas
@@ -1536,19 +1496,17 @@ pandas                    0.15.1               np19py27_0
 Michaels-MacBook-Pro:~ michaelheydt$
 ```
 
-The pandas library is now updated. This can also be verified from within the Python interpreter as shown in the following screenshot: 
-
-
+The pandas library is now updated. This can also be verified from within the Python interpreter as shown in the following screenshot:
 
 # **Running a small pandas sample in IPython** 
 
-Now that Python and pandas is installed, let's write our first pandas application. We will write it in the IPython interpreter. IPython is an alternative shell for executing Python applications, and it conveniently provides numeric sequence numbers for thin input and output for example purposes. This is convenient for matching specific code examples in the book and will be used in all examples. 
+Now that Python and pandas is installed, let's write our first pandas application. We will write it in the IPython interpreter. IPython is an alternative shell for executing Python applications, and it conveniently provides numeric sequence numbers for thin input and output for example purposes. This is convenient for matching specific code examples in the book and will be used in all examples.
 
 ### **Note** 
 
-IPython or IPython Notebooks will be the tools for all remaining examples in the book. 
+IPython or IPython Notebooks will be the tools for all remaining examples in the book.
 
-IPython is started using the `ipython` command from the shell or command line: 
+IPython is started using the `ipython` command from the shell or command line:
 
 ```
 Michaels-MacBook-Pro:~ michaelheydt$ ipython
@@ -1573,7 +1531,7 @@ details.
 In [1]:
 ```
 
-IPython is now ready to accept your programming statements. Enter the following three lines of code: 
+IPython is now ready to accept your programming statements. Enter the following three lines of code:
 
 ```
 import pandas as pd
@@ -1581,7 +1539,7 @@ df = pd.DataFrame.from_items([('column1', [1, 2, 3])])
 print (df)
 ```
 
-When completed, you should have the following output in the IPython console: 
+When completed, you should have the following output in the IPython console:
 
 ```
 In [1]: import pandas as pd
@@ -1594,21 +1552,21 @@ In [3]: print (df)
 In [4]:
 ```
 
-Congratulations, you have created your first pandas application! 
+Congratulations, you have created your first pandas application!
 
 # **Starting the IPython Notebook server** 
 
-IPython Notebooks are a web server-based interactive environment that combine Python code execution, text, mathematics, plots, and rich media into a single document, along with automatic persistence of code and an easy means of deploying code to the Web. You can find more details on the IPython Notebook site at <u>http://ipython.org/notebook.html.</u> 
+IPython Notebooks are a web server-based interactive environment that combine Python code execution, text, mathematics, plots, and rich media into a single document, along with automatic persistence of code and an easy means of deploying code to the Web. You can find more details on the IPython Notebook site at <u>http://ipython.org/notebook.html.</u>
 
-IPython Notebooks are an exceptional way to learn both Python and pandas. This book will neither assume the use of IPython Notebooks, nor teach their usage beyond the brief examples given in this section. However, the code provided with the book are IPython Notebook files, so demonstrating how to run the server provided by Anaconda is worth a few paragraphs of explanation. 
+IPython Notebooks are an exceptional way to learn both Python and pandas. This book will neither assume the use of IPython Notebooks, nor teach their usage beyond the brief examples given in this section. However, the code provided with the book are IPython Notebook files, so demonstrating how to run the server provided by Anaconda is worth a few paragraphs of explanation.
 
-The IPython Notebook server can be started with the following shell command (the same on all platforms): 
+The IPython Notebook server can be started with the following shell command (the same on all platforms):
 
 ```
 ipython notebook
 ```
 
-You will get a small amount of output on the console: 
+You will get a small amount of output on the console:
 
 ```
 elheydt/.ipython/profile_default'
@@ -1624,41 +1582,29 @@ this server and shut down all kernels (twice to skip
 confirmation).
 ```
 
-Then, a browser window that looks similar to the following screenshot will open: 
+Then, a browser window that looks similar to the following screenshot will open:
 
+The default notebook shows the contents of the folder where the command was executed. Clicking on the **New Notebook** button will present you with a notebook where you can start entering your pandas code. The following screenshot shows the IPython Notebook where we will enter the pandas code:
 
+Within the input box, enter the three lines of code from the earlier example and then press _Shift_ + _Enter_ to run the code in that block. The server will execute the code and return the output to the browser:
 
-The default notebook shows the contents of the folder where the command was executed. Clicking on the **New Notebook** button will present you with a notebook where you can start entering your pandas code. The following screenshot shows the IPython Notebook where we will enter the pandas code: 
+Additionally, after a brief period of time, the code will be saved automatically (you can save explicitly by clicking on the Save button). Returning to the home page, you will see the notebook created in the folder.
 
-
-
-Within the input box, enter the three lines of code from the earlier example and then press _Shift_ + _Enter_ to run the code in that block. The server will execute the code and return the output to the browser: 
-
-
-
-Additionally, after a brief period of time, the code will be saved automatically (you can save explicitly by clicking on the Save button). Returning to the home page, you will see the notebook created in the folder. 
-
-
-
-Clicking on the notebook's link will take you back to the notebook for additional editing and execution. 
+Clicking on the notebook's link will take you back to the notebook for additional editing and execution.
 
 # **Installing and running IPython Notebooks** 
 
-The examples for the book consist of an IPython Notebook per chapter, as well as some data files used by various code examples. To install and run the notebooks, simply unzip the notebook files in a directory and then start the IPython Notebook server from that directory. This should present you with something similar to the following screenshot: 
+The examples for the book consist of an IPython Notebook per chapter, as well as some data files used by various code examples. To install and run the notebooks, simply unzip the notebook files in a directory and then start the IPython Notebook server from that directory. This should present you with something similar to the following screenshot:
 
+To view the samples for a chapter, click on the link for that chapter. The following screenshot shows the examples for <u>Chapter 1,</u> _A Tour of pandas_ :
 
+I'll leave exploring the IPython Notebook functionality in more detail to you. If you are reading this book and are interested in pandas, I believe you will find IPython Notebooks fascinating.
 
-To view the samples for a chapter, click on the link for that chapter. The following screenshot shows the examples for <u>Chapter 1,</u> _A Tour of pandas_ : 
+To get more examples on IPython Notebooks, you can check out the following resources:
 
+There are examples on the notebook site at
 
-
-I'll leave exploring the IPython Notebook functionality in more detail to you. If you are reading this book and are interested in pandas, I believe you will find IPython Notebooks fascinating. 
-
-To get more examples on IPython Notebooks, you can check out the following resources: 
-
-There are examples on the notebook site at 
-
-<u>http://ipython.org/notebook.html</u> 
+<u>http://ipython.org/notebook.html</u>
 
 - There are several good Packt Publishing books on the subject <u>(http://ipython.org/books.html)</u> 
 
@@ -1670,33 +1616,27 @@ There are examples on the notebook site at
 
 # **Using Wakari for pandas** 
 
-Another option for learning pandas and running the examples in this book is to utilize the Wakari web-based Python Data Analysis platform. This service is freemium and it only takes a few minutes to create an account. All the examples in this book can be run with a free account. Wakari is available at <u>https://wakari.io/.</u> 
+Another option for learning pandas and running the examples in this book is to utilize the Wakari web-based Python Data Analysis platform. This service is freemium and it only takes a few minutes to create an account. All the examples in this book can be run with a free account. Wakari is available at <u>https://wakari.io/.</u>
 
+On registering for the service, you will be presented with the following web interface for managing IPython Notebooks:
 
+All of the functionality provided by the local IPython Notebook server installed by Anaconda is available, and much more—including viewing and managing remote Python terminals and the ability to select different Python distributions. At the time of writing, this was Anaconda 2.7 with pandas 0.15.1, the most recent versions of both.
 
-On registering for the service, you will be presented with the following web interface for managing IPython Notebooks: 
-
-
-
-All of the functionality provided by the local IPython Notebook server installed by Anaconda is available, and much more—including viewing and managing remote Python terminals and the ability to select different Python distributions. At the time of writing, this was Anaconda 2.7 with pandas 0.15.1, the most recent versions of both. 
-
-You can upload the workbooks and data files provided with the text to your account and run/edit them immediately, without having to go through installing Python or pandas. Additionally, the examples for the text are available publically on Wakari. The main index for the notebooks is at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u> As an example, the first chapter's examples are at <u>https://wakari.io/sharing/bundle/LearningPandas/01_A_Tour_of_pandas.</u> 
-
-
+You can upload the workbooks and data files provided with the text to your account and run/edit them immediately, without having to go through installing Python or pandas. Additionally, the examples for the text are available publically on Wakari. The main index for the notebooks is at <u>https://wakari.io/sharing/bundle/LearningPandas/LearningPandas_Index.</u> As an example, the first chapter's examples are at <u>https://wakari.io/sharing/bundle/LearningPandas/01_A_Tour_of_pandas.</u>
 
 # **Summary** 
 
-In this chapter, we discussed from where we can get pandas and how to install pandas using the Anaconda Python distribution on Windows, Mac, and Linux. We also examined how to update the pandas packages with the `conda` package manager and created a small pandas program that we can run in the IPython console. We then discussed how to run the IPython Notebook server to provide a rich web interface to develop pandas applications. We closed the chapter with a brief introduction to using the Wakari online service to build pandas applications on the Web. 
+In this chapter, we discussed from where we can get pandas and how to install pandas using the Anaconda Python distribution on Windows, Mac, and Linux. We also examined how to update the pandas packages with the `conda` package manager and created a small pandas program that we can run in the IPython console. We then discussed how to run the IPython Notebook server to provide a rich web interface to develop pandas applications. We closed the chapter with a brief introduction to using the Wakari online service to build pandas applications on the Web.
 
-In the next chapter, we will dive into using NumPy arrays, which are a fundamental core of pandas. Getting an understanding of NumPy arrays will therefore set you up well to understand pandas operations and data structures that are presented in <u>Chapter 4,</u> _The pandas Series Object_ and in the later chapters. 
+In the next chapter, we will dive into using NumPy arrays, which are a fundamental core of pandas. Getting an understanding of NumPy arrays will therefore set you up well to understand pandas operations and data structures that are presented in <u>Chapter 4,</u> _The pandas Series Object_ and in the later chapters.
 
 # **Chapter 3. NumPy for pandas** 
 
-Numerical Python (NumPy) is an open source Python library for scientific computing. NumPy provides a host of features that allow a Python programmer to work with high-performance arrays and matrices. NumPy arrays are stored more efficiently than Python lists and allow mathematical operations to be vectorized, which results in significantly higher performance than with looping constructs in Python. 
+Numerical Python (NumPy) is an open source Python library for scientific computing. NumPy provides a host of features that allow a Python programmer to work with high-performance arrays and matrices. NumPy arrays are stored more efficiently than Python lists and allow mathematical operations to be vectorized, which results in significantly higher performance than with looping constructs in Python.
 
-pandas builds upon functionality provided by NumPy. The pandas library relies heavily on the NumPy array for the implementation of the pandas `Series` and `DataFrame` objects, and shares many of its features such as being able to slice elements and perform vectorized operations. It is therefore useful to spend some time going over NumPy arrays before diving into pandas. 
+pandas builds upon functionality provided by NumPy. The pandas library relies heavily on the NumPy array for the implementation of the pandas `Series` and `DataFrame` objects, and shares many of its features such as being able to slice elements and perform vectorized operations. It is therefore useful to spend some time going over NumPy arrays before diving into pandas.
 
-In this chapter, we will cover the following topics about NumPy arrays: 
+In this chapter, we will cover the following topics about NumPy arrays:
 
 - Installing and importing NumPy 
 
@@ -1718,7 +1658,7 @@ In this chapter, we will cover the following topics about NumPy arrays:
 
 # **Installing and importing NumPy** 
 
-Since NumPy is a prerequisite for pandas, and you have already installed pandas, NumPy is ready to be used. All that is required to do to use NumPy is to import the library and so all that is required for the examples in this chapter and for most of this book is the following import command: 
+Since NumPy is a prerequisite for pandas, and you have already installed pandas, NumPy is ready to be used. All that is required to do to use NumPy is to import the library and so all that is required for the examples in this chapter and for most of this book is the following import command:
 
 ```
 In [1]:
@@ -1733,19 +1673,19 @@ In [1]:
    import numpy as np
 ```
 
-This makes the top-level functions of NumPy available in the `np` namespace. This is a common practice when using NumPy, and this book will follow this convention for accessing NumPy functionality. 
+This makes the top-level functions of NumPy available in the `np` namespace. This is a common practice when using NumPy, and this book will follow this convention for accessing NumPy functionality.
 
 # **Benefits and characteristics of NumPy arrays** 
 
-NumPy arrays have several advantages over Python lists. These benefits are focused on providing high-performance manipulation of sequences of homogenous data items. Several of these benefits are as follows: 
+NumPy arrays have several advantages over Python lists. These benefits are focused on providing high-performance manipulation of sequences of homogenous data items. Several of these benefits are as follows:
 
 - Contiguous allocation in memory Vectorized operations Boolean selection Sliceability 
 
-Contiguous allocation in memory provides benefits in performance by ensuring that all elements of an array are directly accessible at a fixed offset from the beginning of the array. This also is a computer organization technique that facilities providing vectorized operations across arrays. 
+Contiguous allocation in memory provides benefits in performance by ensuring that all elements of an array are directly accessible at a fixed offset from the beginning of the array. This also is a computer organization technique that facilities providing vectorized operations across arrays.
 
-Vectorized operation is a technique of applying an operation across all or a subset of elements without explicit coding of loops. Vectorized operations are often orders of magnitude more efficient in execution as compared to loops implemented in a higher-level language. They are also excellent for reducing the amount of code that needs to be written, which also helps in minimizing coding errors. 
+Vectorized operation is a technique of applying an operation across all or a subset of elements without explicit coding of loops. Vectorized operations are often orders of magnitude more efficient in execution as compared to loops implemented in a higher-level language. They are also excellent for reducing the amount of code that needs to be written, which also helps in minimizing coding errors.
 
-To demonstrate both of these benefits, the following example calculates the time required by the `for` loop in Python to square a list consisting of 100,000 sequential integers: 
+To demonstrate both of these benefits, the following example calculates the time required by the `for` loop in Python to square a list consisting of 100,000 sequential integers:
 
 ```
 In [2]:
@@ -1772,7 +1712,7 @@ In [2]:
    100 loops, best of 3: 14 ms per loop
 ```
 
-Using NumPy and vectorized arrays, the example can be rewritten as follows. 
+Using NumPy and vectorized arrays, the example can be rewritten as follows.
 
 ```
 In [3]:
@@ -1786,17 +1726,17 @@ In [3]:
    10000 loops, best of 3: 77.4 μs per loop
 ```
 
-Vectorization of the operation made our code simpler and also performed roughly 158 times faster! 
+Vectorization of the operation made our code simpler and also performed roughly 158 times faster!
 
-This brings up something to keep in mind when working with data in NumPy and pandas: if you find yourself coding a loop to iterate across elements of a NumPy array, or a pandas `Series` or `DataFrame` , then you are, as they say, **doing it wrong** . Always keep in mind to write code that makes use of vectorization. It is almost always faster, as well as more elegantly expressed in a vectorized manner. 
+This brings up something to keep in mind when working with data in NumPy and pandas: if you find yourself coding a loop to iterate across elements of a NumPy array, or a pandas `Series` or `DataFrame` , then you are, as they say, **doing it wrong** . Always keep in mind to write code that makes use of vectorization. It is almost always faster, as well as more elegantly expressed in a vectorized manner.
 
-**Boolean selection** is a common pattern that we will see with NumPy and pandas where selection of elements from an array is based on specific logical criteria. This consists of calculating an array of Boolean values where `True` represents that the given item should be in the result set. This array can then be used to efficiently select the matching items. 
+**Boolean selection** is a common pattern that we will see with NumPy and pandas where selection of elements from an array is based on specific logical criteria. This consists of calculating an array of Boolean values where `True` represents that the given item should be in the result set. This array can then be used to efficiently select the matching items.
 
-**Sliceability** provides the programmer with a very efficient means to specify multiple elements in an array using a convenient notation. Slicing becomes invaluable when working with data in an ad hoc manner. The slicing process also benefits from being able to take advantage of the contiguous memory allocation of arrays to optimize access to series of items. 
+**Sliceability** provides the programmer with a very efficient means to specify multiple elements in an array using a convenient notation. Slicing becomes invaluable when working with data in an ad hoc manner. The slicing process also benefits from being able to take advantage of the contiguous memory allocation of arrays to optimize access to series of items.
 
 # **Creating NumPy arrays and performing basic array operations** 
 
-A NumPy array can be created using multiple techniques. The following code creates a new NumPy array object from a Python list: 
+A NumPy array can be created using multiple techniques. The following code creates a new NumPy array object from a Python list:
 
 ```
 In [4]:
@@ -1832,9 +1772,9 @@ Out[6]:
    5
 ```
 
-In NumPy, n-dimensional arrays are denoted as `ndarray` , and this one contains five elements, as is reported by the `np.size()` function. 
+In NumPy, n-dimensional arrays are denoted as `ndarray` , and this one contains five elements, as is reported by the `np.size()` function.
 
-NumPy arrays must have all of their elements of the same type. If you specify different types in the list, NumPy will try to coerce all the items to the same type. The following code example demonstrates using integer and floating-point values to initialize the array, which are then converted to floating-point numbers by NumPy: 
+NumPy arrays must have all of their elements of the same type. If you specify different types in the list, NumPy will try to coerce all the items to the same type. The following code example demonstrates using integer and floating-point values to initialize the array, which are then converted to floating-point numbers by NumPy:
 
 ```
 In [7]:
@@ -1861,9 +1801,9 @@ In [8]:
    dtype('float64')
 ```
 
-The types of the items in an array can be checked with the `dtype` property, which in this example shows that NumPy converted all the items to `float64` . 
+The types of the items in an array can be checked with the `dtype` property, which in this example shows that NumPy converted all the items to `float64` .
 
-An array of a specific size can be created in multiple ways. The following code uses a single item Python list to initialize an array of `10` items: 
+An array of a specific size can be created in multiple ways. The following code uses a single item Python list to initialize an array of `10` items:
 
 ```
 In [9]:
@@ -1881,7 +1821,7 @@ In [9]:
    array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 ```
 
-An array can also be initialized with sequential values using the Python `range()` function. The following code initializes with ten items from `0` through `9` : 
+An array can also be initialized with sequential values using the Python `range()` function. The following code initializes with ten items from `0` through `9` :
 
 ```
 In [10]:
@@ -1895,7 +1835,7 @@ In [10]:
    array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
-Since the last two examples use a Python list, this is not the most efficient manner to allocate the array. To efficiently create an array of a specific size that is initialized with zeros, use the `np.zeros()` function as shown in the following code: 
+Since the last two examples use a Python list, this is not the most efficient manner to allocate the array. To efficiently create an array of a specific size that is initialized with zeros, use the `np.zeros()` function as shown in the following code:
 
 ```
 In [11]:
@@ -1914,7 +1854,7 @@ Out[11]:
    array([ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.])
 ```
 
-The default is to create floating-point numbers. This can be changed to integers using the `dtype` parameter, as shown in the following example: 
+The default is to create floating-point numbers. This can be changed to integers using the `dtype` parameter, as shown in the following example:
 
 ```
 In [12]:
@@ -1927,7 +1867,7 @@ Out[12]:
    array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
 ```
 
-NumPy provides the `np.arange()` function to create a NumPy array consisting of sequential values from a specified start value up to, but not including, the specified end value: 
+NumPy provides the `np.arange()` function to create a NumPy array consisting of sequential values from a specified start value up to, but not including, the specified end value:
 
 ```
 In [13]:
@@ -1940,7 +1880,7 @@ Out[13]:
    array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 ```
 
-A `step` value can also be provided to `np.arange()` . The following example demonstrates the generation of even numbers between `0` and `10` , and also another allocation of an array of decreasing values by specifying a step of `-1` : 
+A `step` value can also be provided to `np.arange()` . The following example demonstrates the generation of even numbers between `0` and `10` , and also another allocation of an array of decreasing values by specifying a step of `-1` :
 
 ```
 In [14]:
@@ -1958,7 +1898,7 @@ Out[15]:
    array([10,  9,  8,  7,  6,  5,  4,  3,  2,  1])
 ```
 
-The `np.linspace()` function is similar to `np.arange()` , but generates an array of a specific number of items between the specified start and stop values: 
+The `np.linspace()` function is similar to `np.arange()` , but generates an array of a specific number of items between the specified start and stop values:
 
 ```
 In [16]:
@@ -1974,9 +1914,9 @@ Out[16]:
 
 ### **Note** 
 
-Note that the datatype of the array by default is float, and that the start and end values are inclusive. 
+Note that the datatype of the array by default is float, and that the start and end values are inclusive.
 
-NumPy arrays will vectorize many mathematical operators. The following example creates a 10-element array and then multiplies each element by a constant: 
+NumPy arrays will vectorize many mathematical operators. The following example creates a 10-element array and then multiplies each element by a constant:
 
 ```
 In [17]:
@@ -1990,7 +1930,7 @@ Out[17]:
    array([ 0,  2,  4,  6,  8, 10, 12, 14, 16, 18])
 ```
 
-It is also possible to apply a mathematical operator across two arrays: 
+It is also possible to apply a mathematical operator across two arrays:
 
 ```
 In [18]:
@@ -2004,9 +1944,9 @@ Out[18]:
    array([10, 12, 14, 16, 18, 20, 22, 24, 26, 28])
 ```
 
-NumPy arrays are n-dimensional, but for purposes of pandas, we will be most interested in one- and two-dimensional arrays. This is because the pandas `Series` and `DataFrame` objects operate similarly to one-and twodimensional arrays, respectively. 
+NumPy arrays are n-dimensional, but for purposes of pandas, we will be most interested in one- and two-dimensional arrays. This is because the pandas `Series` and `DataFrame` objects operate similarly to one-and twodimensional arrays, respectively.
 
-To create a two-dimensional NumPy array, you can pass in a list of lists as shown in the following example: 
+To create a two-dimensional NumPy array, you can pass in a list of lists as shown in the following example:
 
 ```
 In [19]:
@@ -2020,7 +1960,7 @@ Out[19]:
           [3, 4]])
 ```
 
-A more convenient and efficient means is to use the NumPy array's `.reshape()` method to reorganize a one-dimensional array into two dimensions. 
+A more convenient and efficient means is to use the NumPy array's `.reshape()` method to reorganize a one-dimensional array into two dimensions.
 
 ```
 In [20]:
@@ -2038,7 +1978,7 @@ Out[20]:
           [16, 17, 18, 19]])
 ```
 
-As we have seen, the number of items in an array can be determined by the `np.size()` function. As the next example demonstrates, for a twodimensional array, this will return the product of all of the dimensions of the array, which will be equivalent to the total number of items it contains: 
+As we have seen, the number of items in an array can be determined by the `np.size()` function. As the next example demonstrates, for a twodimensional array, this will return the product of all of the dimensions of the array, which will be equivalent to the total number of items it contains:
 
 ```
 In [21]:
@@ -2051,7 +1991,7 @@ Out[21]:
    20
 ```
 
-To determine the number of rows in a two-dimensional array, we can pass 0 as another parameter: 
+To determine the number of rows in a two-dimensional array, we can pass 0 as another parameter:
 
 ```
 In [22]:
@@ -2064,7 +2004,7 @@ Out[22]:
    5
 ```
 
-To determine the number of columns in a two-dimensional array, we can pass the value `1` : 
+To determine the number of columns in a two-dimensional array, we can pass the value `1` :
 
 ```
 In [23]:
@@ -2079,7 +2019,7 @@ Out[23]:
 
 # **Selecting array elements** 
 
-NumPy arrays can have their elements accessed via the `[]` operator. There are many variants of this operator that we will see throughout this book, but the basic access to array elements is by passing the zero-based offset of the desired element: 
+NumPy arrays can have their elements accessed via the `[]` operator. There are many variants of this operator that we will see throughout this book, but the basic access to array elements is by passing the zero-based offset of the desired element:
 
 ```
 In [24]:
@@ -2092,7 +2032,7 @@ Out[24]:
    (0, 2)
 ```
 
-Elements in a two-dimensional array can be used by making use of two values separated by a comma, with the row first and column second: 
+Elements in a two-dimensional array can be used by making use of two values separated by a comma, with the row first and column second:
 
 ```
 In [25]:
@@ -2102,7 +2042,7 @@ Out[25]:
    6
 ```
 
-It is possible to retrieve an entire row of a two-dimensional array using just a single value representing the row and omitting the column component: 
+It is possible to retrieve an entire row of a two-dimensional array using just a single value representing the row and omitting the column component:
 
 ```
 In [26]:
@@ -2115,7 +2055,7 @@ Out[26]:
 array([4, 5, 6, 7])
 ```
 
-It is possible to retrieve an entire column of a two-dimensional array using the `:` symbol for the row (just omitting the row value is a syntax error): 
+It is possible to retrieve an entire column of a two-dimensional array using the `:` symbol for the row (just omitting the row value is a syntax error):
 
 ```
 In [27]:
@@ -2130,7 +2070,7 @@ Out[27]:
 
 # **Logical operations on arrays** 
 
-Logical operations can be applied to arrays to test the array values against specific criteria. The following code tests if the values of the array are less than `2` : 
+Logical operations can be applied to arrays to test the array values against specific criteria. The following code tests if the values of the array are less than `2` :
 
 ```
 In [28]:
@@ -2147,9 +2087,9 @@ Out[28]:
    array([ True,  True, False, False, False], dtype=bool)
 ```
 
-Note that this has resulted in an array of Boolean values. The value of each item in the array is the result of the logical operation on the respective array element. 
+Note that this has resulted in an array of Boolean values. The value of each item in the array is the result of the logical operation on the respective array element.
 
-It is worth pointing out that this does not work with more complicated expressions, such as this: 
+It is worth pointing out that this does not work with more complicated expressions, such as this:
 
 ```
 In [29]:
@@ -2160,7 +2100,7 @@ In [29]:
    # print (a<2 or a>3)
 ```
 
-This can be made to work by using parentheses around the logical conditions and using `|` instead of `or` : 
+This can be made to work by using parentheses around the logical conditions and using `|` instead of `or` :
 
 ```
 In [30]:
@@ -2176,7 +2116,7 @@ Out[30]:
    array([ True,  True, False, False,  True], dtype=bool)
 ```
 
-NumPy provides the `np.vectorize()` function, which applies an expression or function to an array in a vectorized manner. The following code demonstrates the use of `np.vectorize()` to apply a function named `exp()` to each item in the array: 
+NumPy provides the `np.vectorize()` function, which applies an expression or function to an array in a vectorized manner. The following code demonstrates the use of `np.vectorize()` to apply a function named `exp()` to each item in the array:
 
 ```
 In [31]:
@@ -2196,11 +2136,11 @@ In [31]:
    np.vectorize(exp)(a)
 ```
 
-**`Out[31]: array([ True,  True,  True, False,  True], dtype=bool)` Note** 
+**`Out[31]: array([ True,  True,  True, False,  True], dtype=bool)` Note**
 
-Note that only the function representing the expression is passed to `np.vectorize()` . The array is then passed as a parameter to the object that results from that operation. 
+Note that only the function representing the expression is passed to `np.vectorize()` . The array is then passed as a parameter to the object that results from that operation.
 
-A specific use of this type of an array of Boolean values is to select the elements from an array where the value in the Boolean array is `True` . This is referred to as **Boolean selection** and can be performed by passing the Boolean value array to the `[]` operator of the array from which the values are to be selected. 
+A specific use of this type of an array of Boolean values is to select the elements from an array where the value in the Boolean array is `True` . This is referred to as **Boolean selection** and can be performed by passing the Boolean value array to the `[]` operator of the array from which the values are to be selected.
 
 ##### **`In [32]:`** 
 
@@ -2218,7 +2158,7 @@ Out[32]:
    array([0, 1, 2])
 ```
 
-A very good feature of a Boolean array is the ability to count the number of the `True` values using the `np.sum()` function. The following code computes that there are three elements in the array that are less than the value `3` : 
+A very good feature of a Boolean array is the ability to count the number of the `True` values using the `np.sum()` function. The following code computes that there are three elements in the array that are less than the value `3` :
 
 ##### **`In [33]:`** 
 
@@ -2233,7 +2173,7 @@ Out[33]:
    3
 ```
 
-Arrays can also be compared to other arrays: 
+Arrays can also be compared to other arrays:
 
 ```
 In [34]:
@@ -2248,7 +2188,7 @@ Out[34]:
    array([ True,  True,  True, False, False], dtype=bool)
 ```
 
-This also works across multi-dimensional arrays: 
+This also works across multi-dimensional arrays:
 
 ```
 In [35]:
@@ -2267,11 +2207,11 @@ Out[35]:
 
 # **Slicing arrays** 
 
-NumPy arrays support a feature called slicing. Slicing retrieves zero or more items from an array, and the items also don't need to be sequential, whereas the normal array element operator `[]` can only retrieve one value. This is very convenient as it provides an ability to efficiently select multiple items from an array without the need to implement Python loops. 
+NumPy arrays support a feature called slicing. Slicing retrieves zero or more items from an array, and the items also don't need to be sequential, whereas the normal array element operator `[]` can only retrieve one value. This is very convenient as it provides an ability to efficiently select multiple items from an array without the need to implement Python loops.
 
-Slicing overloads the normal array `[]` operator to accept what is referred to as a slice object. A slice object is created using a syntax of `start:end:step` . Each component of the slice is optional and, as we will see, this provides convenient means to select entire rows or columns by omitting the component of the slice. 
+Slicing overloads the normal array `[]` operator to accept what is referred to as a slice object. A slice object is created using a syntax of `start:end:step` . Each component of the slice is optional and, as we will see, this provides convenient means to select entire rows or columns by omitting the component of the slice.
 
-To begin with the demonstrations, the following code creates a ten-element array and selects items in zero-based positions from `3` up to, but not including, position `8` : 
+To begin with the demonstrations, the following code creates a ten-element array and selects items in zero-based positions from `3` up to, but not including, position `8` :
 
 ```
 In [36]:
@@ -2286,7 +2226,7 @@ Out[36]:
    array([4, 5, 6, 7, 8])
 ```
 
-This example has omitted specifying the `step` value, which uses the default value of `1` . To demonstrate using other values for `step` , the following code selects every other element in the array: 
+This example has omitted specifying the `step` value, which uses the default value of `1` . To demonstrate using other values for `step` , the following code selects every other element in the array:
 
 ```
 In [37]:
@@ -2299,9 +2239,9 @@ Out[37]:
    array([1, 3, 5, 7, 9])
 ```
 
-By omitting the `start` and `end` , NumPy chooses `0` through the length of the array as those values and then retrieves every other item. Changing this 
+By omitting the `start` and `end` , NumPy chooses `0` through the length of the array as those values and then retrieves every other item. Changing this
 
-slightly, a negative `step` value of `-1` will conveniently reverse the array: 
+slightly, a negative `step` value of `-1` will conveniently reverse the array:
 
 ```
 In [38]:
@@ -2317,7 +2257,7 @@ Out[38]:
    array([9, 8, 7, 6, 5, 4, 3, 2, 1])
 ```
 
-When using a negative `step` value, it is important that the `start` value is greater than the `end` value. Also, note that the following example is not equivalent to the preceding example: 
+When using a negative `step` value, it is important that the `start` value is greater than the `end` value. Also, note that the following example is not equivalent to the preceding example:
 
 ```
 In [39]:
@@ -2338,9 +2278,9 @@ Out[39]:
    array([9, 8, 7, 6, 5, 4, 3, 2])
 ```
 
-In this scenario, the `0` value in the array was not retrieved. This is because the `end` value is not inclusive, so when iterating by `-1` from `9` , NumPy stops at `0` before returning the value at that position in the array. 
+In this scenario, the `0` value in the array was not retrieved. This is because the `end` value is not inclusive, so when iterating by `-1` from `9` , NumPy stops at `0` before returning the value at that position in the array.
 
-To select all the items starting at a position until the end of the array, simply specify the `start` position and leave `end` unspecified. The following code selects items from position `5` through the end of the array: 
+To select all the items starting at a position until the end of the array, simply specify the `start` position and leave `end` unspecified. The following code selects items from position `5` through the end of the array:
 
 ```
 In [40]:
@@ -2353,7 +2293,7 @@ Out[40]:
    array([6, 7, 8, 9])
 ```
 
-To select the first `n` element in an array, simply leave the `start` position unspecified and set `end` to be the value of `n` . The following selects the first five items in the array: 
+To select the first `n` element in an array, simply leave the `start` position unspecified and set `end` to be the value of `n` . The following selects the first five items in the array:
 
 ```
 In [41]:
@@ -2366,7 +2306,7 @@ Out[41]:
    array([1, 2, 3, 4, 5])
 ```
 
-Two-dimensional arrays can also be sliced. We have already seen how to select a specific element from a two-dimensional array, and how to select a specific row. The column selection example that we saw actually used the slice notation. To revisit that, the following code selects items from the second column of a matrix: 
+Two-dimensional arrays can also be sliced. We have already seen how to select a specific element from a two-dimensional array, and how to select a specific row. The column selection example that we saw actually used the slice notation. To revisit that, the following code selects items from the second column of a matrix:
 
 ```
 In [42]:
@@ -2381,7 +2321,7 @@ Out[42]:
    array([ 1,  5,  9, 13, 17])
 ```
 
-To the left of the comma is a slice object for the rows, and to the right is one for the columns. The following code selects columns in position `2` through `3` of the matrix: 
+To the left of the comma is a slice object for the rows, and to the right is one for the columns. The following code selects columns in position `2` through `3` of the matrix:
 
 ```
 In [43]:
@@ -2399,7 +2339,7 @@ Out[43]:
        [17, 18]])
 ```
 
-Rows can also be sliced, and the `step` value is valid for both rows and columns. The following code returns rows in position `3` and `4` : 
+Rows can also be sliced, and the `step` value is valid for both rows and columns. The following code returns rows in position `3` and `4` :
 
 ```
 In [44]:
@@ -2410,7 +2350,7 @@ Out[44]:
           [16, 17, 18, 19]])
 ```
 
-Both columns and rows can be sliced at the same time: 
+Both columns and rows can be sliced at the same time:
 
 ```
 In [45]:
@@ -2424,7 +2364,7 @@ Out[45]:
           [17, 18]])
 ```
 
-It is also possible to select specific rows or columns by passing a Python list as an element of the slice. The following code explicitly selects by position the first, third, and fourth rows: 
+It is also possible to select specific rows or columns by passing a Python list as an element of the slice. The following code explicitly selects by position the first, third, and fourth rows:
 
 ```
 In [46]:
@@ -2445,7 +2385,7 @@ Out[46]:
 
 # **Reshaping arrays** 
 
-NumPy makes it simple to change the shape of your arrays. Earlier in this chapter, we briefly saw the `.reshape()` method of the NumPy array and how it can be used to reshape a one-dimensional array into a matrix. It is also possible to convert from a matrix back to an array. The following example demonstrates this by creating a nine-element array, reshaping it into a _3 x 3_ matrix, and then back to a _1 x 9_ array: 
+NumPy makes it simple to change the shape of your arrays. Earlier in this chapter, we briefly saw the `.reshape()` method of the NumPy array and how it can be used to reshape a one-dimensional array into a matrix. It is also possible to convert from a matrix back to an array. The following example demonstrates this by creating a nine-element array, reshaping it into a _3 x 3_ matrix, and then back to a _1 x 9_ array:
 
 ```
 In [47]:
@@ -2477,9 +2417,9 @@ Out[48]:
 
 ### **Note** 
 
-Note that `.reshape()` returns a new array with a different shape. The original array's shape remains unchanged. 
+Note that `.reshape()` returns a new array with a different shape. The original array's shape remains unchanged.
 
-The `.reshape()` method is not the only means of reorganizing data. Another means is the `.ravel()` method that will flatten a matrix to one dimension as shown in the following example: 
+The `.reshape()` method is not the only means of reorganizing data. Another means is the `.ravel()` method that will flatten a matrix to one dimension as shown in the following example:
 
 ```
 In [49]:
@@ -2507,9 +2447,9 @@ Out[50]:
           [6, 7, 8]])
 ```
 
-The preceding code has performed the same operation as using the previous `.reshape()` example, but without the need to pass the number of items in the matrix. Again, the shape of the original matrix is unchanged. 
+The preceding code has performed the same operation as using the previous `.reshape()` example, but without the need to pass the number of items in the matrix. Again, the shape of the original matrix is unchanged.
 
-Even though `.reshape()` and `.ravel()` do not change the shape of the original array or matrix, they do actually return a one-dimensional view into the specified array or matrix. If you change an element in this view, the value in the original array or matrix is changed. The following example demonstrates this ability to change items of the original matrix through the view: 
+Even though `.reshape()` and `.ravel()` do not change the shape of the original array or matrix, they do actually return a one-dimensional view into the specified array or matrix. If you change an element in this view, the value in the original array or matrix is changed. The following example demonstrates this ability to change items of the original matrix through the view:
 
 ```
 In [51]:
@@ -2534,7 +2474,7 @@ Out[51]:
           [   6,    7,    8]])
 ```
 
-The `.flatten()` method functions similarly to `.ravel()` but instead returns a new array with copied data instead of a view. Changes to the result do not change the original matrix: 
+The `.flatten()` method functions similarly to `.ravel()` but instead returns a new array with copied data instead of a view. Changes to the result do not change the original matrix:
 
 ```
 In [52]:
@@ -2568,7 +2508,7 @@ Out[53]:
           [6, 7, 8]])
 ```
 
-The `.shape` property returns a tuple representing the shape of the array: 
+The `.shape` property returns a tuple representing the shape of the array:
 
 ```
 In [54]:
@@ -2583,7 +2523,7 @@ Out[54]:
    (9,)
 ```
 
-The property can also be assigned a tuple, which will force the array to reshape itself as specified: 
+The property can also be assigned a tuple, which will force the array to reshape itself as specified:
 
 ```
 In [55]:
@@ -2603,7 +2543,7 @@ Out[55]:
           [   6,    7,    8]])
 ```
 
-In linear algebra, it is common to transpose a matrix. This can be performed with the `.transpose()` method, as shown here: 
+In linear algebra, it is common to transpose a matrix. This can be performed with the `.transpose()` method, as shown here:
 
 ```
 In [56]:
@@ -2618,7 +2558,7 @@ Out[56]:
           [   2,    5,    8]])
 ```
 
-Alternatively, this can also be performed with the `.T` property: 
+Alternatively, this can also be performed with the `.T` property:
 
 ```
 In [57]:
@@ -2636,7 +2576,7 @@ Out[57]:
           [   2,    5,    8]])
 ```
 
-The `.resize()` method functions similarly to the `.reshape()` method, except that while reshaping returns a new array with data copied into it, `.resize()` performs an in-place reshaping of the array.: 
+The `.resize()` method functions similarly to the `.reshape()` method, except that while reshaping returns a new array with data copied into it, `.resize()` performs an in-place reshaping of the array.:
 
 ```
 In [58]:
@@ -2657,7 +2597,7 @@ Out[58]:
 
 # **Combining arrays** 
 
-Arrays can be combined in various ways. This process in NumPy is referred to as stacking. Stacking can take various forms, including horizontal, vertical, and depth-wise stacking. To demonstrate this, we will use the following two arrays ( `a` and `b` ): 
+Arrays can be combined in various ways. This process in NumPy is referred to as stacking. Stacking can take various forms, including horizontal, vertical, and depth-wise stacking. To demonstrate this, we will use the following two arrays ( `a` and `b` ):
 
 ```
 In [59]:
@@ -2680,7 +2620,7 @@ Out[60]:
           [70, 80, 90]])
 ```
 
-Horizontal stacking combines two arrays in a manner where the columns of the second array are placed to the right of those in the first array. The function actually stacks the two items provided in a two-element tuple. The result is a new array with data copied from the two that are specified: 
+Horizontal stacking combines two arrays in a manner where the columns of the second array are placed to the right of those in the first array. The function actually stacks the two items provided in a two-element tuple. The result is a new array with data copied from the two that are specified:
 
 ```
 In [61]:
@@ -2696,7 +2636,7 @@ Out[61]:
           [ 6,  7,  8, 70, 80, 90]])
 ```
 
-This functionally is equivalent to using the `np.concatenate()` function while specifying `axis = 1` : 
+This functionally is equivalent to using the `np.concatenate()` function while specifying `axis = 1` :
 
 ```
 In [62]:
@@ -2711,7 +2651,7 @@ Out[62]:
           [ 6,  7,  8, 70, 80, 90]])
 ```
 
-Vertical stacking returns a new array with the contents of the second array as appended rows of the first array: 
+Vertical stacking returns a new array with the contents of the second array as appended rows of the first array:
 
 ```
 In [63]:
@@ -2729,7 +2669,7 @@ array([[ 0,  1,  2],
        [70, 80, 90]])
 ```
 
-Like `np.hstack()` , this is equivalent to using the concatenate function, except specifying `axis=0` : 
+Like `np.hstack()` , this is equivalent to using the concatenate function, except specifying `axis=0` :
 
 ```
 In [64]:
@@ -2747,7 +2687,7 @@ Out[64]:
           [70, 80, 90]])
 ```
 
-Depth stacking takes a list of arrays and arranges them in order along an additional axis referred to as the depth: 
+Depth stacking takes a list of arrays and arranges them in order along an additional axis referred to as the depth:
 
 ```
 In [65]:
@@ -2771,7 +2711,7 @@ Out[65]:
            [ 8, 90]]])
 ```
 
-Column stacking performs a horizontal stack of two one-dimensional arrays, making each array a column in the resulting array: 
+Column stacking performs a horizontal stack of two one-dimensional arrays, making each array a column in the resulting array:
 
 ```
 In [66]:
@@ -2800,7 +2740,7 @@ Out[68]:
           [ 4, 50]])
 ```
 
-Row stacking returns a new array where each one-dimensional array forms one of the rows of the new array: 
+Row stacking returns a new array where each one-dimensional array forms one of the rows of the new array:
 
 ```
 In [69]:
@@ -2816,13 +2756,13 @@ Out[69]:
 
 # **Splitting arrays** 
 
-Arrays can also be split into multiple arrays along the horizontal, vertical, and depth axes using the `np.hsplit()` , `np.vsplit()` , and `np.dsplit()` functions. We will only look at the `np.hsplit()` function as the others work similarly. 
+Arrays can also be split into multiple arrays along the horizontal, vertical, and depth axes using the `np.hsplit()` , `np.vsplit()` , and `np.dsplit()` functions. We will only look at the `np.hsplit()` function as the others work similarly.
 
-The `np.hsplit()` function takes the array to split as a parameter, and either a scalar value to specify the number of arrays to be returned, or a list of column indexes to split the array upon. 
+The `np.hsplit()` function takes the array to split as a parameter, and either a scalar value to specify the number of arrays to be returned, or a list of column indexes to split the array upon.
 
-If splitting into a number of arrays, each array returned will have the same count of columns. The source array must have a number of columns that is a multiple of the specified value. 
+If splitting into a number of arrays, each array returned will have the same count of columns. The source array must have a number of columns that is a multiple of the specified value.
 
-To demonstrate this, we will use the following array with four columns and three rows: 
+To demonstrate this, we will use the following array with four columns and three rows:
 
 ```
 In [70]:
@@ -2838,7 +2778,7 @@ array([[ 0,  1,  2,  3],
        [ 8,  9, 10, 11]])
 ```
 
-We can split this into four arrays, each representing the values in a specific column: 
+We can split this into four arrays, each representing the values in a specific column:
 
 ```
 In [71]:
@@ -2864,16 +2804,16 @@ Out[71]:
 
 ### **Note** 
 
-The result is actually an array containing the four specified arrays. Using a value of `2` returns two matrices with two columns each: 
+The result is actually an array containing the four specified arrays. Using a value of `2` returns two matrices with two columns each:
 
-**`In [72]: # horiz split into two array columns np.hsplit(a, 2) Out[72]: [array([[0, 1], [4, 5], [8, 9]]), array([[ 2,  3], [ 6,  7], [10, 11]])]`** Also, the following code splits an array along specific columns: **`In [73]: # split at columns 1 and 3 np.hsplit(a, [1, 3]) Out[73]: [array([[0], [4], [8]]), array([[ 1,  2], [ 5,  6], [ 9, 10]]), array([[ 3], [ 7], [11]])]`** The `np.split()` function performs an identical task when using `axis=1` : **`In [74]: # along the rows np.split(a, 2, axis = 1) Out[74]: [array([[0, 1], [4, 5], [8, 9]]), array([[ 2,  3],`** 
+**`In [72]: # horiz split into two array columns np.hsplit(a, 2) Out[72]: [array([[0, 1], [4, 5], [8, 9]]), array([[ 2,  3], [ 6,  7], [10, 11]])]`** Also, the following code splits an array along specific columns: **`In [73]: # split at columns 1 and 3 np.hsplit(a, [1, 3]) Out[73]: [array([[0], [4], [8]]), array([[ 1,  2], [ 5,  6], [ 9, 10]]), array([[ 3], [ 7], [11]])]`** The `np.split()` function performs an identical task when using `axis=1` : **`In [74]: # along the rows np.split(a, 2, axis = 1) Out[74]: [array([[0, 1], [4, 5], [8, 9]]), array([[ 2,  3],`**
 
 ```
            [ 6,  7],
            [10, 11]])]
 ```
 
-Vertical splitting works similarly to horizontal splitting, except against the vertical axis, which can be seen here: 
+Vertical splitting works similarly to horizontal splitting, except against the vertical axis, which can be seen here:
 
 ```
 In [75]:
@@ -2890,7 +2830,7 @@ Out[75]:
           [ 9, 10, 11]])
 ```
 
-We can split this by `4` and get the four arrays representing the rows: 
+We can split this by `4` and get the four arrays representing the rows:
 
 ```
 In [76]:
@@ -2906,7 +2846,7 @@ Out[76]:
     array([[ 9, 10, 11]])]
 ```
 
-Alternately, splitting by `2` , retrieving two arrays of two rows each: 
+Alternately, splitting by `2` , retrieving two arrays of two rows each:
 
 ```
 In [77]:
@@ -2921,7 +2861,7 @@ Out[77]:
            [ 9, 10, 11]])]
 ```
 
-Splitting can also be performed on specific rows: 
+Splitting can also be performed on specific rows:
 
 ```
 In [78]:
@@ -2940,7 +2880,7 @@ Out[78]:
            [6, 7, 8]]), array([[ 9, 10, 11]])]
 ```
 
-Likewise, the split command does the same when specifying `axis=0` : 
+Likewise, the split command does the same when specifying `axis=0` :
 
 ```
 In [79]:
@@ -2955,7 +2895,7 @@ Out[79]:
            [ 9, 10, 11]])]
 ```
 
-Depth splitting splits three-dimensional arrays. To demonstrate this, we will use the following three-dimensional array: 
+Depth splitting splits three-dimensional arrays. To demonstrate this, we will use the following three-dimensional array:
 
 ```
 In [80]:
@@ -2977,7 +2917,7 @@ Out[80]:
            [24, 25, 26]]])
 ```
 
-This array can be depth split by `3` : 
+This array can be depth split by `3` :
 
 ```
 In [81]:
@@ -3016,13 +2956,13 @@ Out[81]:
 
 # **Useful numerical methods of NumPy arrays** 
 
-NumPy arrays have many functions that can be applied to the arrays. Many of these are statistical functions that you can use for data analysis. The following example describes several of the useful functions. 
+NumPy arrays have many functions that can be applied to the arrays. Many of these are statistical functions that you can use for data analysis. The following example describes several of the useful functions.
 
 ### **Note** 
 
-Note that most of these functions work on multi-dimensional arrays, and the axis to which the function is applied to is specified by the `axis` parameter. We will examine this for the `.min()` and `.max()` functions, but note that the `axis` parameter applies to many other NumPy functions. 
+Note that most of these functions work on multi-dimensional arrays, and the axis to which the function is applied to is specified by the `axis` parameter. We will examine this for the `.min()` and `.max()` functions, but note that the `axis` parameter applies to many other NumPy functions.
 
-The `.min()` and `.max()` methods return the minimum and maximum values in an array. The `.argmax()` and `.argmin()` functions return the position of the maximum or minimum value in the array: 
+The `.min()` and `.max()` methods return the minimum and maximum values in an array. The `.argmax()` and `.argmin()` functions return the position of the maximum or minimum value in the array:
 
 ```
 In [82]:
@@ -3057,7 +2997,7 @@ In [82]:
    [12 15 18] maxs across each row
 ```
 
-The `.mean()` , `.std()` , and `.var()` methods compute the mathematical mean, standard deviation, and variance of the values in an array: 
+The `.mean()` , `.std()` , and `.var()` methods compute the mathematical mean, standard deviation, and variance of the values in an array:
 
 ```
 In [83]:
@@ -3075,7 +3015,7 @@ Out[84]:
    (4.5, 2.8722813232690143, 8.25)
 ```
 
-The sum and products of all the elements in an array can be computed with the `.sum()` and `.prod()` methods: 
+The sum and products of all the elements in an array can be computed with the `.sum()` and `.prod()` methods:
 
 ```
 In [85]:
@@ -3096,7 +3036,7 @@ Out[86]:
    (15, 120)
 ```
 
-The cumulative sum and products can be computed with the `.cumsum()` and `.cumprod()` methods: 
+The cumulative sum and products can be computed with the `.cumsum()` and `.cumprod()` methods:
 
 ```
 In [87]:
@@ -3113,7 +3053,7 @@ Out[87]:
 120]))
 ```
 
-The `.all()` method returns `True` if all elements of an array are true, and `.any()` returns `True` if any element of the array is true. 
+The `.all()` method returns `True` if all elements of an array are true, and `.any()` returns `True` if any element of the array is true.
 
 ```
 In [88]:
@@ -3137,7 +3077,7 @@ Out[89]:
    False
 ```
 
-The `.size` property returns the number of elements in the array across all dimensions: 
+The `.size` property returns the number of elements in the array across all dimensions:
 
 ```
 In [90]:
@@ -3153,7 +3093,7 @@ Out[90]:
    10
 ```
 
-Also, . `ndim` returns the overall dimensionality of an array: 
+Also, . `ndim` returns the overall dimensionality of an array:
 
 ```
 In [91]:
@@ -3166,19 +3106,19 @@ Out[91]:
    2
 ```
 
-There are a number of valuable statistical functions, as well as a number of descriptive statistical functions besides those demonstrated here. This was meant to be a brief overview of NumPy arrays, and the next two chapters on pandas `Series` and `DataFrame` objects will dive deeper into these additional methods. 
+There are a number of valuable statistical functions, as well as a number of descriptive statistical functions besides those demonstrated here. This was meant to be a brief overview of NumPy arrays, and the next two chapters on pandas `Series` and `DataFrame` objects will dive deeper into these additional methods.
 
 # **Summary** 
 
-In this chapter, we have examined NumPy arrays to get an understanding of their capabilities to manipulate data and performe operations on data including selecting elements, vectorization, Boolean selection, reshaping, stacking, concatenation, splitting, and slicing. NumPy has many other features, but these are the ones that are important to understand as they will set a frame of reference for understanding the operation of pandas `Series` and `DataFrame` objects. All the concepts covered in this chapter will be examined in much more detail in the next two chapters, where they are applied to pandas objects, which extend these capabilities to provide a much richer and more expressive means of representing and manipulating data than is offered with NumPy arrays. 
+In this chapter, we have examined NumPy arrays to get an understanding of their capabilities to manipulate data and performe operations on data including selecting elements, vectorization, Boolean selection, reshaping, stacking, concatenation, splitting, and slicing. NumPy has many other features, but these are the ones that are important to understand as they will set a frame of reference for understanding the operation of pandas `Series` and `DataFrame` objects. All the concepts covered in this chapter will be examined in much more detail in the next two chapters, where they are applied to pandas objects, which extend these capabilities to provide a much richer and more expressive means of representing and manipulating data than is offered with NumPy arrays.
 
 # **Chapter 4. The pandas Series Object** 
 
-pandas is a high-performance library that provides a comprehensive set of data structures for manipulating tabular data, providing high-performance indexing, automatic alignment, reshaping, grouping, joining, and statistical analyses capabilities. 
+pandas is a high-performance library that provides a comprehensive set of data structures for manipulating tabular data, providing high-performance indexing, automatic alignment, reshaping, grouping, joining, and statistical analyses capabilities.
 
-The two primary data structures in pandas are the `Series` and the `DataFrame` objects. In this chapter, we will examine the `Series` object and how it builds on the features of a NumPy `ndarray` to provide operations such as indexing, axis labeling, alignment, handling of missing data, and merging across multiple series of data. 
+The two primary data structures in pandas are the `Series` and the `DataFrame` objects. In this chapter, we will examine the `Series` object and how it builds on the features of a NumPy `ndarray` to provide operations such as indexing, axis labeling, alignment, handling of missing data, and merging across multiple series of data.
 
-In this chapter, we will cover the following topics: 
+In this chapter, we will cover the following topics:
 
 - Creating and initializing a `Series` and its index 
 
@@ -3204,25 +3144,25 @@ In this chapter, we will cover the following topics:
 
 # **The Series object** 
 
-The `Series` is the primary building block of pandas. A `Series` represents a one-dimensional labeled indexed array based on the NumPy `ndarray` . Like an array, a `Series` can hold zero or more values of any single data type. 
+The `Series` is the primary building block of pandas. A `Series` represents a one-dimensional labeled indexed array based on the NumPy `ndarray` . Like an array, a `Series` can hold zero or more values of any single data type.
 
-A pandas `Series` deviates from NumPy arrays by adding an associated set of labels that are used to index and efficiently access the elements of the 
+A pandas `Series` deviates from NumPy arrays by adding an associated set of labels that are used to index and efficiently access the elements of the
 
-array by the label values instead of just by the integer position. This labeled index is a key feature of pandas `Series` (and, as we will see, also a `DataFrame` ) and adds significant power for accessing the elements of the `Series` over a NumPy array. 
+array by the label values instead of just by the integer position. This labeled index is a key feature of pandas `Series` (and, as we will see, also a `DataFrame` ) and adds significant power for accessing the elements of the `Series` over a NumPy array.
 
-A `Series` always has an index even if one is not specified. In this default case, pandas will create an index that consists of sequential integers starting from zero. This default behavior will make a `Series` initially appear to be very similar to a NumPy array. This is by design, as a `Series` was derived from a NumPy array. This allowed a `Series` to be used by existing NumPy array code that used integer-based position lookup. In recent versions of pandas, this derivation from `ndarray` has been removed, but the `Series` still remains mostly API compatible. 
+A `Series` always has an index even if one is not specified. In this default case, pandas will create an index that consists of sequential integers starting from zero. This default behavior will make a `Series` initially appear to be very similar to a NumPy array. This is by design, as a `Series` was derived from a NumPy array. This allowed a `Series` to be used by existing NumPy array code that used integer-based position lookup. In recent versions of pandas, this derivation from `ndarray` has been removed, but the `Series` still remains mostly API compatible.
 
-Even though a `Series` with a default integer index will appear identical to a NumPy array, access to elements is not by integer position but using values in the index (referred to as labels). The pandas library will use the provided labels to perform a lookup of values for those labels. Unlike an array, index labels do not need to be integers, they can have repeated labels, can have hierarchical sets of labels, and are integrally utilized in a pandas concept, known as automatic alignment of values by index label. 
+Even though a `Series` with a default integer index will appear identical to a NumPy array, access to elements is not by integer position but using values in the index (referred to as labels). The pandas library will use the provided labels to perform a lookup of values for those labels. Unlike an array, index labels do not need to be integers, they can have repeated labels, can have hierarchical sets of labels, and are integrally utilized in a pandas concept, known as automatic alignment of values by index label.
 
-This automatic alignment is arguably the most significant change that a `Series` makes over `ndarray` . Operations applied across multiple pandas objects (a simple example can be addition) are not blindly applied to the values in order by position in the `Series` . The pandas library will first align the two pandas objects by the index labels and then apply the operation values with aligned labels. This is in a way, a simple type of join and allows you to associate data with common index labels without any effort. 
+This automatic alignment is arguably the most significant change that a `Series` makes over `ndarray` . Operations applied across multiple pandas objects (a simple example can be addition) are not blindly applied to the values in order by position in the `Series` . The pandas library will first align the two pandas objects by the index labels and then apply the operation values with aligned labels. This is in a way, a simple type of join and allows you to associate data with common index labels without any effort.
 
-A pandas index is a first-class component of pandas. pandas provides various specializations of indexes for different data types with each being highly optimized for that specific type of data, be it integers, floats, strings, `datetime` objects, or any type of hashable pandas object. Additionally, a `Series` can be reindexed into other types of indexes, effectively providing different views into the `Series` object using different indexes. 
+A pandas index is a first-class component of pandas. pandas provides various specializations of indexes for different data types with each being highly optimized for that specific type of data, be it integers, floats, strings, `datetime` objects, or any type of hashable pandas object. Additionally, a `Series` can be reindexed into other types of indexes, effectively providing different views into the `Series` object using different indexes.
 
-This ability to dynamically construct alternative views on data using ad hoc indexes establishes an environment for interactive data manipulation, where data can stay in a single structure but can be easily morphed into different views. This facilitates creating a very interactive environment to play with information and intuitively discovering meaning without having to be overburdened by its structure, such as with relational tools such as SQL. 
+This ability to dynamically construct alternative views on data using ad hoc indexes establishes an environment for interactive data manipulation, where data can stay in a single structure but can be easily morphed into different views. This facilitates creating a very interactive environment to play with information and intuitively discovering meaning without having to be overburdened by its structure, such as with relational tools such as SQL.
 
 # **Importing pandas** 
 
-Importing pandas into your application is simple. The following code is a fairly standard convention that is used: 
+Importing pandas into your application is simple. The following code is a fairly standard convention that is used:
 
 ```
 In [1]:
@@ -3231,9 +3171,9 @@ In [1]:
    import pandas as pd
 ```
 
-Importing of both NumPy and pandas is fairly common, with their objects mapped into the `np` and `pd` namespaces, respectively. It is also common to import several classes from pandas into the global namespace, but for the purpose of this text, we will explicitly reference all objects through the `pd` namespace prefix. 
+Importing of both NumPy and pandas is fairly common, with their objects mapped into the `np` and `pd` namespaces, respectively. It is also common to import several classes from pandas into the global namespace, but for the purpose of this text, we will explicitly reference all objects through the `pd` namespace prefix.
 
-pandas also provides several options that can be set to control the formatting of output. The notebooks in this book will use the following code or a slight variant to control the representation of the rendering, as well as setting a maximum number of rows and columns to be displayed in the output any code example. 
+pandas also provides several options that can be set to control the formatting of output. The notebooks in this book will use the following code or a slight variant to control the representation of the rendering, as well as setting a maximum number of rows and columns to be displayed in the output any code example.
 
 ##### **`In [2]:`** 
 
@@ -3246,13 +3186,13 @@ pandas also provides several options that can be set to control the formatting o
 
 # **Creating Series** 
 
-A `Series` can be created and initialized by passing either a scalar value, a NumPy `ndarray` , a Python list, or a Python Dict as the `data` parameter of the `Series` constructor. This is the default parameter and does not need to be specified if it is the first item. 
+A `Series` can be created and initialized by passing either a scalar value, a NumPy `ndarray` , a Python list, or a Python Dict as the `data` parameter of the `Series` constructor. This is the default parameter and does not need to be specified if it is the first item.
 
-The `index` parameter of the constructor assigns a user defined index to the `Series` that functions similar to a database index. This index provides a means to look up elements in the `Series` by index label and not by the elements' position in the array. 
+The `index` parameter of the constructor assigns a user defined index to the `Series` that functions similar to a database index. This index provides a means to look up elements in the `Series` by index label and not by the elements' position in the array.
 
-If you do not specify an index at the creation of a `Series` , the `Series` object will construct an index automatically using integer values starting from zero and increasing by one for each item in the `Series` . 
+If you do not specify an index at the creation of a `Series` , the `Series` object will construct an index automatically using integer values starting from zero and increasing by one for each item in the `Series` .
 
-The simplest means of creating a `Series` is from a scalar value. A `Series` with a single value has important uses in various mathematical operations such as applying a unified value across all the elements of another `Series` or `DataFrame` . The following code creates a one-item `Series` from the scalar value `1` : 
+The simplest means of creating a `Series` is from a scalar value. A `Series` with a single value has important uses in various mathematical operations such as applying a unified value across all the elements of another `Series` or `DataFrame` . The following code creates a one-item `Series` from the scalar value `1` :
 
 ```
 In [3]:
@@ -3267,7 +3207,7 @@ Out[3]:
    dtype: int64
 ```
 
-Note the output when the series `s1` is printed. Two integers are displayed. The `0` value is the index label of the single item in the `Series` whose value is `2` . The data type of the `Series` object is also shown as being `int64` . The index label is what we can use to retrieve the associated value from the `Series` : 
+Note the output when the series `s1` is printed. Two integers are displayed. The `0` value is the index label of the single item in the `Series` whose value is `2` . The data type of the `Series` object is also shown as being `int64` . The index label is what we can use to retrieve the associated value from the `Series` :
 
 ```
 In [4]:
@@ -3280,9 +3220,9 @@ Out[4]:
    2
 ```
 
-This looks like a normal array access of the item at position zero in the array, but pandas really references the index of the Series for a label of value `0` and then returns the matching values. 
+This looks like a normal array access of the item at position zero in the array, but pandas really references the index of the Series for a label of value `0` and then returns the matching values.
 
-The following example creates a `Series` from a Python list: 
+The following example creates a `Series` from a Python list:
 
 ```
 In [5]:
@@ -3301,9 +3241,9 @@ Out[5]:
    dtype: int64
 ```
 
-Since an index was not specified at the time of creation, pandas created an index for us with sequential zero-based integer values. 
+Since an index was not specified at the time of creation, pandas created an index for us with sequential zero-based integer values.
 
-The array of values in the `Series` can be retrieved using the `.values` property, as shown here: 
+The array of values in the `Series` can be retrieved using the `.values` property, as shown here:
 
 ```
 In [6]:
@@ -3316,7 +3256,7 @@ Out[6]:
    array([1, 2, 3, 4, 5])
 ```
 
-Also, the index of the series can be retrieved with the `.index` property: 
+Also, the index of the series can be retrieved with the `.index` property:
 
 ```
 In [7]:
@@ -3329,9 +3269,9 @@ Out[7]:
    Int64Index([0, 1, 2, 3, 4], dtype='int64')
 ```
 
-This informs us that the type of index created by pandas is `Int64Index` , it also informs about the labels in the index and their data type. 
+This informs us that the type of index created by pandas is `Int64Index` , it also informs about the labels in the index and their data type.
 
-pandas will create different index types based on the type of data identified in the index parameter. These different index types are optimized to perform indexing operations for that specific data type. To specify the index at the time of creation of the `Series` , use the index parameter of the constructor. The following example creates a `Series` and assigns strings to each label of the index: 
+pandas will create different index types based on the type of data identified in the index parameter. These different index types are optimized to perform indexing operations for that specific data type. To specify the index at the time of creation of the `Series` , use the index parameter of the constructor. The following example creates a `Series` and assigns strings to each label of the index:
 
 ```
 In [8]:
@@ -3356,7 +3296,7 @@ Out[9]:
    Index([u'a', u'b', u'c'], dtype='object')
 ```
 
-The type of items in the index that are created are now of type `object` . The following example retrieves the value of the item in the `Series` with index label `'c'` : 
+The type of items in the index that are created are now of type `object` . The following example retrieves the value of the item in the `Series` with index label `'c'` :
 
 ```
 In [10]:
@@ -3366,9 +3306,9 @@ Out[10]:
    3
 ```
 
-A `Series` created from a single scalar value is useful, as it allows you to apply an operation and a single value across all elements of a `Series` . When creating a `Series` object with a scalar and specifying an index with multiple labels, pandas will copy the scalar value to associate with each index label. 
+A `Series` created from a single scalar value is useful, as it allows you to apply an operation and a single value across all elements of a `Series` . When creating a `Series` object with a scalar and specifying an index with multiple labels, pandas will copy the scalar value to associate with each index label.
 
-The following code demonstrates this by creating a `Series` with a scalar value and an index based on an already existing index: 
+The following code demonstrates this by creating a `Series` with a scalar value and an index based on an already existing index:
 
 ```
 In [11]:
@@ -3388,7 +3328,7 @@ Out[11]:
    dtype: int64
 ```
 
-It is a common practice to initialize the `Series` objects using NumPy `ndarrays` , and with various NumPy functions that create arrays. The following code creates a `Series` from five normally distributed values: 
+It is a common practice to initialize the `Series` objects using NumPy `ndarrays` , and with various NumPy functions that create arrays. The following code creates a `Series` from five normally distributed values:
 
 ```
 In [12]:
@@ -3407,7 +3347,7 @@ In [12]:
    dtype: float64
 ```
 
-NumPy also provides several convenient functions to create arrays (and hence `Series` objects). The `np.linspace()` method creates an array of values between two specified values: 
+NumPy also provides several convenient functions to create arrays (and hence `Series` objects). The `np.linspace()` method creates an array of values between two specified values:
 
 ```
 In [13]:
@@ -3433,7 +3373,7 @@ Out[13]:
    dtype: float64
 ```
 
-Likewise, the `np.arange()` method creates an array of values between two specified values: 
+Likewise, the `np.arange()` method creates an array of values between two specified values:
 
 ```
 In [14]:
@@ -3455,7 +3395,7 @@ Out[14]:
    dtype: int64
 ```
 
-Finally, a `Series` can be directly initialized from a Python dictionary. The keys of the dictionary are used as the index labels for the `Series` : 
+Finally, a `Series` can be directly initialized from a Python dictionary. The keys of the dictionary are used as the index labels for the `Series` :
 
 ```
 In [15]:
@@ -3475,7 +3415,7 @@ Out[15]:
 
 # **Size, shape, uniqueness, and counts of values** 
 
-The number of items in a `Series` object can be determined by several techniques. To demonstrate this, we will use the following `Series` : 
+The number of items in a `Series` object can be determined by several techniques. To demonstrate this, we will use the following `Series` :
 
 ```
 In [16]:
@@ -3499,9 +3439,9 @@ Out[16]:
    dtype: float64
 ```
 
-The length can be determined using the `len()` function: 
+The length can be determined using the `len()` function:
 
-**`In [17]: # length of the Series len(s) Out[17]: 10`** Alternately, the length can be determined using the `.size` property: 
+**`In [17]: # length of the Series len(s) Out[17]: 10`** Alternately, the length can be determined using the `.size` property:
 
 ```
 In [18]:
@@ -3511,7 +3451,7 @@ Out[18]:
    10
 ```
 
-The `.shape` property returns a tuple where the first item is the number of items: 
+The `.shape` property returns a tuple where the first item is the number of items:
 
 ```
 In [19]:
@@ -3521,7 +3461,7 @@ Out[19]:
    (10,)
 ```
 
-The number of the values that are not part of the `NaN` can be found by using the . `count()` method: 
+The number of the values that are not part of the `NaN` can be found by using the . `count()` method:
 
 ```
 In [20]:
@@ -3534,7 +3474,7 @@ Out[20]:
    9
 ```
 
-To determine all of the unique values in a `Series` , pandas provides the . `unique()` method: 
+To determine all of the unique values in a `Series` , pandas provides the . `unique()` method:
 
 ```
 In [21]:
@@ -3548,7 +3488,7 @@ Out[21]:
 )
 ```
 
-Also, the count of each of the unique items in a `Series` can be obtained using `.value_counts()` : 
+Also, the count of each of the unique items in a `Series` can be obtained using `.value_counts()` :
 
 ```
 In [22]:
@@ -3574,7 +3514,7 @@ Out[22]:
 
 # **Peeking at data with heads, tails, and take** 
 
-pandas provides the `.head()` and `.tail()` methods to examine just the first few, or last, records in a `Series` . By default, these return the first or last five rows, respectively, but you can use the `n` parameter or just pass an integer to specify the number of rows: 
+pandas provides the `.head()` and `.tail()` methods to examine just the first few, or last, records in a `Series` . By default, these return the first or last five rows, respectively, but you can use the `n` parameter or just pass an integer to specify the number of rows:
 
 ```
 In [23]:
@@ -3636,7 +3576,7 @@ Out[26]:
    dtype: float64
 ```
 
-The `.take()` method will return the rows in a series that correspond to the zero-based positions specified in a list: 
+The `.take()` method will return the rows in a series that correspond to the zero-based positions specified in a list:
 
 ```
 In [27]:
@@ -3654,7 +3594,7 @@ Out[27]:
 
 # **Looking up values in Series** 
 
-Values in a `Series` object can be retrieved using the `[]` operator and passing either a single index label or a list of index labels. The following code retrieves the value associated with the index label `'a'` of the `s3` series defined earlier: 
+Values in a `Series` object can be retrieved using the `[]` operator and passing either a single index label or a list of index labels. The following code retrieves the value associated with the index label `'a'` of the `s3` series defined earlier:
 
 ```
 In [28]:
@@ -3664,7 +3604,7 @@ Out[28]:
    1
 ```
 
-Accessing this `Series` using an integer value will perform a zero-based position lookup of the value: 
+Accessing this `Series` using an integer value will perform a zero-based position lookup of the value:
 
 ```
 In [29]:
@@ -3674,9 +3614,9 @@ Out[29]:
    2
 ```
 
-This is because pandas determines that the specified value is an integer and that the index is not an integer-based index. Given this, pandas decides to perform a lookup by position and not by index label. 
+This is because pandas determines that the specified value is an integer and that the index is not an integer-based index. Given this, pandas decides to perform a lookup by position and not by index label.
 
-To retrieve multiple items, you can pass a list of index labels via the `[]` operator. Instead of a single value, the result will be a new `Series` with both index labels and values, and data copied from the original `Series` . 
+To retrieve multiple items, you can pass a list of index labels via the `[]` operator. Instead of a single value, the result will be a new `Series` with both index labels and values, and data copied from the original `Series` .
 
 ```
 In [30]:
@@ -3691,7 +3631,7 @@ Out[30]:
    dtype: int64
 ```
 
-To elaborate on the use of integers for lookup based on either label or position, we can examine operations using the following `Series` where the index labels are integers but not starting from `0` . 
+To elaborate on the use of integers for lookup based on either label or position, we can examine operations using the following `Series` where the index labels are integers but not starting from `0` .
 
 ```
 In [31]:
@@ -3711,7 +3651,7 @@ Out[31]:
    dtype: int64
 ```
 
-Also, the following code looks up the value at the index label of `11` . Labelbased lookup is performed because the type of the index is integer, as well as the value passed to the `[]` operator is integer: 
+Also, the following code looks up the value at the index label of `11` . Labelbased lookup is performed because the type of the index is integer, as well as the value passed to the `[]` operator is integer:
 
 ```
 In [32]:
@@ -3724,9 +3664,9 @@ Out[32]:
    2
 ```
 
-If this was performed using a zero-based position lookup, an exception would be thrown as the Series only contains three items. 
+If this was performed using a zero-based position lookup, an exception would be thrown as the Series only contains three items.
 
-To alleviate the potential confusion in determining label-based lookup versus position-based lookup, index label based lookup can be enforced using the `.loc[]` accessor: 
+To alleviate the potential confusion in determining label-based lookup versus position-based lookup, index label based lookup can be enforced using the `.loc[]` accessor:
 
 ```
 In [33]:
@@ -3739,7 +3679,7 @@ Out[33]:
    3
 ```
 
-Lookup by position can be enforced using the `.iloc[]` accessor: 
+Lookup by position can be enforced using the `.iloc[]` accessor:
 
 ```
 In [34]:
@@ -3752,7 +3692,7 @@ Out[34]:
    2
 ```
 
-These two options also function using lists, as shown in the following example: 
+These two options also function using lists, as shown in the following example:
 
 ```
 In [35]:
@@ -3774,7 +3714,7 @@ Out[36]:
    dtype: int64
 ```
 
-If a location/position passed to `.iloc[]` in a list is out of bounds, an exception will be thrown. This is different than with `.loc[]` , which if passed a label that does not exist, will return `NaN` as the value for that label: 
+If a location/position passed to `.iloc[]` in a list is out of bounds, an exception will be thrown. This is different than with `.loc[]` , which if passed a label that does not exist, will return `NaN` as the value for that label:
 
 ```
 In [37]:
@@ -3787,11 +3727,11 @@ Out[37]:
    dtype: float64
 ```
 
-**Note** 
+**Note**
 
-When looking to write the highest performance code for accessing items in a `Series` , it is recommended that you use the `.loc[]` method using lookup by integer position. 
+When looking to write the highest performance code for accessing items in a `Series` , it is recommended that you use the `.loc[]` method using lookup by integer position.
 
-A `Series` also has a property `.ix` that can be used to look up items either by label or by zero-based array position. To demonstrate this, let's revisit the `s3` series: 
+A `Series` also has a property `.ix` that can be used to look up items either by label or by zero-based array position. To demonstrate this, let's revisit the `s3` series:
 
 ```
 In [38]:
@@ -3804,7 +3744,7 @@ Out[38]:
    dtype: int64
 ```
 
-The following example looks up by index label: 
+The following example looks up by index label:
 
 ```
 In [39]:
@@ -3816,7 +3756,7 @@ Out[39]:
    dtype: int64
 ```
 
-The following example looks up by position: 
+The following example looks up by position:
 
 ```
 In [40]:
@@ -3831,7 +3771,7 @@ Out[40]:
    dtype: int64
 ```
 
-This can become complicated if the indexes are integers and you pass a list of integers to `.ix` . Since they are of the same type, the lookup will be by index label instead of position: 
+This can become complicated if the indexes are integers and you pass a list of integers to `.ix` . Since they are of the same type, the lookup will be by index label instead of position:
 
 ```
 In [41]:
@@ -3850,17 +3790,17 @@ Out[41]:
    dtype: float64
 ```
 
-This has reverted to label value lookup, and since there were no elements for labels `1` and `2` , `NaN` was returned. 
+This has reverted to label value lookup, and since there were no elements for labels `1` and `2` , `NaN` was returned.
 
 ### **Note** 
 
-Use of `.ix` is generally frowned upon by many practitioners due to this issue. It is recommended to use the `.loc` or `.iloc[]` techniques. Additionally, they are also better performing than . `ix` . 
+Use of `.ix` is generally frowned upon by many practitioners due to this issue. It is recommended to use the `.loc` or `.iloc[]` techniques. Additionally, they are also better performing than . `ix` .
 
 ## **Alignment via index labels** 
 
-A fundamental difference between a NumPy `ndarray` and a pandas `Series` is the ability of a `Series` to automatically align data from another `Series` based on label values before performing an operation. 
+A fundamental difference between a NumPy `ndarray` and a pandas `Series` is the ability of a `Series` to automatically align data from another `Series` based on label values before performing an operation.
 
-We will examine alignment using the following two `Series` objects: 
+We will examine alignment using the following two `Series` objects:
 
 ```
 In [42]:
@@ -3892,7 +3832,7 @@ Out[43]:
    dtype: int64
 ```
 
-The following code adds the values in the two series: 
+The following code adds the values in the two series:
 
 ```
 In [44]:
@@ -3906,13 +3846,13 @@ Out[44]:
    dtype: int64
 ```
 
-The process of adding two `Series` objects differs from the process of addition of arrays as it first aligns data based on index label values instead of simply applying the operation to elements in the same position. This becomes significantly powerful when using pandas `Series` to combine data based on labels instead of having to first order the data manually. 
+The process of adding two `Series` objects differs from the process of addition of arrays as it first aligns data based on index label values instead of simply applying the operation to elements in the same position. This becomes significantly powerful when using pandas `Series` to combine data based on labels instead of having to first order the data manually.
 
 ### **Note** 
 
-Also worth noting is the order of the items in the index resulting from the addition. The two `Series` in the addition had the same labels but were ordered differently. The index in the result is arranged in ascending order. 
+Also worth noting is the order of the items in the index resulting from the addition. The two `Series` in the addition had the same labels but were ordered differently. The index in the result is arranged in ascending order.
 
-This is a very different result than what it would have been if it were two pure NumPy arrays being added. A NumPy `ndarray` would add the items in identical positions of each array resulting in different values: 
+This is a very different result than what it would have been if it were two pure NumPy arrays being added. A NumPy `ndarray` would add the items in identical positions of each array resulting in different values:
 
 ```
 In [45]:
@@ -3929,7 +3869,7 @@ Out[45]:
 
 # **Arithmetic operations** 
 
-Arithmetic operations (+, -, /, *, and so on) can be applied either to a `Series` or between two `Series` objects. When applied to a single Series, the operation is applied to all of the values in that `Series` . The following code demonstrates arithmetic operations applied to a `Series` object by multiplying the values in `s3` by `2` . The result is a new `Series` with the new values ( `s3` is unchanged). 
+Arithmetic operations (+, -, /, *, and so on) can be applied either to a `Series` or between two `Series` objects. When applied to a single Series, the operation is applied to all of the values in that `Series` . The following code demonstrates arithmetic operations applied to a `Series` object by multiplying the values in `s3` by `2` . The result is a new `Series` with the new values ( `s3` is unchanged).
 
 ```
 In [46]:
@@ -3945,7 +3885,7 @@ Out[46]:
    dtype: int64
 ```
 
-The preceding code is also roughly equivalent to the following code, which creates a new series from a scalar value using the index from `s3` . It has the same result, but it is not as efficient, as alignment is performed between the Series objects instead of a simple vectorization of the multiplication: 
+The preceding code is also roughly equivalent to the following code, which creates a new series from a scalar value using the index from `s3` . It has the same result, but it is not as efficient, as alignment is performed between the Series objects instead of a simple vectorization of the multiplication:
 
 ```
 In [47]:
@@ -3962,7 +3902,7 @@ Out[47]:
    dtype: int64
 ```
 
-To reinforce the point that alignment is being performed when applying arithmetic operations across two `Series` objects, look at the following two Series as examples: 
+To reinforce the point that alignment is being performed when applying arithmetic operations across two `Series` objects, look at the following two Series as examples:
 
 ```
 In [48]:
@@ -3990,7 +3930,7 @@ Out[49]:
    dtype: int64
 ```
 
-These two Series objects only have intersecting index labels `'b'` , `'c'` , and `'d'` . We will add the two series results in the following example: 
+These two Series objects only have intersecting index labels `'b'` , `'c'` , and `'d'` . We will add the two series results in the following example:
 
 ```
 In [50]:
@@ -4006,15 +3946,15 @@ Out[50]:
    dtype: float64
 ```
 
-Since `s8` has an `'a'` label and `s9` does not, the result is `NaN` . Likewise with `s9` having an `'e'` label and `s8` not having the label. The `NaN` value is, by default the result of any pandas arithmetic operation where an index label does not align with the other `Series` . 
+Since `s8` has an `'a'` label and `s9` does not, the result is `NaN` . Likewise with `s9` having an `'e'` label and `s8` not having the label. The `NaN` value is, by default the result of any pandas arithmetic operation where an index label does not align with the other `Series` .
 
-The matching of labels and returning `NaN` where there are no matches is essential to how pandas operates as compared to arrays in NumPy. The tasks performed with pandas using `Series` (and `DataFrame` ) objects are 
+The matching of labels and returning `NaN` where there are no matches is essential to how pandas operates as compared to arrays in NumPy. The tasks performed with pandas using `Series` (and `DataFrame` ) objects are
 
-often such that multiple sets of data need to be aligned, and if there are no matching labels during alignment, then the operation should not fail. Hence, pandas returns `NaN` in those situations. 
+often such that multiple sets of data need to be aligned, and if there are no matching labels during alignment, then the operation should not fail. Hence, pandas returns `NaN` in those situations.
 
-This is actually common as datasets used in various statistical, financial, and data science domains often are incomplete, and more graceful techniques are required than to throw exceptions. pandas makes the assumption to return `NaN` in these cases. To facilitate handling of the `NaN` values in data and as the result of alignment, pandas changes the way that operations handle `NaN` by default. We will examine this in the next section of this chapter. 
+This is actually common as datasets used in various statistical, financial, and data science domains often are incomplete, and more graceful techniques are required than to throw exceptions. pandas makes the assumption to return `NaN` in these cases. To facilitate handling of the `NaN` values in data and as the result of alignment, pandas changes the way that operations handle `NaN` by default. We will examine this in the next section of this chapter.
 
-The last example of alignment during arithmetical operations demonstrates the situation where the two `Series` objects have duplicate index labels. The following two `Series` objects each have two `'a'` labels: 
+The last example of alignment during arithmetical operations demonstrates the situation where the two `Series` objects have duplicate index labels. The following two `Series` objects each have two `'a'` labels:
 
 ```
 In [51]:
@@ -4046,7 +3986,7 @@ Out[52]:
    dtype: float64
 ```
 
-When the two `Series` objects are added (or any other operation performed), the resulting `Series` has four `'a'` index labels. 
+When the two `Series` objects are added (or any other operation performed), the resulting `Series` has four `'a'` index labels.
 
 ```
 In [53]:
@@ -4065,15 +4005,15 @@ Out[53]:
    dtype: float64
 ```
 
-The reason for this is that during alignment, pandas actually performs a Cartesian product of the sets of all unique index labels in both `Series` objects, and then applies the specified operation on all items in the products. To explain why there are four `'a'` index values, `s10` contains two `'a'` labels, and `s11` also contains two `'a'` labels. Every combination of `'a'` labels in each will be calculated, resulting in four `'a'` labels. There is one `'b'` label from `s10` and one `'c'` label from `s11` . Since there is no matching label for either in the other Series object, they only result in a single row in the resulting Series object. Each combination of values for `'a'` in both Series are computed, resulting in the four values: _1+4_ , _1+5_ , _2+4_ and _2+5_ . 
+The reason for this is that during alignment, pandas actually performs a Cartesian product of the sets of all unique index labels in both `Series` objects, and then applies the specified operation on all items in the products. To explain why there are four `'a'` index values, `s10` contains two `'a'` labels, and `s11` also contains two `'a'` labels. Every combination of `'a'` labels in each will be calculated, resulting in four `'a'` labels. There is one `'b'` label from `s10` and one `'c'` label from `s11` . Since there is no matching label for either in the other Series object, they only result in a single row in the resulting Series object. Each combination of values for `'a'` in both Series are computed, resulting in the four values: _1+4_ , _1+5_ , _2+4_ and _2+5_ .
 
-So, remember that an index can have duplicate labels, and during alignment this will result in a number of index labels equivalent to the products of the number of the labels in each `Series` . 
+So, remember that an index can have duplicate labels, and during alignment this will result in a number of index labels equivalent to the products of the number of the labels in each `Series` .
 
 # **The special case of Not-A-Number (NaN)** 
 
-pandas mathematical operators and functions handle `NaN` in a special manner (compared to NumPy) that does not break the computations. pandas is lenient with missing data assuming that it is a common situation. 
+pandas mathematical operators and functions handle `NaN` in a special manner (compared to NumPy) that does not break the computations. pandas is lenient with missing data assuming that it is a common situation.
 
-To demonstrate the difference, we can examine the following code, which calculates the mean of a NumPy array: 
+To demonstrate the difference, we can examine the following code, which calculates the mean of a NumPy array:
 
 ```
 In [54]:
@@ -4087,7 +4027,7 @@ Out[54]:
    3.0
 ```
 
-The result is as expected. The following code replaces one value with a `NaN` value: 
+The result is as expected. The following code replaces one value with a `NaN` value:
 
 ```
 In [55]:
@@ -4101,7 +4041,7 @@ Out[55]:
    nan
 ```
 
-When encountering a `NaN` value, NumPy simply returns `NaN` . pandas changes this, so that `NaN` values are ignored: 
+When encountering a `NaN` value, NumPy simply returns `NaN` . pandas changes this, so that `NaN` values are ignored:
 
 ```
 In [56]:
@@ -4115,9 +4055,9 @@ Out[56]:
    2.5
 ```
 
-In this case, pandas override the mean function of the `Series` object so that `NaN` values are simply ignored. They are not counted as a 0 value; as shown here with calculating the mean, it does not get factored into the count of items used in the result. This behavior is similar to how other statistical languages, such as R, function. It is expected that data will be missing, and that you will "tidy" the data over progressive iterations, but until then you will still be able to produce analysis with data that is not tidy. Often, the conclusion you want to draw can be seen even with untidy data, and pandas will not work against you by determining this earlier in the analysis. 
+In this case, pandas override the mean function of the `Series` object so that `NaN` values are simply ignored. They are not counted as a 0 value; as shown here with calculating the mean, it does not get factored into the count of items used in the result. This behavior is similar to how other statistical languages, such as R, function. It is expected that data will be missing, and that you will "tidy" the data over progressive iterations, but until then you will still be able to produce analysis with data that is not tidy. Often, the conclusion you want to draw can be seen even with untidy data, and pandas will not work against you by determining this earlier in the analysis.
 
-However, to provide some amount of backwards compatibility, the pandas library's functions such as `.mean()` support a parameter `skipna` that can force the operation to be the same as with NumPy: 
+However, to provide some amount of backwards compatibility, the pandas library's functions such as `.mean()` support a parameter `skipna` that can force the operation to be the same as with NumPy:
 
 ```
 In [57]:
@@ -4132,7 +4072,7 @@ Out[57]:
 
 # **Boolean selection** 
 
-Items in a `Series` can be selected, based on the value instead of index labels, via the utilization of a Boolean selection. A Boolean selection applies a logical expression to the values of the Series and returns a new Series of Boolean values representing the result for each value. The following code demonstrates identifying items in a Series where the values are greater than `5` : 
+Items in a `Series` can be selected, based on the value instead of index labels, via the utilization of a Boolean selection. A Boolean selection applies a logical expression to the values of the Series and returns a new Series of Boolean values representing the result for each value. The following code demonstrates identifying items in a Series where the values are greater than `5` :
 
 ```
 In [58]:
@@ -4156,7 +4096,7 @@ Out[58]:
    dtype: bool
 ```
 
-To obtain the rows in the `Series` where the logical expression is `True` , simply pass the result of the Boolean expression to the `[]` operator of the `Series` . The result will be a new `Series` with a copy of index and value for the selected rows: 
+To obtain the rows in the `Series` where the logical expression is `True` , simply pass the result of the Boolean expression to the `[]` operator of the `Series` . The result will be a new `Series` with a copy of index and value for the selected rows:
 
 ```
 In [59]:
@@ -4174,11 +4114,11 @@ Out[59]:
    dtype: int64
 ```
 
-pandas performs this Boolean selection by overloading the `Series` object's `[]` operator so that when passed a `Series` object consisting of boolean values it knows to return only the values in the outer Series (in this cases `s` ) where the labels in the `Series` object are passed to a `[]` operator have True values. 
+pandas performs this Boolean selection by overloading the `Series` object's `[]` operator so that when passed a `Series` object consisting of boolean values it knows to return only the values in the outer Series (in this cases `s` ) where the labels in the `Series` object are passed to a `[]` operator have True values.
 
-This is actually very similar to how selection works in R, and can feel a bit unnatural at first for someone using a procedural or statistical programming language. However, this turns out to be very valuable and efficient in expressing many types of data analysis algorithms, and very convenient for extracting subsets of data based on its contents. 
+This is actually very similar to how selection works in R, and can feel a bit unnatural at first for someone using a procedural or statistical programming language. However, this turns out to be very valuable and efficient in expressing many types of data analysis algorithms, and very convenient for extracting subsets of data based on its contents.
 
-There is a shortcut syntax to perform the operation. You can use the name of the `Series` inside of the `[]` operator, as follows. 
+There is a shortcut syntax to perform the operation. You can use the name of the `Series` inside of the `[]` operator, as follows.
 
 ```
 In [60]:
@@ -4195,7 +4135,7 @@ Out[60]:
    dtype: int64
 ```
 
-Unfortunately, multiple logical operators cannot be used in a normal Python syntax. As an example, the following causes an exception to be thrown: 
+Unfortunately, multiple logical operators cannot be used in a normal Python syntax. As an example, the following causes an exception to be thrown:
 
 ```
 In [61]:
@@ -4203,7 +4143,7 @@ In [61]:
    # s[s > 5 and s < 8]
 ```
 
-There are technical reasons for why the preceding code does not work. The solution is to express the equation differently, putting parentheses around each of the logical conditions and using different operators for and/or ( `'|'` and `'&'` ). 
+There are technical reasons for why the preceding code does not work. The solution is to express the equation differently, putting parentheses around each of the logical conditions and using different operators for and/or ( `'|'` and `'&'` ).
 
 ```
 In [62]:
@@ -4218,7 +4158,7 @@ Out[62]:
    dtype: int64
 ```
 
-It is possible to determine whether all the values in a `Series` match a given expression using the `.all()` method. The following asks if all elements in the series are greater than or equal to 0: 
+It is possible to determine whether all the values in a `Series` match a given expression using the `.all()` method. The following asks if all elements in the series are greater than or equal to 0:
 
 ```
 In [63]:
@@ -4231,13 +4171,13 @@ Out[63]:
    True
 ```
 
-The `.any()` method returns `True` if any values satisfy the expressions. The following asks if any elements are less than 2: 
+The `.any()` method returns `True` if any values satisfy the expressions. The following asks if any elements are less than 2:
 
-**`In [64]: # any items < 2? s[s < 2].any() Out[64]: True` Note** 
+**`In [64]: # any items < 2? s[s < 2].any() Out[64]: True` Note**
 
-Note that I used a slightly different syntax than with the . `all()` example. Both are correct and you can use whichever suits your style better. 
+Note that I used a slightly different syntax than with the . `all()` example. Both are correct and you can use whichever suits your style better.
 
-There is something important going on here that is worth mentioning. The result of these logical expressions is a Boolean selection, a `Series` of `True` and `False` values. The `.sum()` method of a `Series` , when given a series of Boolean values, will treat `True` as `1` and `False` as `0` . The following demonstrates using this to determine the number of items in a `Series` that satisfy a given expression: 
+There is something important going on here that is worth mentioning. The result of these logical expressions is a Boolean selection, a `Series` of `True` and `False` values. The `.sum()` method of a `Series` , when given a series of Boolean values, will treat `True` as `1` and `False` as `0` . The following demonstrates using this to determine the number of items in a `Series` that satisfy a given expression:
 
 ```
 In [65]:
@@ -4252,9 +4192,9 @@ Out[65]:
 
 # **Reindexing a Series** 
 
-Reindexing in pandas is a process that makes the data in a `Series` or `DataFrame` match a given set of labels. This is core to the functionality of pandas as it enables label alignment across multiple objects, which may originally have different indexing schemes. 
+Reindexing in pandas is a process that makes the data in a `Series` or `DataFrame` match a given set of labels. This is core to the functionality of pandas as it enables label alignment across multiple objects, which may originally have different indexing schemes.
 
-This process of performing a reindex includes the following steps: 
+This process of performing a reindex includes the following steps:
 
 1. Reordering existing data to match a set of labels. 
 
@@ -4262,7 +4202,7 @@ This process of performing a reindex includes the following steps:
 
 3. Possibly, filling missing data for a label using some type of logic (defaulting to adding `NaN` values). 
 
-Here is a simple example of reindexing a `Series` . The following `Series` has an index with numerical values, and the index is modified to be alphabetic by simply assigning a list of characters to the `.index` property. This makes the values accessible via the character labels in the new index: 
+Here is a simple example of reindexing a `Series` . The following `Series` has an index with numerical values, and the index is modified to be alphabetic by simply assigning a list of characters to the `.index` property. This makes the values accessible via the character labels in the new index:
 
 ```
 In [66]:
@@ -4296,11 +4236,11 @@ Out[67]:
    d   -0.861849
 ```
 
-**`e   -2.104569 dtype: float64` Note** 
+**`e   -2.104569 dtype: float64` Note**
 
-The number of elements in the list being assigned to the `.index` property must match the number of rows, or else an exception will be thrown. 
+The number of elements in the list being assigned to the `.index` property must match the number of rows, or else an exception will be thrown.
 
-Now, let's examine a slightly more practical example. The following code concatenates two `Series` objects resulting in duplicate index labels, which may not be desired in the resulting `Series` : 
+Now, let's examine a slightly more practical example. The following code concatenates two `Series` objects resulting in duplicate index labels, which may not be desired in the resulting `Series` :
 
 ```
 In [68]:
@@ -4324,7 +4264,7 @@ Out[68]:
    dtype: float64
 ```
 
-To fix this, the following creates a new index for the concatenated result which has sequential and distinct values. 
+To fix this, the following creates a new index for the concatenated result which has sequential and distinct values.
 
 ```
 In [69]:
@@ -4346,9 +4286,9 @@ Out[69]:
 
 ### **Note** 
 
-Reindexing using the `.index` property in-place modifies the `Series` . 
+Reindexing using the `.index` property in-place modifies the `Series` .
 
-Greater flexibility in creating a new index is provided using the `.reindex()` method. An example of the flexibility of `.reindex()` over assigning the `.index` property directly is that the list provided to `.reindex()` can be of a different length than the number of rows in the `Series` : 
+Greater flexibility in creating a new index is provided using the `.reindex()` method. An example of the flexibility of `.reindex()` over assigning the `.index` property directly is that the list provided to `.reindex()` can be of a different length than the number of rows in the `Series` :
 
 ```
 In [70]:
@@ -4368,9 +4308,9 @@ Out[70]:
    dtype: float64
 ```
 
-There are several things here that are important to point out about `.reindex()` . First is that the result of a `.reindex()` method is a new `Series` . This new `Series` has an index with labels that are provided as the parameter to `.reindex()` . For each item in the given parameter list, if the original `Series` contains that label, then the value is assigned to that label. If the label does not exist in the original `Series` , pandas assigns a `NaN` value. Rows in the `Series` without a label specified in the parameter of `.reindex()` is not included in the result. 
+There are several things here that are important to point out about `.reindex()` . First is that the result of a `.reindex()` method is a new `Series` . This new `Series` has an index with labels that are provided as the parameter to `.reindex()` . For each item in the given parameter list, if the original `Series` contains that label, then the value is assigned to that label. If the label does not exist in the original `Series` , pandas assigns a `NaN` value. Rows in the `Series` without a label specified in the parameter of `.reindex()` is not included in the result.
 
-To demonstrate that the result of `.reindex()` is a new `Series` object, changing a value in `s2` does not change the values in `s1` : 
+To demonstrate that the result of `.reindex()` is a new `Series` object, changing a value in `s2` does not change the values in `s1` :
 
 ```
 In [71]:
@@ -4399,9 +4339,9 @@ Out[72]:
    dtype: float64
 ```
 
-Reindexing is also useful when you want to align two `Series` to perform an operation on matching elements from each series; however, for some reason, the two `Series` had index labels that will not initially align. 
+Reindexing is also useful when you want to align two `Series` to perform an operation on matching elements from each series; however, for some reason, the two `Series` had index labels that will not initially align.
 
-The following example demonstrates this, where the first `Series` has indexes as sequential integers, but the second has a string representation of what would be the same values: 
+The following example demonstrates this, where the first `Series` has indexes as sequential integers, but the second has a string representation of what would be the same values:
 
 ```
 In [73]:
@@ -4423,17 +4363,17 @@ Out[73]:
    dtype: float64
 ```
 
-This is almost a catastrophic failure in accomplishing the desired result, and exemplifies a scenario where data may have been retrieved from two different systems that used different representations for the index labels. The reasons why this happens in pandas are as follows: 
+This is almost a catastrophic failure in accomplishing the desired result, and exemplifies a scenario where data may have been retrieved from two different systems that used different representations for the index labels. The reasons why this happens in pandas are as follows:
 
 1. pandas first tries to align by the indexes and finds no matches, so it copies the index labels from the first series and tries to append the 
 
-indexes from the second series. 
+indexes from the second series.
 
 2. However, since they are a different type, it defaults back to a zerobased integer sequence that results in duplicate values. 
 
 3. Finally, all values are `NaN` because the operation tries to add the item in the first series with the integer label 0, which has a value of 0, but can't find the item in the other series and therefore, the result is `NaN` (and this fails six times in this case). 
 
-Once this situation is identified, it becomes a fairly trivial situation to fix by reindexing the second series: 
+Once this situation is identified, it becomes a fairly trivial situation to fix by reindexing the second series:
 
 ```
 In [74]:
@@ -4451,7 +4391,7 @@ Out[74]:
    dtype: int64
 ```
 
-The default action of inserting `NaN` as a missing value during reindexing can be changed by using the `fill_value` parameter of the method. The following example demonstrates using `0` instead of `NaN` : 
+The default action of inserting `NaN` as a missing value during reindexing can be changed by using the `fill_value` parameter of the method. The following example demonstrates using `0` instead of `NaN` :
 
 ```
 In [75]:
@@ -4467,7 +4407,7 @@ Out[75]:
    dtype: float64
 ```
 
-When performing a reindex on ordered data such as a time series, it is possible to perform interpolation or filling of values. There will be a more elaborate discussion on interpolation and filling in <u>Chapter 10,</u> _Time-series Data_ , but the following examples introduce the concept using this Series: 
+When performing a reindex on ordered data such as a time series, it is possible to perform interpolation or filling of values. There will be a more elaborate discussion on interpolation and filling in <u>Chapter 10,</u> _Time-series Data_ , but the following examples introduce the concept using this Series:
 
 ```
 In [76]:
@@ -4484,7 +4424,7 @@ Out[76]:
    dtype: object
 ```
 
-The following example demonstrates forward filling, often referred to as "last known value." The Series is reindexed to create a contiguous integer index, and using the `method='ffill'` parameter, any new index labels are assigned the previously known values that are not part of `NaN` value from earlier in the `Series` object: 
+The following example demonstrates forward filling, often referred to as "last known value." The Series is reindexed to create a contiguous integer index, and using the `method='ffill'` parameter, any new index labels are assigned the previously known values that are not part of `NaN` value from earlier in the `Series` object:
 
 ```
 In [77]:
@@ -4507,7 +4447,7 @@ Out[77]:
    dtype: object
 ```
 
-The following example fills backward using `method='bfill'` : 
+The following example fills backward using `method='bfill'` :
 
 ```
 In [78]:
@@ -4529,9 +4469,9 @@ Out[78]:
 
 ## **Modifying a Series in-place** 
 
-There are several ways that an existing `Series` can be modified in-place, having either its values changed or having rows added or deleted. In-place modification of a `Series` is a slightly controversial topic. When possible, it is preferred to perform operations that return a new Series with the modifications represented in the new Series. However, it is possible to change values and add/remove rows in-place, and they will be explained here briefly. 
+There are several ways that an existing `Series` can be modified in-place, having either its values changed or having rows added or deleted. In-place modification of a `Series` is a slightly controversial topic. When possible, it is preferred to perform operations that return a new Series with the modifications represented in the new Series. However, it is possible to change values and add/remove rows in-place, and they will be explained here briefly.
 
-A new item can be added to a `Series` by assigning a value to an index label that does not already exist. The following code creates a `Series` object and adds a new item to the series: 
+A new item can be added to a `Series` by assigning a value to an index label that does not already exist. The following code creates a `Series` object and adds a new item to the series:
 
 ```
 In [79]:
@@ -4567,7 +4507,7 @@ Out[80]:
    dtype: float64
 ```
 
-The value at a specific index label can be changed by assignment: 
+The value at a specific index label can be changed by assignment:
 
 ```
 In [81]:
@@ -4588,7 +4528,7 @@ Out[81]:
    dtype: float64
 ```
 
-Items can be removed from a `Series` using the `del()` function and passing the index label(s) to be removed. The following code removes the item at index label `'a'` : 
+Items can be removed from a `Series` using the `del()` function and passing the index label(s) to be removed. The following code removes the item at index label `'a'` :
 
 ```
 In [82]:
@@ -4607,13 +4547,13 @@ In [82]:
 
 ### **Note** 
 
-To add and remove items out-of-place, you use `pd.concat()` to add and remove a Boolean selection. 
+To add and remove items out-of-place, you use `pd.concat()` to add and remove a Boolean selection.
 
 # **Slicing a Series** 
 
-In <u>Chapter 3,</u> _NumPy for pandas_ , we covered techniques for NumPy array slicing. pandas `Series` objects also support slicing and override the slicing operators to perform their magic on `Series` data. Just like NumPy arrays, you can pass a slice object to the `[]` operator of the `Series` to get the specified values. Slices also work with the `.loc[]` , `.iloc[]` , and `.ix` properties and accessors. 
+In <u>Chapter 3,</u> _NumPy for pandas_ , we covered techniques for NumPy array slicing. pandas `Series` objects also support slicing and override the slicing operators to perform their magic on `Series` data. Just like NumPy arrays, you can pass a slice object to the `[]` operator of the `Series` to get the specified values. Slices also work with the `.loc[]` , `.iloc[]` , and `.ix` properties and accessors.
 
-To demonstrate slicing, we will use the following `Series` : 
+To demonstrate slicing, we will use the following `Series` :
 
 ```
 In [83]:
@@ -4639,7 +4579,7 @@ Out[83]:
    dtype: int64
 ```
 
-The slice syntax is identical to that in NumPy arrays. The following example selects rows from the `Series` by position starting from and including `0` , up to but not inclusive of `6` , and stepping by `2` (alternate): 
+The slice syntax is identical to that in NumPy arrays. The following example selects rows from the `Series` by position starting from and including `0` , up to but not inclusive of `6` , and stepping by `2` (alternate):
 
 ```
 In [84]:
@@ -4653,7 +4593,7 @@ Out[84]:
    12    102
 ```
 
-**`14    104 dtype: int64`** This is functionally equivalent to the following code: 
+**`14    104 dtype: int64`** This is functionally equivalent to the following code:
 
 ```
 In [85]:
@@ -4666,7 +4606,7 @@ Out[85]:
    dtype: int64
 ```
 
-A good feature of slicing is that particular elements of the slice are optional. The following example omits the start value and selects all items within positions `0` through `4` . This is also a convenient shorthand for the `.head()` function of the `Series` : 
+A good feature of slicing is that particular elements of the slice are optional. The following example omits the start value and selects all items within positions `0` through `4` . This is also a convenient shorthand for the `.head()` function of the `Series` :
 
 ```
 In [86]:
@@ -4681,7 +4621,7 @@ In [86]:
    dtype: int64
 ```
 
-Flipping this around, you can select all the elements from a particular position to the end of the `Series` : 
+Flipping this around, you can select all the elements from a particular position to the end of the `Series` :
 
 ```
 In [87]:
@@ -4700,7 +4640,7 @@ Out[87]:
    dtype: int64
 ```
 
-A step can be used in both scenarios, as can be seen here: 
+A step can be used in both scenarios, as can be seen here:
 
 ```
 In [88]:
@@ -4724,7 +4664,7 @@ Out[89]:
    dtype: int64
 ```
 
-An interesting usage of slicing is to specify a negative step. The following code returns the reverse of the `Series` : 
+An interesting usage of slicing is to specify a negative step. The following code returns the reverse of the `Series` :
 
 ```
 In [90]:
@@ -4744,7 +4684,7 @@ Out[90]:
    dtype: int64
 ```
 
-Alternately, we can execute the following code if we want every other element, starting with position `4` , in reverse: 
+Alternately, we can execute the following code if we want every other element, starting with position `4` , in reverse:
 
 ```
 In [91]:
@@ -4757,7 +4697,7 @@ Out[91]:
    dtype: int64
 ```
 
-Negative values for the start and end of a slice have special meaning. If the series has _n_ elements, then negative values for the start and end of the slice represent elements _n + start_ through and not including _n + end_ . This sounds a little confusing, but can be understood simply with the following example: 
+Negative values for the start and end of a slice have special meaning. If the series has _n_ elements, then negative values for the start and end of the slice represent elements _n + start_ through and not including _n + end_ . This sounds a little confusing, but can be understood simply with the following example:
 
 ```
 In [92]:
@@ -4775,7 +4715,7 @@ Out[92]:
    dtype: int64
 ```
 
-What we have discovered is a shorthand for selecting all of the items except for the last _n_ , in this case _n_ being `2` ( `-2` as passed to the slice). We can also pick the last _n_ items in a series by using _–n_ as the start and omitting the end component of the slice. This is also equivalent to using `.tail()` , but uses a little less typing (and this is a good thing): 
+What we have discovered is a shorthand for selecting all of the items except for the last _n_ , in this case _n_ being `2` ( `-2` as passed to the slice). We can also pick the last _n_ items in a series by using _–n_ as the start and omitting the end component of the slice. This is also equivalent to using `.tail()` , but uses a little less typing (and this is a good thing):
 
 ```
 In [93]:
@@ -4791,7 +4731,7 @@ Out[93]:
    dtype: int64
 ```
 
-These can be combined, like in the following example, which returns all but the last row in the last four rows of the `Series` : 
+These can be combined, like in the following example, which returns all but the last row in the last four rows of the `Series` :
 
 ```
 In [94]:
@@ -4804,7 +4744,7 @@ Out[94]:
    dtype: int64
 ```
 
-An important thing to keep in mind when using slicing, is that the result of the slice is actually a view into the original `Series` . Modification of values through the result of the slice will modify the original `Series` . Consider the following example, which selects the first two elements in the `Series` and stores it into a new variable: 
+An important thing to keep in mind when using slicing, is that the result of the slice is actually a view into the original `Series` . Modification of values through the result of the slice will modify the original `Series` . Consider the following example, which selects the first two elements in the `Series` and stores it into a new variable:
 
 ```
 In [95]:
@@ -4817,7 +4757,7 @@ Out[95]:
    dtype: int64
 ```
 
-Now, the assignment of a value to an element of a slice will change the value in the original `Series` : 
+Now, the assignment of a value to an element of a slice will change the value in the original `Series` :
 
 ```
 In [96]:
@@ -4844,9 +4784,9 @@ Out[96]:
 
 ### **Note** 
 
-Keep this in mind as it is powerful, because if you were expecting slicing to use a copy of the data you will likely be tracking down some bugs in the future. 
+Keep this in mind as it is powerful, because if you were expecting slicing to use a copy of the data you will likely be tracking down some bugs in the future.
 
-Slicing can be performed on `Series` objects with a noninteger index. The following `Series` will be used to demonstrate this: 
+Slicing can be performed on `Series` objects with a noninteger index. The following `Series` will be used to demonstrate this:
 
 ```
 In [97]:
@@ -4866,7 +4806,7 @@ Out[97]:
    dtype: int64
 ```
 
-Slicing with integer values will extract items based on position: 
+Slicing with integer values will extract items based on position:
 
 ```
 In [98]:
@@ -4881,7 +4821,7 @@ Out[98]:
    dtype: int64
 ```
 
-With the noninteger index, it is also possible to slice with values in the same type of the index: 
+With the noninteger index, it is also possible to slice with values in the same type of the index:
 
 ```
 In [99]:
@@ -4899,21 +4839,21 @@ Out[99]:
 
 # **Summary** 
 
-In this chapter, you learned about the pandas `Series` object and how it provides capabilities beyond that of the NumPy array. We examined how to create and initialize a `Series` and its associated index. Using a Series, we then looked at how to manipulate the data in one or more `Series` objects, including alignment by labels, various means of rearranging and changing data, and applying arithmetical operations. We closed with examining how to reindex and perform slicing. 
+In this chapter, you learned about the pandas `Series` object and how it provides capabilities beyond that of the NumPy array. We examined how to create and initialize a `Series` and its associated index. Using a Series, we then looked at how to manipulate the data in one or more `Series` objects, including alignment by labels, various means of rearranging and changing data, and applying arithmetical operations. We closed with examining how to reindex and perform slicing.
 
-In the next chapter, you will learn how the `DataFrame` is used to represent multiple `Series` of data that are automatically aligned to a `DataFrame` level index, providing a uniform and automatic ability to represent multiple values for each index label. 
+In the next chapter, you will learn how the `DataFrame` is used to represent multiple `Series` of data that are automatically aligned to a `DataFrame` level index, providing a uniform and automatic ability to represent multiple values for each index label.
 
 # **Chapter 5. The pandas DataFrame Object** 
 
-The pandas `DataFrame` object extends the capabilities of the `Series` object into two-dimensions. A `Series` object adds an index to a NumPy array but can only associate a single data item per index label, a `DataFrame` integrates multiple `Series` objects by aligning them along common index labels. This automatic alignment by index label provides a seamless view across all the `Series` at each index label that has the appearance of a row in a table. 
+The pandas `DataFrame` object extends the capabilities of the `Series` object into two-dimensions. A `Series` object adds an index to a NumPy array but can only associate a single data item per index label, a `DataFrame` integrates multiple `Series` objects by aligning them along common index labels. This automatic alignment by index label provides a seamless view across all the `Series` at each index label that has the appearance of a row in a table.
 
-A `DataFrame` object can be thought of as a dictionary-like container of one or more `Series` objects, or as a spreadsheet, probably the best description for those new to pandas is to compare a `DataFrame` object to a relational database table. However, even that comparison is limited, as a `DataFrame` object has very distinct qualities (such as automatic data alignment of series) that make it much more capable for exploratory data analysis than either a spreadsheet or relational database table. 
+A `DataFrame` object can be thought of as a dictionary-like container of one or more `Series` objects, or as a spreadsheet, probably the best description for those new to pandas is to compare a `DataFrame` object to a relational database table. However, even that comparison is limited, as a `DataFrame` object has very distinct qualities (such as automatic data alignment of series) that make it much more capable for exploratory data analysis than either a spreadsheet or relational database table.
 
-Because of the increased dimensionality of the `DataFrame` object, it becomes necessary to provide a means to select both rows and columns. Carrying over from a `Series` , the `DataFrame` uses the `[]` operator for selection, but it is now applied to the selection of columns of data. This means that another construct must be used to select specific rows of a `DataFrame` object. For those operations, a `DataFrame` object provides several methods and attributes that can be used in various fashions to select data by rows. 
+Because of the increased dimensionality of the `DataFrame` object, it becomes necessary to provide a means to select both rows and columns. Carrying over from a `Series` , the `DataFrame` uses the `[]` operator for selection, but it is now applied to the selection of columns of data. This means that another construct must be used to select specific rows of a `DataFrame` object. For those operations, a `DataFrame` object provides several methods and attributes that can be used in various fashions to select data by rows.
 
-A `DataFrame` also introduces the concept of multiple axes, specifically the horizontal and vertical axis. Functions from pandas can then be applied to either axis, in essence stating that the operation be applied horizontally to all the values in the rows, or up and down each column. 
+A `DataFrame` also introduces the concept of multiple axes, specifically the horizontal and vertical axis. Functions from pandas can then be applied to either axis, in essence stating that the operation be applied horizontally to all the values in the rows, or up and down each column.
 
-In this chapter, we will examine the pandas `DataFrame` and how we can manipulate both the `DataFrame` and the data it represents to build a basis for performing interactive data analysis. 
+In this chapter, we will examine the pandas `DataFrame` and how we can manipulate both the `DataFrame` and the data it represents to build a basis for performing interactive data analysis.
 
 #### Specifically, in this chapter we will cover: 
 
@@ -4945,7 +4885,7 @@ In this chapter, we will examine the pandas `DataFrame` and how we can manipulat
 
 # **Creating DataFrame from scratch** 
 
-To use a `DataFrame` we first need to import pandas and set some options for output. 
+To use a `DataFrame` we first need to import pandas and set some options for output.
 
 ```
 In [1]:
@@ -4961,7 +4901,7 @@ In [1]:
    pd.set_option('display.max_rows', 10)
 ```
 
-There are several ways to create a `DataFrame` . Probably the most straightforward way, is by creating it from a NumPy `array` . The following code creates a `DataFrame` from a two dimensional NumPy array. 
+There are several ways to create a `DataFrame` . Probably the most straightforward way, is by creating it from a NumPy `array` . The following code creates a `DataFrame` from a two dimensional NumPy array.
 
 ```
 In [2]:
@@ -4982,9 +4922,9 @@ Out[2]:
    1  20  21
 ```
 
-Each row of the array forms a row in the `DataFrame` object. Since we did not specify an index, pandas creates a default `int64` index in the same manner as a `Series` object. Since we did not specify column names, pandas also assigns the names for each column with a zero-based integer series. 
+Each row of the array forms a row in the `DataFrame` object. Since we did not specify an index, pandas creates a default `int64` index in the same manner as a `Series` object. Since we did not specify column names, pandas also assigns the names for each column with a zero-based integer series.
 
-A `DataFrame` can also be initialized by passing a list of `Series` objects. 
+A `DataFrame` can also be initialized by passing a list of `Series` objects.
 
 ```
 In [3]:
@@ -5004,7 +4944,7 @@ Out[3]:
    1  15  16  17  18  19
 ```
 
-The dimensions of a `DataFrame` object can be determined using its `.shape` property. A `DataFrame` is always two-dimensional. The first value informs us about the number of rows and the second value is the number of columns: 
+The dimensions of a `DataFrame` object can be determined using its `.shape` property. A `DataFrame` is always two-dimensional. The first value informs us about the number of rows and the second value is the number of columns:
 
 ```
 In [4]:
@@ -5017,7 +4957,7 @@ Out[4]:
    (2, 5)
 ```
 
-Column names can be specified at the time of creating the `DataFrame` by using the `columns` parameter of the `DataFrame` constructor. 
+Column names can be specified at the time of creating the `DataFrame` by using the `columns` parameter of the `DataFrame` constructor.
 
 ```
 In [5]:
@@ -5037,7 +4977,7 @@ Out[5]:
    1  20  21
 ```
 
-The names of the columns of a `DataFrame` can be accessed with its `.columns` property: 
+The names of the columns of a `DataFrame` can be accessed with its `.columns` property:
 
 ```
 In [6]:
@@ -5050,7 +4990,7 @@ Out[6]:
    Index([u'a', u'b'], dtype='object')
 ```
 
-This value of the `.columns` property is actually a pandas index. The individual column names can be accessed by position. 
+This value of the `.columns` property is actually a pandas index. The individual column names can be accessed by position.
 
 ```
 In [7]:
@@ -5063,7 +5003,7 @@ Out[7]:
    'a, b'
 ```
 
-The names of the columns can be changed by assigning a list of the new names to the the `.columns` property: 
+The names of the columns can be changed by assigning a list of the new names to the the `.columns` property:
 
 ```
 In [8]:
@@ -5079,7 +5019,7 @@ Out[8]:
    1  20  21
 ```
 
-Index labels can likewise be assigned using the `index` parameter of the constructor or by assigning a list directly to the `.index` property. 
+Index labels can likewise be assigned using the `index` parameter of the constructor or by assigning a list directly to the `.index` property.
 
 ```
 In [9]:
@@ -5097,7 +5037,7 @@ Out[9]:
    r2   2   3
 ```
 
-Similar to the `Series` object, the index of a `DataFrame` object can be accessed with its `.index` property: 
+Similar to the `Series` object, the index of a `DataFrame` object can be accessed with its `.index` property:
 
 ```
 In [10]:
@@ -5110,7 +5050,7 @@ Out[10]:
    Index([u'r1', u'r2'], dtype='object')
 ```
 
-A `DataFrame` object can also be created by passing a dictionary containing one or more `Series` objects, where the dictionary keys contain the column names and each series is one column of data: 
+A `DataFrame` object can also be created by passing a dictionary containing one or more `Series` objects, where the dictionary keys contain the column names and each series is one column of data:
 
 ```
 In [11]:
@@ -5131,7 +5071,7 @@ Out[11]:
    4   5  10
 ```
 
-A `DataFrame` also performs automatic alignment of the data for each `Series` passed in by a dictionary. For example, the following code adds a third column in the `DataFrame` initialization. This third `Series` contains two values and will specify its index. When the `DataFrame` is created, each series in the dictionary is aligned with each other by the index label, as it is added to the `DataFrame` object. The code is as follows: 
+A `DataFrame` also performs automatic alignment of the data for each `Series` passed in by a dictionary. For example, the following code adds a third column in the `DataFrame` initialization. This third `Series` contains two values and will specify its index. When the `DataFrame` is created, each series in the dictionary is aligned with each other by the index label, as it is added to the `DataFrame` object. The code is as follows:
 
 ```
 In [12]:
@@ -5154,21 +5094,21 @@ Out[12]:
    4   5  10 NaN
 ```
 
-The first two `Series` did not have an index specified, so they both were indexed with `0` .. `4` . The third `Series` has index values, and therefore the values for those indexes are placed in `DataFrame` in the row with the matching index from the previous columns. Then, pandas automatically filled in `NaN` for the values that were not supplied. 
+The first two `Series` did not have an index specified, so they both were indexed with `0` .. `4` . The third `Series` has index values, and therefore the values for those indexes are placed in `DataFrame` in the row with the matching index from the previous columns. Then, pandas automatically filled in `NaN` for the values that were not supplied.
 
 # **Example data** 
 
-Where possible, the examples in this chapter will utilize several datasets provided with the code in the download for the text. These datasets make the examples a little less academic in nature. These datasets will be read from files using the `pd.read_csv()` function that will load the sample data from the file into a `DataFrame` object. 
+Where possible, the examples in this chapter will utilize several datasets provided with the code in the download for the text. These datasets make the examples a little less academic in nature. These datasets will be read from files using the `pd.read_csv()` function that will load the sample data from the file into a `DataFrame` object.
 
 ### **Note** 
 
-`pd.read_csv()` will be more extensively examined in <u>Chapter 6,</u> _Accessing Data_ . For now, its function is simply to load some example `DataFrame` objects. 
+`pd.read_csv()` will be more extensively examined in <u>Chapter 6,</u> _Accessing Data_ . For now, its function is simply to load some example `DataFrame` objects.
 
-The remainder of the samples will still utilize the `DataFrame` objects created on demand if they demonstrate the concept being examined in a better way. Let's see the brief descriptions of these datasets. 
+The remainder of the samples will still utilize the `DataFrame` objects created on demand if they demonstrate the concept being examined in a better way. Let's see the brief descriptions of these datasets.
 
 ## **S&P 500** 
 
-The first dataset we will use is a snapshot of the S&P 500 from Yahoo! Finance. The following code shows the first three lines of the file: 
+The first dataset we will use is a snapshot of the S&P 500 from Yahoo! Finance. The following code shows the first three lines of the file:
 
 ```
 In [13]:
@@ -5193,11 +5133,11 @@ Care,39.60,1.82,25.93,1.529,15.573,32.70,40.49,59.477,4.359,2.7
 action=getcompany&CIK=ABT
 ```
 
-The first line is the name of the field, and the remaining 500 lines represents the values for the 500 different stocks. 
+The first line is the name of the field, and the remaining 500 lines represents the values for the 500 different stocks.
 
-For now, we will load this data into a `DataFrame` that we can used to demonstrate various operations. This code only uses four specific columns of data in the file by specifying those columns via the `usecols` parameter to `pd.read_csv().` This makes the output for examples a bit less unwieldy. 
+For now, we will load this data into a `DataFrame` that we can used to demonstrate various operations. This code only uses four specific columns of data in the file by specifying those columns via the `usecols` parameter to `pd.read_csv().` This makes the output for examples a bit less unwieldy.
 
-The following reads in the data. 
+The following reads in the data.
 
 ```
 In [14]:
@@ -5212,7 +5152,7 @@ In [14]:
                        usecols=[0, 2, 3, 7])
 ```
 
-We can examine the first five rows of the `DataFrame` using the `.head()` method. The examples will use this method frequently to limit the number of rows in the output of the examples. 
+We can examine the first five rows of the `DataFrame` using the `.head()` method. The examples will use this method frequently to limit the number of rows in the output of the examples.
 
 ```
 In [15]:
@@ -5235,9 +5175,7 @@ Out[15]:
 |**`ACN     Information Technology   79.79       8.326`**|
 |**`ACE                 Financials  102.91      86.897`**|
 
-
-
-Alternatively, we can examine the last five rows with the `.tail()` method: 
+Alternatively, we can examine the last five rows with the `.tail()` method:
 
 ```
 In [16]:
@@ -5264,9 +5202,7 @@ Out[16]:
 |**`ZION                Financials   28.43      30.191`**|
 |**`ZTS                Health Care   30.53       2.150`**|
 
-
-
-We can see that there are indeed 500 rows of data. 
+We can see that there are indeed 500 rows of data.
 
 ```
 In [17]:
@@ -5279,7 +5215,7 @@ Out[17]:
    500
 ```
 
-The index of the `DataFrame` consists of the symbols for the 500 stocks representing the S&P 500. 
+The index of the `DataFrame` consists of the symbols for the 500 stocks representing the S&P 500.
 
 ```
 In [18]:
@@ -5308,7 +5244,7 @@ u'CNP', u'CTL', u'CERN', u'CF', u'CHRW', u'CHK', u'CVX',
 u'CMG', u'CB', u'CI', u'CINF', u'CTAS', ...], dtype='object')
 ```
 
-Also, there are three columns in the `DataFrame` : 
+Also, there are three columns in the `DataFrame` :
 
 ```
 In [19]:
@@ -5326,7 +5262,7 @@ Out[19]:
 
 ## **Monthly stock historical prices** 
 
-The second dataset we will use, is the adjusted closing price for `MSFT` and `AAPL` for December 2014. 
+The second dataset we will use, is the adjusted closing price for `MSFT` and `AAPL` for December 2014.
 
 ```
 In [20]:
@@ -5343,7 +5279,7 @@ Out[20]:
    2014-12-02,48.46,114.63
 ```
 
-The data is read into a `DataFrame` as follows, and the first three lines examined using a slice: 
+The data is read into a `DataFrame` as follows, and the first three lines examined using a slice:
 
 ```
 In [21]:
@@ -5366,13 +5302,13 @@ Out[21]:
 
 ### **Note** 
 
-This type of data is referred to as a time series. We will examine time series data in depth in <u>Chapter 10,</u> _Time-series Data_ , but for the purposes of this chapter, we will use this data simply for demonstration of manipulating a `DataFrame` . 
+This type of data is referred to as a time series. We will examine time series data in depth in <u>Chapter 10,</u> _Time-series Data_ , but for the purposes of this chapter, we will use this data simply for demonstration of manipulating a `DataFrame` .
 
 # **Selecting columns of a DataFrame** 
 
-Selecting the data in specific columns of a `DataFrame` is performed by using the `[]` operator. This can be passed either as a single object, or a list of objects. These objects are then used to lookup columns either by zero-based location, or by matching the objects to the values in the columns index. 
+Selecting the data in specific columns of a `DataFrame` is performed by using the `[]` operator. This can be passed either as a single object, or a list of objects. These objects are then used to lookup columns either by zero-based location, or by matching the objects to the values in the columns index.
 
-Passing a single integer, or a list of integers, to `[]` will have the `DataFrame` object attempt to perform a location based lookup of the columns. The following code retrieves the data in the second and third columns: 
+Passing a single integer, or a list of integers, to `[]` will have the `DataFrame` object attempt to perform a location based lookup of the columns. The following code retrieves the data in the second and third columns:
 
 ```
 In [22]:
@@ -5395,7 +5331,7 @@ In [22]:
    ACE     102.91      86.897
 ```
 
-Selecting columns by passing a list of values will result in another `DataFrame` , with data copied from the original `DataFrame` . This is true, even if the list only has a single integer / value, as the following code demonstrates: 
+Selecting columns by passing a list of values will result in another `DataFrame` , with data copied from the original `DataFrame` . This is true, even if the list only has a single integer / value, as the following code demonstrates:
 
 ```
 In [23]:
@@ -5432,9 +5368,9 @@ Out[24]:
    pandas.core.frame.DataFrame
 ```
 
-Note that even though we asked for just a single column by position, the value was still in a list passed to the `[]` operator and hence the double set of brackets `[[]]` . This is important, as not passing a list always results in a value based lookup of the column. 
+Note that even though we asked for just a single column by position, the value was still in a list passed to the `[]` operator and hence the double set of brackets `[[]]` . This is important, as not passing a list always results in a value based lookup of the column.
 
-The following code, therefore, throws an exception as the columns index does not have a value of `1` : 
+The following code, therefore, throws an exception as the columns index does not have a value of `1` :
 
 ```
 In [25]:
@@ -5453,7 +5389,7 @@ In [25]:
    # df = sp500[1]
 ```
 
-But, this would work if the dtype of the columns index is an integer and it has a value `1` : 
+But, this would work if the dtype of the columns index is an integer and it has a value `1` :
 
 ```
 In [26]:
@@ -5476,8 +5412,6 @@ In [26]:
 |**`ABBV               Health Care   53.95   2.954`**|
 |**`ACN     Information Technology   79.79   8.326`**|
 |**`ACE                 Financials  102.91  86.897`**|
-
-
 
 ```
 In [27]:
@@ -5519,7 +5453,7 @@ Out[28]:
    Int64Index([0, 1, 2], dtype='int64')
 ```
 
-In the preceding code, notice the selection of a single column using a single integer; when the `DataFrame` has an integer column index, it returns a `Series` and not a `DataFrame` . 
+In the preceding code, notice the selection of a single column using a single integer; when the `DataFrame` has an integer column index, it returns a `Series` and not a `DataFrame` .
 
 ```
 In [29]:
@@ -5538,9 +5472,9 @@ Out[29]:
    pandas.core.series.Series
 ```
 
-If you need a `DataFrame` , you can pass this `Series` to the constructor of a new `DataFrame` object, or pass the single value in a list. 
+If you need a `DataFrame` , you can pass this `Series` to the constructor of a new `DataFrame` object, or pass the single value in a list.
 
-If the values passed to `[]` consist of nonintegers, then the `DataFrame` will attempt to match the values to the values in the columns index. The following code retrieves the `Price` column by name: 
+If the values passed to `[]` consist of nonintegers, then the `DataFrame` will attempt to match the values to the values in the columns index. The following code retrieves the `Price` column by name:
 
 ```
 In [30]:
@@ -5568,9 +5502,9 @@ Out[30]:
    Name: Price, Length: 500, dtype: float64
 ```
 
-Like with a column selection with a single location, this returned a `Series` and not a `DataFrame` object. 
+Like with a column selection with a single location, this returned a `Series` and not a `DataFrame` object.
 
-Multiple columns can be selected by name by passing a list of the values, and results in a `DataFrame` (even if a single item is passed in the list). The code is as follows: 
+Multiple columns can be selected by name by passing a list of the values, and results in a `DataFrame` (even if a single item is passed in the list). The code is as follows:
 
 ```
 In [31]:
@@ -5598,13 +5532,11 @@ Out[31]:
 |**`ZION     28.43              Financials`**|
 |**`ZTS      30.53             Health Care`**|
 
-
-
 ```
    [500 rows x 2 columns]
 ```
 
-Columns can also be retrieved using what is referred to as attribute access. Each column in a `DataFrame` dynamically adds a property to the `DataFrame` for each column where the name of the property is the name of the column. Since this selects a single column, the resulting value is a `Series` : 
+Columns can also be retrieved using what is referred to as attribute access. Each column in a `DataFrame` dynamically adds a property to the `DataFrame` for each column where the name of the property is the name of the column. Since this selects a single column, the resulting value is a `Series` :
 
 ```
 In [32]:
@@ -5628,9 +5560,9 @@ Out[32]:
    Name: Price, Length: 500, dtype: float64
 ```
 
-Note that this will not work for the `Book Value` column, as the name has a space. 
+Note that this will not work for the `Book Value` column, as the name has a space.
 
-If you do want to find the zero-based location of one or more columns using the name of the column (technically, the value of the index entry of a column), use the `.get_loc()` method of the `columns` index: 
+If you do want to find the zero-based location of one or more columns using the name of the column (technically, the value of the index entry of a column), use the `.get_loc()` method of the `columns` index:
 
 ```
 In [33]:
@@ -5646,23 +5578,23 @@ Out[33]:
 
 # **Selecting rows and values of a DataFrame using the index** 
 
-Elements of an array or `Series` are selected using the `[]` operator. `DataFrame` overloads `[]` to select columns instead of rows, except for a specific case of slicing. Therefore, most operations of selection of one or more rows in a `DataFrame` , require alternate methods to using `[]` . 
+Elements of an array or `Series` are selected using the `[]` operator. `DataFrame` overloads `[]` to select columns instead of rows, except for a specific case of slicing. Therefore, most operations of selection of one or more rows in a `DataFrame` , require alternate methods to using `[]` .
 
-Understanding this is important in pandas, as it is a common mistake is try and select rows using `[]` due to familiarity with other languages or data structures. When doing so, errors are often received, and can often be difficult to diagnose without realizing `[]` is working along a completely different axis than with a `Series` object. 
+Understanding this is important in pandas, as it is a common mistake is try and select rows using `[]` due to familiarity with other languages or data structures. When doing so, errors are often received, and can often be difficult to diagnose without realizing `[]` is working along a completely different axis than with a `Series` object.
 
-Row selection using the index on a `DataFrame` then breaks down to the following general categories of operations: 
+Row selection using the index on a `DataFrame` then breaks down to the following general categories of operations:
 
 - Slicing using the `[]` operator 
 
 - Label or location based lookup using `.loc` , `.iloc` , and `.ix` Scalar lookup by label or location using `.at` and `.iat` 
 
-We will briefly examine each of these techniques and attributes. Remember, all of these are working against the content of the index of the `DataFrame` . There is no involvement with data in the columns in the selection of the rows. We will cover that in the next section on Boolean selection. 
+We will briefly examine each of these techniques and attributes. Remember, all of these are working against the content of the index of the `DataFrame` . There is no involvement with data in the columns in the selection of the rows. We will cover that in the next section on Boolean selection.
 
 ## **Slicing using the [] operator** 
 
-Slicing a `DataFrame` across its index is syntactically identical to performing the same on a `Series` . Because of this, we will not go into the details of the various permutations of slices in this section, and only give representative examples applied to a `DataFrame` . 
+Slicing a `DataFrame` across its index is syntactically identical to performing the same on a `Series` . Because of this, we will not go into the details of the various permutations of slices in this section, and only give representative examples applied to a `DataFrame` .
 
-Slicing works along both positions and labels. The following code demonstrates several examples of slicing by position: 
+Slicing works along both positions and labels. The following code demonstrates several examples of slicing by position:
 
 ##### **`In [34]:`** 
 
@@ -5681,9 +5613,7 @@ Slicing works along both positions and labels. The following code demonstrates s
 |**`ACN     Information Technology   79.79       8.326`**|
 |**`ACE                 Financials  102.91      86.897`**|
 
-
-
-The following code returns rows starting with the `ABT` label through the `ACN` label: 
+The following code returns rows starting with the `ABT` label through the `ACN` label:
 
 ```
 In [35]:
@@ -5702,13 +5632,11 @@ In [35]:
 |**`ABBV               Health Care  53.95       2.954`**|
 |**`ACN     Information Technology  79.79       8.326`**|
 
-
-
-In general, although slicing of a `DataFrame` has its uses, high performance systems tend to shy away from it and use other methods. Additionally, the slice notation for rows on a `DataFrame` using integers can be confusing, as it looks like accessing columns by position, and hence can lead to subtle bugs. 
+In general, although slicing of a `DataFrame` has its uses, high performance systems tend to shy away from it and use other methods. Additionally, the slice notation for rows on a `DataFrame` using integers can be confusing, as it looks like accessing columns by position, and hence can lead to subtle bugs.
 
 ## **Selecting rows by index label and location: .loc[] and .iloc[]** 
 
-Rows can be retrieved via an index label value using `.loc[]` . This is shown in the following code: 
+Rows can be retrieved via an index label value using `.loc[]` . This is shown in the following code:
 
 ```
 In [36]:
@@ -5752,7 +5680,7 @@ Out[37]:
    MSFT    Information Technology   40.12      10.584
 ```
 
-Rows can also be retrieved by location using `.iloc[]` : 
+Rows can also be retrieved by location using `.iloc[]` :
 
 ```
 In [38]:
@@ -5771,7 +5699,7 @@ Out[38]:
    ABBV    Health Care   53.95       2.954
 ```
 
-It is possible to look up the location in the index of a specific label value, which can then be used to retrieve the row(s): 
+It is possible to look up the location in the index of a specific label value, which can then be used to retrieve the row(s):
 
 ```
 In [39]:
@@ -5808,7 +5736,7 @@ Out[40]:
 
 ## **Selecting rows by index label and/or location: .ix[]** 
 
-Like a `Series` , a `DataFrame` also contains an `.ix` property that can be used to lookup rows, either by index label or location, essentially combining `.loc` and `.iloc` in one. The following looks up rows by index label by passing a list of nonintegers: 
+Like a `Series` , a `DataFrame` also contains an `.ix` property that can be used to lookup rows, either by index label or location, essentially combining `.loc` and `.iloc` in one. The following looks up rows by index label by passing a list of nonintegers:
 
 ```
 In [41]:
@@ -5827,7 +5755,7 @@ Out[41]:
    ZTS                Health Care  30.53       2.150
 ```
 
-Location-based lookup can be performed by passing a list of integers: 
+Location-based lookup can be performed by passing a list of integers:
 
 ```
 In [42]:
@@ -5846,13 +5774,11 @@ Out[42]:
 |**`GIS`**|**`Consumer Staples`**|**`53.81      10.236`**|
 |**`TRV`**|**`Financials`**|**`92.86      73.056`**|
 
-
-
-In general, use of `.ix` is not preferred due to potential confusion, and use of `.loc` and `.iloc` is recommended and gives higher performance. 
+In general, use of `.ix` is not preferred due to potential confusion, and use of `.loc` and `.iloc` is recommended and gives higher performance.
 
 ## **Scalar lookup by label or location using .at[] and .iat[]** 
 
-Scalar values can be looked up by label using `.at` , by passing both the row label and then the column name/value: 
+Scalar values can be looked up by label using `.at` , by passing both the row label and then the column name/value:
 
 ```
 In [43]:
@@ -5868,7 +5794,7 @@ Out[43]:
    141.14
 ```
 
-Scalar values can also be looked up by location using `.iat` by passing both the row location and then the column location. This is the preferred method of accessing single values and gives the highest performance. 
+Scalar values can also be looked up by location using `.iat` by passing both the row location and then the column location. This is the preferred method of accessing single values and gives the highest performance.
 
 ```
 In [44]:
@@ -5883,9 +5809,9 @@ Out[44]:
 
 # **Selecting rows of a DataFrame by Boolean selection** 
 
-Rows can also be selected by using Boolean selection, using an array calculated from the result of applying a logical condition on the values in any of the columns. This allows us to build more complicated selections than those based simply upon index labels or positions. 
+Rows can also be selected by using Boolean selection, using an array calculated from the result of applying a logical condition on the values in any of the columns. This allows us to build more complicated selections than those based simply upon index labels or positions.
 
-Consider the following that is an array of all companies that have a price below `100.0` . 
+Consider the following that is an array of all companies that have a price below `100.0` .
 
 ```
 In [45]:
@@ -5906,7 +5832,7 @@ Out[45]:
    Name: Price, Length: 500, dtype: bool
 ```
 
-This results in a `Series` that can be used to select the rows where the value is `True` , exactly the same way it was done with a `Series` or a NumPy array: 
+This results in a `Series` that can be used to select the rows where the value is `True` , exactly the same way it was done with a `Series` or a NumPy array:
 
 ```
 In [46]:
@@ -5927,8 +5853,6 @@ Out[46]:
 |**`ADBE    Information Technology  64.30      13.262`**|
 |**`AES                  Utilities  13.61       5.781`**<br>**`...                        ...    ...         ...`**|
 
-
-
 |**`XYL                Industrials  38.42      12.127`**|
 |---|
 |**`YHOO    Information Technology  35.02      12.768`**|
@@ -5936,13 +5860,11 @@ Out[46]:
 |**`ZION                Financials  28.43      30.191`**|
 |**`ZTS                Health Care  30.53       2.150`**|
 
-
-
 ```
    [407 rows x 3 columns]
 ```
 
-Multiple conditions can be put together using parentheses; at the same time, it is possible to select only a subset of the columns. The following retrieves the symbols and price for all stocks with a price less than `10` and greater than `0` : 
+Multiple conditions can be put together using parentheses; at the same time, it is possible to select only a subset of the columns. The following retrieves the symbols and price for all stocks with a price less than `10` and greater than `0` :
 
 ```
 In [47]:
@@ -5971,11 +5893,11 @@ Out[47]:
 
 # **Modifying the structure and content of DataFrame** 
 
-The structure and content of a `DataFrame` can be mutated in several ways. Rows and columns can be added and removed, and data within either can be modified to take on new values. Additionally, columns, as well as index labels, can also be renamed. Each of these will be described in the following sections. 
+The structure and content of a `DataFrame` can be mutated in several ways. Rows and columns can be added and removed, and data within either can be modified to take on new values. Additionally, columns, as well as index labels, can also be renamed. Each of these will be described in the following sections.
 
 ## **Renaming columns** 
 
-A column can be renamed using the `.rename()` method of the `DataFrame` . The `Book Value` column is inconvenient since it has a space, so we will rename it to `BookValue` : 
+A column can be renamed using the `.rename()` method of the `DataFrame` . The `Book Value` column is inconvenient since it has a space, so we will rename it to `BookValue` :
 
 ```
 In [48]:
@@ -5998,7 +5920,7 @@ Out[48]:
    ABT     Health Care   39.60     15.573
 ```
 
-This has returned a new `DataFrame` object with the renamed column and data copied from the original `DataFrame` . We can verify that the original `DataFrame` did not have its column names modified: 
+This has returned a new `DataFrame` object with the renamed column and data copied from the original `DataFrame` . We can verify that the original `DataFrame` did not have its column names modified:
 
 ```
 In [49]:
@@ -6017,7 +5939,7 @@ Out[49]:
    Index([u'Sector', u'Price', u'Book Value'], dtype='object')
 ```
 
-To modify the `DataFrame` without making a copy, we can use the `inplace=True` parameter to `.rename()` : 
+To modify the `DataFrame` without making a copy, we can use the `inplace=True` parameter to `.rename()` :
 
 ```
 In [50]:
@@ -6029,7 +5951,7 @@ In [50]:
    sp500.columns
 ```
 
-**`Out[50]: Index([u'Sector', u'Price', u'BookValue'], dtype='object')`** A convenient side effect of this, is that the `DataFrame` now has a `.BookValue` attribute as before renaming the column, the space prevented attribute-based access of the column: 
+**`Out[50]: Index([u'Sector', u'Price', u'BookValue'], dtype='object')`** A convenient side effect of this, is that the `DataFrame` now has a `.BookValue` attribute as before renaming the column, the space prevented attribute-based access of the column:
 
 ```
 In [51]:
@@ -6047,13 +5969,13 @@ Out[51]:
 
 ## **Adding and inserting columns** 
 
-Columns can be added to a `DataFrame` using several methods. The simplest way is by merging a new `Series` into the `DataFrame` object, along the index using the `[]` operator assigning the `Series` to a new column, with a name not already in the `.columns` index. Note that this will modify the `DataFrame` in-place and not result in a copy. 
+Columns can be added to a `DataFrame` using several methods. The simplest way is by merging a new `Series` into the `DataFrame` object, along the index using the `[]` operator assigning the `Series` to a new column, with a name not already in the `.columns` index. Note that this will modify the `DataFrame` in-place and not result in a copy.
 
-Alignment of data is important to understanding this process, as pandas does not simply concatenate the `Series` to the `DataFrame` . pandas will first align the data in the `DataFrame` with the `Series` using the index from both 
+Alignment of data is important to understanding this process, as pandas does not simply concatenate the `Series` to the `DataFrame` . pandas will first align the data in the `DataFrame` with the `Series` using the index from both
 
-objects, and fill in the data from the `Series` into the new `DataFrame` at the appropriate index labels. 
+objects, and fill in the data from the `Series` into the new `DataFrame` at the appropriate index labels.
 
-To demonstrate this, we will add a purely demonstrative column called `TwicePrice` which adds a new column with a calculated value of `2.0 *` the `Price` column. Since this modifies the `DataFrame` object in-place, we will also make a copy and then add the column to the copy, so as to leave the original unmodified: 
+To demonstrate this, we will add a purely demonstrative column called `TwicePrice` which adds a new column with a calculated value of `2.0 *` the `Price` column. Since this modifies the `DataFrame` object in-place, we will also make a copy and then add the column to the copy, so as to leave the original unmodified:
 
 ```
 In [52]:
@@ -6072,9 +5994,9 @@ Out[52]:
    ABT     Health Care   39.60     15.573       79.20
 ```
 
-This process is actually selecting the `Price` column out of the `sp500` object, then creating another `Series` with each value of the `Price` multiplied by two. The `DataFrame` then aligns this new `Series` by label, copies the data at the appropriate labels, and adds the column at the end of the columns index. 
+This process is actually selecting the `Price` column out of the `sp500` object, then creating another `Series` with each value of the `Price` multiplied by two. The `DataFrame` then aligns this new `Series` by label, copies the data at the appropriate labels, and adds the column at the end of the columns index.
 
-If you want to add the column at a different location in the `DataFrame` object, instead of at the rightmost position, use the `.insert()` method of the `DataFrame` . The following code inserts the `TwicePrice` column between `Price` and `BookValue` : 
+If you want to add the column at a different location in the `DataFrame` object, instead of at the rightmost position, use the `.insert()` method of the `DataFrame` . The following code inserts the `TwicePrice` column between `Price` and `BookValue` :
 
 ```
 In [53]:
@@ -6095,11 +6017,9 @@ Out[53]:
 |---|---|
 |**`ABT`**|**`Health Care       79.20   39.60     15.573`**|
 
+It is important to remember that this is not simply inserting a column into the `DataFrame` . The alignment process used here is performing a left join of the `DataFrame` and the `Series` by their index labels, and then creating the column and populating the data in the appropriate cells in the `DataFrame` from matching entries in the `Series` . If an index label in the `DataFrame` is not matched in the `Series` , the value used will be `NaN` . Items in the `Series` that do not have a matching label will be ignored.
 
-
-It is important to remember that this is not simply inserting a column into the `DataFrame` . The alignment process used here is performing a left join of the `DataFrame` and the `Series` by their index labels, and then creating the column and populating the data in the appropriate cells in the `DataFrame` from matching entries in the `Series` . If an index label in the `DataFrame` is not matched in the `Series` , the value used will be `NaN` . Items in the `Series` that do not have a matching label will be ignored. 
-
-The following example demonstrates this operation: 
+The following example demonstrates this operation:
 
 ```
 In [54]:
@@ -6163,11 +6083,11 @@ Out[56]:
    ABBV     53.95                  NaN
 ```
 
-The labels for `ABT` and `ABBV` were not found in `rcopy` and therefore, the values in the result are `NaN` . `MMM` is the only value in both, so the value from `rcopy` is put in the result. 
+The labels for `ABT` and `ABBV` were not found in `rcopy` and therefore, the values in the result are `NaN` . `MMM` is the only value in both, so the value from `rcopy` is put in the result.
 
 ## **Replacing the contents of a column** 
 
-In general, assignment of a `Series` to a column using the `[]` operator will either create a new column if the column does not already exist, or replace the contents of a column if it already exists. To demonstrate replacement, the following code replaces the `Price` column with the result of the multiplication, instead of creating a new column: 
+In general, assignment of a `Series` to a column using the `[]` operator will either create a new column if the column does not already exist, or replace the contents of a column if it already exists. To demonstrate replacement, the following code replaces the `Price` column with the result of the multiplication, instead of creating a new column:
 
 ```
 In [57]:
@@ -6190,9 +6110,7 @@ Out[57]:
 |**`ACN     Information Technology`**|**`159.58      8.326`**|
 |**`ACE                 Financials`**|**`205.82     86.897`**|
 
-
-
-To emphasize that this is also doing an alignment, we can change the sample slightly. The following code only utilizes the prices from three of the first four rows. This will force the result to not align values for 497 of the symbols, resulting in `NaN` values: 
+To emphasize that this is also doing an alignment, we can change the sample slightly. The following code only utilizes the prices from three of the first four rows. This will force the result to not align values for 497 of the symbols, resulting in `NaN` values:
 
 ```
 In [58]:
@@ -6250,17 +6168,15 @@ Out[59]:
 |**`ZION                Financials`**|**`NaN     30.191`**|
 |**`ZTS                Health Care`**|**`NaN      2.150`**|
 
-
-
 ```
    [500 rows x 3 columns]
 ```
 
 ## **Deleting columns in a DataFrame** 
 
-Columns can be deleted from a `DataFrame` by using the `del` keyword, the `pop(column)` method of the `DataFrame,` or by calling the `drop()` method of the `DataFrame` . 
+Columns can be deleted from a `DataFrame` by using the `del` keyword, the `pop(column)` method of the `DataFrame,` or by calling the `drop()` method of the `DataFrame` .
 
-The behavior of each of these differs slightly: 
+The behavior of each of these differs slightly:
 
 - `del` will simply delete the `Series` from the `DataFrame` (in-place) 
 
@@ -6268,7 +6184,7 @@ The behavior of each of these differs slightly:
 
 - `drop(labels, axis=1)` will return a new `DataFrame` with the column(s) removed (the original `DataFrame` object is not modified) 
 
-The following code demonstrates using `del` to delete the `BookValue` column from a copy of the `sp500` data: 
+The following code demonstrates using `del` to delete the `BookValue` column from a copy of the `sp500` data:
 
 ```
 In [60]:
@@ -6308,7 +6224,7 @@ Out[61]:
    ABT     Health Care   39.60
 ```
 
-The following code demonstrates using the `.pop()` method to remove a column: 
+The following code demonstrates using the `.pop()` method to remove a column:
 
 ```
 In [62]:
@@ -6350,7 +6266,7 @@ Out[63]:
    Name: Sector, dtype: object
 ```
 
-The . `drop()` method can be used to remove both rows and columns. To use it to remove a column, specify `axis=1` : 
+The . `drop()` method can be used to remove both rows and columns. To use it to remove a column, specify `axis=1` :
 
 ```
 In [64]:
@@ -6379,15 +6295,15 @@ Out[64]:
 
 ## **Adding rows to a DataFrame** 
 
-Rows can be added to a `DataFrame` object via several different operations: 
+Rows can be added to a `DataFrame` object via several different operations:
 
 - Appending a `DataFrame` to another Concatenation of two `DataFrame` objects Setting with enlargement 
 
 ### **Appending rows with .append()** 
 
-Appending is performed using the `.append()` method of the `DataFrame` . The process of appending returns a new `DataFrame` with the data from the original `DataFrame` added first, and the rows from the second. Appending does not perform alignment and can result in duplicate index values. 
+Appending is performed using the `.append()` method of the `DataFrame` . The process of appending returns a new `DataFrame` with the data from the original `DataFrame` added first, and the rows from the second. Appending does not perform alignment and can result in duplicate index values.
 
-The following code demonstrates appending two `DataFrame` objects extracted from the `sp500` data. The first `DataFrame` consists of rows `0` , `1` and `2` , and the second consists of rows `10` , `11` and `2` . Row `2` (with label `ABBV` ) is included in both to demonstrate creation of duplicate index labels. The code is as follows: 
+The following code demonstrates appending two `DataFrame` objects extracted from the `sp500` data. The first `DataFrame` consists of rows `0` , `1` and `2` , and the second consists of rows `10` , `11` and `2` . Row `2` (with label `ABBV` ) is included in both to demonstrate creation of duplicate index labels. The code is as follows:
 
 ```
 In [65]:
@@ -6417,7 +6333,7 @@ Out[65]:
    ABBV    Health Care   53.95      2.954
 ```
 
-The set of columns of the `DataFrame` objects being appended do not need to be the same. The resulting `DataFrame` will consist of the union of the columns in both and where either did not have a column, `NaN` will be used as the value. The following code demonstrates this by creating a third `DataFrame` using the same index as `df1` , but having a single column with a unique column name: 
+The set of columns of the `DataFrame` objects being appended do not need to be the same. The resulting `DataFrame` will consist of the union of the columns in both and where either did not have a column, `NaN` will be used as the value. The following code demonstrates this by creating a third `DataFrame` using the same index as `df1` , but having a single column with a unique column name:
 
 ```
 In [66]:
@@ -6466,9 +6382,7 @@ In [67]:
 |**`ABT           NaN    0     NaN          NaN`**|
 |**`ABBV          NaN    0     NaN          NaN`**|
 
-
-
-To append without forcing the index to be taken from either `DataFrame` , you can use the `ignore_index=True` parameter. This is useful when the index values are not of significant meaning, and you just want concatenated data with sequentially increasing integers as indexes: 
+To append without forcing the index to be taken from either `DataFrame` , you can use the `ignore_index=True` parameter. This is useful when the index values are not of significant meaning, and you just want concatenated data with sequentially increasing integers as indexes:
 
 ```
 In [68]:
@@ -6492,15 +6406,13 @@ Out[68]:
 |**`4        NaN    0     NaN          NaN`**|
 |**`5        NaN    0     NaN          NaN`**|
 
-
-
 ### **Concatenating DataFrame objects with pd.concat()** 
 
-A DataFrame can be concatenated to another using the `pd.concat()` function. This function functions similarly to the `.append()` method, but also adds the ability to specify an axis (appending can be row or column 
+A DataFrame can be concatenated to another using the `pd.concat()` function. This function functions similarly to the `.append()` method, but also adds the ability to specify an axis (appending can be row or column
 
-based), as well as being able to perform several join operations between the objects. Also, the function takes a list of pandas objects to concatenate, so you can concatenate more than two objects in a single call. 
+based), as well as being able to perform several join operations between the objects. Also, the function takes a list of pandas objects to concatenate, so you can concatenate more than two objects in a single call.
 
-The default operation of `pd.concat()` on two `DataFrame` objects operates in the same way as the `.append()` method. This can be demonstrated by reconstructing the two datasets from the earlier example and concatenating them. This is shown in the following example: 
+The default operation of `pd.concat()` on two `DataFrame` objects operates in the same way as the `.append()` method. This can be demonstrated by reconstructing the two datasets from the earlier example and concatenating them. This is shown in the following example:
 
 ```
 In [69]:
@@ -6527,9 +6439,9 @@ Out[69]:
    ABBV    Health Care   53.95      2.954
 ```
 
-Actually, pandas calculates the sorted union of distinct column names across all supplied objects and uses those as the columns, and then appends data along the rows for each object in the order given in the list. 
+Actually, pandas calculates the sorted union of distinct column names across all supplied objects and uses those as the columns, and then appends data along the rows for each object in the order given in the list.
 
-A slight variant of this example adds an additional column to one of the `DataFrame` objects and then performs the concatenation: 
+A slight variant of this example adds an additional column to one of the `DataFrame` objects and then performs the concatenation:
 
 ```
 In [70]:
@@ -6548,8 +6460,6 @@ Out[70]:
 |**`A`**|**`Health Care`**|**`56.18     16.928    0`**|
 |**`GAS`**|**`Utilities`**|**`52.98     32.462    0`**|
 |**`ABBV`**|**`Health Care`**|**`53.95      2.954    0`**|
-
-
 
 ```
 In [71]:
@@ -6573,11 +6483,9 @@ In [71]:
 |**`GAS        32.462`**|**`0   52.98    Utilities`**|
 |**`ABBV        2.954`**|**`0   53.95  Health Care`**|
 
+Duplicate index labels still result, as the rows are copied verbatim from the source objects. However, note the `NaN` values in the rows originating from `df1` , since it does not have a `Foo` column.
 
-
-Duplicate index labels still result, as the rows are copied verbatim from the source objects. However, note the `NaN` values in the rows originating from `df1` , since it does not have a `Foo` column. 
-
-Using the `keys` parameter, it is possible to differentiate the pandas objects from which the rows originated. The following code adds a level to the index which represents the source object: 
+Using the `keys` parameter, it is possible to differentiate the pandas objects from which the rows originated. The following code adds a level to the index which represents the source object:
 
 ```
 In [72]:
@@ -6600,13 +6508,11 @@ In [72]:
 |**`GAS        32.462    0   52.98    Utilities`**|
 |**`ABBV        2.954    0   53.95  Health Care`**|
 
+We can change the axis of the concatenation to work along the columns by specifying `axis=1` , which will calculate the sorted union of the distinct
 
+index labels from the rows and then append columns and their data from the specified objects.
 
-We can change the axis of the concatenation to work along the columns by specifying `axis=1` , which will calculate the sorted union of the distinct 
-
-index labels from the rows and then append columns and their data from the specified objects. 
-
-To demonstrate, the following splits the sp500 data into two `DataFrame` objects, each with a different set of columns, and then concatenates along `axis=1` : 
+To demonstrate, the following splits the sp500 data into two `DataFrame` objects, each with a different set of columns, and then concatenates along `axis=1` :
 
 ```
 In [73]:
@@ -6626,8 +6532,6 @@ Out[73]:
 |**`ABT`**|**`Health Care   39.60`**|
 |**`ABBV`**|**`Health Care   53.95`**|
 
-
-
 ```
 In [74]:
    # first three rows, column 2
@@ -6643,8 +6547,6 @@ Out[74]:
 |---|---|
 |**`ABT`**|**`15.573`**|
 |**`ABBV`**|**`2.954`**|
-
-
 
 ```
 In [75]:
@@ -6662,11 +6564,9 @@ Out[75]:
 |**`ABT`**|**`Health Care   39.60     15.573`**|
 |**`ABBV`**|**`Health Care   53.95      2.954`**|
 
+We can further examine this operation by adding a column to the second `DataFrame` that has a duplicate name to a column in the first. The result will
 
-
-We can further examine this operation by adding a column to the second `DataFrame` that has a duplicate name to a column in the first. The result will 
-
-have duplicate columns, as the columns are blindly appended without regard to already existing columns: 
+have duplicate columns, as the columns are blindly appended without regard to already existing columns:
 
 ```
 In [76]:
@@ -6707,7 +6607,7 @@ Out[77]:
    ABBV    Health Care   53.95      2.954       1
 ```
 
-To be very specific, pandas is performing an outer join along the labels of the specified axis. An inner join can be specified using the `join='inner'` parameter, which changes the operation from being a sorted union of distinct labels to the distinct values of the intersection of the labels. To demonstrate, the following selects two subsets of the financial data with one row in common and performs an inner join: 
+To be very specific, pandas is performing an outer join along the labels of the specified axis. An inner join can be specified using the `join='inner'` parameter, which changes the operation from being a sorted union of distinct labels to the distinct values of the intersection of the labels. To demonstrate, the following selects two subsets of the financial data with one row in common and performs an inner join:
 
 ```
 In [78]:
@@ -6746,8 +6646,6 @@ In [79]:
 |**`ACN`**|**`Information Technology   79.79`**|
 |**`ACE`**|**`Financials  102.91`**|
 
-
-
 ```
 In [80]:
 ```
@@ -6766,9 +6664,9 @@ Out[80]:
 
 ### **Adding rows (and columns) via setting with enlargement** 
 
-Rows can also be added to a `DataFrame` through the `.loc` property. This technique is referred to as setting with enlargement. The parameter for `.loc` specifies the index label where the row is to be placed. If the label does not exist, the values are appended to the `DataFrame` using the given index label. If it does exist, then the values in the specified row are replaced. 
+Rows can also be added to a `DataFrame` through the `.loc` property. This technique is referred to as setting with enlargement. The parameter for `.loc` specifies the index label where the row is to be placed. If the label does not exist, the values are appended to the `DataFrame` using the given index label. If it does exist, then the values in the specified row are replaced.
 
-The following example takes a subset of `sp500` and adds a row with the label `FOO` : 
+The following example takes a subset of `sp500` and adds a row with the label `FOO` :
 
 ##### **`In [81]:`** 
 
@@ -6792,11 +6690,9 @@ Out[81]:
 |**`ABBV`**|**`Health Care`**|**`53.95      2.954`**|
 |**`FOO`**|**`the sector`**|**`100.00    110.000`**|
 
+Note that the change is made in place. If `FOO` already exists as an index label, then the column data would be replaced. This is one of the means of updating data in a `DataFrame` in-place, as `.loc` not only retrieves row(s), but also lets you modify the results that are returned.
 
-
-Note that the change is made in place. If `FOO` already exists as an index label, then the column data would be replaced. This is one of the means of updating data in a `DataFrame` in-place, as `.loc` not only retrieves row(s), but also lets you modify the results that are returned. 
-
-It is also possible to add columns in this manner. The following code demonstrates by adding a new column to a subset of `sp500` using `.loc` . Note that to accomplish this, we use the colon in the rows' position to select all rows to be included to add the new column and value: 
+It is also possible to add columns in this manner. The following code demonstrates by adding a new column to a subset of `sp500` using `.loc` . Note that to accomplish this, we use the colon in the rows' position to select all rows to be included to add the new column and value:
 
 ```
 In [82]:
@@ -6819,19 +6715,19 @@ Out[82]:
 
 ## **Removing rows from a DataFrame** 
 
-Removing rows from a `DataFrame` object is normally performed using one of three techniques: 
+Removing rows from a `DataFrame` object is normally performed using one of three techniques:
 
-Using the `.drop()` method 
+Using the `.drop()` method
 
 - Boolean selection 
 
 - Selection using a slice 
 
-Technically, only the `.drop()` method removes rows in-place on the source object. The other techniques either create a copy without specific rows, or a view into the rows that are not to be dropped. Details of each are given in the following sections. 
+Technically, only the `.drop()` method removes rows in-place on the source object. The other techniques either create a copy without specific rows, or a view into the rows that are not to be dropped. Details of each are given in the following sections.
 
 ### **Removing rows using .drop()** 
 
-To remove rows from a `DataFrame` by the index label, you can use the `.drop()` method of the `DataFrame` . The `.drop()` method takes a list of index labels and will return a copy of the `DataFrame` with the rows for the specified labels removed. The source `DataFrame` remains unmodified. The code is as follows: 
+To remove rows from a `DataFrame` by the index label, you can use the `.drop()` method of the `DataFrame` . The `.drop()` method takes a list of index labels and will return a copy of the `DataFrame` with the rows for the specified labels removed. The source `DataFrame` remains unmodified. The code is as follows:
 
 ```
 In [83]:
@@ -6853,8 +6749,6 @@ In [83]:
 |**`ACN     Information Technology   79.79      8.326`**|
 |**`ACE                 Financials  102.91     86.897`**|
 
-
-
 ##### **`In [84]:`** 
 
 ```
@@ -6872,8 +6766,6 @@ In [83]:
 |**`ABBV    Health Care   53.95      2.954`**|
 |**`ACE      Financials  102.91     86.897`**|
 
-
-
 ```
 In [85]:
    # note that ss is not modified
@@ -6890,11 +6782,9 @@ In [85]:
 |**`ACN     Information Technology   79.79      8.326`**|
 |**`ACE                 Financials  102.91     86.897`**|
 
-
-
 ### **Removing rows using Boolean selection** 
 
-Boolean selection can be used to remove rows from a `DataFrame` by creating a new `DataFrame` without the desired rows. Suppose we want to remove rows where `Price` is greater than `300` . The process to do this, is to first determine which rows match that criteria, and then to select the rows that do not. The following code selects those rows and lets us know how many of them there are: 
+Boolean selection can be used to remove rows from a `DataFrame` by creating a new `DataFrame` without the desired rows. Suppose we want to remove rows where `Price` is greater than `300` . The process to do this, is to first determine which rows match that criteria, and then to select the rows that do not. The following code selects those rows and lets us know how many of them there are:
 
 ##### **`In [86]:`** 
 
@@ -6917,7 +6807,7 @@ Out[86]:
    '500 10'
 ```
 
-We now know both the rows that match this criteria (the `10` with `True` values) and those that do not (the other 490). To remove the rows now, select out the complement of the previous result. This gives us a new `DataFrame` containing only the rows where we had a `False` value from the previous selection: 
+We now know both the rows that match this criteria (the `10` with `True` values) and those that do not (the other 490). To remove the rows now, select out the complement of the previous result. This gives us a new `DataFrame` containing only the rows where we had a `False` value from the previous selection:
 
 ##### **`In [87]:`** 
 
@@ -6943,8 +6833,6 @@ We now know both the rows that match this criteria (the `10` with `True` values)
 |**`ZMH                Health Care`**|**`101.84     37.181`**|
 |**`ZION                Financials`**|**`28.43     30.191`**|
 
-
-
 ```
    ZTS                Health Care   30.53      2.150
 ```
@@ -6955,9 +6843,9 @@ We now know both the rows that match this criteria (the `10` with `True` values)
 
 ### **Removing rows using a slice** 
 
-Slicing is also often used to remove records from a `DataFrame` . It is a process similar to Boolean selection, where we select out all of the rows, except for the ones you want deleted. 
+Slicing is also often used to remove records from a `DataFrame` . It is a process similar to Boolean selection, where we select out all of the rows, except for the ones you want deleted.
 
-Suppose we want to remove all but the first three records from `sp500` . The slice to perform this task is `[:3]` : 
+Suppose we want to remove all but the first three records from `sp500` . The slice to perform this task is `[:3]` :
 
 ```
 In [88]:
@@ -6980,9 +6868,7 @@ Out[88]:
 |**`ABT`**|**`Health Care`**|**`39.60     15.573`**|
 |**`ABBV`**|**`Health Care`**|**`53.95      2.954`**|
 
-
-
-Remember, that this result is a slice. Therefore, it is a view into the `DataFrame` . Data has not been removed from the `sp500` object. Changes to these three rows will change the data in `sp500` . To prevent this from occurring, the proper action is to make a copy of the slice, as follows: 
+Remember, that this result is a slice. Therefore, it is a view into the `DataFrame` . Data has not been removed from the `sp500` object. Changes to these three rows will change the data in `sp500` . To prevent this from occurring, the proper action is to make a copy of the slice, as follows:
 
 ```
 In [89]:
@@ -7005,9 +6891,9 @@ Out[89]:
 
 ## **Changing scalar values in a DataFrame** 
 
-Scalar values in a `DataFrame` can be changed by assignment of the new value to the result of the value lookup using the `.ix` , `.iloc` and `.loc` attributes. These three attributes can all be passed both a row and column selectors, and the result can be assigned a new value that will be made in the original `DataFrame` . 
+Scalar values in a `DataFrame` can be changed by assignment of the new value to the result of the value lookup using the `.ix` , `.iloc` and `.loc` attributes. These three attributes can all be passed both a row and column selectors, and the result can be assigned a new value that will be made in the original `DataFrame` .
 
-`.ix` can be used by passing either the index label of the row and the name of the column, or the integer location of the row and column. The following code makes a copy of the first three rows of `sp500` and then demonstrates changing the `Price` on the `MMM` and `ABBV` securities: 
+`.ix` can be used by passing either the index label of the row and the name of the column, or the integer location of the row and column. The following code makes a copy of the first three rows of `sp500` and then demonstrates changing the `Price` on the `MMM` and `ABBV` securities:
 
 ```
 In [90]:
@@ -7046,9 +6932,9 @@ In [91]:
    ABBV    Health Care  53.95      2.954
 ```
 
-Using `.ix` is generally frowned upon when using production code, as it has performance issues over using the `.loc` and `.iloc` attributes, which have a higher performance, with `.iloc` being the highest performance of those two. 
+Using `.ix` is generally frowned upon when using production code, as it has performance issues over using the `.loc` and `.iloc` attributes, which have a higher performance, with `.iloc` being the highest performance of those two.
 
-The following code replicates the `.ix` example, but uses `.loc` with the index and column labels and uses different values to differentiate the result slightly: 
+The following code replicates the `.ix` example, but uses `.loc` with the index and column labels and uses different values to differentiate the result slightly:
 
 ```
 In [92]:
@@ -7070,7 +6956,7 @@ Out[92]:
    ABBV    Health Care   20.0      2.954
 ```
 
-`.loc` may suffer from lower performance, as compared to `.iloc` , due to the possibility of needing to map the label values into locations. The following example gets the location of the specific row and column that is desired to be changed and then uses `.iloc` to execute the change (the examples only change one price for brevity): 
+`.loc` may suffer from lower performance, as compared to `.iloc` , due to the possibility of needing to map the label values into locations. The following example gets the location of the specific row and column that is desired to be changed and then uses `.iloc` to execute the change (the examples only change one price for brevity):
 
 ```
 In [93]:
@@ -7097,11 +6983,11 @@ Out[93]:
    ABBV    Health Care    53.95      2.954
 ```
 
-This may be look like overkill for this small example. But if this is where code is being executed frequently, such as in a loop or in response to market changes, looking up the locations once and always using `.loc` with those values, will give significant performance gains over the other options. 
+This may be look like overkill for this small example. But if this is where code is being executed frequently, such as in a loop or in response to market changes, looking up the locations once and always using `.loc` with those values, will give significant performance gains over the other options.
 
 # **Arithmetic on a DataFrame** 
 
-Arithmetic operations using scalar values will be applied to every element of a `DataFrame` . To demonstrate, we will use a `DataFrame` object initialized with random values: 
+Arithmetic operations using scalar values will be applied to every element of a `DataFrame` . To demonstrate, we will use a `DataFrame` object initialized with random values:
 
 ```
 In [94]:
@@ -7123,7 +7009,7 @@ Out[94]:
    4 -0.424972  0.567020  0.276232 -1.087401
 ```
 
-By default, any arithmetic operation will be applied across all rows and columns of a `DataFrame` and will return a new `DataFrame` with the results (leaving the original unchanged): 
+By default, any arithmetic operation will be applied across all rows and columns of a `DataFrame` and will return a new `DataFrame` with the results (leaving the original unchanged):
 
 ```
 In [95]:
@@ -7144,9 +7030,9 @@ Out[95]:
    4 -0.849945  1.134041  0.552464 -2.174801
 ```
 
-When performing an operation between a `DataFrame` and a `Series` , pandas will align the `Series` index along the `DataFrame` columns, performing what is referred to as a row-wise broadcast. 
+When performing an operation between a `DataFrame` and a `Series` , pandas will align the `Series` index along the `DataFrame` columns, performing what is referred to as a row-wise broadcast.
 
-The following example retrieves the first row of the `DataFrame` , and then subtracts this from each row of the `DataFrame` . pandas is broadcasting the `Series` to each row of the `DataFrame` , which aligns each series item with the `DataFrame` item of the same index label and then applies the minus operator on the matched values: 
+The following example retrieves the first row of the `DataFrame` , and then subtracts this from each row of the `DataFrame` . pandas is broadcasting the `Series` to each row of the `DataFrame` , which aligns each series item with the `DataFrame` item of the same index label and then applies the minus operator on the matched values:
 
 ```
 In [96]:
@@ -7170,7 +7056,7 @@ Out[96]:
    4 -0.894085  0.849884  1.785291  0.048232
 ```
 
-This also works when reversing the order by subtracting the `DataFrame` to the `Series` object: 
+This also works when reversing the order by subtracting the `DataFrame` to the `Series` object:
 
 ```
 In [97]:
@@ -7192,7 +7078,7 @@ Out[97]:
    4  0.894085 -0.849884 -1.785291 -0.048232
 ```
 
-The set of columns returned will be the union of the labels in the index of both the series and the columns index of the `DataFrame` object. If a label representing the result column is not found in either the `Series` of the `DataFrame` object, then the values will be `NaN` filled. The following code demonstrates, by creating a `Series` with an index representing a subset of the column in the `DataFrame` , but also with an additional label: 
+The set of columns returned will be the union of the labels in the index of both the series and the columns index of the `DataFrame` object. If a label representing the result column is not found in either the `Series` of the `DataFrame` object, then the values will be `NaN` filled. The following code demonstrates, by creating a `Series` with an index representing a subset of the column in the `DataFrame` , but also with an additional label:
 
 ```
 In [98]:
@@ -7214,9 +7100,9 @@ Out[98]:
    4 NaN  0.284157 -1.232826 NaN NaN
 ```
 
-pandas aligns the index labels of `df` with those of `s2` . Since `s2` does not have an `A` or `D` label, the result contains `NaN` in those columns. Since `df` has no `E` label, it is also `NaN` . 
+pandas aligns the index labels of `df` with those of `s2` . Since `s2` does not have an `A` or `D` label, the result contains `NaN` in those columns. Since `df` has no `E` label, it is also `NaN` .
 
-An arithmetic operation between two `DataFrame` objects will align by both the column and index labels. The following extracts a small portion of `df` and subtracts it from `df` . The result demonstrates that the aligned values subtract to `0` , while the others are set to `NaN` : 
+An arithmetic operation between two `DataFrame` objects will align by both the column and index labels. The following extracts a small portion of `df` and subtracts it from `df` . The result demonstrates that the aligned values subtract to `0` , while the others are set to `NaN` :
 
 ```
 In [99]:
@@ -7256,7 +7142,7 @@ Out[100]:
    2 NaN NaN NaN NaN
 ```
 
-Additional control of an arithmetic operation can be gained using the arithmetic methods provided by the `DataFrame` object. These methods provide the specification of a specific axis. The following demonstrates performing subtraction along a column axis by using the `DataFrame` objects `.sub()` method, subtracting the `A` column from every column: 
+Additional control of an arithmetic operation can be gained using the arithmetic methods provided by the `DataFrame` object. These methods provide the specification of a specific axis. The following demonstrates performing subtraction along a column axis by using the `DataFrame` objects `.sub()` method, subtracting the `A` column from every column:
 
 ```
 In [101]:
@@ -7280,7 +7166,7 @@ Out[101]:
 
 # **Resetting and reindexing** 
 
-A `DataFrame` can have its index reset by using the `.reset_index()` . A common use of this, is to move the contents of a `DataFrame` object's index into one or more columns. The following code moves the symbols in the index of `sp500` into a column and replaces the index with a default integer index. The result is a new `DataFrame` , not an in-place update. The code is as follows: 
+A `DataFrame` can have its index reset by using the `.reset_index()` . A common use of this, is to move the contents of a `DataFrame` object's index into one or more columns. The following code moves the symbols in the index of `sp500` into a column and replaces the index with a default integer index. The result is a new `DataFrame` , not an in-place update. The code is as follows:
 
 ```
 In [102]:
@@ -7305,13 +7191,11 @@ In [102]:
 |**`498   ZION              Financials   28.43     30.191`**|
 |**`499    ZTS             Health Care   30.53      2.150`**|
 
-
-
 ```
    [500 rows x 4 columns]
 ```
 
-One or more columns can also be moved into the index. Another common scenario is exhibited by the reset variable we just created, as this may have been data read in from a file with the symbols in a column when we really would like it in the index. To do this, we can utilize the `.set_index()` method. The following code moves Symbol into the index of a new `DataFrame` : 
+One or more columns can also be moved into the index. Another common scenario is exhibited by the reset variable we just created, as this may have been data read in from a file with the symbols in a column when we really would like it in the index. To do this, we can utilize the `.set_index()` method. The following code moves Symbol into the index of a new `DataFrame` :
 
 ```
 In [103]:
@@ -7340,11 +7224,9 @@ Out[103]:
 |**`ZION`**|**`Financials   28.43     30.191`**|
 |**`ZTS`**|**`Health Care   30.53      2.150`**|
 
-
-
 ##### **`[500 rows x 4 columns]`** 
 
-An index can be explicitly set using the `.set_index()` method. This method, given a list of values representing the new index, will create a new `DataFrame` using the specified values, and then align the data from the target in the new object. The following code demonstrates this, by using a subset of `sp500` and assigning a new index that contains a subset of those indexes and an additional label `FOO` : 
+An index can be explicitly set using the `.set_index()` method. This method, given a list of values representing the new index, will create a new `DataFrame` using the specified values, and then align the data from the target in the new object. The following code demonstrates this, by using a subset of `sp500` and assigning a new index that contains a subset of those indexes and an additional label `FOO` :
 
 ```
 In [104]:
@@ -7363,8 +7245,6 @@ Out[104]:
 |**`ABT`**|**`Health Care   39.60     15.573`**|
 |**`ABBV`**|**`Health Care   53.95      2.954`**|
 |**`ACN`**|**`Information Technology   79.79      8.326`**|
-
-
 
 ```
 In [105]:
@@ -7386,9 +7266,7 @@ In [105]:
 |---|---|---|
 |**`FOO`**|**`NaN`**|**`NaN        NaN`**|
 
-
-
-Reindexing can also be done upon the columns. The following reindexes the columns of `subset` : 
+Reindexing can also be done upon the columns. The following reindexes the columns of `subset` :
 
 ```
 In [106]:
@@ -7406,17 +7284,15 @@ In [106]:
 |**`ABBV`**|**`53.95`**|**`NaN`**|**`NaN`**|
 |**`ACN`**|**`79.79`**|**`NaN`**|**`NaN`**|
 
+This result is created by pandas by creating a new `DataFrame` with the specified columns, and then aligning the data for those columns from the subset into the new object. Because `subset` did not have a `NewCol` column, the values are filled with `NaN` .
 
-
-This result is created by pandas by creating a new `DataFrame` with the specified columns, and then aligning the data for those columns from the subset into the new object. Because `subset` did not have a `NewCol` column, the values are filled with `NaN` . 
-
-Finally, a `DataFrame` can also be reindexed on rows and columns at the same time, but that will be left as an exercise for you. 
+Finally, a `DataFrame` can also be reindexed on rows and columns at the same time, but that will be left as an exercise for you.
 
 # **Hierarchical indexing** 
 
-Hierarchical indexing is a feature of pandas that allows specifying two or more index levels on an axis. The specification of multiple levels in an index allows for efficient selection of subsets of data. A pandas index that has multiple levels of hierarchy is referred to as a `MultiIndex` . 
+Hierarchical indexing is a feature of pandas that allows specifying two or more index levels on an axis. The specification of multiple levels in an index allows for efficient selection of subsets of data. A pandas index that has multiple levels of hierarchy is referred to as a `MultiIndex` .
 
-We can demonstrate creating a `MultiIndex` using the `sp500` data. Suppose we want to organize this data by both the `Sector` and `Symbol` . We can accomplish this with the following code: 
+We can demonstrate creating a `MultiIndex` using the `sp500` data. Suppose we want to organize this data by both the `Sector` and `Symbol` . We can accomplish this with the following code:
 
 ```
 In [107]:
@@ -7445,13 +7321,11 @@ Out[107]:
 |**`Financials             ZION`**|**`28.43     30.191`**|
 |**`Health Care            ZTS`**|**`30.53      2.150`**|
 
-
-
 ```
    [500 rows x 2 columns]
 ```
 
-We can now examine the `.index` property and check whether it is a `MultiIndex` object: 
+We can now examine the `.index` property and check whether it is a `MultiIndex` object:
 
 ```
 In [108]:
@@ -7464,7 +7338,7 @@ Out[108]:
    pandas.core.index.MultiIndex
 ```
 
-Then, examine the index itself: 
+Then, examine the index itself:
 
 ```
 In [109]:
@@ -7487,7 +7361,7 @@ Out[109]:
    Health Care                  ZTS
 ```
 
-A `MultiIndex` contains two or more levels: 
+A `MultiIndex` contains two or more levels:
 
 ```
 In [110]:
@@ -7500,7 +7374,7 @@ Out[110]:
    2
 ```
 
-Also, each level is a distinct `Index` object: 
+Also, each level is a distinct `Index` object:
 
 ```
 In [111]:
@@ -7544,7 +7418,7 @@ u'CLF', u'CLX', u'CMA', u'CMCSA', u'CME', u'CMG', ...],
 dtype='object')
 ```
 
-Values of the index, at a specific level for every row, can be retrieved by the `.get_level_values()` method: 
+Values of the index, at a specific level for every row, can be retrieved by the `.get_level_values()` method:
 
 ```
 In [113]:
@@ -7595,9 +7469,9 @@ Discretionary', u'Financials', u'Health Care', u'Financials',
 u'Industrials', ...], dtype='object')
 ```
 
-Access of elements via a hierarchical index is performed using the . `xs()` method. This method works similar to the `.ix` attribute but provides parameters to specify multidimensionality of the index. 
+Access of elements via a hierarchical index is performed using the . `xs()` method. This method works similar to the `.ix` attribute but provides parameters to specify multidimensionality of the index.
 
-The following code selects all items with a level `0` index value of `Industrials` : 
+The following code selects all items with a level `0` index value of `Industrials` :
 
 ```
 In [114]:
@@ -7623,13 +7497,11 @@ In [114]:
 |**`WM       43.37     12.330`**|
 |**`XYL      38.42     12.127`**|
 
-
-
 ```
    [64 rows x 2 columns]
 ```
 
-To select the rows with a specific value of the index at level `1` , use the level parameter. The following code selects rows where the `Symbol` component of the index is `ALLE` . 
+To select the rows with a specific value of the index at level `1` , use the level parameter. The following code selects rows where the `Symbol` component of the index is `ALLE` .
 
 ```
 In [115]:
@@ -7648,7 +7520,7 @@ Out[115]:
    Industrials  52.46          0
 ```
 
-To prevent levels from being dropped, you can use the `drop_levels=False` option: 
+To prevent levels from being dropped, you can use the `drop_levels=False` option:
 
 ```
 In [116]:
@@ -7673,13 +7545,11 @@ In [116]:
 ||**`WM       43.37     12.330`**|
 ||**`XYL      38.42     12.127`**|
 
-
-
 ```
    [64 rows x 2 columns]
 ```
 
-To select from a hierarchy of indexes you can chain `.xs()` calls with different levels together. The following code selects the row with `Industrials` at level `0` and `UPS` at level `1` : 
+To select from a hierarchy of indexes you can chain `.xs()` calls with different levels together. The following code selects the row with `Industrials` at level `0` and `UPS` at level `1` :
 
 ```
 In [117]:
@@ -7694,7 +7564,7 @@ Out[117]:
    Name: UPS, dtype: float64
 ```
 
-An alternate syntax is to pass the values of each level of the hierarchical index as a tuple: 
+An alternate syntax is to pass the values of each level of the hierarchical index as a tuple:
 
 ```
 In [118]:
@@ -7709,15 +7579,15 @@ Out[118]:
    Name: (Industrials, UPS), dtype: float64
 ```
 
-Note that `.xs()` can only be used for getting, not setting, values. **Note** 
+Note that `.xs()` can only be used for getting, not setting, values. **Note**
 
-One of the things I'd like to point out about indexing in pandas, is that a pandas index is its own set of data, not references to data in the `Series` or `DataFrame` . This is different from how indexes are used in SQL databases, where the index is built upon the actual data in the table. The values in a pandas index can be completely different from the data in the row that it references, and it can be changed as needed to support much more interactive analysis than can be done with SQL. 
+One of the things I'd like to point out about indexing in pandas, is that a pandas index is its own set of data, not references to data in the `Series` or `DataFrame` . This is different from how indexes are used in SQL databases, where the index is built upon the actual data in the table. The values in a pandas index can be completely different from the data in the row that it references, and it can be changed as needed to support much more interactive analysis than can be done with SQL.
 
 # **Summarized data and descriptive statistics** 
 
-pandas provides several classes of statistical operations that can be applied to a `Series` or `DataFrame` object. These reductive methods, when applied to a `Series` , result in a single value. When applied to a `DataFrame` , an axis can be specified and the method will then be either applied to each column or row and results in a `Series` . 
+pandas provides several classes of statistical operations that can be applied to a `Series` or `DataFrame` object. These reductive methods, when applied to a `Series` , result in a single value. When applied to a `DataFrame` , an axis can be specified and the method will then be either applied to each column or row and results in a `Series` .
 
-The average value is calculated using `.mean()` . The following calculates the average of the prices for `AAPL` and `MSFT` : 
+The average value is calculated using `.mean()` . The following calculates the average of the prices for `AAPL` and `MSFT` :
 
 ```
 In [119]:
@@ -7732,9 +7602,9 @@ Out[119]:
    dtype: float64
 ```
 
-pandas has taken each column and independently calculated the mean for each and returned the results as values in a `Series` that is indexed with the column names. 
+pandas has taken each column and independently calculated the mean for each and returned the results as values in a `Series` that is indexed with the column names.
 
-The default is to apply the method on `axis=0` , applying the function to each column. The following code calculates the mean across `axis=1` : 
+The default is to apply the method on `axis=0` , applying the function to each column. The following code calculates the mean across `axis=1` :
 
 ```
 In [120]:
@@ -7754,7 +7624,7 @@ Out[120]:
    Length: 22, dtype: float64
 ```
 
-Variance is calculated using the `.var()` method. The following code calculates the variance of the price for both stocks during the period represented in the `DataFrame` object: 
+Variance is calculated using the `.var()` method. The following code calculates the variance of the price for both stocks during the period represented in the `DataFrame` object:
 
 ```
 In [121]:
@@ -7766,7 +7636,7 @@ Out[121]:
    dtype: float64
 ```
 
-The median of the values is determined using the `.median()` method: 
+The median of the values is determined using the `.median()` method:
 
 ```
 In [122]:
@@ -7778,7 +7648,7 @@ In [122]:
    dtype: float64
 ```
 
-Although not a reductive calculation, the minimum and maximum values can be found with the `.min()` and `.max()` methods: 
+Although not a reductive calculation, the minimum and maximum values can be found with the `.min()` and `.max()` methods:
 
 ```
 In [123]:
@@ -7797,7 +7667,7 @@ Out[124]:
    dtype: float64
 ```
 
-Some pandas statistical methods are referred to as indirect statistics, for example, `.idxmin()` and `.idxmax()` return the index location where the minimum and maximum values exist, respectively. The following code determines the location of the minimum prices for both stocks: 
+Some pandas statistical methods are referred to as indirect statistics, for example, `.idxmin()` and `.idxmax()` return the index location where the minimum and maximum values exist, respectively. The following code determines the location of the minimum prices for both stocks:
 
 ```
 In [125]:
@@ -7816,7 +7686,7 @@ Out[126]:
    dtype: int64
 ```
 
-The most common value of a `Series` , the mode, can be determined with `.mode().` Determining the mode is best demonstrated with data different from `sp500` . The following code determines the mode of the given `Series` : 
+The most common value of a `Series` , the mode, can be determined with `.mode().` Determining the mode is best demonstrated with data different from `sp500` . The following code determines the mode of the given `Series` :
 
 ```
 In [127]:
@@ -7831,7 +7701,7 @@ Out[127]:
    dtype: int64
 ```
 
-This has not returned a scalar value representing the mode, but a `Series` . This is because there can be more than one value for the mode of a `Series` , as demonstrated in the following sample: 
+This has not returned a scalar value representing the mode, but a `Series` . This is because there can be more than one value for the mode of a `Series` , as demonstrated in the following sample:
 
 ```
 In [128]:
@@ -7847,7 +7717,7 @@ Out[128]:
    dtype: int64
 ```
 
-Accumulations in pandas are statistical methods that determine a value, by continuously applying the next value in a `Series` to the current result. Good examples are the cumulative product and cumulative sum of a `Series` . To demonstrate, we can use the following `DataFrame` that calculates both on a simple `Series` of data: 
+Accumulations in pandas are statistical methods that determine a value, by continuously applying the next value in a `Series` to the current result. Good examples are the cumulative product and cumulative sum of a `Series` . To demonstrate, we can use the following `DataFrame` that calculates both on a simple `Series` of data:
 
 ```
 In [129]:
@@ -7873,11 +7743,11 @@ Out[130]:
    dtype: int64
 ```
 
-Note that these do not reduce to a single value, but represent the cumulative value at each location across the `Series` . 
+Note that these do not reduce to a single value, but represent the cumulative value at each location across the `Series` .
 
-The `.describe()` returns a simple set of summary statistics about a `Series` or `DataFrame` . The values returned are, themselves, a `Series` where the index label contains the name of the specific statistics that are computed. This function is handy if you want to get a quick and easy overview of the important statistics of a `Series` or `DataFrame` . 
+The `.describe()` returns a simple set of summary statistics about a `Series` or `DataFrame` . The values returned are, themselves, a `Series` where the index label contains the name of the specific statistics that are computed. This function is handy if you want to get a quick and easy overview of the important statistics of a `Series` or `DataFrame` .
 
-The following code returns summary statistics on the monthly stock data, including the count of items that are not part of `NaN` ; the mean and standard deviation; minimum and maximum values; and the values of the 25, 50, and 75 percentiles. The code is as follows: 
+The following code returns summary statistics on the monthly stock data, including the count of items that are not part of `NaN` ; the mean and standard deviation; minimum and maximum values; and the values of the 25, 50, and 75 percentiles. The code is as follows:
 
 ```
 In [131]:
@@ -7900,9 +7770,7 @@ Out[131]:
 |**`75%    48.125000  114.087500`**|
 |**`max    48.840000  115.930000`**|
 
-
-
-Non-numerical data will result in a slightly different set of summary statistics: 
+Non-numerical data will result in a slightly different set of summary statistics:
 
 ```
 In [132]:
@@ -7920,9 +7788,9 @@ Out[132]:
    dtype: object
 ```
 
-This has given us the `count` variable of items that are not part of `NaN` , the number of `unique` items that are not part of `NaN` , the most common item ( `top` ), and the number of times the most frequent item occurred ( `freq` ). 
+This has given us the `count` variable of items that are not part of `NaN` , the number of `unique` items that are not part of `NaN` , the most common item ( `top` ), and the number of times the most frequent item occurred ( `freq` ).
 
-This example leads into a category of descriptive methods that assist in determining counts of items or unique values. The `.count()` method will return the number of values that are not part of `NaN` values in a `Series` or on a specific axis of a `DataFrame` : 
+This example leads into a category of descriptive methods that assist in determining counts of items or unique values. The `.count()` method will return the number of values that are not part of `NaN` values in a `Series` or on a specific axis of a `DataFrame` :
 
 ```
 In [133]:
@@ -7935,7 +7803,7 @@ Out[133]:
    4
 ```
 
-A list of unique items can be obtained using the `.unique()` method: 
+A list of unique items can be obtained using the `.unique()` method:
 
 ```
 In [134]:
@@ -7948,7 +7816,7 @@ Out[134]:
    array(['a', 'b', 'c', nan], dtype=object)
 ```
 
-The number of occurrences of each unique (value that is not part of `NaN` ) value can be determined with the `.value_counts()` method: 
+The number of occurrences of each unique (value that is not part of `NaN` ) value can be determined with the `.value_counts()` method:
 
 ```
 In [135]:
@@ -7964,23 +7832,23 @@ Out[135]:
    dtype: int64
 ```
 
-There are quite a few more built-in statistical functions, but the focus of this chapter (and book) is not on statistical analysis and their discovery will be left to you. 
+There are quite a few more built-in statistical functions, but the focus of this chapter (and book) is not on statistical analysis and their discovery will be left to you.
 
 # **Summary** 
 
-In this chapter, you learned about the pandas `DataFrame` object. We covered various means of creating `DataFrame` objects; and investigated, many techniques of manipulating the structure and contents of data held within. 
+In this chapter, you learned about the pandas `DataFrame` object. We covered various means of creating `DataFrame` objects; and investigated, many techniques of manipulating the structure and contents of data held within.
 
-Even with the extensive coverage that we have had in this chapter, the focus has been on the basic mechanics of manipulating `DataFrame` objects, and there are many concepts which were excluded at this point, but which we will investigate in upcoming chapters. These include working with missing data, identifying and removing duplicate data, as well as pivoting, merging, sorting, and grouping data. 
+Even with the extensive coverage that we have had in this chapter, the focus has been on the basic mechanics of manipulating `DataFrame` objects, and there are many concepts which were excluded at this point, but which we will investigate in upcoming chapters. These include working with missing data, identifying and removing duplicate data, as well as pivoting, merging, sorting, and grouping data.
 
-However, before we get into those details, in the next chapter we will look into how to populate the data in a `DataFrame` object from sources outside of your application. 
+However, before we get into those details, in the next chapter we will look into how to populate the data in a `DataFrame` object from sources outside of your application.
 
 # **Chapter 6. Accessing Data** 
 
-pandas is a tool that is used to manipulate and analyze data. But where does this data come from? It is almost universal that any pandas application will start by loading data from an outside source. As pandas is built on Python, you can use any means available in Python to retrieve data from outside the application. This really makes the possibility of the data that can be accessed unlimited, including files, excel spreadsheets, web sites and services, databases, and cloud services. 
+pandas is a tool that is used to manipulate and analyze data. But where does this data come from? It is almost universal that any pandas application will start by loading data from an outside source. As pandas is built on Python, you can use any means available in Python to retrieve data from outside the application. This really makes the possibility of the data that can be accessed unlimited, including files, excel spreadsheets, web sites and services, databases, and cloud services.
 
-However, using Python to load data will require you to convert Python objects into pandas `Series` or `DataFrame` objects, increasing the complexity of your code. Fortunately, over the evolution of pandas, it has become apparent that there is a frequently used set of data access patterns, as well as data formats that were so commonly used, that direct support for them was added into the core of pandas. These often make retrieving data from outside sources, directly as a pandas `Series` or `DataFrame` objects, as simple as a single line of code. 
+However, using Python to load data will require you to convert Python objects into pandas `Series` or `DataFrame` objects, increasing the complexity of your code. Fortunately, over the evolution of pandas, it has become apparent that there is a frequently used set of data access patterns, as well as data formats that were so commonly used, that direct support for them was added into the core of pandas. These often make retrieving data from outside sources, directly as a pandas `Series` or `DataFrame` objects, as simple as a single line of code.
 
-This chapter will introduce you to these capabilities that are part of the pandas framework. Specifically, in this chapter, we will cover: 
+This chapter will introduce you to these capabilities that are part of the pandas framework. Specifically, in this chapter, we will cover:
 
 - Reading and writing pandas data from files 
 
@@ -7992,7 +7860,7 @@ This chapter will introduce you to these capabilities that are part of the panda
 
 # **Setting up the IPython notebook** 
 
-We will, as usual, start with some imports and set up options for pandas that facilitate the examples: 
+We will, as usual, start with some imports and set up options for pandas that facilitate the examples:
 
 ```
 In [1]:
@@ -8013,17 +7881,17 @@ In [1]:
 
 ## **CSV and Text/Tabular format** 
 
-It is a pretty safe bet to say that **Comma Separated Values (CSV)** is likely to be the most common format of data that you will deal with in pandas. Many web-based services provide data in a CSV format, as well as many information systems within an enterprise. It is an easy format to use and is commonly used as an export format for spreadsheet applications, such as Excel. 
+It is a pretty safe bet to say that **Comma Separated Values (CSV)** is likely to be the most common format of data that you will deal with in pandas. Many web-based services provide data in a CSV format, as well as many information systems within an enterprise. It is an easy format to use and is commonly used as an export format for spreadsheet applications, such as Excel.
 
-CSV is a file consisting of multiple lines of text-based data with values separated by commas. It can be thought of as a table of data similar to a single sheet in a spreadsheet program. Each row of the data is in its own line in the file, and each column for each row is stored in the text format, with a comma separating the data in each column. For more detail on the specifics of CSV files, feel free to visit <u>http://en.wikipedia.org/wiki/Comma-separated_values.</u> 
+CSV is a file consisting of multiple lines of text-based data with values separated by commas. It can be thought of as a table of data similar to a single sheet in a spreadsheet program. Each row of the data is in its own line in the file, and each column for each row is stored in the text format, with a comma separating the data in each column. For more detail on the specifics of CSV files, feel free to visit <u>http://en.wikipedia.org/wiki/Comma-separated_values.</u>
 
-As CSV is so common and easily understood, we will spend most of the time describing how to read and write pandas data in this format. Lessons learned from CSV methods will apply to the other formats as well and allow a little more expediency when covering these other formats. 
+As CSV is so common and easily understood, we will spend most of the time describing how to read and write pandas data in this format. Lessons learned from CSV methods will apply to the other formats as well and allow a little more expediency when covering these other formats.
 
 ### **The sample CSV data set** 
 
-We will start by reading a simple CSV file, `data/msft.csv` (in the book's source data folder). This file is a snapshot of Yahoo! Finance data for the MSFT ticker. Conveniently, Yahoo! Finance happens to be one of the financial web services that offers its data in a CSV format, and this data was simply retrieved and saved to a file. 
+We will start by reading a simple CSV file, `data/msft.csv` (in the book's source data folder). This file is a snapshot of Yahoo! Finance data for the MSFT ticker. Conveniently, Yahoo! Finance happens to be one of the financial web services that offers its data in a CSV format, and this data was simply retrieved and saved to a file.
 
-The first several lines of this file can be examined using the `!head` command (on a Windows system, use the `type` command): 
+The first several lines of this file can be examined using the `!head` command (on a Windows system, use the `type` command):
 
 ```
 In [2]:
@@ -8044,11 +7912,11 @@ file
    2014-07-16,83.77,84.91,83.66,84.91,1755600,84.91
 ```
 
-The first row of the file contains the names of all of the columns represented in the data, separated with a comma. For a specific day (the first column), each remaining row represents the open, high, low, close, volume, and adjusted close values for MSFT on that date. 
+The first row of the file contains the names of all of the columns represented in the data, separated with a comma. For a specific day (the first column), each remaining row represents the open, high, low, close, volume, and adjusted close values for MSFT on that date.
 
 ### **Reading a CSV file into a DataFrame** 
 
-The data in `data/MSFT.CSV` is perfect to read into `DataFrame` . All of its data is complete and has column names in the first row. All that we need to do to read this data into a `DataFrame` is use the pandas `pd.read_csv()` function: 
+The data in `data/MSFT.CSV` is perfect to read into `DataFrame` . All of its data is complete and has column names in the first row. All that we need to do to read this data into a `DataFrame` is use the pandas `pd.read_csv()` function:
 
 ```
 In [3]:
@@ -8072,15 +7940,13 @@ In [3]:
 |**`16  83.77  84.91`**<br>**`4  2014-07-`**|**`83.66  84.91  1755600      84.91`**|
 |**`15  84.30  84.38`**|**`83.20  83.58  1874700      83.58`**|
 
-
-
-Wow, that was easy! pandas has realized that the first line of the file contains the names of the columns and bulk read in the data to `DataFrame` . 
+Wow, that was easy! pandas has realized that the first line of the file contains the names of the columns and bulk read in the data to `DataFrame` .
 
 ### **Specifying the index column when reading a CSV file** 
 
-In the result of the previous example, the index is a numerical starting from `0` , instead of by date. This is because pandas does not assume that any specific column should be the index. To help this situation, you can specify which column(s) should be the index in the call to `read_csv()` using the `index_col` parameter by assigning it the zero-based position of the column to be used as the index. 
+In the result of the previous example, the index is a numerical starting from `0` , instead of by date. This is because pandas does not assume that any specific column should be the index. To help this situation, you can specify which column(s) should be the index in the call to `read_csv()` using the `index_col` parameter by assigning it the zero-based position of the column to be used as the index.
 
-The following reads the data and tells pandas to use the column at position 0 in the file as the index (the Date column): 
+The following reads the data and tells pandas to use the column at position 0 in the file as the index (the Date column):
 
 ```
 In [4]:
@@ -8101,13 +7967,11 @@ Out[4]:
 |**`2014-07-16  83.77  84.91  83.66  84.91  1755600      84.91`**|
 |**`2014-07-15  84.30  84.38  83.20  83.58  1874700      83.58`**|
 
-
-
-The date field is now the index. However, because of this, it is also not column data. If you want to use the date as a column, you will need to create a new column and assign the index labels to that column. 
+The date field is now the index. However, because of this, it is also not column data. If you want to use the date as a column, you will need to create a new column and assign the index labels to that column.
 
 ### **Data type inference and specification** 
 
-An examination of the types of each column shows that pandas has attempted to infer the types of the columns from their content: 
+An examination of the types of each column shows that pandas has attempted to infer the types of the columns from their content:
 
 ```
 In [5]:
@@ -8127,14 +7991,12 @@ In [5]:
 |**`Close        float64`**|
 |**`Volume         int64`**|
 
-
-
 ```
    Adj Close    float64
    dtype: object
 ```
 
-To force the types of columns, use the `dtypes` parameter of `pd.read_csv()` . The following forces the `Volume` column to also be `float64` : 
+To force the types of columns, use the `dtypes` parameter of `pd.read_csv()` . The following forces the `Volume` column to also be `float64` :
 
 ```
 In [6]:
@@ -8158,7 +8020,7 @@ Out[6]:
 
 ### **Specifying column names** 
 
-It is also possible to specify the column names at the time of reading the data using the `names` parameter: 
+It is also possible to specify the column names at the time of reading the data using the `names` parameter:
 
 ```
 In [7]:
@@ -8182,13 +8044,13 @@ Out[7]:
    2014-07-15  84.30  84.38  83.20  83.58  1874700     83.58
 ```
 
-Note that because we specified the names of the columns, we need to skip over the column names' row in the file, which was performed with `header=0` . If not, pandas will assume the first row is part of the data, which will cause some issues later in processing. 
+Note that because we specified the names of the columns, we need to skip over the column names' row in the file, which was performed with `header=0` . If not, pandas will assume the first row is part of the data, which will cause some issues later in processing.
 
 ### **Specifying specific columns to load** 
 
-It is also possible to specify which columns to load when reading the file. This can be useful if you have a lot of columns in the file and some are of no interest to your analysis and you want to save the time and memory required to read and store them. Specifying which columns to read is accomplished with the `usecols` parameter, which can be passed a list of column names or column offsets. 
+It is also possible to specify which columns to load when reading the file. This can be useful if you have a lot of columns in the file and some are of no interest to your analysis and you want to save the time and memory required to read and store them. Specifying which columns to read is accomplished with the `usecols` parameter, which can be passed a list of column names or column offsets.
 
-The following reads only the `Date` and `Close` columns and uses `Date` as the index: 
+The following reads only the `Date` and `Close` columns and uses `Date` as the index:
 
 ```
 In [8]:
@@ -8212,11 +8074,9 @@ Out[8]:
 |**`2014-07-16`**|**`84.91`**|
 |**`2014-07-15`**|**`83.58`**|
 
-
-
 ### **Saving DataFrame to a CSV file** 
 
-CSV files can be saved from `DataFrame` using the `.to_csv()` method. To demonstrate saving data to a CSV file, we will save the `df2` object with the revised column names to a new file named `data/msft_modified.csv` : 
+CSV files can be saved from `DataFrame` using the `.to_csv()` method. To demonstrate saving data to a CSV file, we will save the `df2` object with the revised column names to a new file named `data/msft_modified.csv` :
 
 ```
 In [9]:
@@ -8228,9 +8088,9 @@ In [9]:
    df2.to_csv("data/msft_modified.csv", index_label='date')
 ```
 
-It was necessary to tell the method that the index label should be saved with a column name of `date` using `index_label=date` . Otherwise, the index does not have a name added to the first row of the file, which makes it difficult to read back properly. 
+It was necessary to tell the method that the index label should be saved with a column name of `date` using `index_label=date` . Otherwise, the index does not have a name added to the first row of the file, which makes it difficult to read back properly.
 
-To examine that this worked properly, we can explore the new file to view some of its content using `!head` command (and if on a Windows system use the `!type` command): 
+To examine that this worked properly, we can explore the new file to view some of its content using `!head` command (and if on a Windows system use the `!type` command):
 
 ```
 In [10]:
@@ -8254,9 +8114,9 @@ In [10]:
 
 ## **General field-delimited data** 
 
-CSV is actually a specific implementation of what is referred to as fielddelimited data. In field-delimited data, items in each row are separated by a specific symbol. In the case of CSV, it happens to be a comma. However, other symbols are common, such as the | (pipe) symbol. When using a `|` character, the data is often called pipe-delimited data. 
+CSV is actually a specific implementation of what is referred to as fielddelimited data. In field-delimited data, items in each row are separated by a specific symbol. In the case of CSV, it happens to be a comma. However, other symbols are common, such as the | (pipe) symbol. When using a `|` character, the data is often called pipe-delimited data.
 
-To facilitate reading field-delimited data, pandas provides the `pd.read_table()` function. The following example uses this function to read the `data/MSFT.CSV` file by specifying a comma as the value to the `sep` parameter: 
+To facilitate reading field-delimited data, pandas provides the `pd.read_table()` function. The following example uses this function to read the `data/MSFT.CSV` file by specifying a comma as the value to the `sep` parameter:
 
 ```
 In [11]:
@@ -8285,9 +8145,7 @@ Out[11]:
 |**`16  83.77  84.91`**<br>**`4  2014-07-`**|**`83.66  84.91  1755600      84.91`**|
 |**`15  84.30  84.38`**|**`83.20  83.58  1874700      83.58`**|
 
-
-
-pandas does not provide a . `to_table()` method as an analogous write method to `.to_csv()` . However, the `.to_csv()` method can be used to write field-delimited data using a different delimiter than a comma. As an example, the following writes a pipe-delimited version of the data in `DataFrame` : 
+pandas does not provide a . `to_table()` method as an analogous write method to `.to_csv()` . However, the `.to_csv()` method can be used to write field-delimited data using a different delimiter than a comma. As an example, the following writes a pipe-delimited version of the data in `DataFrame` :
 
 ```
 In [12]:
@@ -8308,11 +8166,11 @@ In [12]:
 
 ### **Handling noise rows in field-delimited data** 
 
-Sometimes, data in a field-delimited file may contain extraneous headers and footers. Examples can be company information at the top, such as in an invoice number, addresses, and summary footers. Sometimes, I have even seen where data is stored on every other line. These situations will cause errors when loading the data like this. So, to handle these scenarios, the 
+Sometimes, data in a field-delimited file may contain extraneous headers and footers. Examples can be company information at the top, such as in an invoice number, addresses, and summary footers. Sometimes, I have even seen where data is stored on every other line. These situations will cause errors when loading the data like this. So, to handle these scenarios, the
 
-pandas `pd.read_csv()` and `pd.read_table()` methods have some useful parameters to help out. 
+pandas `pd.read_csv()` and `pd.read_table()` methods have some useful parameters to help out.
 
-To demonstrate, take the following variation on the MSFT stock data, which has extra rows of what could be referred to as noise information: 
+To demonstrate, take the following variation on the MSFT stock data, which has extra rows of what could be referred to as noise information:
 
 ```
 In [13]:
@@ -8337,7 +8195,7 @@ line
    2014-07-14,83.66,84.64,83.11,84.40,1432100,84.40
 ```
 
-This situation can be handled using the `skiprows` parameter, informing pandas to skip rows `0` , `2` , and `3` : 
+This situation can be handled using the `skiprows` parameter, informing pandas to skip rows `0` , `2` , and `3` :
 
 ```
 In [14]:
@@ -8359,8 +8217,6 @@ In [14]:
 |**`16`**<br>|**`83.77  84.91`**<br>**`5  2014-07-`**|**`83.66  84.91`**|**`1755600      84.91`**|
 |**`15`**|**`84.30  84.38`**|**`83.20  83.58`**|**`1874700      83.58`**|
 
-
-
 |**`6  2014-07-`**||
 |---|---|
 |**`14  83.66  84.64`**|**`83.11  84.40  1432100      84.40`**|
@@ -8371,9 +8227,7 @@ In [14]:
 |**`9  2014-07-`**||
 |**`09  84.83  85.79`**|**`84.76  85.50  1540700      85.50`**|
 
-
-
-Another common situation is where a file has content at the end of the file, which should be ignored to prevent an error, such as the following. 
+Another common situation is where a file has content at the end of the file, which should be ignored to prevent an error, such as the following.
 
 ##### **`In [15]:`** 
 
@@ -8393,15 +8247,15 @@ Another common situation is where a file has content at the end of the file, whi
    Uh oh, there is stuff at the end.
 ```
 
-This will cause an exception during reading, but it can be handled using the `skip_footer` parameter, which specifies how many lines at the end of the file to ignore: 
+This will cause an exception during reading, but it can be handled using the `skip_footer` parameter, which specifies how many lines at the end of the file to ignore:
 
-**`In [16]: # skip only two lines at the end df = pd.read_csv("data/msft_with_footer.csv", skip_footer=2, engine = 'python') df Out[16]: Date   Open   High    Low  Close   Volume  Adj Close 0  2014-0721  83.46  83.53  81.81  81.93  2359300      81.93 1  2014-0718  83.30  83.40  82.52  83.35  4020800      83.35` Note** 
+**`In [16]: # skip only two lines at the end df = pd.read_csv("data/msft_with_footer.csv", skip_footer=2, engine = 'python') df Out[16]: Date   Open   High    Low  Close   Volume  Adj Close 0  2014-0721  83.46  83.53  81.81  81.93  2359300      81.93 1  2014-0718  83.30  83.40  82.52  83.35  4020800      83.35` Note**
 
-Note that I had to specify `engine = 'python'` . At least with Anaconda, `skip_footer` , without this option, gives a warning, as this option is not 
+Note that I had to specify `engine = 'python'` . At least with Anaconda, `skip_footer` , without this option, gives a warning, as this option is not
 
-implemented by the default underlying C implementation. This forces it to use a Python implementation. 
+implemented by the default underlying C implementation. This forces it to use a Python implementation.
 
-Suppose the file is large and you only want to read the first few rows, as you only want the data at the start of the file and do not want to read it all into the memory. This can be handled with the `nrows` parameter: 
+Suppose the file is large and you only want to read the first few rows, as you only want the data at the start of the file and do not want to read it all into the memory. This can be handled with the `nrows` parameter:
 
 ```
 In [17]:
@@ -8421,9 +8275,7 @@ In [17]:
 |**`2  2014-07-`**||
 |**`17  84.35  84.63`**|**`83.33  83.63  1974000      83.63`**|
 
-
-
-If you want, you can skip a specific number of rows at the start of a file and read to the end, or you can read just a few lines once you get to that point in the file. To do this, use the `skiprows` parameter. The following example skips `100` rows and then reads in the next `5` : 
+If you want, you can skip a specific number of rows at the start of a file and read to the end, or you can read just a few lines once you get to that point in the file. To do this, use the `skiprows` parameter. The following example skips `100` rows and then reads in the next `5` :
 
 ##### **`In [18]:`** 
 
@@ -8444,25 +8296,21 @@ Out[18]:
 |**`2014-02-26  82.92  84.03  82.43  83.81  2623600     81.12`**|
 |**`2014-02-25  83.80  83.80  81.72  83.08  3579100     80.41`**|
 
-
-
 ### **Note** 
 
-Note that the preceding example also skipped reading the header line, so it was necessary to inform the process to not look for a header and use the 
+Note that the preceding example also skipped reading the header line, so it was necessary to inform the process to not look for a header and use the
 
 #### specified names. 
 
 ## **Reading and writing data in an Excel format** 
 
-pandas supports reading data in Excel 2003 and newer formats using the `pd.read_excel()` function or via the `ExcelFile` class. Internally, both techniques use either the XLRD or OpenPyXL packages, so you will need to ensure that either is installed first in your Python environment. 
+pandas supports reading data in Excel 2003 and newer formats using the `pd.read_excel()` function or via the `ExcelFile` class. Internally, both techniques use either the XLRD or OpenPyXL packages, so you will need to ensure that either is installed first in your Python environment.
 
-For demonstration, a `data/stocks.xlsx` file is provided with the sample data. If you open it in Excel, you will see something similar to what is shown in the following: 
+For demonstration, a `data/stocks.xlsx` file is provided with the sample data. If you open it in Excel, you will see something similar to what is shown in the following:
 
+The workbook contains two sheets, msft and aapl, which hold the stock data for each respective stock.
 
-
-The workbook contains two sheets, msft and aapl, which hold the stock data for each respective stock. 
-
-The following reads the `data/stocks.xlsx` file into `DataFrame` : 
+The following reads the `data/stocks.xlsx` file into `DataFrame` :
 
 ```
 In [19]:
@@ -8487,9 +8335,7 @@ Out[19]:
 |---|
 |**`4 2014-07-15  84.30  84.38  83.20  83.58  1874700      83.58`**|
 
-
-
-This has read only content from the first worksheet in the Excel file (the msft worksheet) and used the contents of the first row as column names. To read the other worksheet, you can pass the name of the worksheet using the `sheetname` parameter: 
+This has read only content from the first worksheet in the Excel file (the msft worksheet) and used the contents of the first row as column names. To read the other worksheet, you can pass the name of the worksheet using the `sheetname` parameter:
 
 ```
 In [20]:
@@ -8515,13 +8361,11 @@ Out[20]:
 |**`16  96.97  97.10`**<br>**`4 2014-07-`**|**`94.74  94.78`**|**`53396300      94.78`**|
 |**`15  96.80  96.85`**|**`95.03  95.32`**|**`45477900      95.32`**|
 
+Like with `pd.read_csv()` , many assumptions are made about column names, data types, and indexes. All of the options explained for `pd.read_csv()` to specify this information also apply to the `pd.read_excel()` function.
 
+Excel files can be written using the `.to_excel()` method of `DataFrame` . Writing to the XLS format requires the inclusion of the XLWT package, so make sure it is loaded in your Python environment.
 
-Like with `pd.read_csv()` , many assumptions are made about column names, data types, and indexes. All of the options explained for `pd.read_csv()` to specify this information also apply to the `pd.read_excel()` function. 
-
-Excel files can be written using the `.to_excel()` method of `DataFrame` . Writing to the XLS format requires the inclusion of the XLWT package, so make sure it is loaded in your Python environment. 
-
-The following writes the data we just acquired to `stocks2.xls` . The default is to store `DataFrame` in the `Sheet1` worksheet: 
+The following writes the data we just acquired to `stocks2.xls` . The default is to store `DataFrame` in the `Sheet1` worksheet:
 
 ```
 In [21]:
@@ -8534,9 +8378,7 @@ In [21]:
 
 #### Opening this in Excel shows you the following: 
 
-
-
-You can specify the name of the worksheet using the `sheet_name` parameter: 
+You can specify the name of the worksheet using the `sheet_name` parameter:
 
 ```
 In [22]:
@@ -8546,9 +8388,7 @@ In [22]:
 
 #### In Excel, we can see that the sheet has been named MSFT. 
 
-
-
-To write more than one `DataFrame` to a single Excel file and each `DataFrame` object on a separate worksheet, use the `ExcelWriter` object, along with the `with` keyword. `ExcelWriter` is part of pandas, but you will need to make sure it is imported, as it is not in the top level namespace of pandas. The following writes two DataFrame objects to two different worksheets in one Excel file: 
+To write more than one `DataFrame` to a single Excel file and each `DataFrame` object on a separate worksheet, use the `ExcelWriter` object, along with the `with` keyword. `ExcelWriter` is part of pandas, but you will need to make sure it is imported, as it is not in the top level namespace of pandas. The following writes two DataFrame objects to two different worksheets in one Excel file:
 
 ```
 In [23]:
@@ -8566,11 +8406,9 @@ In [23]:
        df.to_excel(writer, sheet_name='MSFT')
 ```
 
-We can see that there are two worksheets in the Excel file: 
+We can see that there are two worksheets in the Excel file:
 
-
-
-Writing to XLSX files uses the same function but specifies .XLSX through the file extension: 
+Writing to XLSX files uses the same function but specifies .XLSX through the file extension:
 
 ```
 In [24]:
@@ -8578,13 +8416,13 @@ In [24]:
    df.to_excel("data/msft2.xlsx")
 ```
 
-When writing an XLSX file, pandas will use the openpyxl or xlsxwriter packages, so make sure one is installed. 
+When writing an XLSX file, pandas will use the openpyxl or xlsxwriter packages, so make sure one is installed.
 
 # **Reading and writing JSON files** 
 
-pandas can read and write data stored in the **JavaScript Object Notation (JSON)** format. This is one of my favorites due to its ability to be used across platforms and with many programming languages. 
+pandas can read and write data stored in the **JavaScript Object Notation (JSON)** format. This is one of my favorites due to its ability to be used across platforms and with many programming languages.
 
-To demonstrate saving as JSON, we will save the Excel data we just read in to a JSON file and then take a look at the contents: 
+To demonstrate saving as JSON, we will save the Excel data we just read in to a JSON file and then take a look at the contents:
 
 ```
 In [25]:
@@ -8610,7 +8448,7 @@ In [25]:
 {"0":81.93,"1":83.35,"2":83.63,"3":84.91,"4":83.58}}
 ```
 
-JSON-based data can be read with the `pd.read_json()` function: 
+JSON-based data can be read with the `pd.read_json()` function:
 
 ```
 In [26]:
@@ -8631,23 +8469,19 @@ Out[26]:
 |**`3      84.91  84.91 2014-07-16  84.91  83.66  83.77  1755600`**|
 |**`4      83.58  83.58 2014-07-15  84.38  83.20  84.30  1874700`**|
 
+Notice two slight differences here caused by the reading/writing of data from JSON. First, the columns have been reordered alphabetically. Second,
 
-
-Notice two slight differences here caused by the reading/writing of data from JSON. First, the columns have been reordered alphabetically. Second, 
-
-the index for `DataFrame` , although containing content, is sorted as a string. These issues can be fixed easily, but they will not be covered here. 
+the index for `DataFrame` , although containing content, is sorted as a string. These issues can be fixed easily, but they will not be covered here.
 
 ## **Reading HTML data from the Web** 
 
-pandas has very nice support for reading data from HTML files (or HTML from URLs). Underneath the covers, pandas makes use of the LXML, Html5Lib, and BeautifulSoup4 packages, which provide some very impressive capabilities for reading and writing HTML tables. 
+pandas has very nice support for reading data from HTML files (or HTML from URLs). Underneath the covers, pandas makes use of the LXML, Html5Lib, and BeautifulSoup4 packages, which provide some very impressive capabilities for reading and writing HTML tables.
 
-The `pd.read_html()` function will read HTML from a file (or URL) and parse all HTML tables found in the content into one or more pandas `DataFrame` object. The function always returns a list of `DataFrame` objects (actually, zero or more, depending on the number of tables found in the HTML). 
+The `pd.read_html()` function will read HTML from a file (or URL) and parse all HTML tables found in the content into one or more pandas `DataFrame` object. The function always returns a list of `DataFrame` objects (actually, zero or more, depending on the number of tables found in the HTML).
 
-To demonstrate, we will read table data from the FDIC failed bank list located at <u>https://www.fdic.gov/bank/individual/failed/banklist.html.</u> Viewing the page, you can see there is a list of quite a few failed banks. 
+To demonstrate, we will read table data from the FDIC failed bank list located at <u>https://www.fdic.gov/bank/individual/failed/banklist.html.</u> Viewing the page, you can see there is a list of quite a few failed banks.
 
-
-
-This data is actually very simple to read with pandas and its `pd.read_html()` function. The following reads from this URL and reports the findings: 
+This data is actually very simple to read with pandas and its `pd.read_html()` function. The following reads from this URL and reports the findings:
 
 ```
 In [27]:
@@ -8676,9 +8510,9 @@ Out[27]:
    4                 Northern Star Bank    Mankato  MN  34983
 ```
 
-Again, that was almost too easy! 
+Again, that was almost too easy!
 
-`DataFrame` can be written to an HTML file with the `.to_html()` method. The method creates a file containing the table tag for the data (not the entire HTML document). The following writes the stock data we read earlier to an HTML file: 
+`DataFrame` can be written to an HTML file with the `.to_html()` method. The method creates a file containing the table tag for the data (not the entire HTML document). The following writes the stock data we read earlier to an HTML file:
 
 ```
 In [28]:
@@ -8726,17 +8560,15 @@ file
          <td> 83.30</td>
 ```
 
-Viewing this in the browser looks like what is shown in the following: 
+Viewing this in the browser looks like what is shown in the following:
 
-
-
-This is useful, as you can use pandas to write HTML fragments to be included in websites, updating them when needed and therefore, having the new data available to the site statically, instead of through a more complicated data query or service call. 
+This is useful, as you can use pandas to write HTML fragments to be included in websites, updating them when needed and therefore, having the new data available to the site statically, instead of through a more complicated data query or service call.
 
 ## **Reading and writing HDF5 format files** 
 
-HDF5 is a data model, library, and file format to store and manage data. It is commonly used in scientific computing environments. It supports an unlimited variety of data types and is designed for flexible and efficient I/O and for high volume and complex data. 
+HDF5 is a data model, library, and file format to store and manage data. It is commonly used in scientific computing environments. It supports an unlimited variety of data types and is designed for flexible and efficient I/O and for high volume and complex data.
 
-HDF5 is portable and is extensible, allowing applications to evolve in their use of HDF5. The HDF5 Technology suite includes tools and applications to manage, manipulate, view, and analyze data in the HDF5 format. HDF5 is: 
+HDF5 is portable and is extensible, allowing applications to evolve in their use of HDF5. The HDF5 Technology suite includes tools and applications to manage, manipulate, view, and analyze data in the HDF5 format. HDF5 is:
 
 - A versatile data model that can represent very complex data objects and a wide variety of metadata 
 
@@ -8746,11 +8578,11 @@ HDF5 is portable and is extensible, allowing applications to evolve in their use
 
 - A rich set of integrated performance features that allow for access time and storage space optimizations 
 
-Tools and applications to manage, manipulate, view, and analyze the data in the collection 
+Tools and applications to manage, manipulate, view, and analyze the data in the collection
 
-`HDFStore` is a hierarchical, dictionary-like object that reads and writes pandas objects to the HDF5 format. Under the covers, `HDFStore` uses the PyTables library, so make sure that it is installed if you want to use this format. 
+`HDFStore` is a hierarchical, dictionary-like object that reads and writes pandas objects to the HDF5 format. Under the covers, `HDFStore` uses the PyTables library, so make sure that it is installed if you want to use this format.
 
-The following demonstrates writing `DataFrame` into an HDF5 format. The output shows you that the HDF5 store has a root level object named `df` , which is a frame and whose shape is eight rows of three columns: 
+The following demonstrates writing `DataFrame` into an HDF5 format. The output shows you that the HDF5 store has a root level object named `df` , which is a frame and whose shape is eight rows of three columns:
 
 ```
 In [29]:
@@ -8772,7 +8604,7 @@ Out[29]:
    /df            frame        (shape->[8,3])
 ```
 
-The following reads the HDF5 store and retrieves `DataFrame` : 
+The following reads the HDF5 store and retrieves `DataFrame` :
 
 ```
 In [30]:
@@ -8795,7 +8627,7 @@ Out[30]:
    2000-01-08  0.113648 -1.478427  0.524988
 ```
 
-`DataFrame` is written to the HDF5 file at the point it is assigned to the store object. Changes to `DataFrame` made after that point are not persisted, at least not until the object is assigned to the data store object again. The following demonstrates this by making a change to `DataFrame` and then reassigning it to the HDF5 store, thereby updating the data store: 
+`DataFrame` is written to the HDF5 file at the point it is assigned to the store object. Changes to `DataFrame` made after that point are not persisted, at least not until the object is assigned to the data store object again. The following demonstrates this by making a change to `DataFrame` and then reassigning it to the HDF5 store, thereby updating the data store:
 
 ```
 In [31]:
@@ -8830,9 +8662,9 @@ Out[31]:
 
 # **Accessing data on the web and in the cloud** 
 
-It is quite common to read data off the web and from the cloud. pandas makes it extremely easy to read data from the web and cloud. All of the pandas functions we have examined can also be given an HTTP URL, FTP address, or S3 address instead of a local file path, and all work just the same as they work with a local file. 
+It is quite common to read data off the web and from the cloud. pandas makes it extremely easy to read data from the web and cloud. All of the pandas functions we have examined can also be given an HTTP URL, FTP address, or S3 address instead of a local file path, and all work just the same as they work with a local file.
 
-The following demonstrates how easy it is to directly make HTTP requests using the existing `pd.read_csv()` function. The following retrieves the daily stock data for Microsoft in June 2014 directly from the Yahoo! Finance web service via its HTTP query string model: 
+The following demonstrates how easy it is to directly make HTTP requests using the existing `pd.read_csv()` function. The following retrieves the daily stock data for Microsoft in June 2014 directly from the Yahoo! Finance web service via its HTTP query string model:
 
 ```
 In [32]:
@@ -8864,13 +8696,11 @@ Out[32]:
 |**`25  41.70`**<br>**`4  2014-`**|**`42.05  41.46  42.03`**<br>**`06-`**|**`20049100      41.21`**|
 |**`24  41.83`**|**`41.94  41.56  41.75`**|**`26509100      40.94`**|
 
-
-
 # **Reading and writing from/to SQL databases** 
 
-pandas can read data from any SQL databases that support Python data adapters, that respect the Python DB-API. Reading is performed using the `pandas.io.sql.read_sql()` function and writing to SQL databases using the `.to_sql()` method of `DataFrame` . 
+pandas can read data from any SQL databases that support Python data adapters, that respect the Python DB-API. Reading is performed using the `pandas.io.sql.read_sql()` function and writing to SQL databases using the `.to_sql()` method of `DataFrame` .
 
-As an example of writing, the following reads the stock data from `msft.csv` and `aapl.csv` . It then makes a connection to a SQLite3 database file. If the file does not exist, it creates it on the fly. It then writes the MSFT data to a table named `STOCK_DATA` . If the table did not exist, it is created. If it exists, all the data is replaced with the MSFT data. It then appends the `AAPL` stock data to that table: 
+As an example of writing, the following reads the stock data from `msft.csv` and `aapl.csv` . It then makes a connection to a SQLite3 database file. If the file does not exist, it creates it on the fly. It then writes the MSFT data to a table named `STOCK_DATA` . If the table did not exist, it is created. If it exists, all the data is replaced with the MSFT data. It then appends the `AAPL` stock data to that table:
 
 ```
 In [33]:
@@ -8893,13 +8723,11 @@ In [33]:
    connection.close()
 ```
 
-To demonstrate that this data was created, you can open the database file with a tool such as SQLite Data Browser (available at 
+To demonstrate that this data was created, you can open the database file with a tool such as SQLite Data Browser (available at
 
-<u>http://sourceforge.net/projects/sqlitebrowser/). The following shows you a</u> few rows of the data in the database file: 
+<u>http://sourceforge.net/projects/sqlitebrowser/). The following shows you a</u> few rows of the data in the database file:
 
-
-
-Data can be read using SQL from the database using the `pd.io.sql.read_sql()` function. The following queries the data from `stocks.sqlite` using SQL and reports it to the user: 
+Data can be read using SQL from the database using the `pd.io.sql.read_sql()` function. The following queries the data from `stocks.sqlite` using SQL and reports it to the user:
 
 ```
 In [34]:
@@ -8943,7 +8771,7 @@ Symbol
 1874700     83.58   MSFT
 ```
 
-It is also possible to use the `WHERE` clause in the SQL, as well as to select columns. To demonstrate, the following selects the records where MSFT's volume is greater than `29200100` : 
+It is also possible to use the `WHERE` clause in the SQL, as well as to select columns. To demonstrate, the following selects the records where MSFT's volume is greater than `29200100` :
 
 ```
 In [35]:
@@ -8989,13 +8817,13 @@ Symbol
 50860500    19.48   MSFT
 ```
 
-A final point, is that most of the code of these examples was SQLite3 code. The only pandas part of these examples is the use of the `.to_sql()` and `.read_sql()` methods. As these functions take a connection object, which can be any Python DB-API-ompatible data adapter, you can more or less work with any supported database data by simply creating an appropriate connection object. The code at the pandas level should remain the same for any supported database. 
+A final point, is that most of the code of these examples was SQLite3 code. The only pandas part of these examples is the use of the `.to_sql()` and `.read_sql()` methods. As these functions take a connection object, which can be any Python DB-API-ompatible data adapter, you can more or less work with any supported database data by simply creating an appropriate connection object. The code at the pandas level should remain the same for any supported database.
 
 # **Reading data from remote data services** 
 
-pandas has direct support for various web-based data source classes in the `pandas.io.data` namespace. The primary class of interest is `pandas.io.data.DataReader` , which is implemented to read data from various supported sources and return it to the application directly as `DataFrame` . 
+pandas has direct support for various web-based data source classes in the `pandas.io.data` namespace. The primary class of interest is `pandas.io.data.DataReader` , which is implemented to read data from various supported sources and return it to the application directly as `DataFrame` .
 
-Currently, support exists for the following sources via the `DataReader` class: 
+Currently, support exists for the following sources via the `DataReader` class:
 
 - Daily historical prices' stock from either Yahoo! and Google Finance Yahoo! Options 
 
@@ -9005,11 +8833,11 @@ Currently, support exists for the following sources via the `DataReader` class:
 
 - The World Bank 
 
-The specific source of data is specified via the `DataReader` object's `data_source` parameter. The specific items to be retrieved are specified using the `name` parameter. If the data source supports selecting data between a range of dates, these dates can be specified with the `start` and `end` parameters. We will now take a look at reading data from each of these sources. 
+The specific source of data is specified via the `DataReader` object's `data_source` parameter. The specific items to be retrieved are specified using the `name` parameter. If the data source supports selecting data between a range of dates, these dates can be specified with the `start` and `end` parameters. We will now take a look at reading data from each of these sources.
 
 ## **Reading stock data from Yahoo! and Google Finance** 
 
-Yahoo! Finance is specified by passing `'yahoo'` as the `data_source` parameter. The following retrieves data from Yahoo! Finance, specifically, the data for MSFT between `2012-01-01` and `2014-01-27` : 
+Yahoo! Finance is specified by passing `'yahoo'` as the `data_source` parameter. The following retrieves data from Yahoo! Finance, specifically, the data for MSFT between `2012-01-01` and `2014-01-27` :
 
 ```
 In [36]:
@@ -9043,9 +8871,7 @@ Out[36]:
 |**`2012-01-06`**|**`27.53  28.19  27.53  28.11  99455500      25.64`**|
 |**`2012-01-09`**|**`28.05  28.10  27.72  27.74  59706800      25.31`**|
 
-
-
-The source of the data can be changed to Google Finance with a change of the `data_source` parameter to `'google'` : 
+The source of the data can be changed to Google Finance with a change of the `data_source` parameter to `'google'` :
 
 ```
 In [37]:
@@ -9066,13 +8892,11 @@ Out[37]:
 |**`2012-01-06  27.53`**|**`28.19  27.52  28.10  99459469`**|
 |**`2012-01-09  28.05`**|**`28.10  27.72  27.74  59708266`**|
 
-
-
-Notice that the result of the Google query has different columns than the Yahoo! data; specifically, Google Finance does not provide an `Adjusted Close` value. 
+Notice that the result of the Google query has different columns than the Yahoo! data; specifically, Google Finance does not provide an `Adjusted Close` value.
 
 ### **Retrieving data from Yahoo! Finance Options** 
 
-pandas provides experimental support for Yahoo! Finance Options data to be retrieved via the `pandas.io.data.Options` class. In the following example, the `.get_all_data()` method is used to download options data for `AAPL` from `yahoo` : 
+pandas provides experimental support for Yahoo! Finance Options data to be retrieved via the `pandas.io.data.Options` class. In the following example, the `.get_all_data()` method is used to download options data for `AAPL` from `yahoo` :
 
 ```
 In [38]:
@@ -9106,9 +8930,9 @@ Symbol
 0.01   0.00   0.01    0
 ```
 
-The resulting `DataFrame` object contains a hierarchical index, which can be used to easily extract specific subsets of data. To demonstrate, look at several examples of slicing by the values in the index. 
+The resulting `DataFrame` object contains a hierarchical index, which can be used to easily extract specific subsets of data. To demonstrate, look at several examples of slicing by the values in the index.
 
-The following code will return all `put` options at a Strike price of $80. Using `slice(None)` as one of the values in the tuple used to select by index will include all `Expiry` dates: 
+The following code will return all `put` options at a Strike price of $80. Using `slice(None)` as one of the values in the tuple used to select by index will include all `Expiry` dates:
 
 ##### **`In [39]:`** 
 
@@ -9135,9 +8959,7 @@ Symbol
 |**`put  AAPL150130P00080000  0.12  0.07  0.12    0`**<br>**`2015-02-20`**|
 |**`put  AAPL150220P00080000  0.22  0.22  0.24    0`**|
 
-
-
-As another example, we can narrow the date range by specifying a date slice instead of `slice(None)` . The following narrows the result down to those where `Expiry` date is between 2015-01-17 and 2015-04-17: 
+As another example, we can narrow the date range by specifying a date slice instead of `slice(None)` . The following narrows the result down to those where `Expiry` date is between 2015-01-17 and 2015-04-17:
 
 ```
 In [40]:
@@ -9166,9 +8988,7 @@ Out[40]:
 |||**`2015-04-17`**|||
 |**`put`**|**`AAP`**|**`L150417P00080000`**|**`0.64`**|**`0.61  0.66  0.00`**|
 
-
-
-If you do not want to download all of the data (which can take a few minutes), then you can use other methods, such as `.get_call_data()` and `.get_put_data()` , which will only download the data for the call or puts, respectively, and for a specific expiry date. To demonstrate, the following loads all call data for MSFT with the expiry date of 2015-01-05: 
+If you do not want to download all of the data (which can take a few minutes), then you can use other methods, such as `.get_call_data()` and `.get_put_data()` , which will only download the data for the call or puts, respectively, and for a specific expiry date. To demonstrate, the following loads all call data for MSFT with the expiry date of 2015-01-05:
 
 ```
 In [41]:
@@ -9201,7 +9021,7 @@ MSFT150313C00038000  3.10  4.15  4.45   0  0.00%
 MSFT150313C00039000  3.15  3.15  3.45   0  0.00%
 ```
 
-The `.get_all_data()` method will load data for all expiry months and cache that data. The cache will be automatically used to make subsequent calls return much more quickly if the data is present in the cache. As an example, the following example will return calls quickly, as the data has already been cached by the previous `.get_all_data()` call for `appl` call options: 
+The `.get_all_data()` method will load data for all expiry months and cache that data. The cache will be automatically used to make subsequent calls return much more quickly if the data is present in the cache. As an example, the following example will return calls quickly, as the data has already been cached by the previous `.get_all_data()` call for `appl` call options:
 
 ```
 In [42]:
@@ -9219,13 +9039,11 @@ Symbol
    28.57  2015-01-17 call AAPL150117C00028570 82.02
 ```
 
-**`78.80  79.10    0 29.29  2015-01-17 call AAPL150117C00029290 84.75 78.05  78.40    0 30.00  2015-01-17 call AAPL150117C00030000 81.20 77.35  77.70    0 30.71  2015-01-17 call AAPL150117C00030710 83.20 76.65  77.00    0` Reading economic data from the Federal Reserve Bank of St. Louis** 
+**`78.80  79.10    0 29.29  2015-01-17 call AAPL150117C00029290 84.75 78.05  78.40    0 30.00  2015-01-17 call AAPL150117C00030000 81.20 77.35  77.70    0 30.71  2015-01-17 call AAPL150117C00030710 83.20 76.65  77.00    0` Reading economic data from the Federal Reserve Bank of St. Louis**
 
-The **Federal Reserve Economic Data** ( **FRED** ) of St. Louis <u>(http://research.stlouisfed.org/fred2/) provides downloads of over 240,000</u> US and International time series from over 76 data sources, and it is constantly growing. 
+The **Federal Reserve Economic Data** ( **FRED** ) of St. Louis <u>(http://research.stlouisfed.org/fred2/) provides downloads of over 240,000</u> US and International time series from over 76 data sources, and it is constantly growing.
 
-
-
-FRED data can be specified by `data_source="fred"` , passing the specific series tag as the `name` parameter. A specific data series can be specified using the series ID in the first parameter. As an example, the following retrieves GDP information between the two specified dates: 
+FRED data can be specified by `data_source="fred"` , passing the specific series tag as the `name` parameter. A specific data series can be specified using the series ID in the first parameter. As an example, the following retrieves GDP information between the two specified dates:
 
 ```
 In [43]:
@@ -9251,11 +9069,9 @@ Out[43]:
    2014-01-01  17044.0
 ```
 
-To select another series, simply specify the series identifier in the first parameter. The site can be conveniently navigated through series and data visualized directly on the site. For example, the following screenshot shows you the series **Compensation of employees: Wages and salaries** : 
+To select another series, simply specify the series identifier in the first parameter. The site can be conveniently navigated through series and data visualized directly on the site. For example, the following screenshot shows you the series **Compensation of employees: Wages and salaries** :
 
-
-
-This data series is represented by the `A576RC1A027NBEA` ID and we can download it with the following code: 
+This data series is represented by the `A576RC1A027NBEA` ID and we can download it with the following code:
 
 ```
 In [44]:
@@ -9298,19 +9114,17 @@ Out[44]:
 
 ### **Accessing Kenneth French's data** 
 
-Kenneth R. French is a professor of finance at the Tuck School of Business at Dartmouth University. He has created an extensive library of economic data, which is available for download over the Web. The website for his data is at 
+Kenneth R. French is a professor of finance at the Tuck School of Business at Dartmouth University. He has created an extensive library of economic data, which is available for download over the Web. The website for his data is at
 
-<u>http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html,</u> and it contains a detailed description of the datasets. 
+<u>http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html,</u> and it contains a detailed description of the datasets.
 
+The data available at the site is downloadable in zip files and can be read directly into `DataFrame` by specifying the dataset's filename (without .zip)
 
+as the first parameter of `DataReader` and using
 
-The data available at the site is downloadable in zip files and can be read directly into `DataFrame` by specifying the dataset's filename (without .zip) 
+`data_source="famafrench"` :
 
-as the first parameter of `DataReader` and using 
-
-`data_source="famafrench"` : 
-
-As an example, the following reads the Global Factors data: 
+As an example, the following reads the Global Factors data:
 
 ```
 In [45]:
@@ -9340,19 +9154,15 @@ Out[45]:
 |**`201412     -1.45   1.89  -0.33   1.06  0.00`**|
 |**`201501     -1.75   0.04  -2.78   4.50  0.00`**|
 
-
-
 ```
     [295 rows x 5 columns]}
 ```
 
 ### **Reading from the World Bank** 
 
-Thousands of data feeds are available from the World Bank and can be read directly into pandas DataFrame objects. The World Bank data catalog can be explored at <u>http://www.worldbank.org/.</u> 
+Thousands of data feeds are available from the World Bank and can be read directly into pandas DataFrame objects. The World Bank data catalog can be explored at <u>http://www.worldbank.org/.</u>
 
-
-
-World Bank datasets are identified using indicators, a text code that represents each dataset. A full list of indicators can be retrieved using the `pandas.io.wb.get_indicators()` function. At the time of writing this, there were `13079` indicators: 
+World Bank datasets are identified using indicators, a text code that represents each dataset. A full list of indicators can be retrieved using the `pandas.io.wb.get_indicators()` function. At the time of writing this, there were `13079` indicators:
 
 ```
 In [46]:
@@ -9394,7 +9204,7 @@ Out[47]:
    [13079 rows x 1 columns]
 ```
 
-These indicators can be investigated using the World Bank website, but if you have an idea of the indicator you would like to sample, you can perform a search. As an example, the following uses the `pandas.io.wb.search()` function to search for indicators with data related to life expectancy: 
+These indicators can be investigated using the World Bank website, but if you have an idea of the indicator you would like to sample, you can perform a search. As an example, the following uses the `pandas.io.wb.search()` function to search for indicators with data related to life expectancy:
 
 ```
 In [48]:
@@ -9420,7 +9230,7 @@ In [48]:
 (years)
 ```
 
-Each indicator is broken down into various countries. A full list of country data can be retrieved using the `pandas.io.wb.get_countries()` function, as demonstrated here: 
+Each indicator is broken down into various countries. A full list of country data can be retrieved using the `pandas.io.wb.get_countries()` function, as demonstrated here:
 
 ##### **`In [49]:`** 
 
@@ -9446,11 +9256,9 @@ Each indicator is broken down into various countries. A full list of country dat
 |**`8  United Arab Emirates         Abu Dhabi    AE`**|
 |**`9             Argentina      Buenos Aires    AR`**|
 
+Data for an indicator can be downloaded using the
 
-
-Data for an indicator can be downloaded using the 
-
-`pandas.io.wb.download()` function, specifying the dataset using the `indicator` parameter. The following downloads the life expectancy data for countries from `1980` through `2012` : 
+`pandas.io.wb.download()` function, specifying the dataset using the `indicator` parameter. The following downloads the life expectancy data for countries from `1980` through `2012` :
 
 ```
 In [50]:
@@ -9479,13 +9287,11 @@ to 2014
 |**`1981       74.007317`**|
 |**`1980       73.658537`**|
 
-
-
 ```
    [105 rows x 1 columns]
 ```
 
-By default, data is only returned for the United States, Canada, and Mexico. This can be seen by examining the index of the result of the previous query: 
+By default, data is only returned for the United States, Canada, and Mexico. This can be seen by examining the index of the result of the previous query:
 
 ```
 In [51]:
@@ -9502,7 +9308,7 @@ Out[51]:
 dtype='object')
 ```
 
-To get the data for more countries, specify them explicitly using the country parameter. The following gets the data for all known countries: 
+To get the data for more countries, specify them explicitly using the country parameter. The following gets the data for all known countries:
 
 ```
 In [52]:
@@ -9537,13 +9343,11 @@ Out[52]:
 |**`1981`**|**`59.944951`**|
 |**`1980`**|**`59.377610`**|
 
-
-
 ```
    [8151 rows x 1 columns]
 ```
 
-We can do some interesting things with this data. The example we will look at, determines which country has the lowest life expectancy for each year. To do this, we first need to pivot this data, so that the index is the country name and the year is the column. We will look at pivoting in more detail in later chapters, but for now, just know that the following reorganized the data into the country along the index and the year across the columns. Also, each value is the life expectancy for each country for that specific year: 
+We can do some interesting things with this data. The example we will look at, determines which country has the lowest life expectancy for each year. To do this, we first need to pivot this data, so that the index is the country name and the year is the column. We will look at pivoting in more detail in later chapters, but for now, just know that the following reorganized the data into the country along the index and the year across the columns. Also, each value is the life expectancy for each country for that specific year:
 
 ```
 In [53]:
@@ -9574,11 +9378,9 @@ Out[53]:
 |**`Zambia                  51.148951  50.817707  50.350805`**|
 |**`Zimbabwe                59.377610  59.944951  60.466171`**|
 
-
-
 ##### **`[247 rows x 3 columns]`** 
 
-With the data in this format, we can perform and determine which country has the lowest life expectancy for each year using `.idxmin(axis=0)` : 
+With the data in this format, we can perform and determine which country has the lowest life expectancy for each year using `.idxmin(axis=0)` :
 
 ```
 In [54]:
@@ -9607,7 +9409,7 @@ Out[54]:
    Length: 33, dtype: object
 ```
 
-The actual minimum value for each year can be retrieved using `.min(axis=0)` : 
+The actual minimum value for each year can be retrieved using `.min(axis=0)` :
 
 ```
 In [55]:
@@ -9633,9 +9435,7 @@ Out[55]:
 ||**`2012    45.329049`**|
 |**`Length: 33, dty`**|**`pe: float64`**|
 
-
-
-These two results can then be combined into a new `DataFrame` that tells us which country had the least life expectancy for each year and what that value is: 
+These two results can then be combined into a new `DataFrame` that tells us which country had the least life expectancy for each year and what that value is:
 
 ```
 In [56]:
@@ -9681,19 +9481,19 @@ Out[56]:
 
 # **Summary** 
 
-In this chapter, we examined how pandas makes it simple to access data in various locations and formats, providing automatic mapping of data in these formats into `DataFrame` objects. We started with learning how to read and write data from local files in CSV, HTML, JSON, HDF5, and Excel formats, reading into, and writing directly, from DataFrame objects without having to worry about the details of mapping the contained data into these various formats. 
+In this chapter, we examined how pandas makes it simple to access data in various locations and formats, providing automatic mapping of data in these formats into `DataFrame` objects. We started with learning how to read and write data from local files in CSV, HTML, JSON, HDF5, and Excel formats, reading into, and writing directly, from DataFrame objects without having to worry about the details of mapping the contained data into these various formats.
 
-We then examined how to access data from remote sources. First, we saw that the functions and methods that work with local files can also read from web and cloud data sources. We then looked at pandas support for accessing various forms of web and web-service-based data, such as Yahoo! Finance and the World Bank. 
+We then examined how to access data from remote sources. First, we saw that the functions and methods that work with local files can also read from web and cloud data sources. We then looked at pandas support for accessing various forms of web and web-service-based data, such as Yahoo! Finance and the World Bank.
 
-Now that we are able to load the data, the next step in using that data is to perform the cleaning of the data. Often, the data that is loaded has missing information and ill-formed content. The next chapter will focus on these issues of tidying the data that is loaded into your application. 
+Now that we are able to load the data, the next step in using that data is to perform the cleaning of the data. Often, the data that is loaded has missing information and ill-formed content. The next chapter will focus on these issues of tidying the data that is loaded into your application.
 
 # **Chapter 7. Tidying Up Your Data** 
 
-Data analysis typically flows in a processing pipeline that starts with retrieving data from one or more sources. Upon receipt of this data, it is often the case that it can be in a raw form and can be difficult to use for data analysis. This can be for a multitude of reasons such as data is not recorded, it is lost, or it is just in a different format than what you require. 
+Data analysis typically flows in a processing pipeline that starts with retrieving data from one or more sources. Upon receipt of this data, it is often the case that it can be in a raw form and can be difficult to use for data analysis. This can be for a multitude of reasons such as data is not recorded, it is lost, or it is just in a different format than what you require.
 
-Therefore, one of the most common things you will do with pandas involves **tidying** your data, which is the process of preparing raw data for analysis. Showing you how to use various features of pandas to get raw data into a tidy form is the focus of this chapter. 
+Therefore, one of the most common things you will do with pandas involves **tidying** your data, which is the process of preparing raw data for analysis. Showing you how to use various features of pandas to get raw data into a tidy form is the focus of this chapter.
 
-In this chapter, you will learn: 
+In this chapter, you will learn:
 
 - The concept of tidy data 
 
@@ -9713,13 +9513,13 @@ In this chapter, you will learn:
 
 # **What is tidying your data?** 
 
-Tidy data is a term that was created in what many refer to as a famous data science paper, "Tidy Data" by Hadley Wickham, which I highly recommend that you read and it can be downloaded at <u>http://vita.had.co.nz/papers/tidydata.pdf. The paper covers many details of the process that he calls tidying</u> data, with the result of the process being that you now have tidy data; data that is ready for analysis. 
+Tidy data is a term that was created in what many refer to as a famous data science paper, "Tidy Data" by Hadley Wickham, which I highly recommend that you read and it can be downloaded at <u>http://vita.had.co.nz/papers/tidydata.pdf. The paper covers many details of the process that he calls tidying</u> data, with the result of the process being that you now have tidy data; data that is ready for analysis.
 
-This chapter will introduce and briefly demonstrate many of the capabilities of pandas. We will not get into all of the details of the paper, but as an opening to what we will cover, I would like to create a brief summary of the reasons why you need to tidy data and what are the characteristics of tidy 
+This chapter will introduce and briefly demonstrate many of the capabilities of pandas. We will not get into all of the details of the paper, but as an opening to what we will cover, I would like to create a brief summary of the reasons why you need to tidy data and what are the characteristics of tidy
 
-data, so that you know you have completed the task and are ready to move on to analysis. 
+data, so that you know you have completed the task and are ready to move on to analysis.
 
-Tidying of data is required for many reasons including these: 
+Tidying of data is required for many reasons including these:
 
 - The names of the variables are different from what you require There is _missing_ data 
 
@@ -9737,9 +9537,9 @@ Tidying of data is required for many reasons including these:
 
 - Data is at the wrong level of normalization Data is duplicated 
 
-This is quite a list, and it is very likely that I have missed a few points. In working with data, I have seen all of these issues at one time or another, or many of them at once. Fixing these can often be very difficult in programming languages, such as Java or C#, and often cause exceptions at the worst times (such as in production of a high-volume trading system). 
+This is quite a list, and it is very likely that I have missed a few points. In working with data, I have seen all of these issues at one time or another, or many of them at once. Fixing these can often be very difficult in programming languages, such as Java or C#, and often cause exceptions at the worst times (such as in production of a high-volume trading system).
 
-Moving away from a list of problems with data that needs to be addressed, there are several characteristics of data that can be considered good, tidy, and ready for analysis, which are as follows: 
+Moving away from a list of problems with data that needs to be addressed, there are several characteristics of data that can be considered good, tidy, and ready for analysis, which are as follows:
 
 - Each variable is in one column 
 
@@ -9751,11 +9551,11 @@ Moving away from a list of problems with data that needs to be addressed, there 
 
 - Qualitative and categorical variables have mappings to values useful for analysis 
 
-Fortunately, pandas has been designed to make dealing with all of these issues as painless as possible and you will learn how to address most of these issues in the remainder of this chapter. 
+Fortunately, pandas has been designed to make dealing with all of these issues as painless as possible and you will learn how to address most of these issues in the remainder of this chapter.
 
 # **Setting up the IPython notebook** 
 
-To utilize the examples in this chapter, we will need to include the following imports and settings: 
+To utilize the examples in this chapter, we will need to include the following imports and settings:
 
 ```
 In [1]:
@@ -9774,9 +9574,9 @@ In [1]:
 
 # **Working with missing data** 
 
-Data is "missing" in pandas when it has a value of `NaN` (also seen as `np.nan` —the form from NumPy). The `NaN` value represents that in a particular `Series` that there is not a value specified for the particular index label. 
+Data is "missing" in pandas when it has a value of `NaN` (also seen as `np.nan` —the form from NumPy). The `NaN` value represents that in a particular `Series` that there is not a value specified for the particular index label.
 
-In pandas, there are a number of reasons why a value can be `NaN` : 
+In pandas, there are a number of reasons why a value can be `NaN` :
 
 - A join of two sets of data does not have matched values 
 
@@ -9788,9 +9588,9 @@ In pandas, there are a number of reasons why a value can be `NaN` :
 
 - Reindexing of data has resulted in an index that does not have a value The shape of data has changed and there are now additional rows or columns, which at the time of reshaping could not be determined 
 
-There are likely more reasons, but the general point is that they occur and you, as a pandas programmer, will need to work with them effectively to be able to perform correct data analysis. Fortunately, pandas provides you with several tools to identify missing values and to substitute them with values that facilitate your analysis. 
+There are likely more reasons, but the general point is that they occur and you, as a pandas programmer, will need to work with them effectively to be able to perform correct data analysis. Fortunately, pandas provides you with several tools to identify missing values and to substitute them with values that facilitate your analysis.
 
-To demonstrate handling missing data, we will use the following `DataFrame` object, which exhibits various patterns of missing data: 
+To demonstrate handling missing data, we will use the following `DataFrame` object, which exhibits various patterns of missing data:
 
 ```
 In [2]:
@@ -9811,9 +9611,7 @@ In [2]:
 |**`d   9  10  11`**|
 |**`e  12  13  14`**|
 
-
-
-There is no missing data at this point, so let's add some: 
+There is no missing data at this point, so let's add some:
 
 ```
 In [3]:
@@ -9843,9 +9641,9 @@ Out[3]:
    g NaN NaN NaN NaN NaN
 ```
 
-This `DataFrame` object exhibits the following characteristics that will support most of the examples that follow in this section: 
+This `DataFrame` object exhibits the following characteristics that will support most of the examples that follow in this section:
 
-One row consisting only of `NaN` values 
+One row consisting only of `NaN` values
 
 - One column is consisiting only of `NaN` values 
 
@@ -9853,7 +9651,7 @@ One row consisting only of `NaN` values
 
 ## **Determining NaN values in Series and DataFrame objects** 
 
-The `NaN` values in a `DataFrame` object can be identified using the `.isnull()` method. Any `True` value means that the item is a `NaN` value: 
+The `NaN` values in a `DataFrame` object can be identified using the `.isnull()` method. Any `True` value means that the item is a `NaN` value:
 
 ```
 In [4]:
@@ -9875,9 +9673,7 @@ Out[4]:
 |**`f`**|**`False  False  False  False  True`**|
 |**`g`**|**`True   True   True   True  True`**|
 
-
-
-We can use the fact that the `.sum()` method treats `True` as 1 and `False` as 0 to determine the number of `NaN` values in a `DataFrame` object. By applying `.sum()` on the result of `.isnull()` , we will get a total for the number of `True` values (representing `NaN` values) in each column: 
+We can use the fact that the `.sum()` method treats `True` as 1 and `False` as 0 to determine the number of `NaN` values in a `DataFrame` object. By applying `.sum()` on the result of `.isnull()` , we will get a total for the number of `True` values (representing `NaN` values) in each column:
 
 ```
 In [5]:
@@ -9895,7 +9691,7 @@ Out[5]:
    dtype: int64
 ```
 
-Applying `.sum()` to the resulting series gives the total number of `NaN` values in the original `DataFrame` object. 
+Applying `.sum()` to the resulting series gives the total number of `NaN` values in the original `DataFrame` object.
 
 ```
 In [6]:
@@ -9908,7 +9704,7 @@ Out[6]:
    15
 ```
 
-Another way to determine this is to use the `.count()` method of a `Series` object and `DataFrame` . For a `Series` method, this method will return the number of non- `NaN` values. For a `DataFrame` object, it will count the number of non- `NaN` values in each column: 
+Another way to determine this is to use the `.count()` method of a `Series` object and `DataFrame` . For a `Series` method, this method will return the number of non- `NaN` values. For a `DataFrame` object, it will count the number of non- `NaN` values in each column:
 
 ```
 In [7]:
@@ -9926,7 +9722,7 @@ Out[7]:
    dtype: int64
 ```
 
-This then needs to be flipped around to sum the number of `NaN` values, which can be calculated as follows: 
+This then needs to be flipped around to sum the number of `NaN` values, which can be calculated as follows:
 
 ```
 In [8]:
@@ -9939,7 +9735,7 @@ Out[8]:
    15
 ```
 
-We can also determine whether an item is not `NaN` using the `.notnull()` method, which returns `True` if the value is not a `NaN` value, otherwise it returns `False` : 
+We can also determine whether an item is not `NaN` using the `.notnull()` method, which returns `True` if the value is not a `NaN` value, otherwise it returns `False` :
 
 ```
 In [9]:
@@ -9964,9 +9760,9 @@ Out[9]:
 
 ## **Selecting out or dropping missing data** 
 
-One technique of handling missing data, is to simply remove it from your dataset. A scenario for this would be where data is sampled at regular intervals, but devices are offline and do not receive a reading, but you only need the actual periodic values. 
+One technique of handling missing data, is to simply remove it from your dataset. A scenario for this would be where data is sampled at regular intervals, but devices are offline and do not receive a reading, but you only need the actual periodic values.
 
-The pandas library makes this possible using several techniques; one is through Boolean selection using the results of `.isnull()` and `.notnull()` to retrieve the values that are `NaN` or not `NaN` out of a `Series` object. To demonstrate, the following example selects all non- `NaN` values from the `c4` column of `DataFrame` : 
+The pandas library makes this possible using several techniques; one is through Boolean selection using the results of `.isnull()` and `.notnull()` to retrieve the values that are `NaN` or not `NaN` out of a `Series` object. To demonstrate, the following example selects all non- `NaN` values from the `c4` column of `DataFrame` :
 
 ```
 In [10]:
@@ -9978,7 +9774,7 @@ Out[10]:
    Name: c4, dtype: float64
 ```
 
-pandas also provides a convenience function `.dropna()` , which will drop the items in a `Series` where the value is `NaN` , involving less typing than the previous example. 
+pandas also provides a convenience function `.dropna()` , which will drop the items in a `Series` where the value is `NaN` , involving less typing than the previous example.
 
 ```
 In [11]:
@@ -9991,7 +9787,7 @@ Out[11]:
    Name: c4, dtype: float64
 ```
 
-Note that `.dropna()` has actually returned a copy of `DataFrame` without the rows. The original `DataFrame` is not changed: 
+Note that `.dropna()` has actually returned a copy of `DataFrame` without the rows. The original `DataFrame` is not changed:
 
 ```
 In [12]:
@@ -10015,7 +9811,7 @@ Out[12]:
    Name: c4, dtype: float64
 ```
 
-When applied to a `DataFrame` object, `.dropna()` will drop all rows from a `DataFrame` object that have at least one `NaN` value. The following code demonstrates this in action, and since each row has at least one `NaN` value, there are no rows in the result: 
+When applied to a `DataFrame` object, `.dropna()` will drop all rows from a `DataFrame` object that have at least one `NaN` value. The following code demonstrates this in action, and since each row has at least one `NaN` value, there are no rows in the result:
 
 ```
 In [13]:
@@ -10032,7 +9828,7 @@ Out[13]:
    Index: []
 ```
 
-If you want to only drop rows where all values are `NaN` , you can use the `how='all'` parameter. The following code only drops the `g` row since it has all `NaN` values: 
+If you want to only drop rows where all values are `NaN` , you can use the `how='all'` parameter. The following code only drops the `g` row since it has all `NaN` values:
 
 ```
 In [14]:
@@ -10052,7 +9848,7 @@ Out[14]:
    f  15  16  17  18 NaN
 ```
 
-This can also be applied to the columns instead of the rows, by changing the axis parameter to `axis=1` . The following code drops the `c5` column as it is the only one with all `NaN` values: 
+This can also be applied to the columns instead of the rows, by changing the axis parameter to `axis=1` . The following code drops the `c5` column as it is the only one with all `NaN` values:
 
 ```
 In [15]:
@@ -10072,7 +9868,7 @@ Out[15]:
    g NaN NaN NaN NaN
 ```
 
-We can also examine this process using a slightly different `DataFrame` object that has columns `c1` and `c3` with all values that are not `NaN` . In this case, all columns except `c1` and `c3` will be dropped: 
+We can also examine this process using a slightly different `DataFrame` object that has columns `c1` and `c3` with all values that are not `NaN` . In this case, all columns except `c1` and `c3` will be dropped:
 
 ```
 In [16]:
@@ -10108,7 +9904,7 @@ Out[17]:
    g   0   0
 ```
 
-The `.dropna()` methods also has a parameter, `thresh` , which when given an integer value specifies the minimum number of `NaN` values that must exist before the drop is performed. The following code drops all columns with at least five `NaN` values; these are the `c4` and `c5` columns: 
+The `.dropna()` methods also has a parameter, `thresh` , which when given an integer value specifies the minimum number of `NaN` values that must exist before the drop is performed. The following code drops all columns with at least five `NaN` values; these are the `c4` and `c5` columns:
 
 ```
 In [18]:
@@ -10131,11 +9927,11 @@ Out[18]:
    g NaN NaN NaN
 ```
 
-Note that the `.dropna()` method (and the Boolean selection) returns a copy of the `DataFrame` object, and the data is dropped from that copy. If you want to drop the data in the actual `DataFrame` , use the `inplace=True` parameter. 
+Note that the `.dropna()` method (and the Boolean selection) returns a copy of the `DataFrame` object, and the data is dropped from that copy. If you want to drop the data in the actual `DataFrame` , use the `inplace=True` parameter.
 
 ## **How pandas handles NaN values in mathematical operations** 
 
-The `NaN` values are handled differently in pandas than in NumPy. This is demonstrated using the following example: 
+The `NaN` values are handled differently in pandas than in NumPy. This is demonstrated using the following example:
 
 ```
 In [19]:
@@ -10155,11 +9951,11 @@ Out[19]:
    (nan, 2.0)
 ```
 
-NumPy functions, when encountering a `NaN` value, will return `NaN` . pandas functions and will typically ignore the `NaN` values and continue processing the function as though the values were not part of the `Series` object. 
+NumPy functions, when encountering a `NaN` value, will return `NaN` . pandas functions and will typically ignore the `NaN` values and continue processing the function as though the values were not part of the `Series` object.
 
 ### **Note** 
 
-Note that the mean of the preceding series was calculated as (1+2+3)/3 = 2, not (1+2+3)/4, or (1+2+0+4)/4. This verifies that `NaN` is totally ignored and not even counted as an item in the `Series` . 
+Note that the mean of the preceding series was calculated as (1+2+3)/3 = 2, not (1+2+3)/4, or (1+2+0+4)/4. This verifies that `NaN` is totally ignored and not even counted as an item in the `Series` .
 
 - More specifically, the way that pandas handles `NaN` values is as follows: 
 
@@ -10169,7 +9965,7 @@ Note that the mean of the preceding series was calculated as (1+2+3)/3 = 2, not 
 
    - Methods like `.cumsum()` and `.cumprod()` ignore `NaN` values, but preserve them in the resulting arrays 
 
-The following code demonstrates all of these concepts: 
+The following code demonstrates all of these concepts:
 
 ```
 In [20]:
@@ -10213,7 +10009,7 @@ Out[22]:
    Name: c4, dtype: float64
 ```
 
-When using traditional mathematical operators, `NaN` is propagated through to the result. 
+When using traditional mathematical operators, `NaN` is propagated through to the result.
 
 ```
 In [23]:
@@ -10232,7 +10028,7 @@ Out[23]:
 
 ## **Filling in missing data** 
 
-If you prefer to replace the `NaN` values with a specific value, instead of having them propagated or flat out ignored, you can use the `.fillna()` method. The following code fills the `NaN` values with `0` : 
+If you prefer to replace the `NaN` values with a specific value, instead of having them propagated or flat out ignored, you can use the `.fillna()` method. The following code fills the `NaN` values with `0` :
 
 ```
 In [24]:
@@ -10256,7 +10052,7 @@ Out[24]:
    g   0   0   0   0   0
 ```
 
-Be aware that this causes differences in the resulting values. As an example, the following code shows the result of applying the `.mean()` method to the `DataFrame` object with the `NaN` values, as compared to the `DataFrame` that has its `NaN` values filled with `0` : 
+Be aware that this causes differences in the resulting values. As an example, the following code shows the result of applying the `.mean()` method to the `DataFrame` object with the `NaN` values, as compared to the `DataFrame` that has its `NaN` values filled with `0` :
 
 ```
 In [25]:
@@ -10295,7 +10091,7 @@ Out[26]:
    dtype: float64
 ```
 
-It is also possible to limit the number of times that the data will be filled using the `limit` parameter. Each time the `NaN` values are identified, pandas will fill the `NaN` values with the previous value up to the `limit` times in each group of `NaN` values. 
+It is also possible to limit the number of times that the data will be filled using the `limit` parameter. Each time the `NaN` values are identified, pandas will fill the `NaN` values with the previous value up to the `limit` times in each group of `NaN` values.
 
 ```
 In [27]:
@@ -10320,7 +10116,7 @@ Out[27]:
 
 ## **Forward and backward filling of missing values** 
 
-Gaps in data can be filled by propagating non-NaN values forward or backward along a `Series` . To demonstrate this, the following example will "fill forward" the `c4` column of `DataFrame` : 
+Gaps in data can be filled by propagating non-NaN values forward or backward along a `Series` . To demonstrate this, the following example will "fill forward" the `c4` column of `DataFrame` :
 
 ```
 In [28]:
@@ -10342,9 +10138,9 @@ Out[28]:
 
 ### **Note** 
 
-When working with time series data, this technique of filling is often referred to as the "last known value". 
+When working with time series data, this technique of filling is often referred to as the "last known value".
 
-The direction of the fill can be reversed using `method='bfill'` : 
+The direction of the fill can be reversed using `method='bfill'` :
 
 ```
 In [29]:
@@ -10364,11 +10160,11 @@ Out[29]:
    Name: c4, dtype: float64
 ```
 
-To save a little typing, pandas also has global level functions `pd.ffill()` and `pd.bfill()` , which are equivalent to `.fillna(method="ffill")` and `.fillna(method="bfill")` . 
+To save a little typing, pandas also has global level functions `pd.ffill()` and `pd.bfill()` , which are equivalent to `.fillna(method="ffill")` and `.fillna(method="bfill")` .
 
 ## **Filling using index labels** 
 
-Data can be filled using the labels of a `Series` or keys of a Python dictionary. This allows you to specify different fill values for different elements based upon the value of the index label: 
+Data can be filled using the labels of a `Series` or keys of a Python dictionary. This allows you to specify different fill values for different elements based upon the value of the index label:
 
 ```
 In [30]:
@@ -10400,9 +10196,9 @@ Out[31]:
    Name: c4, dtype: float64
 ```
 
-Only values of `NaN` will be filled. Notice that the values with label `a` are not changed. 
+Only values of `NaN` will be filled. Notice that the values with label `a` are not changed.
 
-Another common scenario, is to fill all the `NaN` values in a column with the mean of the column: 
+Another common scenario, is to fill all the `NaN` values in a column with the mean of the column:
 
 ```
 In [32]:
@@ -10428,7 +10224,7 @@ Out[32]:
 
 ## **Interpolation of missing values** 
 
-Both `DataFrame` and `Series` have an `.interpolate()` method that will, by default, perform a linear interpolation of missing values: 
+Both `DataFrame` and `Series` have an `.interpolate()` method that will, by default, perform a linear interpolation of missing values:
 
 ```
 In [33]:
@@ -10447,9 +10243,9 @@ Out[33]:
    dtype: float64
 ```
 
-The value of the interpolation is calculated by taking the first value before and after any sequence of `NaN` values and then incrementally adding that value from the start and substituting `NaN` values. In this case, 2.0 and 1.0 are the surrounding values, resulting in (2.0 – 1.0)/(5-1) = 0.25, which is then added incrementally through all the `NaN` values. 
+The value of the interpolation is calculated by taking the first value before and after any sequence of `NaN` values and then incrementally adding that value from the start and substituting `NaN` values. In this case, 2.0 and 1.0 are the surrounding values, resulting in (2.0 – 1.0)/(5-1) = 0.25, which is then added incrementally through all the `NaN` values.
 
-The interpolation method also has the ability to specify a specific method of interpolation. One of the common methods is to use time-based interpolation. Consider the following `Series` of dates and values: 
+The interpolation method also has the ability to specify a specific method of interpolation. One of the common methods is to use time-based interpolation. Consider the following `Series` of dates and values:
 
 ```
 In [34]:
@@ -10473,7 +10269,7 @@ Out[34]:
    dtype: float64
 ```
 
-Normal interpolation results are as shown in the following example: 
+Normal interpolation results are as shown in the following example:
 
 ```
 In [35]:
@@ -10493,11 +10289,11 @@ Out[35]:
    dtype: float64
 ```
 
-The value for `2014-02-01` is calculated as 1.0 + (2.0-1.0)/2 = 1.5, since there is one `NaN` value between the values `2.0` and `1.0` . 
+The value for `2014-02-01` is calculated as 1.0 + (2.0-1.0)/2 = 1.5, since there is one `NaN` value between the values `2.0` and `1.0` .
 
-The important thing to note is that the series is missing an entry for 201403-01. If we were expecting to interpolate daily values, there would be two values calculated, one for 2014-02-01 and another for 2014-03-01, resulting in one more value in the numerator of the interpolation. 
+The important thing to note is that the series is missing an entry for 201403-01. If we were expecting to interpolate daily values, there would be two values calculated, one for 2014-02-01 and another for 2014-03-01, resulting in one more value in the numerator of the interpolation.
 
-This can be corrected by specifying the method of interpolation as " `time` ": 
+This can be corrected by specifying the method of interpolation as " `time` ":
 
 ```
 In [36]:
@@ -10517,9 +10313,9 @@ Out[36]:
    dtype: float64
 ```
 
-This is the correct interpolation for `2014-02-01` based upon dates. Also note that the index label and value for `2014-03-01` is not added to the `Series` , it is just factored into the interpolation. 
+This is the correct interpolation for `2014-02-01` based upon dates. Also note that the index label and value for `2014-03-01` is not added to the `Series` , it is just factored into the interpolation.
 
-Interpolation can also be specified to calculate values relative to the index values when using numeric index labels. To demonstrate this, we will use the following `Series` : 
+Interpolation can also be specified to calculate values relative to the index values when using numeric index labels. To demonstrate this, we will use the following `Series` :
 
 ```
 In [37]:
@@ -10539,7 +10335,7 @@ Out[37]:
    dtype: float64
 ```
 
-If we perform a linear interpolation, we get the following value for label `1` , which is correct for a linear interpolation: 
+If we perform a linear interpolation, we get the following value for label `1` , which is correct for a linear interpolation:
 
 ```
 In [38]:
@@ -10555,7 +10351,7 @@ Out[38]:
    dtype: float64
 ```
 
-However, what if we want to interpolate the value to be relative to the index value? To do this, we can use `method="values"` : 
+However, what if we want to interpolate the value to be relative to the index value? To do this, we can use `method="values"` :
 
 ```
 In [39]:
@@ -10571,17 +10367,17 @@ Out[39]:
    dtype: float64
 ```
 
-Now, the value calculated for `NaN` is interpolated using relative positioning based upon the labels in the index. The `NaN` value has a label of `1` , which is 
+Now, the value calculated for `NaN` is interpolated using relative positioning based upon the labels in the index. The `NaN` value has a label of `1` , which is
 
-one tenth of the way between `0` and `10` , so the interpolated value will be 0 + (100-0)/10, or `10` . 
+one tenth of the way between `0` and `10` , so the interpolated value will be 0 + (100-0)/10, or `10` .
 
 # **Handling duplicate data** 
 
-The data in your sample can often contain duplicate rows. This is just a reality of dealing with data collected automatically, or even a situation created in manually collecting data. Often, it is considered best to err on the side of having duplicates instead of missing data, especially if the data can be considered to be idempotent. However, duplicate data can increase the size of the dataset, and if it is not idempotent, then it would not be appropriate to process the duplicates. 
+The data in your sample can often contain duplicate rows. This is just a reality of dealing with data collected automatically, or even a situation created in manually collecting data. Often, it is considered best to err on the side of having duplicates instead of missing data, especially if the data can be considered to be idempotent. However, duplicate data can increase the size of the dataset, and if it is not idempotent, then it would not be appropriate to process the duplicates.
 
-To facilitate finding duplicate data, pandas provides a `.duplicates()` method that returns a Boolean `Series` where each entry represents whether or not the row is a duplicate. A `True` value represents that the specific row has appeared earlier in the `DataFrame` object with all column values being identical. 
+To facilitate finding duplicate data, pandas provides a `.duplicates()` method that returns a Boolean `Series` where each entry represents whether or not the row is a duplicate. A `True` value represents that the specific row has appeared earlier in the `DataFrame` object with all column values being identical.
 
-To demonstrate this, the following code creates a `DataFrame` object with duplicate rows: 
+To demonstrate this, the following code creates a `DataFrame` object with duplicate rows:
 
 ```
 In [40]:
@@ -10603,7 +10399,7 @@ Out[40]:
    6  y  4
 ```
 
-A `DataFrame` object with duplicate rows which were created by the preceding code can be analyzed using `.duplicated()` method. This method determines that a row is a duplicate if the values in all columns were seen already in a row earlier in the `DataFrame` object: 
+A `DataFrame` object with duplicate rows which were created by the preceding code can be analyzed using `.duplicated()` method. This method determines that a row is a duplicate if the values in all columns were seen already in a row earlier in the `DataFrame` object:
 
 ```
 In [41]:
@@ -10627,11 +10423,11 @@ Out[41]:
    dtype: bool
 ```
 
-Duplicate rows can be dropped from a `DataFrame` using the `.drop_duplicates()` method. This method will return a copy of the `DataFrame` object with the duplicate rows removed. 
+Duplicate rows can be dropped from a `DataFrame` using the `.drop_duplicates()` method. This method will return a copy of the `DataFrame` object with the duplicate rows removed.
 
-Duplicate rows can be dropped from a `DataFrame` by using the `.drop_duplicates()` method. This method will return a copy of the `DataFrame` with the duplicate rows removed. 
+Duplicate rows can be dropped from a `DataFrame` by using the `.drop_duplicates()` method. This method will return a copy of the `DataFrame` with the duplicate rows removed.
 
-It is also possible to use the `inplace=True` parameter to remove the rows without making a copy: 
+It is also possible to use the `inplace=True` parameter to remove the rows without making a copy:
 
 ```
 In [42]:
@@ -10648,9 +10444,9 @@ Out[42]:
    5  y  4
 ```
 
-Note that there is a ramification to which indexes remain when dropping duplicates. The duplicate records may have different index labels (labels are not taken into account in calculating a duplicate). So, which row is kept can affect the set of labels in the resulting `DataFrame` object. 
+Note that there is a ramification to which indexes remain when dropping duplicates. The duplicate records may have different index labels (labels are not taken into account in calculating a duplicate). So, which row is kept can affect the set of labels in the resulting `DataFrame` object.
 
-The default operation is to keep the first row of the duplicates. If you want to keep the last row of duplicates, you can use the `take_last=True` parameter. The following code demonstrates how the result differs using this parameter: 
+The default operation is to keep the first row of the duplicates. If you want to keep the last row of duplicates, you can use the `take_last=True` parameter. The following code demonstrates how the result differs using this parameter:
 
 ```
 In [43]:
@@ -10668,7 +10464,7 @@ Out[43]:
    6  y  4
 ```
 
-If you want to check for duplicates based on a smaller set of columns, you can specify a list of columns names: 
+If you want to check for duplicates based on a smaller set of columns, you can specify a list of columns names:
 
 ```
 In [44]:
@@ -10712,7 +10508,7 @@ Out[45]:
 
 # **Transforming Data** 
 
-Another part of tidying data involves transforming existing data into another presentation. This may be needed for the following reasons: 
+Another part of tidying data involves transforming existing data into another presentation. This may be needed for the following reasons:
 
 - Values are not in the correct units 
 
@@ -10720,17 +10516,17 @@ Another part of tidying data involves transforming existing data into another pr
 
 - There is extraneous data that either wastes memory and processing time, or can affect results simply by being included 
 
-To address these situations, we can take one or more of the following actions: 
+To address these situations, we can take one or more of the following actions:
 
 - Map values to other values using a table lookup process Explicitly replace certain values with other values (or even another type of data) 
 
 - Apply methods to transform the values based on an algorithm Simply remove extraneous columns and rows 
 
-We have already seen how to delete rows and columns with several techniques, so we will not reiterate those here. We will cover the facilities provided by pandas for mapping, replacing, and applying functions to transform data based upon its content. 
+We have already seen how to delete rows and columns with several techniques, so we will not reiterate those here. We will cover the facilities provided by pandas for mapping, replacing, and applying functions to transform data based upon its content.
 
 ## **Mapping** 
 
-One of the basic tasks in data transformations is mapping of a set of values to another set. pandas provides a generic ability to map values using a lookup table (via a Python dictionary or a pandas `Series` ) using the `.map()` method. This method performs the mapping by matching the values of the outer `Series` with the index labels of the inner `Series` , and returning a new `Series` with the index labels of the outer `Series` but the values from the inner `Series` : 
+One of the basic tasks in data transformations is mapping of a set of values to another set. pandas provides a generic ability to map values using a lookup table (via a Python dictionary or a pandas `Series` ) using the `.map()` method. This method performs the mapping by matching the values of the outer `Series` with the index labels of the inner `Series` , and returning a new `Series` with the index labels of the outer `Series` but the values from the inner `Series` :
 
 ```
 In [46]:
@@ -10766,7 +10562,7 @@ Out[48]:
    dtype: object
 ```
 
-Like with other alignment operations, if pandas does not find a map between the value of the outer `Series` and an index label of the inner `Series` , it will fill the value with `NaN` . To demonstrate this, the following code removes the `3` key from the outer `Series` , therefore causing the alignment to fail for that record, and the result is that a `NaN` value is introduced: 
+Like with other alignment operations, if pandas does not find a map between the value of the outer `Series` and an index label of the inner `Series` , it will fill the value with `NaN` . To demonstrate this, the following code removes the `3` key from the outer `Series` , therefore causing the alignment to fail for that record, and the result is that a `NaN` value is introduced:
 
 ```
 In [49]:
@@ -10786,11 +10582,11 @@ Out[49]:
 
 ## **Replacing values** 
 
-We previously saw how the `.fillna()` method can be used to replace the `NaN` values with a value of your own decision. The `.fillna()` method can actually be thought of as an implementation of the `.map()` method that maps a single value, `NaN` , to a specific value. 
+We previously saw how the `.fillna()` method can be used to replace the `NaN` values with a value of your own decision. The `.fillna()` method can actually be thought of as an implementation of the `.map()` method that maps a single value, `NaN` , to a specific value.
 
-Even more generically, the `.fillna()` method itself can be considered a specialization of a more general replacement that is provided by the `.replace()` method, which provides more flexibility by being able to replace any value (not just `NaN` ) with another value. 
+Even more generically, the `.fillna()` method itself can be considered a specialization of a more general replacement that is provided by the `.replace()` method, which provides more flexibility by being able to replace any value (not just `NaN` ) with another value.
 
-The most basic use of the `.replace()` method replaces an individual value with another: 
+The most basic use of the `.replace()` method replaces an individual value with another:
 
 ```
 In [50]:
@@ -10827,7 +10623,7 @@ Out[51]:
    dtype: float64
 ```
 
-It is also possible to specify multiple items to replace and also specify their substitute values by passing two lists: 
+It is also possible to specify multiple items to replace and also specify their substitute values by passing two lists:
 
 ```
 In [52]:
@@ -10846,7 +10642,7 @@ Out[52]:
    dtype: float64
 ```
 
-Replacement can also be performed by specifying a dictionary for lookup (a variant of the map process in the previous section): 
+Replacement can also be performed by specifying a dictionary for lookup (a variant of the map process in the previous section):
 
 ```
 In [53]:
@@ -10865,9 +10661,9 @@ Out[53]:
    dtype: float64
 ```
 
-If using `.replace()` on a `DataFrame` , it is possible to specify different replacement values for each column. This is performed by passing a Python dictionary to the `.replace()` method, where the keys of the dictionary represent the names of the columns where replacement is to occur and the values of the dictionary are values that you want to replace. The second parameter to the method is the value that will be replaced where any matches are found. 
+If using `.replace()` on a `DataFrame` , it is possible to specify different replacement values for each column. This is performed by passing a Python dictionary to the `.replace()` method, where the keys of the dictionary represent the names of the columns where replacement is to occur and the values of the dictionary are values that you want to replace. The second parameter to the method is the value that will be replaced where any matches are found.
 
-The following code demonstrates by creating a `DataFrame` object and then replacing specific values in each of the columns with 100: 
+The following code demonstrates by creating a `DataFrame` object and then replacing specific values in each of the columns with 100:
 
 ```
 In [54]:
@@ -10906,9 +10702,9 @@ Out[55]:
    4    4    9
 ```
 
-Replacing specific values in each of the columns is very convenient, as it provides a shorthand for what otherwise would require coding a loop through all the columns. 
+Replacing specific values in each of the columns is very convenient, as it provides a shorthand for what otherwise would require coding a loop through all the columns.
 
-It is also possible to replace items at specific index positions as though they are missing values. The following code demonstrates by forward filling the value at index position `0` into locations `1` , `2` , and `3` : 
+It is also possible to replace items at specific index positions as though they are missing values. The following code demonstrates by forward filling the value at index position `0` into locations `1` , `2` , and `3` :
 
 ```
 In [56]:
@@ -10959,11 +10755,11 @@ Out[57]:
 
 ## **Applying functions to transform data** 
 
-In situations where a direct mapping or substitution will not suffice, it is possible to apply a function to the data to perform an algorithm on the data. pandas provides the ability to apply functions to individual items, entire columns, or entire rows, providing incredible flexibility in transformation. 
+In situations where a direct mapping or substitution will not suffice, it is possible to apply a function to the data to perform an algorithm on the data. pandas provides the ability to apply functions to individual items, entire columns, or entire rows, providing incredible flexibility in transformation.
 
-Functions can be applied using the conveniently named `.apply()` method, which given a Python function, will iteratively call the function passing in each value from a `Series` , or each `Series` representing a `DataFrame` column, or a list of values representing each row in a `DataFrame` . The choice of technique to be used depends on whether the object is a `Series` or a `DataFrame` object, and when a `DataFrame` object, depending upon which axis is specified. 
+Functions can be applied using the conveniently named `.apply()` method, which given a Python function, will iteratively call the function passing in each value from a `Series` , or each `Series` representing a `DataFrame` column, or a list of values representing each row in a `DataFrame` . The choice of technique to be used depends on whether the object is a `Series` or a `DataFrame` object, and when a `DataFrame` object, depending upon which axis is specified.
 
-To begin demonstrations, the following code applies a lambda function to each item of a `Series` : 
+To begin demonstrations, the following code applies a lambda function to each item of a `Series` :
 
 ##### **`In [58]:`** 
 
@@ -10986,9 +10782,9 @@ Out[58]:
    dtype: int64
 ```
 
-When applying a function to items in a Series, only the value for each `Series` item is passed to the function, not the index label and the value. 
+When applying a function to items in a Series, only the value for each `Series` item is passed to the function, not the index label and the value.
 
-When a function is applied to a `DataFrame` , the default is to apply the method to each column. pandas will iterate through all columns passing each as a `Series` to your function. The result will be a `Series` object with index labels matching column names and with the result of the function applied to the column: 
+When a function is applied to a `DataFrame` , the default is to apply the method to each column. pandas will iterate through all columns passing each as a `Series` to your function. The result will be a `Series` object with index labels matching column names and with the result of the function applied to the column:
 
 ```
 In [59]:
@@ -11021,7 +10817,7 @@ Out[60]:
    dtype: int64
 ```
 
-Application of the function can be switched to the values from each row by specifying `axis=1` : 
+Application of the function can be switched to the values from each row by specifying `axis=1` :
 
 ```
 In [61]:
@@ -11044,9 +10840,9 @@ Out[61]:
    dtype: int64
 ```
 
-A common practice is to take the result of an apply operation and add it as a new column of the `DataFrame` . This is convenient as you can add onto the DataFrame the result of one or more successive calculations, providing yourself with progressive representations of the derivation of results through every step of the process. 
+A common practice is to take the result of an apply operation and add it as a new column of the `DataFrame` . This is convenient as you can add onto the DataFrame the result of one or more successive calculations, providing yourself with progressive representations of the derivation of results through every step of the process.
 
-The following code demonstrates this process. The first step will multiply column `a` by column `b` and create a new column named `interim` . The second step will add those values and column `c` , and create a `result` column with those values: 
+The following code demonstrates this process. The first step will multiply column `a` by column `b` and create a new column named `interim` . The second step will add those values and column `c` , and create a `result` column with those values:
 
 ##### **`In [62]:`** 
 
@@ -11064,8 +10860,6 @@ The following code demonstrates this process. The first step will multiply colum
 |**`1`**|**`3   4   5       12`**|
 |**`2`**|**`6   7   8       42`**|
 |**`3`**|**`9  10  11       90`**|
-
-
 
 ##### **`In [63]:`** 
 
@@ -11086,9 +10880,7 @@ Out[63]:
 |**`2  6`**|**`7   8       42      50`**|
 |**`3  9`**|**`10  11       90     101`**|
 
-
-
-If you would like to change the values in the existing column, simply assign the result to an already existing column. The following code changes the ' `a` ' column values to be the sum of the values in the row: 
+If you would like to change the values in the existing column, simply assign the result to an already existing column. The following code changes the ' `a` ' column values to be the sum of the values in the row:
 
 ##### **`In [64]:`** 
 
@@ -11109,15 +10901,13 @@ Out[64]:
 |**`2  21   7   8       42      50`**|
 |**`3  30  10  11       90     101`**|
 
+As a matter of practice, replacing a column with completely new values is not the best way to do things and often leads to situations of temporary insanity trying to debug problems caused by data that is lost. In pandas, it is a common practice to just add new rows or columns (or totally new objects), and if memory or performance becomes a problem later on, do the optimizations as required.
 
+Another point to note, is that a pandas `DataFrame` is not a spreadsheet where cells are assigned formulas and can be recalculated when cells that are referenced by the formula change. If you desire this to happen, you will need to execute the formulas whenever the dependent data changes. On the flip side, this is more efficient than with spreadsheets as every little change does not cause a cascade of operations to occur.
 
-As a matter of practice, replacing a column with completely new values is not the best way to do things and often leads to situations of temporary insanity trying to debug problems caused by data that is lost. In pandas, it is a common practice to just add new rows or columns (or totally new objects), and if memory or performance becomes a problem later on, do the optimizations as required. 
+The `.apply()` method will always apply to the provided function to all of the items, or rows or columns. If you want to apply the function to a subset of these, then first perform a Boolean selection to filter the items you do not want process.
 
-Another point to note, is that a pandas `DataFrame` is not a spreadsheet where cells are assigned formulas and can be recalculated when cells that are referenced by the formula change. If you desire this to happen, you will need to execute the formulas whenever the dependent data changes. On the flip side, this is more efficient than with spreadsheets as every little change does not cause a cascade of operations to occur. 
-
-The `.apply()` method will always apply to the provided function to all of the items, or rows or columns. If you want to apply the function to a subset of these, then first perform a Boolean selection to filter the items you do not want process. 
-
-To demonstrate this, the following code creates a `DataFrame` of values and inserts one `NaN` value into the second row. It then applies a function to only the rows where all values are not `NaN` : 
+To demonstrate this, the following code creates a `DataFrame` of values and inserts one `NaN` value into the second row. It then applies a function to only the rows where all values are not `NaN` :
 
 ```
 In [65]:
@@ -11156,9 +10946,9 @@ Out[66]:
    dtype: float64
 ```
 
-The last (but not least) method to apply functions that you will see in the next example is the `.applymap()` method of the `DataFrame` . The `.apply()` method was always passed an entire row or column. If you desire to apply a function to every individual item in the DataFrame one by one, then `.applymap()` is the method to use. 
+The last (but not least) method to apply functions that you will see in the next example is the `.applymap()` method of the `DataFrame` . The `.apply()` method was always passed an entire row or column. If you desire to apply a function to every individual item in the DataFrame one by one, then `.applymap()` is the method to use.
 
-Here is a practical example of using `.applymap()` method to every item in a DataFrame, and specifically to format each value to a specified number of decimal points: 
+Here is a practical example of using `.applymap()` method to every item in a DataFrame, and specifically to format each value to a specified number of decimal points:
 
 ```
 In [67]:
@@ -11182,29 +10972,29 @@ Out[67]:
 
 # **Summary** 
 
-In this chapter, we have examined various techniques of tidying up data in `Series` or `DataFrame` . We've covered identifying missing data, replacing it with real data, or dropping it from the overall set of data. We also saw how to transform values into other values that may be better suited for further analysis. 
+In this chapter, we have examined various techniques of tidying up data in `Series` or `DataFrame` . We've covered identifying missing data, replacing it with real data, or dropping it from the overall set of data. We also saw how to transform values into other values that may be better suited for further analysis.
 
-However, the focus of this chapter was on working with individual values in `Series` or `DataFrame` , and made the assumption that the `DataFrame` is shaped properly for further usage, and can be aligned with data from other `Series` or `DataFrame` objects. In the next chapter, we will examine how to combine and restructure data in one or more `DataFrame` (and `Series` ) objects through concatenation, merges, joins, and pivoting. 
+However, the focus of this chapter was on working with individual values in `Series` or `DataFrame` , and made the assumption that the `DataFrame` is shaped properly for further usage, and can be aligned with data from other `Series` or `DataFrame` objects. In the next chapter, we will examine how to combine and restructure data in one or more `DataFrame` (and `Series` ) objects through concatenation, merges, joins, and pivoting.
 
 # **Chapter 8. Combining and Reshaping Data** 
 
-In <u>Chapter 7,</u> _Tidying Up Your Data_ we examined how to clean up our data in order to get it ready for analysis. Everything that we did focused upon working within the data of a single `DataFrame` or `Series` object, and keeping the same structure of data within those objects. Once the data is tidied up, it will be likely that we will then need to use this data either to combine multiple sets of data, or to reorganize the structure of the data by moving data in and out of indexes. 
+In <u>Chapter 7,</u> _Tidying Up Your Data_ we examined how to clean up our data in order to get it ready for analysis. Everything that we did focused upon working within the data of a single `DataFrame` or `Series` object, and keeping the same structure of data within those objects. Once the data is tidied up, it will be likely that we will then need to use this data either to combine multiple sets of data, or to reorganize the structure of the data by moving data in and out of indexes.
 
-This chapter has two general categories of topics: combination and reshaping of data. The first two sections will cover the capabilities provided by pandas to combine the data from multiple pandas objects together. Combination of data in pandas is performed by concatenating two sets of data, where data is combined simply along either axes but without regard to relationships in the data. Or data can be combined using relationships in the data by using a pandas capability referred to as merging, which provides join operations that are similar to those in many relational databases. 
+This chapter has two general categories of topics: combination and reshaping of data. The first two sections will cover the capabilities provided by pandas to combine the data from multiple pandas objects together. Combination of data in pandas is performed by concatenating two sets of data, where data is combined simply along either axes but without regard to relationships in the data. Or data can be combined using relationships in the data by using a pandas capability referred to as merging, which provides join operations that are similar to those in many relational databases.
 
-The remaining sections will examine the three primary means reshaping data in pandas. These will examine the processes of pivoting, stacking and unstacking, and melting of data. Pivoting allows us to restructure pandas data similarly to how spreadsheets pivot data by creating new index levels and moving data into columns based upon values (or vice-versa). Stacking and unstacking are similar to pivoting, but allow us to pivot data organized with multiple levels of indexes. And finally, melting allows us to restructure data into unique ID-variable-measurement combinations that are or required for many statistical analyses. 
+The remaining sections will examine the three primary means reshaping data in pandas. These will examine the processes of pivoting, stacking and unstacking, and melting of data. Pivoting allows us to restructure pandas data similarly to how spreadsheets pivot data by creating new index levels and moving data into columns based upon values (or vice-versa). Stacking and unstacking are similar to pivoting, but allow us to pivot data organized with multiple levels of indexes. And finally, melting allows us to restructure data into unique ID-variable-measurement combinations that are or required for many statistical analyses.
 
-Specifically, in this chapter we will examine the following concepts of combining and reshaping pandas data: 
+Specifically, in this chapter we will examine the following concepts of combining and reshaping pandas data:
 
-Concatenation Merging and joining Pivots 
+Concatenation Merging and joining Pivots
 
 - Stacking/unstacking Melting 
 
-The potential performance benefits of stacked data 
+The potential performance benefits of stacked data
 
 # **Setting up the IPython notebook** 
 
-To utilize the examples in this chapter we will need to include the following imports and settings. 
+To utilize the examples in this chapter we will need to include the following imports and settings.
 
 ```
 In [1]:
@@ -11223,9 +11013,9 @@ In [1]:
 
 # **Concatenating data** 
 
-**Concatenation** in pandas is the process of either adding rows to the end of an existing `Series` or `DataFrame` object or adding additional columns to a `DataFrame` . In pandas, concatenation is performed via the pandas function `pd.concat()` . The function will perform the operation on a specific axis and as we will see, will also perform any required set logic involved in aligning along that axis. 
+**Concatenation** in pandas is the process of either adding rows to the end of an existing `Series` or `DataFrame` object or adding additional columns to a `DataFrame` . In pandas, concatenation is performed via the pandas function `pd.concat()` . The function will perform the operation on a specific axis and as we will see, will also perform any required set logic involved in aligning along that axis.
 
-The general syntax to concatenate data is to pass a list of objects to `pd.concat()` . The following performs a concatenation of two `Series` objects: 
+The general syntax to concatenate data is to pass a list of objects to `pd.concat()` . The following performs a concatenation of two `Series` objects:
 
 ```
 In [2]:
@@ -11267,7 +11057,7 @@ Out[4]:
    dtype: int64
 ```
 
-Two `DataFrame` objects can also be similarly concatenated. 
+Two `DataFrame` objects can also be similarly concatenated.
 
 ```
 In [5]:
@@ -11317,13 +11107,13 @@ Out[7]:
    2  15  16  17
 ```
 
-The process of concatenating the two `DataFrame` objects will first identify the set of columns formed by aligning the labels in the columns, effectively 
+The process of concatenating the two `DataFrame` objects will first identify the set of columns formed by aligning the labels in the columns, effectively
 
-determining the union of the column names. The resulting `DataFrame` object will then consist of that set of columns, and columns with identical names will not be duplicated. 
+determining the union of the column names. The resulting `DataFrame` object will then consist of that set of columns, and columns with identical names will not be duplicated.
 
-Rows will be then be added to the result, in the order of the each of the objects passed to `pd.concat().` If a column in the result does not exist in the object being copied, `NaN` values will be filled in those locations. Duplicate row index labels can occur. 
+Rows will be then be added to the result, in the order of the each of the objects passed to `pd.concat().` If a column in the result does not exist in the object being copied, `NaN` values will be filled in those locations. Duplicate row index labels can occur.
 
-The following demonstrates the alignment of two `DataFrame` objects during concatenation that both have columns in common ( `a` and `c` ) and also have distinct columns ( `b` in `df1` , and `d` in `df2` ): 
+The following demonstrates the alignment of two `DataFrame` objects during concatenation that both have columns in common ( `a` and `c` ) and also have distinct columns ( `b` in `df1` , and `d` in `df2` ):
 
 ```
 In [8]:
@@ -11371,11 +11161,9 @@ Out[10]:
 |**`1`**|**`12 NaN  13  14`**|
 |**`2`**|**`15 NaN  16  17`**|
 
+It is possible to give each group of data in the result its own name using the `keys` parameter. This creates a hierarchical index on the `DataFrame` object that lets you refer to each group of data independently via the `DataFrame` objects' `.ix` property. This is convenient if you later need to determine where data in the concatenated `DataFrame` object came from.
 
-
-It is possible to give each group of data in the result its own name using the `keys` parameter. This creates a hierarchical index on the `DataFrame` object that lets you refer to each group of data independently via the `DataFrame` objects' `.ix` property. This is convenient if you later need to determine where data in the concatenated `DataFrame` object came from. 
-
-The following sample demonstrates this concept by assigning names to each original `DataFrame` object and then retrieving the rows that originated in the `df2` object, which are keyed with the label `'df2'` . The following code demonstrates this labeling and also retrieves just the rows that originated in `df2` : 
+The following sample demonstrates this concept by assigning names to each original `DataFrame` object and then retrieving the rows that originated in the `df2` object, which are keyed with the label `'df2'` . The following code demonstrates this labeling and also retrieves just the rows that originated in `df2` :
 
 ```
 In [11]:
@@ -11413,9 +11201,7 @@ Out[12]:
 |**`1`**|**`12 NaN  13  14`**|
 |**`2`**|**`15 NaN  16  17`**|
 
-
-
-The `pd.concat()` function also allows you to specify the axis on which to apply the concatenation. The following concatenates the two `DataFrame` objects along the columns axis: 
+The `pd.concat()` function also allows you to specify the axis on which to apply the concatenation. The following concatenates the two `DataFrame` objects along the columns axis:
 
 ```
 In [13]:
@@ -11437,11 +11223,9 @@ Out[13]:
 |**`1  3  4  5  12  13  14`**|
 |**`2  6  7  8  15  16  17`**|
 
+Note that the result now contains duplicate columns. The concatenation first aligns by the row index labels of each `DataFrame` object, and then fills in the columns from the first `DataFrame` object and then the second. The columns are not aligned and result in duplicate values.
 
-
-Note that the result now contains duplicate columns. The concatenation first aligns by the row index labels of each `DataFrame` object, and then fills in the columns from the first `DataFrame` object and then the second. The columns are not aligned and result in duplicate values. 
-
-The same rules of alignment and filling of `NaN` values apply in this case, except that they are applied to the rows' index labels. The following demonstrates a concatenation along the columns axis with two `DataFrame` objects that have row index labels in common ( `2` and `3` ) along with disjoint rows ( `0` in `df1` and `4` in `df3` ). Additionally, some of the columns in `df3` overlap with df1 ( `a` ) as well as being disjoint ( `d` ): 
+The same rules of alignment and filling of `NaN` values apply in this case, except that they are applied to the rows' index labels. The following demonstrates a concatenation along the columns axis with two `DataFrame` objects that have row index labels in common ( `2` and `3` ) along with disjoint rows ( `0` in `df1` and `4` in `df3` ). Additionally, some of the columns in `df3` overlap with df1 ( `a` ) as well as being disjoint ( `d` ):
 
 ```
 In [14]:
@@ -11494,9 +11278,9 @@ Out[15]:
    4 NaN NaN NaN  24  25
 ```
 
-A concatenation of two or more `DataFrame` objects actually performs an outer join operation along the index labels on the axis opposite to the one specified. This makes the result of the concatenation similar to having performed a union of those index labels, and then data is filled based on the alignment of those labels to the source objects. 
+A concatenation of two or more `DataFrame` objects actually performs an outer join operation along the index labels on the axis opposite to the one specified. This makes the result of the concatenation similar to having performed a union of those index labels, and then data is filled based on the alignment of those labels to the source objects.
 
-The type of join can be changed to an inner join and can be performed by specifying `join='inner'` as the parameter. The inner join then logically performs an intersection instead of a union. The following demonstrates this and results in a single row because `2` is the only row index label in common: 
+The type of join can be changed to an inner join and can be performed by specifying `join='inner'` as the parameter. The inner join then logically performs an intersection instead of a union. The following demonstrates this and results in a single row because `2` is the only row index label in common:
 
 ```
 In [16]:
@@ -11509,9 +11293,7 @@ In [16]:
 Out[16]:
 ```
 
-
-
-It is also possible to use label groups of data along the columns using the `keys` parameter when applying the concatenation along `axis=1` . 
+It is also possible to use label groups of data along the columns using the `keys` parameter when applying the concatenation along `axis=1` .
 
 ```
 In [17]:
@@ -11534,7 +11316,7 @@ Out[17]:
    2   6  7  8  15  16  17
 ```
 
-The different groups can be accessed using the `.ix` process and slicing: 
+The different groups can be accessed using the `.ix` process and slicing:
 
 ```
 In [18]:
@@ -11557,7 +11339,7 @@ Out[18]:
    2  15  16  17
 ```
 
-A `DataFrame` (and `Series` ) object also contains an `.append()` method, which will concatenate the two specified `DataFrame` objects along the row index labels. 
+A `DataFrame` (and `Series` ) object also contains an `.append()` method, which will concatenate the two specified `DataFrame` objects along the row index labels.
 
 ```
 In [19]:
@@ -11580,9 +11362,9 @@ Out[19]:
    2  15 NaN  16  17
 ```
 
-As with a concatenation on `axis=1` , the index labels in the rows are copied without consideration of the creation of duplicates, and the columns labels are joined in a manner which ensures no duplicate column name is included in the result. If you would like to ensure that the resulting index does not have duplicates but preserves all of the rows, you can use the 
+As with a concatenation on `axis=1` , the index labels in the rows are copied without consideration of the creation of duplicates, and the columns labels are joined in a manner which ensures no duplicate column name is included in the result. If you would like to ensure that the resulting index does not have duplicates but preserves all of the rows, you can use the
 
-`ignore_index=True` parameter. This essentially returns the same result except with new `Int64Index` : 
+`ignore_index=True` parameter. This essentially returns the same result except with new `Int64Index` :
 
 ```
 In [20]:
@@ -11608,13 +11390,13 @@ In [20]:
 
 # **Merging and joining data** 
 
-pandas allows the merging of pandas objects with database-like join operations using the `pd.merge()` function and the `.merge()` method of a `DataFrame` object. These joins are high performance and are performed in memory. A merge combines the data of two pandas objects by finding matching values in one or more columns or row indexes. It then returns a new object that represents a combination of the data from both based on relational-database-like join semantics applied to those values. 
+pandas allows the merging of pandas objects with database-like join operations using the `pd.merge()` function and the `.merge()` method of a `DataFrame` object. These joins are high performance and are performed in memory. A merge combines the data of two pandas objects by finding matching values in one or more columns or row indexes. It then returns a new object that represents a combination of the data from both based on relational-database-like join semantics applied to those values.
 
-Merges are useful as they allow us to model a single `DataFrame` for each type of data (one of the rules of having tidy data) but to be able to relate data in different `DataFrame` objects using values existing in both sets of data. 
+Merges are useful as they allow us to model a single `DataFrame` for each type of data (one of the rules of having tidy data) but to be able to relate data in different `DataFrame` objects using values existing in both sets of data.
 
 ## **An overview of merges** 
 
-A practical and probably canonical example would be that of looking up customer names from orders. To demonstrate this in pandas, we will use the following two `DataFrame` objects, where one represents a list of customer details, and the other represents the orders made by customers and what day the order was made. They will be related to each other using the `CustomerID` columns in each: 
+A practical and probably canonical example would be that of looking up customer names from orders. To demonstrate this in pandas, we will use the following two `DataFrame` objects, where one represents a list of customer details, and the other represents the orders made by customers and what day the order was made. They will be related to each other using the `CustomerID` columns in each:
 
 ```
 In [21]:
@@ -11659,9 +11441,7 @@ Out[22]:
 |**`1          11  2014-12-01`**|
 |**`2          10  2014-12-01`**|
 
-
-
-Now suppose we would like to ship the orders to the customers. We would need to merge the `orders` data with the `customers` detail data to determine the address for each order. In pandas, this can be easily performed with the following statement: 
+Now suppose we would like to ship the orders to the customers. We would need to merge the `orders` data with the `customers` detail data to determine the address for each order. In pandas, this can be easily performed with the following statement:
 
 ```
 In [23]:
@@ -11682,11 +11462,9 @@ Out[23]:
 |**`1    Address for Mike          10    Mike  2014-12-01`**|
 |**`2  Address for Marcia          11  Marcia  2014-12-01`**|
 
+pandas has done something magical for us here by being able to accomplish this with such a simple piece of code. What pandas has done is realized that our `customers` and `orders` objects both have a column named `CustomerID` . With this knowledge, it uses common values found in that column of both `DataFrame` objects to relate the data in both and form the merged data based on inner join semantics.
 
-
-pandas has done something magical for us here by being able to accomplish this with such a simple piece of code. What pandas has done is realized that our `customers` and `orders` objects both have a column named `CustomerID` . With this knowledge, it uses common values found in that column of both `DataFrame` objects to relate the data in both and form the merged data based on inner join semantics. 
-
-To be even more detailed, what pandas has specifically done is the following: 
+To be even more detailed, what pandas has specifically done is the following:
 
 1. Determines the columns in both `customers` and `orders` with common labels. These columns are treated as the keys to perform the join. 
 
@@ -11700,7 +11478,7 @@ To be even more detailed, what pandas has specifically done is the following:
 
 6. It assigns a new `Int64Index` to the result. 
 
-The join in a merge can use values from multiple columns. To demonstrate, the following creates two `DataFrame` objects and performs the merge where pandas decides to use the values in the `key1` and `key2` columns of both objects: 
+The join in a merge can use values from multiple columns. To demonstrate, the following creates two `DataFrame` objects and performs the merge where pandas decides to use the values in the `key1` and `key2` columns of both objects:
 
 ```
 In [24]:
@@ -11749,9 +11527,9 @@ Out[26]:
    1    c    z      2      8
 ```
 
-This merge identifies `key1` and `key2` columns in common in both `DataFrame` objects and hence uses them for the merge. The matching tuples of values in both `DataFrame` objects for these columns are ( `a` , `x` ) and ( `c` , `z` ) and therefore this results in two rows of values. 
+This merge identifies `key1` and `key2` columns in common in both `DataFrame` objects and hence uses them for the merge. The matching tuples of values in both `DataFrame` objects for these columns are ( `a` , `x` ) and ( `c` , `z` ) and therefore this results in two rows of values.
 
-To explicitly specify which column use to relate the objects, use the `on` parameter. The following performs a merge using only the values in the `key1` column of both `DataFrame` objects: 
+To explicitly specify which column use to relate the objects, use the `on` parameter. The following performs a merge using only the values in the `key1` column of both `DataFrame` objects:
 
 ```
 In [27]:
@@ -11774,9 +11552,9 @@ Out[27]:
    2    c      z      2      z      8
 ```
 
-Comparing this result to the previous example, as only the values in the `key1` column were used to relate the data in the two objects, the result now has three rows as there are matching `a` , `b,` and `c` values in that single column of both objects. 
+Comparing this result to the previous example, as only the values in the `key1` column were used to relate the data in the two objects, the result now has three rows as there are matching `a` , `b,` and `c` values in that single column of both objects.
 
-The `on` parameter can also be given a list of column names. The following reverts to using both the `key1` and `key2` columns, resulting in being identical the earlier example where those two columns where implicitly identified by pandas: 
+The `on` parameter can also be given a list of column names. The following reverts to using both the `key1` and `key2` columns, resulting in being identical the earlier example where those two columns where implicitly identified by pandas:
 
 ```
 In [28]:
@@ -11794,9 +11572,9 @@ Out[28]:
    1    c    z      2      8
 ```
 
-The columns specified with `on` need to exist in both `DataFrame` objects. If you would like to merge based on columns with different names in each object, you can use the `left_on` and `right_on` parameters, passing the name or names of columns to each respective parameter. 
+The columns specified with `on` need to exist in both `DataFrame` objects. If you would like to merge based on columns with different names in each object, you can use the `left_on` and `right_on` parameters, passing the name or names of columns to each respective parameter.
 
-To perform a merge with the labels of the row indexes of the two `DataFrame` objects, use the `left_index=True` and `right_index=True` parameters (both need to be specified): 
+To perform a merge with the labels of the row indexes of the two `DataFrame` objects, use the `left_index=True` and `right_index=True` parameters (both need to be specified):
 
 ```
 In [29]:
@@ -11808,19 +11586,19 @@ Out[29]:
    2      c      z      2      b      a      7
 ```
 
-This has identified that the index labels in common are `1` and `2` , so the resulting `DataFrame` has two rows with these values and labels in the index. pandas then creates a column in the result for every column in both objects and then copies the values. 
+This has identified that the index labels in common are `1` and `2` , so the resulting `DataFrame` has two rows with these values and labels in the index. pandas then creates a column in the result for every column in both objects and then copies the values.
 
-As both `DataFrame` objects had a column with an identical name, `key` , the columns in the result have the `_x` and `_y` suffixes appended to them to identify the `DataFrame` they originated from. `_x` is for left and `_y` for right. You can specify these suffixes using the `suffixes` parameter and passing a two-item sequence. 
+As both `DataFrame` objects had a column with an identical name, `key` , the columns in the result have the `_x` and `_y` suffixes appended to them to identify the `DataFrame` they originated from. `_x` is for left and `_y` for right. You can specify these suffixes using the `suffixes` parameter and passing a two-item sequence.
 
 ## **Specifying the join semantics of a merge operation** 
 
-The default type of join performed by `pd.merge()` is an `inner` join. To use another join method, the method of join to be used can be specified using the how parameter of the `pd.merge()` function (or the `.merge()` method). The valid options are: 
+The default type of join performed by `pd.merge()` is an `inner` join. To use another join method, the method of join to be used can be specified using the how parameter of the `pd.merge()` function (or the `.merge()` method). The valid options are:
 
-`inner` : This is the intersection of keys from both `DataFrame` objects `outer` : This is the union of keys from both `DataFrame` objects `left` : This only uses keys from the left `DataFrame right` : This only uses keys from the right `DataFrame` 
+`inner` : This is the intersection of keys from both `DataFrame` objects `outer` : This is the union of keys from both `DataFrame` objects `left` : This only uses keys from the left `DataFrame right` : This only uses keys from the right `DataFrame`
 
-As we have seen, an inner join is the default and will return a merge of the data from both `DataFrame` objects only where the values match. 
+As we have seen, an inner join is the default and will return a merge of the data from both `DataFrame` objects only where the values match.
 
-An outer join contrasts, in that it will return both the merge of the matched rows and the unmatched values from both the left and right `DataFrame` objects, but with `NaN` filled in the unmatched portion. The following code demonstrates an outer join: 
+An outer join contrasts, in that it will return both the merge of the matched rows and the unmatched values from both the left and right `DataFrame` objects, but with `NaN` filled in the unmatched portion. The following code demonstrates an outer join:
 
 ```
 In [30]:
@@ -11844,7 +11622,7 @@ Out[30]:
    3    b    a    NaN      7
 ```
 
-A left join will return the merge of the rows that satisfy the join of the values in the specified columns, and also returns the unmatched rows from only `left` : 
+A left join will return the merge of the rows that satisfy the join of the values in the specified columns, and also returns the unmatched rows from only `left` :
 
 ##### **`In [31]:`** 
 
@@ -11876,7 +11654,7 @@ Out[31]:
    2    c    z      2      8
 ```
 
-A right join will return the merge of the rows that satisfy the join of the values in the specified columns, and also returns the unmatched rows from only `right` : 
+A right join will return the merge of the rows that satisfy the join of the values in the specified columns, and also returns the unmatched rows from only `right` :
 
 ##### **`In [32]:`** 
 
@@ -11902,9 +11680,7 @@ items
 |**`1    c    z      2      8`**|
 |**`2    b    a    NaN      7`**|
 
-
-
-The pandas library also provides a `.join()` method that can be used to perform a join using the index labels of the two `DataFrame` objects (instead of values in columns). Note that if the columns in the two `DataFrame` objects do not have unique column names, you must specify suffixes using the `lsuffix` and `rsuffix` parameters (automatic suffixing is not performed). The following code demonstrates both the join and specification of suffixes: 
+The pandas library also provides a `.join()` method that can be used to perform a join using the index labels of the two `DataFrame` objects (instead of values in columns). Note that if the columns in the two `DataFrame` objects do not have unique column names, you must specify suffixes using the `lsuffix` and `rsuffix` parameters (automatic suffixing is not performed). The following code demonstrates both the join and specification of suffixes:
 
 ##### **`In [33]:`** 
 
@@ -11924,7 +11700,7 @@ The pandas library also provides a `.join()` method that can be used to perform 
    2         c         z      2          b          a      7
 ```
 
-The default type of join performed is an outer join. Note that this differs from the default of the `.merge()` method, which defaults to inner. To change to an inner join, specify `how='inner'` , as is demonstrated in the following example: 
+The default type of join performed is an outer join. Note that this differs from the default of the `.merge()` method, which defaults to inner. To change to an inner join, specify `how='inner'` , as is demonstrated in the following example:
 
 ```
 In [34]:
@@ -11949,15 +11725,15 @@ Out[34]:
    2         c         z      2          b          a      7
 ```
 
-Notice that this is roughly equivalent to the earlier result from `In[29]` except with the result having columns with slightly different names. 
+Notice that this is roughly equivalent to the earlier result from `In[29]` except with the result having columns with slightly different names.
 
-It is also possible to perform right and left joins, but they lead to results similar to previous examples, so they will be omitted for brevity. 
+It is also possible to perform right and left joins, but they lead to results similar to previous examples, so they will be omitted for brevity.
 
 ## **Pivoting** 
 
-Data is often stored in a stacked format, which is also referred to as record format; this is common in databases, `.csv` files, and Excel spreadsheets. In a stacked format, the data is often not normalized and has repeated values in many columns, or values that should logically exists in other tables (violating another concept of tidy data). 
+Data is often stored in a stacked format, which is also referred to as record format; this is common in databases, `.csv` files, and Excel spreadsheets. In a stacked format, the data is often not normalized and has repeated values in many columns, or values that should logically exists in other tables (violating another concept of tidy data).
 
-Take the following data, which represents a stream of data from an accelerometer on a mobile device (provided with the data from the sample code): 
+Take the following data, which represents a stream of data from an accelerometer on a mobile device (provided with the data from the sample code):
 
 ```
 In [35]:
@@ -11987,13 +11763,11 @@ Out[35]:
 |**`10         3    Y      0.2`**|
 |**`11         3    Z      0.7`**|
 
-
-
 ```
    [12 rows x 3 columns]
 ```
 
-An issue with this data as it is organized is: how does one go about determining the readings for a specific axis? This can be naively done with Boolean selections: 
+An issue with this data as it is organized is: how does one go about determining the readings for a specific axis? This can be naively done with Boolean selections:
 
 ```
 In [36]:
@@ -12009,11 +11783,9 @@ In [36]:
 |**`6         2    X      0.2`**|
 |**`9         3    X      0.3`**|
 
+An issue here is what if you want to know the values for all axes at a given time, not just the x axis? You can perform a selection for each value of the axis, but that is repetitive code and does not handle the scenario of new axis values being inserted into `DataFrame` without a change to the code.
 
-
-An issue here is what if you want to know the values for all axes at a given time, not just the x axis? You can perform a selection for each value of the axis, but that is repetitive code and does not handle the scenario of new axis values being inserted into `DataFrame` without a change to the code. 
-
-A better representation would be where columns represent the unique variable values. To convert to this form, use the `DataFrame` objects' `.pivot()` function: 
+A better representation would be where columns represent the unique variable values. To convert to this form, use the `DataFrame` objects' `.pivot()` function:
 
 ```
 In [37]:
@@ -12039,23 +11811,21 @@ are
 |**`2`**|**`0.2`**|**`0.3  0.8`**|
 |**`3`**|**`0.3`**|**`0.2  0.7`**|
 
-
-
-This has taken all of the distinct values from the axis column, and pivoted them into columns on the new `DataFrame` , while filling in values for the new columns from the appropriate rows and columns of the original `DataFrame` . This new `DataFrame` demonstrates that it is now very easy to identify the `X` , `Y` and `Z` sensor readings at each time interval. 
+This has taken all of the distinct values from the axis column, and pivoted them into columns on the new `DataFrame` , while filling in values for the new columns from the appropriate rows and columns of the original `DataFrame` . This new `DataFrame` demonstrates that it is now very easy to identify the `X` , `Y` and `Z` sensor readings at each time interval.
 
 # **Stacking and unstacking** 
 
-Similar to the pivot function are the `.stack()` and `.unstack()` methods that are part of both `Series` and `DataFrame` objects. The process of stacking pivots a level of column labels to the row index. Unstacking performs the opposite, pivoting a level of the row index into the column index. 
+Similar to the pivot function are the `.stack()` and `.unstack()` methods that are part of both `Series` and `DataFrame` objects. The process of stacking pivots a level of column labels to the row index. Unstacking performs the opposite, pivoting a level of the row index into the column index.
 
-One of the differences between stacking/unstacking and performing a pivot is that unlike pivots the stack and unstack functions will be able to pivot specific levels of a hierarchical index. Also, where a pivot retains the same number of levels on an index, a stack and unstack will always increase the levels on the index of one of the axes (columns for unstack and rows for stack) and decrease the levels on the other axis. 
+One of the differences between stacking/unstacking and performing a pivot is that unlike pivots the stack and unstack functions will be able to pivot specific levels of a hierarchical index. Also, where a pivot retains the same number of levels on an index, a stack and unstack will always increase the levels on the index of one of the axes (columns for unstack and rows for stack) and decrease the levels on the other axis.
 
-The reasons for stacking and unstacking are along the same lines as for performing pivots. Fundamentally it comes down to how you want your data organized for analysis. The organization can change the means and ease of retrieving data and deriving results. As will be demonstrated it also can have significant performance ramifications. 
+The reasons for stacking and unstacking are along the same lines as for performing pivots. Fundamentally it comes down to how you want your data organized for analysis. The organization can change the means and ease of retrieving data and deriving results. As will be demonstrated it also can have significant performance ramifications.
 
-To understand the process of stacking and unstacking, we will first look at simpler cases using nonhierarchical indexes, with very simple data, and focus on stacking. We then progress to more complicated data using hierarchical indexes, revisiting the sensor data we saw previously in the chapter and focusing on unstacking. 
+To understand the process of stacking and unstacking, we will first look at simpler cases using nonhierarchical indexes, with very simple data, and focus on stacking. We then progress to more complicated data using hierarchical indexes, revisiting the sensor data we saw previously in the chapter and focusing on unstacking.
 
 ## **Stacking using nonhierarchical indexes** 
 
-To demonstrate stacking, we will look at several examples using a `DataFrame` object with nonhierarchical indexes. We will begin our examples using the following `DataFrame` : 
+To demonstrate stacking, we will look at several examples using a `DataFrame` object with nonhierarchical indexes. We will begin our examples using the following `DataFrame` :
 
 ```
 In [38]:
@@ -12074,7 +11844,7 @@ Out[38]:
    one  2
 ```
 
-Stacking will move one level of the columns index into a new level of the rows index. As our `DataFrame` only has one level, this collapses a `DataFrame` object into a `Series` object with a hierarchical row index: 
+Stacking will move one level of the columns index into a new level of the rows index. As our `DataFrame` only has one level, this collapses a `DataFrame` object into a `Series` object with a hierarchical row index:
 
 ```
 In [39]:
@@ -12092,7 +11862,7 @@ Out[39]:
    dtype: int64
 ```
 
-To access values, we now need to pass a tuple to the indexer of the `Series` object, which does the lookup with just the index: 
+To access values, we now need to pass a tuple to the indexer of the `Series` object, which does the lookup with just the index:
 
 ```
 In [40]:
@@ -12102,7 +11872,7 @@ Out[40]:
    2
 ```
 
-If `DataFrame` contains multiple columns, then all of the columns are moved to the same additional level of the new `Series` object: 
+If `DataFrame` contains multiple columns, then all of the columns are moved to the same additional level of the new `Series` object:
 
 ```
 In [41]:
@@ -12133,7 +11903,7 @@ Out[42]:
    dtype: int64
 ```
 
-Values for what would have previously been different columns can now still be accessed using the tuple syntax with the index. 
+Values for what would have previously been different columns can now still be accessed using the tuple syntax with the index.
 
 ```
 In [43]:
@@ -12146,11 +11916,11 @@ Out[43]:
    4
 ```
 
-Unstacking will perform a similar operation in the opposite direction by moving a level of the row index into a level of the columns axis. We will examine this process in the next section as unstacking generally assumes that the index being unstacked is hierarchical. 
+Unstacking will perform a similar operation in the opposite direction by moving a level of the row index into a level of the columns axis. We will examine this process in the next section as unstacking generally assumes that the index being unstacked is hierarchical.
 
 ## **Unstacking using hierarchical indexes** 
 
-To demonstrate unstacking with hierarchical indexes we will revisit the sensor data we saw earlier in the chapter. However, we will add in an additional column to the measurement data that represents readings for multiple users and copy data for two users. The following sets up this data: 
+To demonstrate unstacking with hierarchical indexes we will revisit the sensor data we saw earlier in the chapter. However, we will add in an additional column to the measurement data that represents readings for multiple users and copy data for two users. The following sets up this data:
 
 ```
 In [44]:
@@ -12189,13 +11959,11 @@ Out[44]:
 |||**`Y`**|**`20.0`**|
 |||**`Z`**|**`70.0`**|
 
-
-
 ```
    [24 rows x 1 columns]
 ```
 
-With this organization in the data we can do things such as examine all the readings for a specific person using just the index. 
+With this organization in the data we can do things such as examine all the readings for a specific person using just the index.
 
 ```
 In [45]:
@@ -12224,13 +11992,11 @@ Out[45]:
 ||**`Y`**|**`0.2`**|
 ||**`Z`**|**`0.7`**|
 
-
-
 ```
    [12 rows x 1 columns]
 ```
 
-Or get all the readings of all axes and for all users at interval `1` using `.xs()` . 
+Or get all the readings of all axes and for all users at interval `1` using `.xs()` .
 
 - **`In [46]: # readings for all users and axes at interval 1`** 
 
@@ -12251,9 +12017,7 @@ Out[46]:
 ||**`Y        40.0`**|
 ||**`Z        90.0`**|
 
-
-
-Unstacking will move the last level of the row index into a new level of the columns index resulting in columns having `MultiIndex` . The following demonstrates the last level of this unstacking (the `axis` level of the index): 
+Unstacking will move the last level of the row index into a new level of the columns index resulting in columns having `MultiIndex` . The following demonstrates the last level of this unstacking (the `axis` level of the index):
 
 ```
 In [47]:
@@ -12278,9 +12042,7 @@ Out[47]:
 |**`2`**|**`0.2   0.3    0.8`**|
 |**`3`**|**`0.3   0.2    0.7`**|
 
-
-
-To unstack a different level use the `level` parameter. The following code unstacks the first level ( `level=0` ): 
+To unstack a different level use the `level` parameter. The following code unstacks the first level ( `level=0` ):
 
 ```
 In [48]:
@@ -12298,8 +12060,6 @@ Out[48]:
 |**`0`**|**`X`**|**`0  0.0`**|
 ||**`Y`**|**`50  0.5`**|
 
-
-
 ```
             Z        100  1.0
    1        X         10  0.1
@@ -12316,7 +12076,7 @@ Out[48]:
    [12 rows x 2 columns]
 ```
 
-Multiple levels can be unstacked simultaneously by passing a list of the levels to `.unstack()` . Additionally, if the levels are named, they can be specified by name instead of location. The following unstacks the `who` and `axis` levels by name: 
+Multiple levels can be unstacked simultaneously by passing a list of the levels to `.unstack()` . Additionally, if the levels are named, they can be specified by name instead of location. The following unstacks the `who` and `axis` levels by name:
 
 ```
 In [49]:
@@ -12334,9 +12094,7 @@ In [49]:
 |**`2            0.2`**|**`0.3  0.8     20     30     80`**|
 |**`3            0.3`**|**`0.2  0.7     30     20     70`**|
 
-
-
-To be thorough, we can restack this data. The following code will stack the `who` level of the column back into the row index. 
+To be thorough, we can restack this data. The following code will stack the `who` level of the column back into the row index.
 
 ```
 In [50]:
@@ -12358,8 +12116,6 @@ Out[50]:
 |**`0        Mikael     0.0  50.0  100.0`**|
 |**`Mike       0.0   0.5    1.0`**|
 
-
-
 |**`1        Mikael    10.0  40.0   90.0`**|
 |---|
 |**`Mike       0.1   0.4    0.9`**|
@@ -12368,19 +12124,17 @@ Out[50]:
 |**`3        Mikael    30.0  20.0   70.0`**|
 |**`Mike       0.3   0.2    0.7`**|
 
+There are a couple of things worth pointing out about this result. First, stacking and unstacking always move the levels into the last levels of the other index. Notice that the `who` level is now the last level of the row index, but started out earlier as the first level. This would have ramifications on the code to access elements via that index as it has changed to another level. If you want to put a level back into another position you will need to reorganize the indexes with other means than stacking and unstacking.
 
-
-There are a couple of things worth pointing out about this result. First, stacking and unstacking always move the levels into the last levels of the other index. Notice that the `who` level is now the last level of the row index, but started out earlier as the first level. This would have ramifications on the code to access elements via that index as it has changed to another level. If you want to put a level back into another position you will need to reorganize the indexes with other means than stacking and unstacking. 
-
-Second, with all this moving around of data, stacking and unstacking (as well as pivoting) do not lose any information. They simply change the means by which it is organized and accessed. 
+Second, with all this moving around of data, stacking and unstacking (as well as pivoting) do not lose any information. They simply change the means by which it is organized and accessed.
 
 ## **Melting** 
 
-Melting is a type of unpivoting, and is often referred to as changing a `DataFrame` object from wide format to long format. This format is common in various statistical analyses, and data you read may be provided already in a melted form, or you may need to pass data in this format to other code that expects this organization. 
+Melting is a type of unpivoting, and is often referred to as changing a `DataFrame` object from wide format to long format. This format is common in various statistical analyses, and data you read may be provided already in a melted form, or you may need to pass data in this format to other code that expects this organization.
 
-Technically, melting is the process of reshaping a `DataFrame` into a format where two or more columns, referred to as `variable` and `value` , are created by unpivoting column labels in the `variable` column, and then moving the data from these columns into the appropriate location in the `value` column. All other columns are then made into identifier columns that assist in describing the data. 
+Technically, melting is the process of reshaping a `DataFrame` into a format where two or more columns, referred to as `variable` and `value` , are created by unpivoting column labels in the `variable` column, and then moving the data from these columns into the appropriate location in the `value` column. All other columns are then made into identifier columns that assist in describing the data.
 
-The concept of melting is often best understood using a simple example such as the following. In this example, we start with a `DataFrame` that represents measurements of two variables, each represented with its own column, `Height` and `Weight` , and for one or more people specified in the `Name` column: 
+The concept of melting is often best understood using a simple example such as the following. In this example, we start with a `DataFrame` that represents measurements of two variables, each represented with its own column, `Height` and `Weight` , and for one or more people specified in the `Name` column:
 
 ```
 In [51]:
@@ -12398,7 +12152,7 @@ Out[51]:
    1     6.0  Mikael     185
 ```
 
-The following melts this `DataFrame` , using the `Name` column as the identifier column, and the `Height` and `Weight` columns as measured variables. The `Name` column remains, with the `Height` and `Weight` columns unpivoted into the `variable` column. Then the values from these two columns are rearranged into the `value` column, and ensured to align with the appropriate combination values of `Name` and `variable` that would have existed in the original data: 
+The following melts this `DataFrame` , using the `Name` column as the identifier column, and the `Height` and `Weight` columns as measured variables. The `Name` column remains, with the `Height` and `Weight` columns unpivoted into the `variable` column. Then the values from these two columns are rearranged into the `value` column, and ensured to align with the appropriate combination values of `Name` and `variable` that would have existed in the original data:
 
 ```
 In [52]:
@@ -12421,11 +12175,11 @@ Out[52]:
    3  Mikael   Weight  185.0
 ```
 
-The data is now restructured so that it is easy to extract the value for any combination of `variable` and `Name` . Additionally, when in this format it is easier to add a new variable and measurement as the data can simply be added as a new row instead of requiring a change of structure to `DataFrame` by adding a new column. 
+The data is now restructured so that it is easy to extract the value for any combination of `variable` and `Name` . Additionally, when in this format it is easier to add a new variable and measurement as the data can simply be added as a new row instead of requiring a change of structure to `DataFrame` by adding a new column.
 
 # **Performance benefits of stacked data** 
 
-Finally, we will examine a reason for which we would want to stack data like this. This is because it can be shown to be more efficient than using lookup through a single level index and then a column lookup, or even compared to an `.iloc` lookup, specifying the location of the row and column by location. The following demonstrates this: 
+Finally, we will examine a reason for which we would want to stack data like this. This is because it can be shown to be more efficient than using lookup through a single level index and then a column lookup, or even compared to an `.iloc` lookup, specifying the location of the row and column by location. The following demonstrates this:
 
 ```
 In [53]:
@@ -12453,39 +12207,39 @@ Out[53]:
    (0.5598540306091309, 1.0486528873443604, 1.2129769325256348)
 ```
 
-This can have extreme benefits for application performance if we need to repeatedly access a large number of scalar values out of a `DataFrame` . 
+This can have extreme benefits for application performance if we need to repeatedly access a large number of scalar values out of a `DataFrame` .
 
 # **Summary** 
 
-In this chapter, we examined several techniques of combining and reshaping data in one or more `DataFrame` objects. We started the chapter by examining how to combine data from multiple pandas objects. We saw how to concatenate multiple `DataFrame` objects both along the row and column axes. We then examined how pandas can be used to perform database-like joins and merges of data based on values in multiple `DataFrame` objects. 
+In this chapter, we examined several techniques of combining and reshaping data in one or more `DataFrame` objects. We started the chapter by examining how to combine data from multiple pandas objects. We saw how to concatenate multiple `DataFrame` objects both along the row and column axes. We then examined how pandas can be used to perform database-like joins and merges of data based on values in multiple `DataFrame` objects.
 
-We then examined how to reshape data in `DataFrame` using pivots, stacking, and melting. We saw how each of these processes provides several variations on how to move data around by changing the shape of the indexes by moving data in and out of indexes. 
+We then examined how to reshape data in `DataFrame` using pivots, stacking, and melting. We saw how each of these processes provides several variations on how to move data around by changing the shape of the indexes by moving data in and out of indexes.
 
-We then finished the chapter with a brief but important example of how stacking data in a particular fashion can be used to provide significant performance benefits when accessing scalar data. 
+We then finished the chapter with a brief but important example of how stacking data in a particular fashion can be used to provide significant performance benefits when accessing scalar data.
 
-Even with all of this, we have not yet seen how to actually group data in a manner that will allow us to perform aggregate calculations efficiently. This will be the focus of the next chapter, which will show us how to use the grouping capabilities provided by pandas. 
+Even with all of this, we have not yet seen how to actually group data in a manner that will allow us to perform aggregate calculations efficiently. This will be the focus of the next chapter, which will show us how to use the grouping capabilities provided by pandas.
 
 # **Chapter 9. Grouping and Aggregating Data** 
 
-The pandas library provides a flexible and high-performance "groupby" facility that enables you to slice, dice, and summarize data sets. This process follows a pattern known as split-apply-combine. This pattern data is first categorized into groups based on a criteria such as the indexes or values within the columns. Each group is then processed with an aggregation or transformation function, returning a set of data with transformed values or a single aggregate summary for each group. pandas then combines all of these results and presents it in a single data structure. 
+The pandas library provides a flexible and high-performance "groupby" facility that enables you to slice, dice, and summarize data sets. This process follows a pattern known as split-apply-combine. This pattern data is first categorized into groups based on a criteria such as the indexes or values within the columns. Each group is then processed with an aggregation or transformation function, returning a set of data with transformed values or a single aggregate summary for each group. pandas then combines all of these results and presents it in a single data structure.
 
-We will start by seeing how pandas is used to split data. This will start with a demonstration of how to group data both using categorical values in the columns of a `DataFrame` object or using the levels in the index of a pandas object. Using the result from a grouping operation, we will examine how to access the data in each group, as well as retrieve various basic statistical values of the groups. 
+We will start by seeing how pandas is used to split data. This will start with a demonstration of how to group data both using categorical values in the columns of a `DataFrame` object or using the levels in the index of a pandas object. Using the result from a grouping operation, we will examine how to access the data in each group, as well as retrieve various basic statistical values of the groups.
 
-The next section will focus on the apply portion of the pattern. This involves providing summaries of the groups via aggregation functions, transforming each row in a group into a new series of data, and removing groups of data based upon various criteria to prevent it from being in the results. 
+The next section will focus on the apply portion of the pattern. This involves providing summaries of the groups via aggregation functions, transforming each row in a group into a new series of data, and removing groups of data based upon various criteria to prevent it from being in the results.
 
-The chapter will close with a look at performing discretization of data in pandas. Although not properly a grouping function of pandas, discretization allows for data to be grouped into buckets, based upon ranges of values or to evenly distribute data across a number of buckets. 
+The chapter will close with a look at performing discretization of data in pandas. Although not properly a grouping function of pandas, discretization allows for data to be grouped into buckets, based upon ranges of values or to evenly distribute data across a number of buckets.
 
-Specifically, in this chapter, we will cover: 
+Specifically, in this chapter, we will cover:
 
 - An overview of the split, apply, and combine pattern for data analysis Grouping by column values 
 
 - Accessing the results of grouping Grouping using index levels 
 
-Applying functions to groups to create aggregate results Transforming groups of data using filtering to selectively remove groups of data The discretization of continuous data into bins 
+Applying functions to groups to create aggregate results Transforming groups of data using filtering to selectively remove groups of data The discretization of continuous data into bins
 
 # **Setting up the IPython notebook** 
 
-To utilize the examples in this chapter, we will need to include the following imports and settings: 
+To utilize the examples in this chapter, we will need to include the following imports and settings:
 
 ```
 In [1]:
@@ -12505,7 +12259,7 @@ In [1]:
 
 # **The split, apply, and combine (SAC) pattern** 
 
-Many data analysis problems utilize a pattern of processing data, known as split-apply-combine. In this pattern, three steps are taken to analyze data: 
+Many data analysis problems utilize a pattern of processing data, known as split-apply-combine. In this pattern, three steps are taken to analyze data:
 
 1. A data set is split into smaller pieces 
 
@@ -12513,19 +12267,17 @@ Many data analysis problems utilize a pattern of processing data, known as split
 
 3. All of the results are combined back together and presented as a single unit 
 
-The following diagram demonstrates a simple split-apply-combine process to sum groups of numbers: 
+The following diagram demonstrates a simple split-apply-combine process to sum groups of numbers:
 
+This process is actually very similar to the concepts in MapReduce. In MapReduce, massive sets of data, that are too big for a single computer, are divided into pieces and dispatched to many systems to spread the load in
 
+manageable pieces (split). Each system then performs analysis on the data and calculates a result (apply). The results are then collected from each system and used for decision making (combine).
 
-This process is actually very similar to the concepts in MapReduce. In MapReduce, massive sets of data, that are too big for a single computer, are divided into pieces and dispatched to many systems to spread the load in 
+Split-apply-combine, as implemented in pandas, differs in the scope of the data and processing. In pandas, all of the data is in memory of a single system. Because of this, it is limited to that single system's processing capabilities, but this also makes the data analysis for that scale of data faster and more interactive in nature.
 
-manageable pieces (split). Each system then performs analysis on the data and calculates a result (apply). The results are then collected from each system and used for decision making (combine). 
+Splitting in pandas is performed using the `.groupby()` method of a `Series` or `DataFrame` object, which given one or more index labels and/or column names, will divide the data based on the values present in the specified index labels and columns.
 
-Split-apply-combine, as implemented in pandas, differs in the scope of the data and processing. In pandas, all of the data is in memory of a single system. Because of this, it is limited to that single system's processing capabilities, but this also makes the data analysis for that scale of data faster and more interactive in nature. 
-
-Splitting in pandas is performed using the `.groupby()` method of a `Series` or `DataFrame` object, which given one or more index labels and/or column names, will divide the data based on the values present in the specified index labels and columns. 
-
-Once the data is split into groups, one or more of the following three broad classes of operations is applied: 
+Once the data is split into groups, one or more of the following three broad classes of operations is applied:
 
 - **Aggregation** : This calculates a summary statistic, such as group means or counts of the items in each group 
 
@@ -12533,17 +12285,17 @@ Once the data is split into groups, one or more of the following three broad cla
 
 - **Filtration** : This removes entire groups of data based on a group level computation 
 
-The combine stage of the pattern is performed automatically by pandas, which will collect the results of the apply stage on all of the groups and construct a single merged result. 
+The combine stage of the pattern is performed automatically by pandas, which will collect the results of the apply stage on all of the groups and construct a single merged result.
 
-For more information on split-apply-combine, there is a paper from the Journal of Statistical Software titled _The Split-Apply-Combine Strategy for Data Analysis_ . This paper goes into more details of the pattern, and although it utilizes R in its examples, it is still a valuable read for someone learning pandas. You can get this paper at <u>http://www.jstatsoft.org/v40/i01/paper.</u> 
+For more information on split-apply-combine, there is a paper from the Journal of Statistical Software titled _The Split-Apply-Combine Strategy for Data Analysis_ . This paper goes into more details of the pattern, and although it utilizes R in its examples, it is still a valuable read for someone learning pandas. You can get this paper at <u>http://www.jstatsoft.org/v40/i01/paper.</u>
 
 # **Split** 
 
-Our examination of splitting a pandas objects will be broken into several sections. We will first load data to use in the examples. Then, we will look at creating a grouping based on columns, examining properties of a grouping in the process. Next, will be an examination of accessing the results of the grouping. The last subsection will examine grouping using index labels, instead of content in columns. 
+Our examination of splitting a pandas objects will be broken into several sections. We will first load data to use in the examples. Then, we will look at creating a grouping based on columns, examining properties of a grouping in the process. Next, will be an examination of accessing the results of the grouping. The last subsection will examine grouping using index labels, instead of content in columns.
 
 ## **Data for the examples** 
 
-pandas' `Series` and `DataFrame` objects are split into groups using the `.groupby()` method. To demonstrate, we will use a variant of the accelerometer sensor data introduced in the previous chapter. This version of the data adds another column (sensor) that can be used to specify multiple sensors: 
+pandas' `Series` and `DataFrame` objects are split into groups using the `.groupby()` method. To demonstrate, we will use a variant of the accelerometer sensor data introduced in the previous chapter. This version of the data adds another column (sensor) that can be used to specify multiple sensors:
 
 ```
 In [2]:
@@ -12571,17 +12323,15 @@ In [2]:
 |**`22         3  orientation    Y      0.4`**|
 |**`23         3  orientation    X      0.3`**|
 
-
-
 ```
    [24 rows x 4 columns]
 ```
 
 ## **Grouping by a single column's values** 
 
-The sensor data consists of three categorical variables ( `sensor` , `interval` , and `axis` ) and one continuous variable (reading). In pandas, it is possible to 
+The sensor data consists of three categorical variables ( `sensor` , `interval` , and `axis` ) and one continuous variable (reading). In pandas, it is possible to
 
-group by any single categorical variable by passing its name to `.groupby()` . The following groups by the `sensor` column: 
+group by any single categorical variable by passing its name to `.groupby()` . The following groups by the `sensor` column:
 
 ```
 In [3]:
@@ -12602,9 +12352,9 @@ Out[3]:
    <pandas.core.groupby.DataFrameGroupBy object at 0x106915f90>
 ```
 
-The result of calling `.groupby()` on `DataFrame` is not the actual grouped data, but a `DataFrameGroupBy` object ( `SeriesGroupBy` when grouping on `Series` ). The actual process of grouping is a deferred/lazy process in pandas, and at this point, the grouping has not actually been performed. This object represents an interim description of the grouping to be performed. This allows pandas to first validate that the grouping description provided to it is valid, relative to the data before starting processing. 
+The result of calling `.groupby()` on `DataFrame` is not the actual grouped data, but a `DataFrameGroupBy` object ( `SeriesGroupBy` when grouping on `Series` ). The actual process of grouping is a deferred/lazy process in pandas, and at this point, the grouping has not actually been performed. This object represents an interim description of the grouping to be performed. This allows pandas to first validate that the grouping description provided to it is valid, relative to the data before starting processing.
 
-The `.ngroups` property will retrieve the number of groups that will be formed in the result: 
+The `.ngroups` property will retrieve the number of groups that will be formed in the result:
 
 ##### **`In [4]:`** 
 
@@ -12618,7 +12368,7 @@ Out[4]:
    2
 ```
 
-The `.groups` property will return a Python dictionary whose keys represent the names of each group (if multiple columns are specified, it is a tuple). The values in the dictionary are an array of the index labels contained within each respective group: 
+The `.groups` property will return a Python dictionary whose keys represent the names of each group (if multiple columns are specified, it is a tuple). The values in the dictionary are an array of the index labels contained within each respective group:
 
 ```
 In [5]:
@@ -12635,7 +12385,7 @@ Out[5]:
 
 ## **Accessing the results of grouping** 
 
-The `grouped` variable can be thought of as a collection of named groups. We will use these properties, and the following function, to examine many of the results of groupings: 
+The `grouped` variable can be thought of as a collection of named groups. We will use these properties, and the following function, to examine many of the results of groupings:
 
 ```
 In [6]:
@@ -12648,7 +12398,7 @@ In [6]:
            print (group)
 ```
 
-Using this method, we can see the results of the grouping we made a few steps back: 
+Using this method, we can see the results of the grouping we made a few steps back:
 
 ```
 In [7]:
@@ -12684,8 +12434,6 @@ Out[7]:
 |**`15         1`**|**`orientation    Z      0.0`**|
 |**`16         1`**|**`orientation    Y      0.2`**|
 
-
-
 |**`..       ...          ...  ...      ...`**|
 |---|
 |**`19         2  orientation    Y      0.3`**|
@@ -12694,15 +12442,13 @@ Out[7]:
 |**`22         3  orientation    Y      0.4`**|
 |**`23         3  orientation    X      0.3`**|
 
-
-
 ```
    [12 rows x 4 columns]
 ```
 
-The examination of these results gives us some insight into how pandas has performed the split that we specified. A group has been created for each distinct value in the `sensors` column and has been named with that value. The group contains a DataFrame object whose content is the rows where the sensor value matched the name of the group. 
+The examination of these results gives us some insight into how pandas has performed the split that we specified. A group has been created for each distinct value in the `sensors` column and has been named with that value. The group contains a DataFrame object whose content is the rows where the sensor value matched the name of the group.
 
-We can use the `.size()` method to get a summary of the size of all the groups: 
+We can use the `.size()` method to get a summary of the size of all the groups:
 
 ```
 In [8]:
@@ -12718,7 +12464,7 @@ Out[8]:
    dtype: int64
 ```
 
-The `.count()` method will return the number of items in each column of every group: 
+The `.count()` method will return the number of items in each column of every group:
 
 ```
 In [9]:
@@ -12734,7 +12480,7 @@ Out[9]:
    orientation        12    12       12
 ```
 
-Any specific group can be retrieved using the `.get_group()` property. The following retrieves the `accel` group: 
+Any specific group can be retrieved using the `.get_group()` property. The following retrieves the `accel` group:
 
 ##### **`In [10]:`** 
 
@@ -12759,13 +12505,11 @@ Any specific group can be retrieved using the `.get_group()` property. The follo
 |**`10         3  accel    Y      0.2`**|
 |**`11         3  accel    X      0.7`**|
 
-
-
 ```
    [12 rows x 4 columns]
 ```
 
-The `.head()` and `.tail()` methods can be used to return the specified number of items in each group. The following code retrieved the first three rows in each group. There are six rows returned, as we requested the first three rows in each group, and there are two groups: 
+The `.head()` and `.tail()` methods can be used to return the specified number of items in each group. The following code retrieved the first three rows in each group. There are six rows returned, as we requested the first three rows in each group, and there are two groups:
 
 ```
 In [11]:
@@ -12784,9 +12528,7 @@ In [11]:
 |**`13         0  orientation    Y      0.1`**|
 |**`14         0  orientation    X      0.0`**|
 
-
-
-The `.nth()` method will return the _n-th_ item in each group. The following demonstrates how to use this to retrieve the first, the second, and then the third row of each group: 
+The `.nth()` method will return the _n-th_ item in each group. The following demonstrates how to use this to retrieve the first, the second, and then the third row of each group:
 
 ```
 In [12]:
@@ -12803,8 +12545,6 @@ In [12]:
 |**`accel               0`**|**`accel    Z        0`**|
 |**`orientation         0`**|**`orientation    Z        0`**|
 |**`In [13]:`**<br>**`# get the 2nd item in`**<br>**`grouped.nth(1)`**|**`each group`**|
-
-
 
 ```
 Out[13]:
@@ -12825,7 +12565,7 @@ Out[14]:
    orientation         0  orientation    X        0
 ```
 
-Grouping can also be performed on multiple columns by passing a list of column names. The following groups the data by both `sensor` and `axis` variables: 
+Grouping can also be performed on multiple columns by passing a list of column names. The following groups the data by both `sensor` and `axis` variables:
 
 ```
 In [15]:
@@ -12876,11 +12616,9 @@ Out[15]:
 |**`18         2`**|**`orientation`**|**`Z        0`**|
 |**`21         3`**|**`orientation`**|**`Z        0`**|
 
+Since multiple columns were specified, the name of each group is now a tuple with the value from both `sensor` and `axis` , which represents the group.
 
-
-Since multiple columns were specified, the name of each group is now a tuple with the value from both `sensor` and `axis` , which represents the group. 
-
-The `.describe()` method can be used to return descriptive statistics for each group: 
+The `.describe()` method can be used to return descriptive statistics for each group:
 
 ```
 In [16]:
@@ -12900,8 +12638,6 @@ Out[16]:
 ||**`min`**|**`0.000000  0.700000`**|
 |<br>**`...`**|**`25%`**<br>|**`0.750000  0.775000`**<br>**`...       ...`**|
 
-
-
 |**`orientation Z    min`**|**`0.000000  0.000000`**|
 |---|---|
 |**`25%`**|**`0.750000  0.000000`**|
@@ -12909,19 +12645,17 @@ Out[16]:
 |**`75%`**|**`2.250000  0.000000`**|
 |**`max`**|**`3.000000  0.000000`**|
 
-
-
 ```
    [48 rows x 2 columns]
 ```
 
-By default, groups are sorted by their group name in an ascending order. This dataset already has them in an ascending order, but if you want to prevent sorting during grouping, use the `sort=False` option. 
+By default, groups are sorted by their group name in an ascending order. This dataset already has them in an ascending order, but if you want to prevent sorting during grouping, use the `sort=False` option.
 
 ## **Grouping using index levels** 
 
-The examples up to this point, have used `DataFrame` without any specific indexing (just the default sequential numerical index). This type of data would actually be very well suited for a hierarchical index. This can then be used directly to group the data based upon index label(s). 
+The examples up to this point, have used `DataFrame` without any specific indexing (just the default sequential numerical index). This type of data would actually be very well suited for a hierarchical index. This can then be used directly to group the data based upon index label(s).
 
-To demonstrate, the following script creates a new `DataFrame` object with `MultiIndex` , consisting of the original sensor and interval columns: 
+To demonstrate, the following script creates a new `DataFrame` object with `MultiIndex` , consisting of the original sensor and interval columns:
 
 ##### **`In [17]:`** 
 
@@ -12951,13 +12685,11 @@ Out[17]:
 ||**`Y`**|**`3      0.4`**|
 ||**`X`**|**`3      0.3`**|
 
-
-
 ```
    [24 rows x 2 columns]
 ```
 
-Grouping can now be performed using the levels of the hierarchical index. The following groups by index level `0` (the sensor names): 
+Grouping can now be performed using the levels of the hierarchical index. The following groups by index level `0` (the sensor names):
 
 ```
 In [18]:
@@ -12986,8 +12718,6 @@ Out[18]:
 ||**`Y`**|**`3`**|**`0.2`**|
 ||**`X`**|**`3`**|**`0.7`**|
 
-
-
 ##### **`[12 rows x 2 columns] orientation`** 
 
 ||**`interval  reading`**|
@@ -13005,13 +12735,11 @@ Out[18]:
 ||**`Y            3      0.4`**|
 ||**`X            3      0.3`**|
 
-
-
 ```
    [12 rows x 2 columns]
 ```
 
-Grouping by multiple levels can be performed by passing the levels in a list to `.groupby()` . Also, if `MultiIndex` has names specified for the levels, then these names can be used instead of integers. The following code groups the two levels of `MultiIndex` by their names: 
+Grouping by multiple levels can be performed by passing the levels in a list to `.groupby()` . Also, if `MultiIndex` has names specified for the levels, then these names can be used instead of integers. The following code groups the two levels of `MultiIndex` by their names:
 
 ```
 In [19]:
@@ -13065,17 +12793,15 @@ In [19]:
 |**`Z            2        0`**|
 |**`Z            3        0`**|
 
-
-
 # **Apply** 
 
-After the grouping is performed, we have the ability to perform either aggregate calculations on each group of data resulting in a single value from each group, or to apply a transformation to each item in a group and return the combined result for each group. We can also filter groups based on results of expressions to exclude the groups from being included in the combined results. 
+After the grouping is performed, we have the ability to perform either aggregate calculations on each group of data resulting in a single value from each group, or to apply a transformation to each item in a group and return the combined result for each group. We can also filter groups based on results of expressions to exclude the groups from being included in the combined results.
 
 ## **Applying aggregation functions to groups** 
 
-pandas allows the application of an aggregation function to each group of data. Aggregation is performed using the `.aggregate()` (or in short, `.agg()` ) method of the `GroupBy` object. The parameter of `.agg()` is a reference to a function that is applied to each group. In the case of `DataFrame` , the function will be applied to each column. 
+pandas allows the application of an aggregation function to each group of data. Aggregation is performed using the `.aggregate()` (or in short, `.agg()` ) method of the `GroupBy` object. The parameter of `.agg()` is a reference to a function that is applied to each group. In the case of `DataFrame` , the function will be applied to each column.
 
-As an example, the following code will calculate the mean of the values across each `sensor` and `axis` in the grouping `mig_l12` : 
+As an example, the following code will calculate the mean of the values across each `sensor` and `axis` in the grouping `mig_l12` :
 
 ```
 In [20]:
@@ -13094,13 +12820,11 @@ In [20]:
 |**`Y          1.5     0.25`**|
 |**`Z          1.5     0.00`**|
 
+As `.agg()` will apply the method to each column in each group, we also calculated the mean of the interval values (which is not of much interest).
 
+The result of the aggregation will have an identically structured index as the original data. If you do not want this to happen, you can use the
 
-As `.agg()` will apply the method to each column in each group, we also calculated the mean of the interval values (which is not of much interest). 
-
-The result of the aggregation will have an identically structured index as the original data. If you do not want this to happen, you can use the 
-
-`as_index=False` option of the `.groupby()` method to specify not to duplicate the structure of the index: 
+`as_index=False` option of the `.groupby()` method to specify not to duplicate the structure of the index:
 
 ```
 In [21]:
@@ -13125,15 +12849,13 @@ Out[21]:
 |**`4  orientation    Y       1.5     0.25`**|
 |**`5  orientation    Z       1.5     0.00`**|
 
-
-
-This has derived the same results, but there is a slightly different organization. 
+This has derived the same results, but there is a slightly different organization.
 
 ### **Note** 
 
-Aggregation functions can also be directly passed `level` parameters to specify which levels of the index to apply the function. 
+Aggregation functions can also be directly passed `level` parameters to specify which levels of the index to apply the function.
 
-Many aggregation functions are built in directly to the `GroupBy` object to save you some more typing. Specifically, these functions are (prefixed by `gb.` ): 
+Many aggregation functions are built in directly to the `GroupBy` object to save you some more typing. Specifically, these functions are (prefixed by `gb.` ):
 
 |**`gb.agg`**|**`gb.boxplot    gb.cummin     gb.describe   gb.f`**|
 |---|---|
@@ -13142,9 +12864,7 @@ Many aggregation functions are built in directly to the `GroupBy` object to save
 |**`irst      gb.gro`**<br>**`gb.nth`**<br>**`ar`**<br>**`gb.apply`**|**`ups     gb.hist       gb.max        gb.min`**<br>**`gb.prod       gb.resample   gb.sum        gb.v`**<br>**`gb.cummax     gb.cumsum     gb.fillna     gb.g`**|
 |**`ender     gb.hea`**<br>**`gb.ohlc`**<br>**`eight`**|**`d       gb.indices    gb.mean       gb.name`**<br>**`gb.quantile   gb.size       gb.tail       gb.w`**|
 
-
-
-An equivalent to the previous `.agg(np.mean)` method is the following: 
+An equivalent to the previous `.agg(np.mean)` method is the following:
 
 ##### **`In [22]:`** 
 
@@ -13166,9 +12886,7 @@ Out[22]:
 ||**`Y`**|**`1.5     0.25`**|
 ||**`Z`**|**`1.5     0.00`**|
 
-
-
-Multiple aggregation functions can be simultaneously applied to each group in a single call to `.agg()` by passing them in a list: 
+Multiple aggregation functions can be simultaneously applied to each group in a single call to `.agg()` by passing them in a list:
 
 ```
 In [23]:
@@ -13190,9 +12908,7 @@ Out[23]:
 ||**`Y`**|**`6  1.290994     1.0  0.129099`**|
 ||**`Z`**|**`6  1.290994     0.0  0.000000`**|
 
-
-
-A different function can be applied to each column in each group by passing a Python dictionary to `.agg()` , where the keys of the dictionary represent the column name that the function is to be applied to, and the value is the function. The following demonstrates the mean of the `reading` column in each group by return, but for the interval, the column returns the length of the group: 
+A different function can be applied to each column in each group by passing a Python dictionary to `.agg()` , where the keys of the dictionary represent the column name that the function is to be applied to, and the value is the function. The following demonstrates the mean of the `reading` column in each group by return, but for the interval, the column returns the length of the group:
 
 ```
 In [24]:
@@ -13215,9 +12931,7 @@ Out[24]:
 ||**`Y`**|**`4     0.25`**|
 ||**`Z`**|**`4     0.00`**|
 
-
-
-Aggregation can also be performed on specific columns using the `[]` operator on the `GroupBy` object. The following sums only the `reading` column: 
+Aggregation can also be performed on specific columns using the `[]` operator on the `GroupBy` object. The following sums only the `reading` column:
 
 ```
 In [25]:
@@ -13239,17 +12953,15 @@ Out[25]:
 ||**`Z       0.00`**|
 |**`Name: readin`**|**`g, dtype: float64`**|
 
-
-
 ## **The transformation of group data** 
 
-Transformation is one of the more mysterious capabilities of pandas. I have personally found the operation of the `.transform()` method to be difficult for many to grasp (including myself) when starting to first use it. This is easily verifiable with many Stack Overflow postings about not being able to get it to work the way you think it should. 
+Transformation is one of the more mysterious capabilities of pandas. I have personally found the operation of the `.transform()` method to be difficult for many to grasp (including myself) when starting to first use it. This is easily verifiable with many Stack Overflow postings about not being able to get it to work the way you think it should.
 
-Documentation is fuzzy on these difficulties, so I feel it worthwhile to give some good examples and explanations for its operation. We will start with a general overview of transformation and then examine a few practical examples to make the operation more understandable. 
+Documentation is fuzzy on these difficulties, so I feel it worthwhile to give some good examples and explanations for its operation. We will start with a general overview of transformation and then examine a few practical examples to make the operation more understandable.
 
 ### **An overview of transformation** 
 
-The `GroupBy` objects provide a `.transform()` method, which applies a function to each group and returns either `Series` or `DataFrame` that has the following parameters: 
+The `GroupBy` objects provide a `.transform()` method, which applies a function to each group and returns either `Series` or `DataFrame` that has the following parameters:
 
 - Indexed identically to the concatenation of the indexes in all the groups 
 
@@ -13257,7 +12969,7 @@ The `GroupBy` objects provide a `.transform()` method, which applies a function 
 
 - Consists of non-noise, nongrouped columns to which pandas has applied the given function 
 
-To start the demonstration of the use of `.transform()` , we will start with a basic example that can be used to demonstrate the characteristics just stated: 
+To start the demonstration of the use of `.transform()` , we will start with a basic example that can be used to demonstrate the characteristics just stated:
 
 ```
 In [26]:
@@ -13282,11 +12994,9 @@ Out[26]:
 |**`3     A  foobar       3        8`**|
 |**`4     C  barbaz       4        9`**|
 
+This `DataFrame` object has a default index, a `Label` column that will be used to group the data, two numerical columns ( `Values` and `Values2` ), and one `Noise` column that will demonstrate pandas making an automatic decision to drop columns in transformations that it considers not appropriate for the specific operation.
 
-
-This `DataFrame` object has a default index, a `Label` column that will be used to group the data, two numerical columns ( `Values` and `Values2` ), and one `Noise` column that will demonstrate pandas making an automatic decision to drop columns in transformations that it considers not appropriate for the specific operation. 
-
-First, we group `DataFrame` by its `Label` column: 
+First, we group `DataFrame` by its `Label` column:
 
 ```
 In [27]:
@@ -13313,9 +13023,9 @@ Out[27]:
    4     C  barbaz       4        9
 ```
 
-Each resulting group consists of the rows that were identified with each distinct value in the `Label` column and which are using the same index and labels from the original `DataFrame` . 
+Each resulting group consists of the rows that were identified with each distinct value in the `Label` column and which are using the same index and labels from the original `DataFrame` .
 
-Now, to demonstrate a transformation in process, the following adds the numeric value of `10` to each value (the values in both the `Values` and `Values2` columns): 
+Now, to demonstrate a transformation in process, the following adds the numeric value of `10` to each value (the values in both the `Values` and `Values2` columns):
 
 ```
 In [28]:
@@ -13334,11 +13044,11 @@ In [28]:
    4      14       19
 ```
 
-What pandas does here is pass the columns of `DataFrame` one by one and with only the rows for the specific group to the function supplied to `.transform()` . The result, in this example, is that the `Noise` column has been dropped in the result, as pandas determines that `+ 10` is not a valid operation for that column. Then, the other columns are passed as Series objects to the method and therefore, they have `10` added to each value. 
+What pandas does here is pass the columns of `DataFrame` one by one and with only the rows for the specific group to the function supplied to `.transform()` . The result, in this example, is that the `Noise` column has been dropped in the result, as pandas determines that `+ 10` is not a valid operation for that column. Then, the other columns are passed as Series objects to the method and therefore, they have `10` added to each value.
 
-To understand what is going on more clearly, we can change the function being passed to `.transform()` to write some diagnostic information. The 
+To understand what is going on more clearly, we can change the function being passed to `.transform()` to write some diagnostic information. The
 
-following changes the `x + 10` transform to also print what the data, that is being worked upon at each step of the execution, is: 
+following changes the `x + 10` transform to also print what the data, that is being worked upon at each step of the execution, is:
 
 ```
 In [29]:
@@ -13395,11 +13105,9 @@ In [30]:
 |**`3      13       18`**|
 |**`4      14       19`**|
 
+pandas has called our transformation function nine times, one time for every column in every group (3 x 3), and passed a `Series` object for each combination of group / rows / column, and for each of these calls, pandas stores the results and when complete, does a merge of the results back in to `DataFrame` (or if the result is a single column, `Series` ) that is indexed identically to the original data.
 
-
-pandas has called our transformation function nine times, one time for every column in every group (3 x 3), and passed a `Series` object for each combination of group / rows / column, and for each of these calls, pandas stores the results and when complete, does a merge of the results back in to `DataFrame` (or if the result is a single column, `Series` ) that is indexed identically to the original data. 
-
-The function passed to `.transform()` must return `Series` with the same number of rows and the same index values. Otherwise, the result will often not be what was expected. As an example of violating this statement, the following sums each `Series` object in each group. The result is a `DataFrame` object identical to the source (and not an exception or note that you did something wrong): 
+The function passed to `.transform()` must return `Series` with the same number of rows and the same index values. Otherwise, the result will often not be what was expected. As an example of violating this statement, the following sums each `Series` object in each group. The result is a `DataFrame` object identical to the source (and not an exception or note that you did something wrong):
 
 ```
 In [31]:
@@ -13423,13 +13131,11 @@ Out[31]:
 |**`3  foobar       3        8`**|
 |**`4  barbaz       4        9`**|
 
-
-
-Having examined the details of how `.transform()` operates, we will now examine a couple of practical examples of using `.transform()` . 
+Having examined the details of how `.transform()` operates, we will now examine a couple of practical examples of using `.transform()` .
 
 ### **Practical examples of transformation** 
 
-A common transformation in statistical analysis, with grouped data, is to replace missing data within each group with the mean of the non- `NaN` values in the group. The following creates `DataFrame` with a `Label` categorical variable with two values (' `A` ' and ' `B` ') and a `Values` column containing a series of integers but with one value replaced with `NaN` : 
+A common transformation in statistical analysis, with grouped data, is to replace missing data within each group with the mean of the non- `NaN` values in the group. The following creates `DataFrame` with a `Label` categorical variable with two values (' `A` ' and ' `B` ') and a `Values` column containing a series of integers but with one value replaced with `NaN` :
 
 ```
 In [32]:
@@ -13457,9 +13163,7 @@ Out[32]:
 |**`i5     A`**|**`12`**|
 |**`i6     B`**|**`22`**|
 
-
-
-Now, we group the data by `Label` , resulting in the following groups: 
+Now, we group the data by `Label` , resulting in the following groups:
 
 ```
 In [33]:
@@ -13487,9 +13191,7 @@ Out[33]:
 |**`i4     B`**|**`NaN`**|
 |**`i6     B`**|**`22`**|
 
-
-
-We can calculate the mean of each group using the `GroupBy` object's `.mean()` method. We can use this result to later verify that we did this transformation correctly: 
+We can calculate the mean of each group using the `GroupBy` object's `.mean()` method. We can use this result to later verify that we did this transformation correctly:
 
 ```
 In [34]:
@@ -13507,9 +13209,7 @@ Out[34]:
 |**`A`**|**`11`**|
 |**`B`**|**`21`**|
 
-
-
-The default operation of `.mean()` skips `NaN` in its calculation for the `B` group. However, suppose that we need the `B` group to have all `NaN` values filled, as other code we use may take offense to the `NaN` value, so we could replace it with the mean of the group (which should not affect group level mean calculations). This can be done with the following code: 
+The default operation of `.mean()` skips `NaN` in its calculation for the `B` group. However, suppose that we need the `B` group to have all `NaN` values filled, as other code we use may take offense to the `NaN` value, so we could replace it with the mean of the group (which should not affect group level mean calculations). This can be done with the following code:
 
 ```
 In [35]:
@@ -13533,15 +13233,15 @@ Out[35]:
    i6      22
 ```
 
-Here is where I have had trouble with pandas and have also seen others have problems. This result appears odd at first glance because of the following reasons: 
+Here is where I have had trouble with pandas and have also seen others have problems. This result appears odd at first glance because of the following reasons:
 
 - It does not have a `Label` column 
 
 - It has returned the `Series` object when we passed `DataFrame` to it It does not provide an explicit statement of which values in which group have been filled with the mean of the group 
 
-On the first two points, our original `DataFrame` had two columns, one of which was used in the grouping process. This column is not passed to the `.transform()` method, and in this scenario, the only column processed is `Values` . Upon applying the . `transform()` method on each group, pandas merges the results, which are all `Series` objects, into a single `Series` object. 
+On the first two points, our original `DataFrame` had two columns, one of which was used in the grouping process. This column is not passed to the `.transform()` method, and in this scenario, the only column processed is `Values` . Upon applying the . `transform()` method on each group, pandas merges the results, which are all `Series` objects, into a single `Series` object.
 
-With respect to the third point, we do not know which values in which groups were changed, but we do know the index in the original data, as the index labels are preserved through the process. This allows us to go back to the original data and fill in the `NaN` values in the original `DataFrame` : 
+With respect to the third point, we do not know which values in which groups were changed, but we do know the index in the original data, as the index labels are preserved through the process. This allows us to go back to the original data and fill in the `NaN` values in the original `DataFrame` :
 
 ##### **`In [36]:`** 
 
@@ -13563,15 +13263,15 @@ With respect to the third point, we do not know which values in which groups wer
    i6     B      22
 ```
 
-The path through this example was deliberate, so that I can make a point about `.transform()` . 
+The path through this example was deliberate, so that I can make a point about `.transform()` .
 
 ### **Note** 
 
-The `.transform()` method does not change the original data or the data in the group that is being applied to. Index labels are preserved, so you can go back and relate the results to the original data or any of the groups. If you want to patch this data, you will need to align/merge the results with the original data or grouped data. These changes, then, do not affect already calculated groups or the results for the apply step. 
+The `.transform()` method does not change the original data or the data in the group that is being applied to. Index labels are preserved, so you can go back and relate the results to the original data or any of the groups. If you want to patch this data, you will need to align/merge the results with the original data or grouped data. These changes, then, do not affect already calculated groups or the results for the apply step.
 
-Another common and practical example, is that of using `.transform()` in statistical analysis and is the process of normalizing multiple groups of data to have a mean of 0 and a standard deviation of 1, also referred to as creating a normalized z score of the data. 
+Another common and practical example, is that of using `.transform()` in statistical analysis and is the process of normalizing multiple groups of data to have a mean of 0 and a standard deviation of 1, also referred to as creating a normalized z score of the data.
 
-To demonstrate normalizing groups into z scores, we will create a series of data that does not have a mean of 0, or a standard deviation of 1. The following code creates a series of normally distributed values with a `0.5` mean and a standard deviation of `2` , is indexed by day, and calculates a rolling mean of these values across `90` periods (roughly one quarter of a year): 
+To demonstrate normalizing groups into z scores, we will create a series of data that does not have a mean of 0, or a standard deviation of 1. The following code creates a series of normally distributed values with a `0.5` mean and a standard deviation of `2` , is indexed by day, and calculates a rolling mean of these values across `90` periods (roughly one quarter of a year):
 
 ```
 In [37]:
@@ -13601,11 +13301,11 @@ Out[37]:
    Freq: D, Length: 996
 ```
 
-**Note** 
+**Note**
 
-Don't worry now if you do not understand time-series data. We will cover it in detail in the next chapter. 
+Don't worry now if you do not understand time-series data. We will cover it in detail in the next chapter.
 
-Taking a quick peek at the code: 
+Taking a quick peek at the code:
 
 ```
 In [38]:
@@ -13613,9 +13313,7 @@ In [38]:
    rolling.plot();
 ```
 
-
-
-We can verify that this data is following the specified mean and standard deviation by grouping the data and looking at these values. Technically, the wider the date range of the group, the more we should expect these values to approach those specified in the normal random distribution. The following breaks things down into calendar years and calculates the mean and standard deviation: 
+We can verify that this data is following the specified mean and standard deviation by grouping the data and looking at these values. Technically, the wider the date range of the group, the more we should expect these values to approach those specified in the normal random distribution. The following breaks things down into calendar years and calculates the mean and standard deviation:
 
 ```
 In [39]:
@@ -13636,9 +13334,9 @@ Out[39]:
    2013  0.599933  0.276009
 ```
 
-The mean is definitely not 0, nor is the standard deviation equal to 1. 
+The mean is definitely not 0, nor is the standard deviation equal to 1.
 
-To scale each group into a z score (mean = 0, std = 1), we can use the following function and apply it to each group: 
+To scale each group into a z score (mean = 0, std = 1), we can use the following function and apply it to each group:
 
 ```
 In [40]:
@@ -13659,9 +13357,9 @@ Out[40]:
    2013 -3.388620e-16    1
 ```
 
-This confirms our grouping and scaling to a standard z score. 
+This confirms our grouping and scaling to a standard z score.
 
-As they say, a picture is worth a thousand words. The following code plots the original and normalized values against each other: 
+As they say, a picture is worth a thousand words. The following code plots the original and normalized values against each other:
 
 ```
 In [41]:
@@ -13674,11 +13372,9 @@ In [41]:
    compared.plot();
 ```
 
+We can see that the initial data had a tighter curve and was mostly above 0 (a mean of 0.5), as we would expect from the given distribution. The normalized data has a wider range of values, as we moved the mean from 0.5 to 0.0 and also made the standard deviation larger.
 
-
-We can see that the initial data had a tighter curve and was mostly above 0 (a mean of 0.5), as we would expect from the given distribution. The normalized data has a wider range of values, as we moved the mean from 0.5 to 0.0 and also made the standard deviation larger. 
-
-We can perform one more check to see whether we did the math correctly. In a normal distribution, 64.2 percent of the data points should be within a standard deviation of 1: 
+We can perform one more check to see whether we did the math correctly. In a normal distribution, 64.2 percent of the data points should be within a standard deviation of 1:
 
 ```
 In [42]:
@@ -13693,13 +13389,13 @@ Out[42]:
    0.6485943775100401
 ```
 
-We got 64.85 percent, which is close enough to demonstrate that we did this correctly. 
+We got 64.85 percent, which is close enough to demonstrate that we did this correctly.
 
 ## **Filtering groups** 
 
-The pandas `GroupBy` object provides a `.filter()` method, which can be used to make group level decisions on whether or not the entire group is included in the result after the combination. The function passed to `.filter()` should return `True` if the group is to be included in the result and `False` to exclude it. 
+The pandas `GroupBy` object provides a `.filter()` method, which can be used to make group level decisions on whether or not the entire group is included in the result after the combination. The function passed to `.filter()` should return `True` if the group is to be included in the result and `False` to exclude it.
 
-To demonstrate several scenarios, we will use the following `DataFrame` : 
+To demonstrate several scenarios, we will use the following `DataFrame` :
 
 ```
 In [43]:
@@ -13720,7 +13416,7 @@ Out[43]:
    5     C       8
 ```
 
-The first demonstration will drop groups that do not have a minimum number of items. Specifically, if they only have one item or less, they will be omitted (therefore, only selecting groups with `Label A` and `C` ): 
+The first demonstration will drop groups that do not have a minimum number of items. Specifically, if they only have one item or less, they will be omitted (therefore, only selecting groups with `Label A` and `C` ):
 
 ```
 In [44]:
@@ -13745,9 +13441,9 @@ Out[44]:
    5     C       8
 ```
 
-Notice that there is a subtle difference when it comes to using `.filter()` as compared to `.translate()` . The data passed to the function specified in the call to `.filter()` is passed to the columns specified in the `.groupby()` method. Therefore, in this example, it is necessary to reference the `Values` column. This can cause some subtle bugs if you forget to take this into account. 
+Notice that there is a subtle difference when it comes to using `.filter()` as compared to `.translate()` . The data passed to the function specified in the call to `.filter()` is passed to the columns specified in the `.groupby()` method. Therefore, in this example, it is necessary to reference the `Values` column. This can cause some subtle bugs if you forget to take this into account.
 
-The following will omit groups that do not have all values supplied (which is the `C` group): 
+The following will omit groups that do not have all values supplied (which is the `C` group):
 
 ```
 In [45]:
@@ -13764,7 +13460,7 @@ Out[45]:
    2     B       3
 ```
 
-The following will select groups that have a mean that is over a particular threshold, larger than the means of all of the groups (basically, a group of data that has exceptional behavior as compared to the whole—in this case, the `C` group): 
+The following will select groups that have a mean that is over a particular threshold, larger than the means of all of the groups (basically, a group of data that has exceptional behavior as compared to the whole—in this case, the `C` group):
 
 ```
 In [46]:
@@ -13783,7 +13479,7 @@ Out[46]:
    5     C       8
 ```
 
-The final example demonstrates that instead of dropping a group, the use of the `dropna=False` parameter allows the return of the offending groups, but with all their values replaced with `NaN` . This is useful if you want to determine which items have been omitted: 
+The final example demonstrates that instead of dropping a group, the use of the `dropna=False` parameter allows the return of the offending groups, but with all their values replaced with `NaN` . This is useful if you want to determine which items have been omitted:
 
 ##### **`In [47]:`** 
 
@@ -13806,13 +13502,11 @@ Out[47]:
 |**`4     C     NaN`**|
 |**`5     C       8`**|
 
-
-
 # **Discretization and Binning** 
 
-Although not directly using grouping constructs, in a chapter on grouping, it is worth explaining the process of discretization of continuous data. Discretization is a means of slicing up continuous data into a set of "bins", where each bin represents a range of the continuous sample and the items are then placed into the appropriate bin—hence the term "binning". Discretization in pandas is performed using the `pd.cut()` and `pd.qcut()` functions. 
+Although not directly using grouping constructs, in a chapter on grouping, it is worth explaining the process of discretization of continuous data. Discretization is a means of slicing up continuous data into a set of "bins", where each bin represents a range of the continuous sample and the items are then placed into the appropriate bin—hence the term "binning". Discretization in pandas is performed using the `pd.cut()` and `pd.qcut()` functions.
 
-We will look at discretization by generating a large set of normally distributed random numbers and cutting these numbers into various pieces and analyzing the contents of the bins. The following generates `10000` numbers and reports the mean and standard deviation, which we expect to approach 0 and 1 as the sample size gets larger: 
+We will look at discretization by generating a large set of normally distributed random numbers and cutting these numbers into various pieces and analyzing the contents of the bins. The following generates `10000` numbers and reports the mean and standard deviation, which we expect to approach 0 and 1 as the sample size gets larger:
 
 ```
 In [48]:
@@ -13837,7 +13531,7 @@ Out[49]:
           -0.83377412, -0.10418135])
 ```
 
-The following cuts the data into five bins evenly spread across the values in the sample: 
+The following cuts the data into five bins evenly spread across the values in the sample:
 
 ```
 In [50]:
@@ -13865,9 +13559,9 @@ Out[50]:
 -0.633] < (-0.633, 0.81] < (0.81, 2.254] < (2.254, 3.698]]
 ```
 
-The resulting `bins` object is a type of pandas variable known as `Categorical` . A categorical variable that is a result of `pd.cut()` consists of a set of labels and an index that describes how the data has been split. 
+The resulting `bins` object is a type of pandas variable known as `Categorical` . A categorical variable that is a result of `pd.cut()` consists of a set of labels and an index that describes how the data has been split.
 
-The `.categories` property will return the index and describe the intervals that pandas decided upon: 
+The `.categories` property will return the index and describe the intervals that pandas decided upon:
 
 ```
 In [51]:
@@ -13882,7 +13576,7 @@ u'(-0.633, 0.81]', u'(0.81, 2.254]', u'(2.254, 3.698]'],
 dtype='object')
 ```
 
-Each item in the index represents the range of values that the data has been mapped into. As previously stated, the width of the bins is determined by evenly dividing the data into five equal intervals, with the caveat that pandas automatically increases the overall range by 0.1 percent to ensure that all points are included. To exemplify, we can verify the calculated ranges as follows: 
+Each item in the index represents the range of values that the data has been mapped into. As previously stated, the width of the bins is determined by evenly dividing the data into five equal intervals, with the caveat that pandas automatically increases the overall range by 0.1 percent to ensure that all points are included. To exemplify, we can verify the calculated ranges as follows:
 
 ```
 In [52]:
@@ -13906,7 +13600,7 @@ Out[52]:
 -0.63341235,  0.81031951,  2.25405137, 3.69778323])
 ```
 
-The `.codes` property is an array that specifies which of the bins (intervals) each item has been assigned: 
+The `.codes` property is an array that specifies which of the bins (intervals) each item has been assigned:
 
 ```
 In [53]:
@@ -13919,7 +13613,7 @@ Out[53]:
    array([2, 2, 1, ..., 2, 1, 2], dtype=int8)
 ```
 
-The notation for the intervals follows standard mathematical intervals where a parenthesis represents that the end is open while square brackets are closed. Closed ends include values at that exact number. By default, pandas closes the right-hand side of intervals. The closed end can be moved to the left-hand side of the interval using the `right=False` option in `pd.cut()` : 
+The notation for the intervals follows standard mathematical intervals where a parenthesis represents that the end is open while square brackets are closed. Closed ends include values at that exact number. By default, pandas closes the right-hand side of intervals. The closed end can be moved to the left-hand side of the interval using the `right=False` option in `pd.cut()` :
 
 ```
 In [54]:
@@ -13937,7 +13631,7 @@ u'[-0.633, 0.81)', u'[0.81, 2.254)', u'[2.254, 3.705)'],
 dtype='object')
 ```
 
-Instead of passing an integer number of bins to cut data into, you can pass an array of values that represent the bins. A common example of this scenario involves mapping ages into age range buckets. The following generates `50` ages between `6` and `45` : 
+Instead of passing an integer number of bins to cut data into, you can pass an array of values that represent the bins. A common example of this scenario involves mapping ages into age range buckets. The following generates `50` ages between `6` and `45` :
 
 ```
 In [55]:
@@ -13958,7 +13652,7 @@ Out[55]:
 37, 10,  7, 10, 23])
 ```
 
-We can specify specific ranges for the bins by passing them in an array where the extent of each bin is specified by each set of adjacent integers. The following cuts the data into the specified bins and reports the distribution of the ages to each bin using the `.describe()` method of the `pd.cut()` result: 
+We can specify specific ranges for the bins by passing them in an array where the extent of each bin is specified by each set of adjacent integers. The following cuts the data into the specified bins and reports the distribution of the ages to each bin using the `.describe()` method of the `pd.cut()` result:
 
 ```
 In [56]:
@@ -13979,9 +13673,7 @@ Out[56]:
 |**`(18, 35]`**|**`21   0.42`**|
 |**`(35, 50]`**|**`12   0.24`**|
 
-
-
-To specify a name for each bin that is different than the standard mathematical notation, use the `labels` property: 
+To specify a name for each bin that is different than the standard mathematical notation, use the `labels` property:
 
 ```
 In [57]:
@@ -14001,19 +13693,17 @@ Out[57]:
 |**`categories`**||
 |**`Youth`**|**`8   0.16`**|
 
-
-
 ```
    Young Adult       9   0.18
    Adult            21   0.42
    Middle Aged      12   0.24
 ```
 
-This is not only convenient here, but also when plotting the bins, as pandas will pass the bin names to be plotted on a chart. 
+This is not only convenient here, but also when plotting the bins, as pandas will pass the bin names to be plotted on a chart.
 
-Data can also be sliced according to specified quantiles using `pd.qcut()` . This is the process of placing values into bins such that each bin has the same number of items. To do this, the ranges of the quantiles must be determined during the process, so that the distribution is even. 
+Data can also be sliced according to specified quantiles using `pd.qcut()` . This is the process of placing values into bins such that each bin has the same number of items. To do this, the ranges of the quantiles must be determined during the process, so that the distribution is even.
 
-The following code splits the random values from earlier into `5` quantile bins, where each bin will have the same number of items allocated to it: 
+The following code splits the random values from earlier into `5` quantile bins, where each bin will have the same number of items allocated to it:
 
 ```
 In [58]:
@@ -14036,9 +13726,7 @@ Out[58]:
 |**`(0.261, 0.866]`**|**`2000    0.2`**|
 |**`(0.866, 3.698]`**|**`2000    0.2`**|
 
-
-
-Instead of an integer number of bins, you can also specify your own quantile ranges. The following allocates ranges based on +/- `3` , `2` , and `1` standard deviations. As this is normally distributed data, we would expect 0.1 percent, 2.1 percent, 13.6 percent, and 34.1 percent of the values on each side of the mean: 
+Instead of an integer number of bins, you can also specify your own quantile ranges. The following allocates ranges based on +/- `3` , `2` , and `1` standard deviations. As this is normally distributed data, we would expect 0.1 percent, 2.1 percent, 13.6 percent, and 34.1 percent of the values on each side of the mean:
 
 ```
 In [59]:
@@ -14079,19 +13767,19 @@ Out[59]:
    (3.0619, 3.698]          10  0.001
 ```
 
-These are exactly the results we expect from this distribution. 
+These are exactly the results we expect from this distribution.
 
 # **Summary** 
 
-In this chapter, we examined various techniques for grouping and analyzing groups of data with pandas. An introduction to the split-apply-combine pattern for data analysis is given, along with an explanation of how this pattern is implemented in pandas. We also covered how to make transformations of grouped data and how to filter out groups of data based on results of functions that you can provide to pandas. Finally, we covered how to convert data into discrete intervals and analyze the results. 
+In this chapter, we examined various techniques for grouping and analyzing groups of data with pandas. An introduction to the split-apply-combine pattern for data analysis is given, along with an explanation of how this pattern is implemented in pandas. We also covered how to make transformations of grouped data and how to filter out groups of data based on results of functions that you can provide to pandas. Finally, we covered how to convert data into discrete intervals and analyze the results.
 
-In the next chapter, we will take what you learned up to this point and get into some of the most interesting capabilities of pandas (at least in my opinion): the analysis of time-series data. 
+In the next chapter, we will take what you learned up to this point and get into some of the most interesting capabilities of pandas (at least in my opinion): the analysis of time-series data.
 
 # **Chapter 10. Time-series Data** 
 
-A time series is a measurement of one or more variables over a period of time and at a specific interval. Once a time series is captured, analysis is often performed to identify patterns in the data, in essence, determining what is happening as time goes by. Being able to process time-series data is essential in the modern world, be it in order to analyze financial information or to monitor exercise on a wearable device and match your exercises to goals and diet. 
+A time series is a measurement of one or more variables over a period of time and at a specific interval. Once a time series is captured, analysis is often performed to identify patterns in the data, in essence, determining what is happening as time goes by. Being able to process time-series data is essential in the modern world, be it in order to analyze financial information or to monitor exercise on a wearable device and match your exercises to goals and diet.
 
-pandas provides extensive support for working with time-series data. When working with time-series data, you are frequently required to perform a number of tasks, such as the following: 
+pandas provides extensive support for working with time-series data. When working with time-series data, you are frequently required to perform a number of tasks, such as the following:
 
 - Converting string-based dates and time into objects 
 
@@ -14103,9 +13791,9 @@ pandas provides extensive support for working with time-series data. When workin
 
 - Shifting dates and time forward or backward by a given amount Calculating aggregate summaries of values as time changes 
 
-pandas provides abilities to handle all of these tasks (and more). In this chapter, we will examine each of these scenarios and see how to use pandas to address them. We will start with looking at how pandas represents dates and times differently than Python. Next, we look at how pandas can create indexes based on dates and time. We will then look at how pandas represents durations of time with `timedelta` and `Period` objects. We will then progress to examining calendars and time zones and how they can be used to facilitate various calculations. The chapter will finish with an examination of operations on time-series data, including shifts, up and down sampling, and moving-window calculations. 
+pandas provides abilities to handle all of these tasks (and more). In this chapter, we will examine each of these scenarios and see how to use pandas to address them. We will start with looking at how pandas represents dates and times differently than Python. Next, we look at how pandas can create indexes based on dates and time. We will then look at how pandas represents durations of time with `timedelta` and `Period` objects. We will then progress to examining calendars and time zones and how they can be used to facilitate various calculations. The chapter will finish with an examination of operations on time-series data, including shifts, up and down sampling, and moving-window calculations.
 
-Specifically, in this chapter, we will cover: 
+Specifically, in this chapter, we will cover:
 
 - Creating time series with specific frequencies 
 
@@ -14123,11 +13811,11 @@ Specifically, in this chapter, we will cover:
 
 - Up and down sampling 
 
-Time series moving-window operations 
+Time series moving-window operations
 
 # **Setting up the IPython notebook** 
 
-To utilize the examples in this chapter, we will need to include the following imports and settings: 
+To utilize the examples in this chapter, we will need to include the following imports and settings:
 
 ```
 In [1]:
@@ -14157,19 +13845,19 @@ In [1]:
 
 # **Representation of dates, time, and intervals** 
 
-pandas has extensive built-in capabilities to represent dates, time, and various intervals of time. Many of the calculations required to work with time-series data require both a richer and more accurate representation of the concepts of time than are provided in Python or NumPy. 
+pandas has extensive built-in capabilities to represent dates, time, and various intervals of time. Many of the calculations required to work with time-series data require both a richer and more accurate representation of the concepts of time than are provided in Python or NumPy.
 
-To address this, pandas provides its own representations of dates, time, time intervals, and periods. The pandas implementations provide additional capabilities that are required to model time-series data. These include capabilities such as being able to transform data across different frequencies to change the frequency of sampled data and to apply different calendars to take into account things such as business days and holidays in financial calculations. 
+To address this, pandas provides its own representations of dates, time, time intervals, and periods. The pandas implementations provide additional capabilities that are required to model time-series data. These include capabilities such as being able to transform data across different frequencies to change the frequency of sampled data and to apply different calendars to take into account things such as business days and holidays in financial calculations.
 
-We will examine several of the common constructs in both Python and pandas to represent dates, time, and combinations of both, as well as intervals of time. There are many details to each of these, so here, we will focus just on the parts and patterns involved with each that are important for the understanding of the examples in the remainder of the chapter. 
+We will examine several of the common constructs in both Python and pandas to represent dates, time, and combinations of both, as well as intervals of time. There are many details to each of these, so here, we will focus just on the parts and patterns involved with each that are important for the understanding of the examples in the remainder of the chapter.
 
 ## **The datetime, day, and time objects** 
 
-The `datetime` object is part of the `datetime` library and not a part of pandas. This class can be utilized to construct objects representing a fixed point in time at a specific date and time or simply a day without a time component or a time without a date component. 
+The `datetime` object is part of the `datetime` library and not a part of pandas. This class can be utilized to construct objects representing a fixed point in time at a specific date and time or simply a day without a time component or a time without a date component.
 
-With respect to pandas, the `datetime` objects do not have the accuracy needed for much of the mathematics involved in extensive calculations on time-series data. However, they are commonly used to initialize pandas objects with pandas converting them into pandas timestamp objects behind the scenes. Therefore, they are worth a brief mention here, as they will be used frequently during initialization. 
+With respect to pandas, the `datetime` objects do not have the accuracy needed for much of the mathematics involved in extensive calculations on time-series data. However, they are commonly used to initialize pandas objects with pandas converting them into pandas timestamp objects behind the scenes. Therefore, they are worth a brief mention here, as they will be used frequently during initialization.
 
-A `datetime` object can be initialized using a minimum of three parameters representing year, month, and day: 
+A `datetime` object can be initialized using a minimum of three parameters representing year, month, and day:
 
 ```
 In [2]:
@@ -14185,7 +13873,7 @@ Out[2]:
    datetime.datetime(2014, 12, 15, 0, 0)
 ```
 
-Notice that the result has defaulted two values to `0` , which represents the hour and minute. The hour and minute components can also be specified with two more values to the constructor. The following creates a `datetime` object that also specifies `5:30 p.m.` : 
+Notice that the result has defaulted two values to `0` , which represents the hour and minute. The hour and minute components can also be specified with two more values to the constructor. The following creates a `datetime` object that also specifies `5:30 p.m.` :
 
 ```
 In [3]:
@@ -14198,7 +13886,7 @@ Out[3]:
    datetime.datetime(2014, 12, 15, 17, 30)
 ```
 
-The current date and time can be determined using the `datetime.now()` function, which retrieves the local date and time: 
+The current date and time can be determined using the `datetime.now()` function, which retrieves the local date and time:
 
 ##### **`In [4]:`** 
 
@@ -14213,7 +13901,7 @@ Out[4]:
    datetime.datetime(2015, 3, 6, 11, 7, 51, 216921)
 ```
 
-A `datetime.date` object represents a specific day (no time). It can be created by passing a `datetime` object to the constructor: 
+A `datetime.date` object represents a specific day (no time). It can be created by passing a `datetime` object to the constructor:
 
 ##### **`In [5]:`** 
 
@@ -14228,7 +13916,7 @@ Out[5]:
    datetime.date(2014, 12, 15)
 ```
 
-To get the current local date, use the following: 
+To get the current local date, use the following:
 
 ```
 In [6]:
@@ -14244,7 +13932,7 @@ Out[6]:
    datetime.date(2015, 3, 6)
 ```
 
-A time without a date component can be represented by creating a `datetime.time` object by passing a `datetime` object to its constructor: 
+A time without a date component can be represented by creating a `datetime.time` object by passing a `datetime` object to its constructor:
 
 ```
 In [7]:
@@ -14257,7 +13945,7 @@ Out[7]:
    datetime.time(17, 30)
 ```
 
-The current local time can be retrieved using the following: 
+The current local time can be retrieved using the following:
 
 ```
 In [8]:
@@ -14275,9 +13963,9 @@ Out[8]:
 
 ## **Timestamp objects** 
 
-Specific dates and times in pandas are represented using the `pandas.tslib.Timestamp` class. Timestamp is based on the `datetime64` dtype and has higher precision than the Python `datetime` object. Timestamp objects are generally interchangeable with `datetime` objects, so you can typically use them wherever you may use `datetime` objects. 
+Specific dates and times in pandas are represented using the `pandas.tslib.Timestamp` class. Timestamp is based on the `datetime64` dtype and has higher precision than the Python `datetime` object. Timestamp objects are generally interchangeable with `datetime` objects, so you can typically use them wherever you may use `datetime` objects.
 
-You can create a `Timestamp` object using `pd.Timestamp` (a shortcut for `pandas.tslib.Timestamp` ) and by passing a string representing a date, time, or date and time: 
+You can create a `Timestamp` object using `pd.Timestamp` (a shortcut for `pandas.tslib.Timestamp` ) and by passing a string representing a date, time, or date and time:
 
 ```
 In [9]:
@@ -14293,7 +13981,7 @@ Out[9]:
    Timestamp('2014-12-15 00:00:00')
 ```
 
-A time element can also be specified, as shown here: 
+A time element can also be specified, as shown here:
 
 ##### **`In [10]:`** 
 
@@ -14310,7 +13998,7 @@ Out[10]:
    Timestamp('2014-12-15 17:30:00')
 ```
 
-`Timestamp` can be created using just a time, which will default to also assigning the current local date: 
+`Timestamp` can be created using just a time, which will default to also assigning the current local date:
 
 ```
 In [11]:
@@ -14326,7 +14014,7 @@ Out[11]:
    Timestamp('2015-03-06 17:30:00')
 ```
 
-The following demonstrates how to retrieve the current date and time using `Timestamp` : 
+The following demonstrates how to retrieve the current date and time using `Timestamp` :
 
 ```
 In [12]:
@@ -14345,15 +14033,15 @@ Out[12]:
    Timestamp('2015-03-06 11:07:51.254386')
 ```
 
-Normally, as a pandas user, you will not create `Timestamp` objects directly. Many of the pandas functions that use dates and times will allow you to pass in a `datetime` object or a text representation of a date/time and the functions will perform the conversion internally. 
+Normally, as a pandas user, you will not create `Timestamp` objects directly. Many of the pandas functions that use dates and times will allow you to pass in a `datetime` object or a text representation of a date/time and the functions will perform the conversion internally.
 
 ## **Timedelta** 
 
-A difference between two pandas `Timestamp` objects is represented by a `timedelta` object, which is a representation of an exact difference in time. These are common as results of determining the duration between two dates 
+A difference between two pandas `Timestamp` objects is represented by a `timedelta` object, which is a representation of an exact difference in time. These are common as results of determining the duration between two dates
 
-or to calculate the date at a specific interval of time from another date and/or time. 
+or to calculate the date at a specific interval of time from another date and/or time.
 
-To demonstrate, the following uses a `timedelta` object to calculate a oneday increase in the time from the specified date: 
+To demonstrate, the following uses a `timedelta` object to calculate a oneday increase in the time from the specified date:
 
 ```
 In [13]:
@@ -14368,7 +14056,7 @@ Out[13]:
    datetime.datetime(2014, 12, 1, 0, 0)
 ```
 
-The following demonstrates how to calculate how many days there are between two dates: 
+The following demonstrates how to calculate how many days there are between two dates:
 
 ```
 In [14]:
@@ -14385,17 +14073,17 @@ Out[14]:
 
 # **Introducing time-series data** 
 
-Due to its roots in finance, pandas excels in manipulating time-series data. Its abilities have been continuously refined over all of its versions to progressively increase its capabilities for time-series manipulation. These capabilities are the core of pandas and do not require additional libraries, unlike R, which requires the inclusion of Zoo to provide this functionality. 
+Due to its roots in finance, pandas excels in manipulating time-series data. Its abilities have been continuously refined over all of its versions to progressively increase its capabilities for time-series manipulation. These capabilities are the core of pandas and do not require additional libraries, unlike R, which requires the inclusion of Zoo to provide this functionality.
 
-The core of the time-series functionality in pandas revolves around the use of specialized indexes that represent measurements of data at one or more timestamps. These indexes in pandas are referred to as `DatetimeIndex` objects. These are incredibly powerful objects, and their being core to pandas provides the ability to automatically align data based on dates and time, making working with sequences of data collected and time-stamped as easy as with any other type of indexes. 
+The core of the time-series functionality in pandas revolves around the use of specialized indexes that represent measurements of data at one or more timestamps. These indexes in pandas are referred to as `DatetimeIndex` objects. These are incredibly powerful objects, and their being core to pandas provides the ability to automatically align data based on dates and time, making working with sequences of data collected and time-stamped as easy as with any other type of indexes.
 
-We will now examine how to create time-series data and `DatetimeIndex` objects both using explicit timestamp objects and using specific durations of time (referred to in pandas as frequencies). 
+We will now examine how to create time-series data and `DatetimeIndex` objects both using explicit timestamp objects and using specific durations of time (referred to in pandas as frequencies).
 
 ## **DatetimeIndex** 
 
-Sequences of `timestamp` objects are represented by pandas as `DatetimeIndex` , which is a type of pandas index that is optimized for indexing by date and time. 
+Sequences of `timestamp` objects are represented by pandas as `DatetimeIndex` , which is a type of pandas index that is optimized for indexing by date and time.
 
-There are several ways to create `DatetimeIndex` objects in pandas. The following creates a `DateTimeindex` by passing a list of `datetime` objects as `Series` : 
+There are several ways to create `DatetimeIndex` objects in pandas. The following creates a `DateTimeindex` by passing a list of `datetime` objects as `Series` :
 
 ```
 In [15]:
@@ -14416,9 +14104,9 @@ Out[15]:
    dtype: float64
 ```
 
-`Series` has taken the `datetime` objects and constructed a `DatetimeIndex` from the date values, where each value of `DatetimeIndex` is a `Timestamp` object. This is one of the cases where pandas directly constructs `Timestamp` objects on your behalf. 
+`Series` has taken the `datetime` objects and constructed a `DatetimeIndex` from the date values, where each value of `DatetimeIndex` is a `Timestamp` object. This is one of the cases where pandas directly constructs `Timestamp` objects on your behalf.
 
-The following verifies the type of the index and the types of the labels in the index: 
+The following verifies the type of the index and the types of the labels in the index:
 
 ```
 In [16]:
@@ -14442,7 +14130,7 @@ Out[17]:
    pandas.tslib.Timestamp
 ```
 
-It is not required that you pass `datetime` objects in the list to create a time series. The Series object is smart enough to recognize that a string represents `datetime` and does the conversion for you. The following is equivalent to the previous example: 
+It is not required that you pass `datetime` objects in the list to create a time series. The Series object is smart enough to recognize that a string represents `datetime` and does the conversion for you. The following is equivalent to the previous example:
 
 ```
 In [18]:
@@ -14460,9 +14148,9 @@ Out[18]:
    dtype: float64
 ```
 
-pandas provides a utility function in `pd.to_datetime()` . This function takes a sequence of similar- or mixed-type objects and pandas attempts to convert 
+pandas provides a utility function in `pd.to_datetime()` . This function takes a sequence of similar- or mixed-type objects and pandas attempts to convert
 
-each into `Timestamp` and the collection of these timestamps into `DatetimeIndex` . If an object in the sequence cannot be converted, then `NaT` , representing not-a-time will be returned at the position in the index: 
+each into `Timestamp` and the collection of these timestamps into `DatetimeIndex` . If an object in the sequence cannot be converted, then `NaT` , representing not-a-time will be returned at the position in the index:
 
 ```
 In [19]:
@@ -14478,7 +14166,7 @@ In [19]:
    NaT
 ```
 
-Be careful, as the `pd.to_datetime()` function will, by default, fall back to returning a NumPy array of objects instead of `DatetimeIndex` if it cannot parse a value to `Timestamp` : 
+Be careful, as the `pd.to_datetime()` function will, by default, fall back to returning a NumPy array of objects instead of `DatetimeIndex` if it cannot parse a value to `Timestamp` :
 
 ```
 In [20]:
@@ -14491,7 +14179,7 @@ Out[20]:
    array(['Aug 1, 2014', 'foo'], dtype=object)
 ```
 
-To force the function to convert to dates, you can use the `coerce=True` parameter. Values that cannot be converted will be assigned `NaT` in the resulting index: 
+To force the function to convert to dates, you can use the `coerce=True` parameter. Values that cannot be converted will be assigned `NaT` in the resulting index:
 
 ```
 In [21]:
@@ -14506,7 +14194,7 @@ Out[21]:
    Length: 2, Freq: None, Timezone: None
 ```
 
-A range of timestamps at a specific frequency can be easily created using the `pd.date_range()` function. The following creates a `Series` object from `DatetimeIndex` of `10` consecutive days: 
+A range of timestamps at a specific frequency can be easily created using the `pd.date_range()` function. The following creates a `Series` object from `DatetimeIndex` of `10` consecutive days:
 
 ```
 In [22]:
@@ -14536,7 +14224,7 @@ Out[22]:
    Freq: D, dtype: float64
 ```
 
-Like any pandas index, `DatetimeIndex` can be used for various index operations, such as data alignment, selection, and slicing. The following demonstrates slicing using index locations: 
+Like any pandas index, `DatetimeIndex` can be used for various index operations, such as data alignment, selection, and slicing. The following demonstrates slicing using index locations:
 
 ```
 In [23]:
@@ -14554,7 +14242,7 @@ Out[23]:
    Freq: D, dtype: float64
 ```
 
-To demonstrate, we will use the following `Series` created with the index of the subset we just created: 
+To demonstrate, we will use the following `Series` created with the index of the subset we just created:
 
 ```
 In [24]:
@@ -14575,7 +14263,7 @@ Out[24]:
    Freq: D, dtype: int64
 ```
 
-When we add `s2` and `date_series` , alignment will be performed, returning `NaN` where items do not align and the sum of the two values where they align: 
+When we add `s2` and `date_series` , alignment will be performed, returning `NaN` where items do not align and the sum of the two values where they align:
 
 ```
 In [25]:
@@ -14604,7 +14292,7 @@ Out[25]:
    Freq: D, dtype: float64
 ```
 
-Items in `Series` with `DatetimeIndex` can be retrieved using a string representing a date instead having to specify a `datetime` object: 
+Items in `Series` with `DatetimeIndex` can be retrieved using a string representing a date instead having to specify a `datetime` object:
 
 ```
 In [26]:
@@ -14623,7 +14311,7 @@ Out[26]:
    1.2121120250208506
 ```
 
-`DatetimeIndex` can also be indexed and sliced using a string that represents a date or using `datetime` objects: 
+`DatetimeIndex` can also be indexed and sliced using a string that represents a date or using `datetime` objects:
 
 ##### **`In [27]:`** 
 
@@ -14644,7 +14332,7 @@ Out[27]:
    Freq: D, dtype: float64
 ```
 
-Another convenient feature of pandas is that `DatetimeIndex` can be sliced using partial date specifications. As an example, the following code creates a `Series` object with dates spanning two years and then selects only those items of the year 2013: 
+Another convenient feature of pandas is that `DatetimeIndex` can be sliced using partial date specifications. As an example, the following code creates a `Series` object with dates spanning two years and then selects only those items of the year 2013:
 
 ```
 In [28]:
@@ -14666,7 +14354,7 @@ Out[28]:
    Freq: D, Length: 365
 ```
 
-We can also select items only in a specific year and month. This is demonstrated by the following, which selects the items in August 2014: 
+We can also select items only in a specific year and month. This is demonstrated by the following, which selects the items in August 2014:
 
 ```
 In [29]:
@@ -14686,7 +14374,7 @@ Out[29]:
    Freq: D, Length: 31
 ```
 
-We can slice data contained within two specified months, as demonstrated by the following, which returns items in August and September, 2014: 
+We can slice data contained within two specified months, as demonstrated by the following, which returns items in August and September, 2014:
 
 ```
 In [30]:
@@ -14708,9 +14396,9 @@ Out[30]:
 
 ## **Creating time-series data with specific frequencies** 
 
-Time-series data in pandas can be created on intervals other than daily frequency. Different frequencies can be generated with `pd.date_range()` by utilizing the `freq` parameter. This parameter defaults to a value of `'D'` , which represents daily frequency. 
+Time-series data in pandas can be created on intervals other than daily frequency. Different frequencies can be generated with `pd.date_range()` by utilizing the `freq` parameter. This parameter defaults to a value of `'D'` , which represents daily frequency.
 
-To demonstrate alternative frequencies, the following creates a `DatetimeIndex` with 1-minute intervals between the two specified dates by specifying `freq='T'` : 
+To demonstrate alternative frequencies, the following creates a `DatetimeIndex` with 1-minute intervals between the two specified dates by specifying `freq='T'` :
 
 ```
 In [31]:
@@ -14732,7 +14420,7 @@ In [31]:
    Freq: T, Length: 129600
 ```
 
-This time series allows us to slice at a finer resolution, down to the minute and smaller intervals if using finer frequencies. To demonstrate minutelevel slicing, the following slices the values at 9 consecutive minutes: 
+This time series allows us to slice at a finer resolution, down to the minute and smaller intervals if using finer frequencies. To demonstrate minutelevel slicing, the following slices the values at 9 consecutive minutes:
 
 ```
 In [32]:
@@ -14756,9 +14444,7 @@ Out[32]:
 |**`2014-08-01`**|**`00:10:00   -0.494929`**|
 |**`Freq: T, dt`**|**`ype: float64`**|
 
-
-
-The following table lists the possible frequency values: 
+The following table lists the possible frequency values:
 
 |**Alia**<br>**s**|**Description**|
 |---|---|
@@ -14768,8 +14454,6 @@ The following table lists the possible frequency values:
 |`W`|Weekly frequency|
 |`M`|Month end frequency|
 |`BM`|Business month end frequency|
-
-
 
 |**Alia**<br>**s**|**Description**|
 |---|---|
@@ -14787,8 +14471,6 @@ The following table lists the possible frequency values:
 |`BAS`|Business year start frequency|
 |`H`|Hourly frequency|
 
-
-
 |**Alia**<br>**s**|**Description**|
 |---|---|
 |`T`|Minute-by-minute frequency|
@@ -14796,9 +14478,7 @@ The following table lists the possible frequency values:
 |`L`|Milliseconds|
 |`U`|Microseconds|
 
-
-
-As an example, if you want to generate a time series that uses only business days, then use the `'B'` frequency: 
+As an example, if you want to generate a time series that uses only business days, then use the `'B'` frequency:
 
 ```
 In [33]:
@@ -14816,9 +14496,9 @@ In [33]:
    2014-09-05 00:00:00
 ```
 
-In this time series, we can see that two days were skipped as they were on the weekend, which would not have occurred using a calendar-day frequency. 
+In this time series, we can see that two days were skipped as they were on the weekend, which would not have occurred using a calendar-day frequency.
 
-A range can be created starting at a particular date and time with a specific frequency and for a specific number of periods using the `periods` parameter. To demonstrate, the following creates a 10-item `DatetimeIndex` starting at `2014-08-01 12:10:01` and at 1-second intervals: 
+A range can be created starting at a particular date and time with a specific frequency and for a specific number of periods using the `periods` parameter. To demonstrate, the following creates a 10-item `DatetimeIndex` starting at `2014-08-01 12:10:01` and at 1-second intervals:
 
 ```
 In [34]:
@@ -14838,19 +14518,19 @@ Out[34]:
 
 # **Calculating new dates using offsets** 
 
-Frequencies in pandas are represented using date offsets. We have touched on this concept at the beginning of the chapter when discussing `Timedelta` objects. pandas extends the capabilities of these using the concept of `DateOffset` objects, which represent knowledge of how to integrate time offsets and frequencies relative to `DatetimeIndex` objects. 
+Frequencies in pandas are represented using date offsets. We have touched on this concept at the beginning of the chapter when discussing `Timedelta` objects. pandas extends the capabilities of these using the concept of `DateOffset` objects, which represent knowledge of how to integrate time offsets and frequencies relative to `DatetimeIndex` objects.
 
-We will examine how pandas uses date offsetting in two different ways. The first calculates offsets of a specific duration from a given date, and the other calculates offsets based on what are referred to as anchored offsets. 
+We will examine how pandas uses date offsetting in two different ways. The first calculates offsets of a specific duration from a given date, and the other calculates offsets based on what are referred to as anchored offsets.
 
 ## **Date offsets** 
 
-`DatetimeIndex` objects are created at various frequencies by passing in frequency strings, such as `'M'` , `'W'` , and `'BM'` to the `freq` parameter of `pd.date_range()` . Under the hood, these frequency strings are translated into an instance of the pandas `DateOffset` object, which is associated with the frequency of the index. 
+`DatetimeIndex` objects are created at various frequencies by passing in frequency strings, such as `'M'` , `'W'` , and `'BM'` to the `freq` parameter of `pd.date_range()` . Under the hood, these frequency strings are translated into an instance of the pandas `DateOffset` object, which is associated with the frequency of the index.
 
-`DateOffset` represents a regular frequency increment. Specific date offset logic, such as "month", "business day", or "hour", is represented in pandas with various subclasses of `DateOffset` . A `DateOffset` provides pandas with the intelligence to be able to determine how to calculate a specific interval of time from a reference date and time. 
+`DateOffset` represents a regular frequency increment. Specific date offset logic, such as "month", "business day", or "hour", is represented in pandas with various subclasses of `DateOffset` . A `DateOffset` provides pandas with the intelligence to be able to determine how to calculate a specific interval of time from a reference date and time.
 
-The use of `DatetimeIndex` and `DateOffset` objects provides the user of pandas great flexibility in calculating a new date/time from another using an offset other than one that represents a fixed period of time. A practical example would be to calculate the next day of business. This is not simply determined by adding one day to `datetime` . If a date represents a Friday, the next business day in the US financial market is not Saturday but Monday. In some cases, one business day from a Friday may actually be Tuesday if Monday is a holiday. pandas gives us all the tools required to handle these scenarios. 
+The use of `DatetimeIndex` and `DateOffset` objects provides the user of pandas great flexibility in calculating a new date/time from another using an offset other than one that represents a fixed period of time. A practical example would be to calculate the next day of business. This is not simply determined by adding one day to `datetime` . If a date represents a Friday, the next business day in the US financial market is not Saturday but Monday. In some cases, one business day from a Friday may actually be Tuesday if Monday is a holiday. pandas gives us all the tools required to handle these scenarios.
 
-We can start to examine the use of date offsets by generating a date range using `'B'` as the frequency, which will return a sequence of dates between the specified dates—but only dates that are considered business days during that interval: 
+We can start to examine the use of date offsets by generating a date range using `'B'` as the frequency, which will return a sequence of dates between the specified dates—but only dates that are considered business days during that interval:
 
 ```
 In [35]:
@@ -14868,9 +14548,9 @@ Out[35]:
 dtype='datetime64[ns]')
 ```
 
-This time series has omitted `2014-08-30` and `2014-08-30` , as they are Saturday and Sunday and not considered a business day. 
+This time series has omitted `2014-08-30` and `2014-08-30` , as they are Saturday and Sunday and not considered a business day.
 
-`DatetimeIndex` has a `.freq` property that represents the frequency of the timestamps in the index: 
+`DatetimeIndex` has a `.freq` property that represents the frequency of the timestamps in the index:
 
 ```
 In [36]:
@@ -14883,9 +14563,9 @@ Out[36]:
    <BusinessDay>
 ```
 
-Notice that pandas has created an instance of the `BusinessDay` class to represent the `DateOffset` unit of this index. As mentioned earlier, pandas represents different date offsets with a subclass of the `DateOffset` class. The following are the various built-in date offset classes that are provided by pandas: 
+Notice that pandas has created an instance of the `BusinessDay` class to represent the `DateOffset` unit of this index. As mentioned earlier, pandas represents different date offsets with a subclass of the `DateOffset` class. The following are the various built-in date offset classes that are provided by pandas:
 
-**Class Description** 
+**Class Description**
 
 |**Class**|**Description**|
 |---|---|
@@ -14904,8 +14584,6 @@ Notice that pandas has created an instance of the `BusinessDay` class to represe
 |`QuarterEnd`|Quarter end|
 |`QuarterBegin`|Quarter start|
 
-
-
 |**Class**|**Description**|
 |---|---|
 |`BQuarterEnd`|Business quarter end|
@@ -14922,11 +14600,9 @@ Notice that pandas has created an instance of the `BusinessDay` class to represe
 |`Milli`|One millisecond|
 |`Micro`|One microsecond|
 
+pandas takes this strategy of using `DateOffset` and its specializations to codify logic to calculate the next `datetime` from another `datetime` . This
 
-
-pandas takes this strategy of using `DateOffset` and its specializations to codify logic to calculate the next `datetime` from another `datetime` . This 
-
-makes using these objects very flexible as well as powerful. `DateOffset` objects can be used in various scenarios, including the following: 
+makes using these objects very flexible as well as powerful. `DateOffset` objects can be used in various scenarios, including the following:
 
 - They can be added/subtracted to/from a `datetime` object to obtain a shifted date 
 
@@ -14934,9 +14610,9 @@ makes using these objects very flexible as well as powerful. `DateOffset` object
 
 - They have `rollforward` and `rollback` methods to move a date forward or backward to the next or previous "offset date" 
 
-`DateOffset` objects can be created by passing them a `datetime` object that represents a fixed duration of time or using a number of keyword arguments. Keyword arguments fall into two general categories. The first category is keywords that represent absolute dates: year, month, day, hour, minute, second, and microsecond. The second category represents relative durations and can be negative values: years, months, weeks, day, hours, minutes, seconds, and microseconds. 
+`DateOffset` objects can be created by passing them a `datetime` object that represents a fixed duration of time or using a number of keyword arguments. Keyword arguments fall into two general categories. The first category is keywords that represent absolute dates: year, month, day, hour, minute, second, and microsecond. The second category represents relative durations and can be negative values: years, months, weeks, day, hours, minutes, seconds, and microseconds.
 
-The following creates a 1-day offset and adds it to `datetime` : 
+The following creates a 1-day offset and adds it to `datetime` :
 
 ```
 In [37]:
@@ -14954,7 +14630,7 @@ Out[37]:
    Timestamp('2014-08-30 00:00:00')
 ```
 
-The following calculates the next business day from a given date: 
+The following calculates the next business day from a given date:
 
 ```
 In [38]:
@@ -14975,7 +14651,7 @@ Out[38]:
    Timestamp('2014-09-01 00:00:00')
 ```
 
-Multiple units of a specific `DateOffset` can be used using multiplication: 
+Multiple units of a specific `DateOffset` can be used using multiplication:
 
 ##### **`In [39]:`** 
 
@@ -14990,7 +14666,7 @@ Multiple units of a specific `DateOffset` can be used using multiplication:
    Timestamp('2014-09-02 00:00:00')
 ```
 
-The following demonstrates using a `BMonthEnd` object to calculate the last business day of a month from a given date (in this case, `2014-09-02` ): 
+The following demonstrates using a `BMonthEnd` object to calculate the last business day of a month from a given date (in this case, `2014-09-02` ):
 
 ##### **`In [40]:`** 
 
@@ -15005,7 +14681,7 @@ Out[40]:
    Timestamp('2014-09-30 00:00:00')
 ```
 
-The following uses the `BMonthEnd` objects' . `rollforward()` method to calculate the next month end: 
+The following uses the `BMonthEnd` objects' . `rollforward()` method to calculate the next month end:
 
 ##### **`In [41]:`** 
 
@@ -15017,7 +14693,7 @@ The following uses the `BMonthEnd` objects' . `rollforward()` method to calculat
    Timestamp('2014-09-30 00:00:00')
 ```
 
-Several of the offset classes can be parameterized to provide finer control of the offset behavior. As an example, the following calculates the date of the Tuesday ( `weekday = 1` ) in the week prior to `2014-08-31` : 
+Several of the offset classes can be parameterized to provide finer control of the offset behavior. As an example, the following calculates the date of the Tuesday ( `weekday = 1` ) in the week prior to `2014-08-31` :
 
 ```
 In [42]:
@@ -15032,9 +14708,9 @@ Out[42]:
 
 ## **Anchored offsets** 
 
-pandas also supports the concept of anchored offsets, which are frequencies that can be specified using a specific suffix. One version of anchored offsets 
+pandas also supports the concept of anchored offsets, which are frequencies that can be specified using a specific suffix. One version of anchored offsets
 
-allows you to specify weekly intervals that fall on a specific day of the week. These aliases are of this form: 
+allows you to specify weekly intervals that fall on a specific day of the week. These aliases are of this form:
 
 |**Alias Description**|
 |---|
@@ -15046,9 +14722,7 @@ allows you to specify weekly intervals that fall on a specific day of the week. 
 |`W-FRI`Weekly on Friday|
 |`W-SAT`Weekly on Saturday|
 
-
-
-As an example, the following generates an index that consists of the dates of all Wednesdays between the two specified dates: 
+As an example, the following generates an index that consists of the dates of all Wednesdays between the two specified dates:
 
 ```
 In [43]:
@@ -15083,9 +14757,9 @@ Out[43]:
 dtype='datetime64[ns]')
 ```
 
-Anchored offsets can also be created using the annual and quarterly frequencies. These frequency anchors are of the general form `[B][A|Q][S][MON]` , where `B` (business days) and `S` (start of period instead end) are optional, `A` is for annual or `Q` for quarterly, and `MON` is the three-digit abbreviation for the month ( `JAN` , `FEB` , ...). 
+Anchored offsets can also be created using the annual and quarterly frequencies. These frequency anchors are of the general form `[B][A|Q][S][MON]` , where `B` (business days) and `S` (start of period instead end) are optional, `A` is for annual or `Q` for quarterly, and `MON` is the three-digit abbreviation for the month ( `JAN` , `FEB` , ...).
 
-To demonstrate, the following generates the business dates for quarter end in the year 2014 with the year anchored at the end of June: 
+To demonstrate, the following generates the business dates for quarter end in the year 2014 with the year anchored at the end of June:
 
 ```
 In [44]:
@@ -15107,23 +14781,23 @@ Out[44]:
 
 ## **Representing durations of time using Period objects** 
 
-Many useful mathematical operations on time-series data require that events within a specific time interval be analyzed. A simple example would be to determine how many financial transactions occurred in a specific period. 
+Many useful mathematical operations on time-series data require that events within a specific time interval be analyzed. A simple example would be to determine how many financial transactions occurred in a specific period.
 
-This can be performed using `Timestamp` and `DateOffset` , where the bounds are calculated and then items filtered based on these bounds. However, this becomes cumbersome when you need to deal with events that must be 
+This can be performed using `Timestamp` and `DateOffset` , where the bounds are calculated and then items filtered based on these bounds. However, this becomes cumbersome when you need to deal with events that must be
 
-grouped into multiple periods of time as you start to need to manage sets of the `Timestamp` and `DateOffset` objects. 
+grouped into multiple periods of time as you start to need to manage sets of the `Timestamp` and `DateOffset` objects.
 
-To facilitate these types of data organization and calculations, pandas makes intervals of time a formal construct using the `Period` class. pandas also formalizes series of `Period` objects using `PeriodIndex` , which provides capabilities of aligning data items based on the indexes' associated period objects. 
+To facilitate these types of data organization and calculations, pandas makes intervals of time a formal construct using the `Period` class. pandas also formalizes series of `Period` objects using `PeriodIndex` , which provides capabilities of aligning data items based on the indexes' associated period objects.
 
-We will look at the `Period` object and `PeriodIndex` in detail in the following subsections. 
+We will look at the `Period` object and `PeriodIndex` in detail in the following subsections.
 
 ## **The Period object** 
 
-pandas formalizes the concept of an interval of time using a `Period` object. `Period` allows you to specify durations based on frequencies such as daily, weekly, monthly, annually, quarterly, and so on, and it will provide a specific start and end `Timestamp` representing the specific bounded interval of time. 
+pandas formalizes the concept of an interval of time using a `Period` object. `Period` allows you to specify durations based on frequencies such as daily, weekly, monthly, annually, quarterly, and so on, and it will provide a specific start and end `Timestamp` representing the specific bounded interval of time.
 
-`Period` is created using a timestamp and a frequency (seen in the table earlier), where the timestamp represents the anchor used as a point of reference and the frequency is the duration of time. 
+`Period` is created using a timestamp and a frequency (seen in the table earlier), where the timestamp represents the anchor used as a point of reference and the frequency is the duration of time.
 
-To demonstrate, the following creates a period representing one month anchored in August 2014: 
+To demonstrate, the following creates a period representing one month anchored in August 2014:
 
 ```
 In [45]:
@@ -15138,7 +14812,7 @@ Out[45]:
    Period('2014-08', 'M')
 ```
 
-`Period` has `start_time` and `end_time` properties that inform us about the derived start and end times of `Period` : 
+`Period` has `start_time` and `end_time` properties that inform us about the derived start and end times of `Period` :
 
 ```
 In [46]:
@@ -15161,9 +14835,9 @@ Out[46]:
 23:59:59.999999999'))
 ```
 
-As we specified a period that is August 2014, pandas determines the anchor ( `start_time` ) and then calculates `end_time` based on the specified frequency. In this case, it calculates one month from `start_time` and returns the last unit of the prior time. 
+As we specified a period that is August 2014, pandas determines the anchor ( `start_time` ) and then calculates `end_time` based on the specified frequency. In this case, it calculates one month from `start_time` and returns the last unit of the prior time.
 
-Mathematical operations are overloaded on `Period` to calculate another `Period` based on the given value. The following creates a new `Period` object based on `aug2014` , which is shifted by `1` unit of its represented frequency (which is one month): 
+Mathematical operations are overloaded on `Period` to calculate another `Period` based on the given value. The following creates a new `Period` object based on `aug2014` , which is shifted by `1` unit of its represented frequency (which is one month):
 
 ```
 In [47]:
@@ -15185,9 +14859,9 @@ Out[47]:
    Period('2014-09', 'M')
 ```
 
-The concept of the shift is very important and powerful. The addition of `1` to this `Period` object informs it to shift in time one positive unit of whatever frequency is represented by the object. In this case, it shifts the period one month forward to September 2014. 
+The concept of the shift is very important and powerful. The addition of `1` to this `Period` object informs it to shift in time one positive unit of whatever frequency is represented by the object. In this case, it shifts the period one month forward to September 2014.
 
-If we examine the start and end times represented in the `sep2014` object, we see that pandas has gone through the effort of determining the correct dates representing the entirety of September 2014: 
+If we examine the start and end times represented in the `sep2014` object, we see that pandas has gone through the effort of determining the correct dates representing the entirety of September 2014:
 
 ```
 In [48]:
@@ -15203,13 +14877,13 @@ Out[48]:
 23:59:59.999999999'))
 ```
 
-Note that `Period` had the intelligence to know that September is 30 days and not 31. This is part of the incredible intelligence behind the `Period` object that saves us a lot of coding. It is not simply adding 30 days (in this example) but one unit frequency of the period. This helps solve many difficult date management problems. 
+Note that `Period` had the intelligence to know that September is 30 days and not 31. This is part of the incredible intelligence behind the `Period` object that saves us a lot of coding. It is not simply adding 30 days (in this example) but one unit frequency of the period. This helps solve many difficult date management problems.
 
 ## **PeriodIndex** 
 
-A series of `Period` objects can be combined into a special form of pandas index known as `PeriodIndex` . A `PeriodIndex` index is useful for being able to associate data to specific intervals of time and being able to slice and perform analysis on the events in each interval represented in `PeriodIndex` . 
+A series of `Period` objects can be combined into a special form of pandas index known as `PeriodIndex` . A `PeriodIndex` index is useful for being able to associate data to specific intervals of time and being able to slice and perform analysis on the events in each interval represented in `PeriodIndex` .
 
-The following code creates a `PeriodIndex` consisting of 1-month intervals for the year 2013: 
+The following code creates a `PeriodIndex` consisting of 1-month intervals for the year 2013:
 
 ```
 In [49]:
@@ -15226,7 +14900,7 @@ Out[49]:
    Length: 12, Freq: M
 ```
 
-`PeriodIndex` differs from `DatetimeIndex` in that the index labels are the `Period` objects. The following prints the start and end times for all the `Period` objects in the index: 
+`PeriodIndex` differs from `DatetimeIndex` in that the index labels are the `Period` objects. The following prints the start and end times for all the `Period` objects in the index:
 
 ```
 In [50]:
@@ -15252,9 +14926,9 @@ Out[50]:
    2013-12-01 00:00:00 2013-12-31 23:59:59.999999999
 ```
 
-pandas has conveniently determined the start and end of each month, taking into account the actual number of days in each specific month. 
+pandas has conveniently determined the start and end of each month, taking into account the actual number of days in each specific month.
 
-Using `PeriodIndex` , we can construct a `Series` object using it as the index and associate a value to each `Period` in the index: 
+Using `PeriodIndex` , we can construct a `Series` object using it as the index and associate a value to each `Period` in the index:
 
 ```
 In [51]:
@@ -15279,9 +14953,9 @@ Out[51]:
    Freq: M, Length: 12
 ```
 
-We now have a time series where the value at a specific index label represents a measurement that spans a period of time, such as the average value of a security in a given month instead of at a specific time. This becomes very useful when we perform the resampling of the time series to another frequency. 
+We now have a time series where the value at a specific index label represents a measurement that spans a period of time, such as the average value of a security in a given month instead of at a specific time. This becomes very useful when we perform the resampling of the time series to another frequency.
 
-Like `DatetimeIndex` , `PeriodIndex` can be used to index values using `Period` , a string representing a period or partial period specification. To demonstrate, we will create another series similar to the previous one but spanning two years, 2013 and 2014: 
+Like `DatetimeIndex` , `PeriodIndex` can be used to index values using `Period` , a string representing a period or partial period specification. To demonstrate, we will create another series similar to the previous one but spanning two years, 2013 and 2014:
 
 ```
 In [52]:
@@ -15309,7 +14983,7 @@ Out[52]:
    Freq: M, Length: 24
 ```
 
-Individual values can be selected using the specific index label using either a `Period` object or a string representing a period. The following demonstrates how to use a string representation: 
+Individual values can be selected using the specific index label using either a `Period` object or a string representing a period. The following demonstrates how to use a string representation:
 
 ```
 In [53]:
@@ -15322,7 +14996,7 @@ Out[53]:
    0.567020349793672
 ```
 
-Partial specifications can also be used, such as the following, which retrieves all values just for periods in `2014` : 
+Partial specifications can also be used, such as the following, which retrieves all values just for periods in `2014` :
 
 ```
 In [54]:
@@ -15342,7 +15016,7 @@ Out[54]:
    Freq: M, Length: 12
 ```
 
-Like any index in pandas, `PeriodIndex` can also be sliced. The following retrieves all values for periods between (and inclusive of) March and June 2014: 
+Like any index in pandas, `PeriodIndex` can also be sliced. The following retrieves all values for periods between (and inclusive of) March and June 2014:
 
 ```
 In [55]:
@@ -15364,11 +15038,11 @@ Out[55]:
 
 # **Handling holidays using calendars** 
 
-Earlier, when we calculated the next business day from August 29, 2014, we were told by pandas that this date is September 1, 2014. This is actually not correct in the United States: September 1, 2014 is a US federal holiday and banks and exchanges are closed on this day. The reason for this is that pandas uses a specific default calendar when calculating the next business day, and this default pandas calendar does not include September 1, 2014 as a holiday. 
+Earlier, when we calculated the next business day from August 29, 2014, we were told by pandas that this date is September 1, 2014. This is actually not correct in the United States: September 1, 2014 is a US federal holiday and banks and exchanges are closed on this day. The reason for this is that pandas uses a specific default calendar when calculating the next business day, and this default pandas calendar does not include September 1, 2014 as a holiday.
 
-The solution to this is to either create a custom calendar (which we will not get into the details of), or use the one custom calendar provided by pandas for just this situation, `USFederalHolidayCalendar` . This custom calendar can then be passed to a `CustomBusinessDay` object that will be used instead of a `BusinessDay` object. This calculation using this `CustomBusinessDay` object will then use the new calendar and take into account the US federal holidays. 
+The solution to this is to either create a custom calendar (which we will not get into the details of), or use the one custom calendar provided by pandas for just this situation, `USFederalHolidayCalendar` . This custom calendar can then be passed to a `CustomBusinessDay` object that will be used instead of a `BusinessDay` object. This calculation using this `CustomBusinessDay` object will then use the new calendar and take into account the US federal holidays.
 
-The following demonstrates the creation of a `USFederalCalendar` object and how to use it to report the days that it considers holidays: 
+The following demonstrates the creation of a `USFederalCalendar` object and how to use it to report the days that it considers holidays:
 
 ```
 In [56]:
@@ -15391,7 +15065,7 @@ In [56]:
    2014-12-25 00:00:00
 ```
 
-We can now use this calendar object to calculate the next business day from August 29, 2014: 
+We can now use this calendar object to calculate the next business day from August 29, 2014:
 
 ```
 In [57]:
@@ -15410,15 +15084,15 @@ Out[57]:
    Timestamp('2014-09-02 00:00:00')
 ```
 
-Note that instead of using a `BusinessDay` object, we used an instance of `CustomBusinessDay` and specified the holidays using `USFederalHolidayCalendar` . The resulting calculation now takes into account Labor Day not being a business day and returns the correct date of `2014-09-02` . 
+Note that instead of using a `BusinessDay` object, we used an instance of `CustomBusinessDay` and specified the holidays using `USFederalHolidayCalendar` . The resulting calculation now takes into account Labor Day not being a business day and returns the correct date of `2014-09-02` .
 
 # **Normalizing timestamps using time zones** 
 
-Time zone management can be one of the most complicated issues to deal with when working with time-series data. Data is often collected in different systems across the globe using local time, and at some point, it will require coordination with data collected in other time zones. 
+Time zone management can be one of the most complicated issues to deal with when working with time-series data. Data is often collected in different systems across the globe using local time, and at some point, it will require coordination with data collected in other time zones.
 
-Fortunately, pandas provides rich support for working with timestamps in different time zones. Under the covers, pandas utilizes the `pytz` and `dateutil` libraries to manage the time zone operations. The `dateutil` support is new as of pandas 0.14.1 and currently only supported for fixed offset and tzfile zones. The default library used by pandas is `pytz` , with support for `dateutil` provided for compatibility with other applications. 
+Fortunately, pandas provides rich support for working with timestamps in different time zones. Under the covers, pandas utilizes the `pytz` and `dateutil` libraries to manage the time zone operations. The `dateutil` support is new as of pandas 0.14.1 and currently only supported for fixed offset and tzfile zones. The default library used by pandas is `pytz` , with support for `dateutil` provided for compatibility with other applications.
 
-pandas objects that are time zone-aware support a `.tz` property. By default, pandas objects that are time zone-aware do not utilize a `timezone` object for purposes of efficiency. The following gets the current time and demonstrates that there is no time zone information by default: 
+pandas objects that are time zone-aware support a `.tz` property. By default, pandas objects that are time zone-aware do not utilize a `timezone` object for purposes of efficiency. The following gets the current time and demonstrates that there is no time zone information by default:
 
 ```
 In [58]:
@@ -15431,11 +15105,11 @@ In [58]:
    now, now.tz is None
 ```
 
-**`Out[58]: (Timestamp('2015-03-06 11:07:51.687326'), True)` Note** 
+**`Out[58]: (Timestamp('2015-03-06 11:07:51.687326'), True)` Note**
 
-This demonstrates that pandas treats `Timestamp("now")` as UTC by default but without time zone data. This is a good default, but be aware of this. In general, I find that if you are ever collecting data based on the time that will be stored for later access, or collected from multiple data sources, it is best to always localize to UTC. 
+This demonstrates that pandas treats `Timestamp("now")` as UTC by default but without time zone data. This is a good default, but be aware of this. In general, I find that if you are ever collecting data based on the time that will be stored for later access, or collected from multiple data sources, it is best to always localize to UTC.
 
-Likewise, `DatetimeIndex` and its `Timestamp` objects will not have associated time zone information by default: 
+Likewise, `DatetimeIndex` and its `Timestamp` objects will not have associated time zone information by default:
 
 ```
 In [59]:
@@ -15453,7 +15127,7 @@ Out[59]:
    (True, True)
 ```
 
-A list of common time zone names can be retrieved as shown in the following example. If you do a lot with time zone data, these will become very familiar: 
+A list of common time zone names can be retrieved as shown in the following example. If you do a lot with time zone data, these will become very familiar:
 
 ```
 In [60]:
@@ -15472,7 +15146,7 @@ Out[60]:
     'Africa/Asmara']
 ```
 
-The local UTC time can be found using the following, which utilizes the `.tz_localize()` method of `Timestamp` passing the `'UTC'` method: 
+The local UTC time can be found using the following, which utilizes the `.tz_localize()` method of `Timestamp` passing the `'UTC'` method:
 
 ```
 In [61]:
@@ -15491,7 +15165,7 @@ Out[61]:
     Timestamp('2015-03-06 11:07:51.750893+0000', tz='UTC'))
 ```
 
-Any `Timestamp` can be localized to a specific time zone by passing the time zone name to `.tz_localize()` : 
+Any `Timestamp` can be localized to a specific time zone by passing the time zone name to `.tz_localize()` :
 
 ```
 In [62]:
@@ -15505,7 +15179,7 @@ Out[62]:
    Timestamp('2014-08-01 12:00:00-0600', tz='US/Mountain')
 ```
 
-`DatetimeIndex` can be created with a specific time zone using the `tz` parameter of the `pd.date_range()` method: 
+`DatetimeIndex` can be created with a specific time zone using the `tz` parameter of the `pd.date_range()` method:
 
 ```
 In [63]:
@@ -15521,7 +15195,7 @@ Out[63]:
     <DstTzInfo 'US/Mountain' MST-1 day, 17:00:00 STD>)
 ```
 
-It is also possible to construct other time zones explicitly. This model can give you more control over which time zone is used in `.tz_localize()` . The following creates two different `timezone` objects and localizes a `Timestamp` to each: 
+It is also possible to construct other time zones explicitly. This model can give you more control over which time zone is used in `.tz_localize()` . The following creates two different `timezone` objects and localizes a `Timestamp` to each:
 
 ```
 In [64]:
@@ -15543,9 +15217,9 @@ tz='US/Mountain'),
 tz='US/Eastern'))
 ```
 
-Operations on multiple time-series objects will be aligned by `Timestamp` in their index by taking into account the time zone information. To demonstrate, we will use the following, which creates two `Series` objects 
+Operations on multiple time-series objects will be aligned by `Timestamp` in their index by taking into account the time zone information. To demonstrate, we will use the following, which creates two `Series` objects
 
-using the two `DatetimeIndex` objects, each with the same start, periods, and frequency but using different time zones: 
+using the two `DatetimeIndex` objects, each with the same start, periods, and frequency but using different time zones:
 
 ```
 In [65]:
@@ -15591,7 +15265,7 @@ Out[66]:
    Freq: H, dtype: int64
 ```
 
-The following demonstrates the alignment of these two `Series` objects by time zone by adding the two together: 
+The following demonstrates the alignment of these two `Series` objects by time zone by adding the two together:
 
 ```
 In [67]:
@@ -15618,7 +15292,7 @@ Out[67]:
    Freq: H, dtype: float64
 ```
 
-Once a time zone is assigned to an object, that object can be converted to another time zone using the `tz.convert()` method: 
+Once a time zone is assigned to an object, that object can be converted to another time zone using the `tz.convert()` method:
 
 ```
 In [68]:
@@ -15637,7 +15311,7 @@ Out[68]:
    Freq: H, dtype: int64
 ```
 
-Now if we add `s_pacific` to `s_mountain` , the alignment will force the same result: 
+Now if we add `s_pacific` to `s_mountain` , the alignment will force the same result:
 
 ```
 In [69]:
@@ -15663,17 +15337,17 @@ Out[69]:
 
 # **Manipulating time-series data** 
 
-We will now examine several common operations that are performed on time-series data. These operations entail realigning data, changing the frequency of the samples and their values, and calculating aggregate results on continuously moving subsets of the data to determine the behavior of the values in the data as time changes. We will examine each of the following: 
+We will now examine several common operations that are performed on time-series data. These operations entail realigning data, changing the frequency of the samples and their values, and calculating aggregate results on continuously moving subsets of the data to determine the behavior of the values in the data as time changes. We will examine each of the following:
 
-Shifting and lagging values to calculate percentage changes Changing the frequency of the data in the time series 
+Shifting and lagging values to calculate percentage changes Changing the frequency of the data in the time series
 
-Up and down sampling of the intervals and values in the time series Performing rolling-window calculations 
+Up and down sampling of the intervals and values in the time series Performing rolling-window calculations
 
 ## **Shifting and lagging** 
 
-A common operation on time-series data is to shift the values backward and forward in time. The pandas method for this is `.shift()` , which will shift values in `Series` or `DataFrame` a specified number of units of the index's frequency. 
+A common operation on time-series data is to shift the values backward and forward in time. The pandas method for this is `.shift()` , which will shift values in `Series` or `DataFrame` a specified number of units of the index's frequency.
 
-To demonstrate shifting, we will use the following `Series` . This `Series` has five values, is indexed by date starting at `2014-08-01` , and uses a daily frequency: 
+To demonstrate shifting, we will use the following `Series` . This `Series` has five values, is indexed by date starting at `2014-08-01` , and uses a daily frequency:
 
 ```
 In [70]:
@@ -15694,7 +15368,7 @@ Out[70]:
    Freq: D, dtype: float64
 ```
 
-The following shifts the values forward by `1` day: 
+The following shifts the values forward by `1` day:
 
 ```
 In [71]:
@@ -15712,9 +15386,9 @@ Out[71]:
    Freq: D, dtype: float64
 ```
 
-pandas has moved the values forward one unit of the index's frequency, which is one day. The index remains unchanged. There was no replacement data for `2014-08-01` , so it is filled with `NaN` . 
+pandas has moved the values forward one unit of the index's frequency, which is one day. The index remains unchanged. There was no replacement data for `2014-08-01` , so it is filled with `NaN` .
 
-A lag is a shift in a negative direction. The following lags the `Series` by `2` days: 
+A lag is a shift in a negative direction. The following lags the `Series` by `2` days:
 
 ```
 In [72]:
@@ -15732,9 +15406,9 @@ Out[72]:
    Freq: D, dtype: float64
 ```
 
-Index labels `2014-08-04` and `2014-08-03` now have `NaN` values as there were no items to replace. 
+Index labels `2014-08-04` and `2014-08-03` now have `NaN` values as there were no items to replace.
 
-A common calculation that is performed using a shift is to calculate the percentage daily change in values. This can be performed by dividing a `Series` object by its values shifted by `1` : 
+A common calculation that is performed using a shift is to calculate the percentage daily change in values. This can be performed by dividing a `Series` object by its values shifted by `1` :
 
 ```
 In [73]:
@@ -15755,7 +15429,7 @@ Out[73]:
    Freq: D, dtype: float64
 ```
 
-Shifts can be performed on different frequencies than that in the index. When this is performed, the index will be modified and the values remain the same. As an example, the following shifts the `Series` forward by one business day: 
+Shifts can be performed on different frequencies than that in the index. When this is performed, the index will be modified and the values remain the same. As an example, the following shifts the `Series` forward by one business day:
 
 ```
 In [74]:
@@ -15773,7 +15447,7 @@ Out[74]:
    dtype: float64
 ```
 
-As another example, the following shifts forward by `5` hours: 
+As another example, the following shifts forward by `5` hours:
 
 ```
 In [75]:
@@ -15791,7 +15465,7 @@ Out[75]:
    dtype: float64
 ```
 
-A time series can also be shifted using `DateOffset` . The following code shifts the time series forward by 0.5 minutes: 
+A time series can also be shifted using `DateOffset` . The following code shifts the time series forward by 0.5 minutes:
 
 ```
 In [76]:
@@ -15812,7 +15486,7 @@ Out[76]:
    dtype: float64
 ```
 
-There is an alternative form of shifting provided by the `.tshift()` method. This method shifts the index labels by the specified units and a frequency specified by the `freq` parameter (which is required). The following code demonstrates this approach by adjusting the index by `-1` hour: 
+There is an alternative form of shifting provided by the `.tshift()` method. This method shifts the index labels by the specified units and a frequency specified by the `freq` parameter (which is required). The following code demonstrates this approach by adjusting the index by `-1` hour:
 
 ```
 In [77]:
@@ -15832,9 +15506,9 @@ Out[77]:
 
 ## **Frequency conversion** 
 
-Frequency data can be converted in pandas using the `.asfreq()` method of a time-series object, such as `Series` or `DataFrame` . When converting frequency, a new `Series` object with a new `DatatimeIndex` object will be created. The `DatetimeIndex` of the new `Series` object starts at the first `Timestamp` of the original and progresses at the given frequency until the last `Timestamp` of the original. Values will then be aligned into the new `Series` . 
+Frequency data can be converted in pandas using the `.asfreq()` method of a time-series object, such as `Series` or `DataFrame` . When converting frequency, a new `Series` object with a new `DatatimeIndex` object will be created. The `DatetimeIndex` of the new `Series` object starts at the first `Timestamp` of the original and progresses at the given frequency until the last `Timestamp` of the original. Values will then be aligned into the new `Series` .
 
-To demonstrate, we will use the following time series of consecutive incremental integers mapped into each hour of each day for August 2014: 
+To demonstrate, we will use the following time series of consecutive incremental integers mapped into each hour of each day for August 2014:
 
 ```
 In [78]:
@@ -15859,7 +15533,7 @@ Out[78]:
    Freq: 2H, Length: 744
 ```
 
-As an example, the following converts this time series to a daily frequency using `.asfreq('D')` : 
+As an example, the following converts this time series to a daily frequency using `.asfreq('D')` :
 
 ```
 In [79]:
@@ -15878,9 +15552,9 @@ Out[79]:
    Freq: D, Length: 62
 ```
 
-As data was aligned to the new daily time series from the hourly time series, only values matching the exact days were copied. 
+As data was aligned to the new daily time series from the hourly time series, only values matching the exact days were copied.
 
-If we convert this result back to an hourly frequency, we will see that many of the values are `NaN` : 
+If we convert this result back to an hourly frequency, we will see that many of the values are `NaN` :
 
 ```
 In [80]:
@@ -15905,11 +15579,11 @@ Out[80]:
    Freq: H, Length: 1465
 ```
 
-The new index has `Timestamp` objects at hourly intervals, so only the timestamps at exact days align with the daily time series, resulting in 670 `NaN` values. 
+The new index has `Timestamp` objects at hourly intervals, so only the timestamps at exact days align with the daily time series, resulting in 670 `NaN` values.
 
-This default behavior can be changed using the `method` parameter of the `.asfreq()` method. This value can be used for forward fill, reverse fill, or to pad the `NaN` values. 
+This default behavior can be changed using the `method` parameter of the `.asfreq()` method. This value can be used for forward fill, reverse fill, or to pad the `NaN` values.
 
-The `ffill` method will forward fill the last known value ( `pad` also does the same): 
+The `ffill` method will forward fill the last known value ( `pad` also does the same):
 
 ```
 In [81]:
@@ -15929,7 +15603,7 @@ Out[81]:
    Freq: H, Length: 1465
 ```
 
-The `bfill` method will back fill values from the next known value: 
+The `bfill` method will back fill values from the next known value:
 
 ```
 In [82]:
@@ -15950,11 +15624,11 @@ Out[82]:
 
 ## **Up and down resampling** 
 
-Frequency conversion provides a basic way to convert the index in a time series to another frequency. Data in the new time series is aligned with the old data and can result in many `NaN` values. This can be partially solved using a fill method, but that is limited in its capabilities to fill with appropriate information. 
+Frequency conversion provides a basic way to convert the index in a time series to another frequency. Data in the new time series is aligned with the old data and can result in many `NaN` values. This can be partially solved using a fill method, but that is limited in its capabilities to fill with appropriate information.
 
-Resampling differs in that it does not perform a pure alignment. The values placed in the new series can use the same forward and reverse fill options, but they can also be specified using other pandas-provided algorithms or with your own functions. 
+Resampling differs in that it does not perform a pure alignment. The values placed in the new series can use the same forward and reverse fill options, but they can also be specified using other pandas-provided algorithms or with your own functions.
 
-To demonstrate resampling, we will use the following time series, which represents a random walk of values over a 5-day period: 
+To demonstrate resampling, we will use the following time series, which represents a random walk of values over a 5-day period:
 
 ```
 In [83]:
@@ -15983,7 +15657,7 @@ Out[83]:
    Freq: S, Length: 432000
 ```
 
-Resampling in pandas is accomplished using the `.resample()` method, by passing it a new frequency. To demonstrate this the following resamples our by-the-second data to by-the-minute. This is a downsampling as the result has a lower frequency and results in less values: 
+Resampling in pandas is accomplished using the `.resample()` method, by passing it a new frequency. To demonstrate this the following resamples our by-the-second data to by-the-minute. This is a downsampling as the result has a lower frequency and results in less values:
 
 ```
 In [84]:
@@ -16006,7 +15680,7 @@ Out[84]:
    Freq: T, Length: 7200
 ```
 
-Notice that the first value is `-8.718220` whereas the original data had a value of `0.469112` . A frequency conversion would have left this value at `-8.718220` . This is because a resampling does not copy data through alignment. A resampling will actually split the data into buckets of data based on new periods and then apply a particular operation to the data in each bucket. The default scenario is to calculate the mean of each bucket. This can be verified with the following, which slices the first minute of data from the walk and calculates its mean: 
+Notice that the first value is `-8.718220` whereas the original data had a value of `0.469112` . A frequency conversion would have left this value at `-8.718220` . This is because a resampling does not copy data through alignment. A resampling will actually split the data into buckets of data based on new periods and then apply a particular operation to the data in each bucket. The default scenario is to calculate the mean of each bucket. This can be verified with the following, which slices the first minute of data from the walk and calculates its mean:
 
 ##### **`In [85]:`** 
 
@@ -16023,9 +15697,9 @@ Out[85]:
    -8.7182200528326437
 ```
 
-In downsampling, as the existing data is put into buckets based on the new intervals, there can often be a question of what values are on each end of the bucket. As an example, should the first interval in the previous resampling be from `2014-08-01 00:00:00` through `2014-08-01 23:59:59` , or should it end at `2014-08-04 00:00:00` but start at `2014-08-03 23:59:59` ? 
+In downsampling, as the existing data is put into buckets based on the new intervals, there can often be a question of what values are on each end of the bucket. As an example, should the first interval in the previous resampling be from `2014-08-01 00:00:00` through `2014-08-01 23:59:59` , or should it end at `2014-08-04 00:00:00` but start at `2014-08-03 23:59:59` ?
 
-The default is the former, and it is referred to as a left close. To other scenario that excludes the left value and includes the right is a right close and can be performed by using the `close='right'` parameter. The following demonstrates this; notice the slight difference in the intervals and values: 
+The default is the former, and it is referred to as a left close. To other scenario that excludes the left value and includes the right is a right close and can be performed by using the `close='right'` parameter. The following demonstrates this; notice the slight difference in the intervals and values:
 
 ```
 In [86]:
@@ -16046,9 +15720,9 @@ In [86]:
    Freq: T, Length: 7201
 ```
 
-The decision about whether to use a right or left close is really up to you and your data modeling, but pandas gives you the option. 
+The decision about whether to use a right or left close is really up to you and your data modeling, but pandas gives you the option.
 
-The specific method that is applied to each group of samples can be specified using the how parameter. As an example, the following takes the first value of each bucket: 
+The specific method that is applied to each group of samples can be specified using the how parameter. As an example, the following takes the first value of each bucket:
 
 ```
 In [87]:
@@ -16074,9 +15748,9 @@ Out[87]:
    Freq: T, Length: 7200
 ```
 
-The `how` parameter can be supplied the name of any NumPy array function that takes an array and produces aggregated values as well as any function you create on your own. 
+The `how` parameter can be supplied the name of any NumPy array function that takes an array and produces aggregated values as well as any function you create on your own.
 
-To demonstrate upsampling, we will resample the walk to minutes and then back to seconds: 
+To demonstrate upsampling, we will resample the walk to minutes and then back to seconds:
 
 ```
 In [88]:
@@ -16103,7 +15777,7 @@ Out[88]:
    Freq: S, Length: 431941
 ```
 
-The upsampling created the index values for the second-by-second data but inserted `NaN` values by default. This default behavior can be modified using the `fill_method` parameter. We saw this when changing frequency with the options of forward and backward filling. These are also available with resampling. The following demonstrates how to use the forward fill: 
+The upsampling created the index values for the second-by-second data but inserted `NaN` values by default. This default behavior can be modified using the `fill_method` parameter. We saw this when changing frequency with the options of forward and backward filling. These are also available with resampling. The following demonstrates how to use the forward fill:
 
 ```
 In [89]:
@@ -16126,7 +15800,7 @@ Out[89]:
    Freq: S, Length: 431941
 ```
 
-It is also possible to interpolate the missing values using the `.interpolate()` method on the result. This will calculate a linear interpolation between the values existing in the result for all of the `NaN` values created during the resampling: 
+It is also possible to interpolate the missing values using the `.interpolate()` method on the result. This will calculate a linear interpolation between the values existing in the result for all of the `NaN` values created during the resampling:
 
 ##### **`In [90]:`** 
 
@@ -16151,7 +15825,7 @@ Out[90]:
    Freq: S, Length: 431941
 ```
 
-pandas provides a very convenient resampling method referred to as open, high, low, and close, which is specified by the `how='ohlc'` parameter. The following example takes our second-by-second data and calculates hour-byhour `ohlc` values: 
+pandas provides a very convenient resampling method referred to as open, high, low, and close, which is specified by the `how='ohlc'` parameter. The following example takes our second-by-second data and calculates hour-byhour `ohlc` values:
 
 ```
 In [91]:
@@ -16181,8 +15855,6 @@ Out[91]:
 |**`21:00:00  476.025498`**<br>**`2014-08-05`**|**`506.952877`**|**`425.472410  498.547578`**|
 |**`22:00:00  497.941355`**|**`506.599652`**|**`411.119919  443.925832`**|
 
-
-
 ```
   2014-08-05
 23:00:00  443.017962  489.083657  426.062444  456.191430
@@ -16194,9 +15866,9 @@ Out[91]:
 
 ## **Time-series moving-window operations** 
 
-pandas provides a number of functions to compute moving (also known as rolling) statistics. In a rolling window, pandas computes the statistic on a window of data represented by a particular period of time. The window is then rolled along a certain interval, and the statistic is continually calculated on each window as long as the window fits within the dates of the time series. 
+pandas provides a number of functions to compute moving (also known as rolling) statistics. In a rolling window, pandas computes the statistic on a window of data represented by a particular period of time. The window is then rolled along a certain interval, and the statistic is continually calculated on each window as long as the window fits within the dates of the time series.
 
-pandas provides direct support for rolling windows with the following functions: 
+pandas provides direct support for rolling windows with the following functions:
 
 |**Function**|**Description**|
 |---|---|
@@ -16209,8 +15881,6 @@ pandas provides direct support for rolling windows with the following functions:
 |`rolling_quantil`<br>`e`|Moving window score at percentile/sample quantile|
 |`rolling_corr`|The correlation of values in the window|
 
-
-
 |**Function**|**Description**|
 |---|---|
 |`rolling_median`|The median of values in the window|
@@ -16220,11 +15890,9 @@ pandas provides direct support for rolling windows with the following functions:
 |`rolling_skew`|The skewedness of the values in the window|
 |`rolling_kurt`|The kurtosis of values in the window|
 
+As a practical example, a rolling mean is commonly used to smooth out short-term fluctuations and highlight longer-term trends in data and is used quite commonly in financial time-series analysis.
 
-
-As a practical example, a rolling mean is commonly used to smooth out short-term fluctuations and highlight longer-term trends in data and is used quite commonly in financial time-series analysis. 
-
-To demonstrate, we will calculate a rolling mean with a window of 5 on the first minute of the random walk created earlier in the chapter. The following calculates this and then plots the result against the raw data to demonstrate the smoothing created by the rolling mean: 
+To demonstrate, we will calculate a rolling mean with a window of 5 on the first minute of the random walk created earlier in the chapter. The following calculates this and then plots the result against the raw data to demonstrate the smoothing created by the rolling mean:
 
 ```
 In [92]:
@@ -16237,15 +15905,13 @@ In [92]:
    plt.legend(labels=['Rolling Mean', 'Raw']);
 ```
 
-
-
 ### **Note** 
 
-The generation of charts will be covered in more detail in <u>Chapter 11,</u> _Visualization_ . 
+The generation of charts will be covered in more detail in <u>Chapter 11,</u> _Visualization_ .
 
-It can be seen how `rolling_mean` provides a smoother representation of the underlying data. A larger window will create less variance, and smaller windows will create more (until the window size is `1` , which will be identical to the original series). 
+It can be seen how `rolling_mean` provides a smoother representation of the underlying data. A larger window will create less variance, and smaller windows will create more (until the window size is `1` , which will be identical to the original series).
 
-The following demonstrates the rolling mean with windows of `2` , `5` , and `10` plotted against the original series: 
+The following demonstrates the rolling mean with windows of `2` , `5` , and `10` plotted against the original series:
 
 ```
 In [93]:
@@ -16267,13 +15933,11 @@ In [93]:
                       '10-interval RM']);
 ```
 
+Note that the larger the window, the more data is missing at the beginning of the curve. A window of size `n` requires `n` data points before the measure can be calculated and hence the gap in the beginning of the plot.
 
+Any function can be applied via a rolling window using the `pd.rolling_apply` function. The supplied function will be passed an array of values in the window and should return a single value, which pandas will aggregate with these results into a time series.
 
-Note that the larger the window, the more data is missing at the beginning of the curve. A window of size `n` requires `n` data points before the measure can be calculated and hence the gap in the beginning of the plot. 
-
-Any function can be applied via a rolling window using the `pd.rolling_apply` function. The supplied function will be passed an array of values in the window and should return a single value, which pandas will aggregate with these results into a time series. 
-
-To demonstrate, the following code calculates the mean average deviation, which gives you a feel of how far all values in the sample are from the 
+To demonstrate, the following code calculates the mean average deviation, which gives you a feel of how far all values in the sample are from the
 
 #### overall mean on an average: 
 
@@ -16289,9 +15953,7 @@ intervals
    pd.rolling_apply(h1w, 5, mean_abs_dev).plot();
 ```
 
-
-
-An expanding window mean can be calculated using a slight variant of the use of the `pd.rolling_mean` function that repeatedly calculates the mean by always starting with the first value in the time series and for each iteration increases the window size by one. An expanding window mean will be more stable (less responsive) than a rolling window, because as the size of the window increases, the less the impact of the next value will be: 
+An expanding window mean can be calculated using a slight variant of the use of the `pd.rolling_mean` function that repeatedly calculates the mean by always starting with the first value in the time series and for each iteration increases the window size by one. An expanding window mean will be more stable (less responsive) than a rolling window, because as the size of the window increases, the less the impact of the next value will be:
 
 ##### **`In [95]:`** 
 
@@ -16307,25 +15969,23 @@ An expanding window mean can be calculated using a slight variant of the use of 
    plt.legend(labels=['Expanding mean', 'Raw']);
 ```
 
-
-
 # **Summary** 
 
-In this chapter, we examined many of the ways to represent dates and times and also saw how to represent time-series data and perform various analyses upon these series. There is actually quite a bit of detail in these tasks and the capabilities that are provided by pandas, and it is almost impossible to summarize it in one simple chapter. This chapter provided a core set of examples that can get you working quickly with these concepts. 
+In this chapter, we examined many of the ways to represent dates and times and also saw how to represent time-series data and perform various analyses upon these series. There is actually quite a bit of detail in these tasks and the capabilities that are provided by pandas, and it is almost impossible to summarize it in one simple chapter. This chapter provided a core set of examples that can get you working quickly with these concepts.
 
-In the remaining two chapters of this book, we will look more into both visualization of data and working with real examples of data that also take a look at analysis of time-series data from a different perspective by demonstrating how it can be applied to analyzing financial information. 
+In the remaining two chapters of this book, we will look more into both visualization of data and working with real examples of data that also take a look at analysis of time-series data from a different perspective by demonstrating how it can be applied to analyzing financial information.
 
 # **Chapter 11. Visualization** 
 
-Humans are visual creatures and have evolved to be able to quickly notice the meaning when information is presented in certain ways that cause the wiring in our brains to have the light bulb of insight turn on. This "aha" can often be performed very quickly, given the correct tools, instead of through tedious numerical analysis. 
+Humans are visual creatures and have evolved to be able to quickly notice the meaning when information is presented in certain ways that cause the wiring in our brains to have the light bulb of insight turn on. This "aha" can often be performed very quickly, given the correct tools, instead of through tedious numerical analysis.
 
-Tools for data analysis, such as pandas, take advantage of being able to quickly and iteratively provide the user to take data, process it, and quickly visualize the meaning. Often, much of what you will do with pandas is massaging your data to be able to visualize it in one or more visual patterns, in an attempt to get to "aha" by simply glancing at the visual representation of the information. 
+Tools for data analysis, such as pandas, take advantage of being able to quickly and iteratively provide the user to take data, process it, and quickly visualize the meaning. Often, much of what you will do with pandas is massaging your data to be able to visualize it in one or more visual patterns, in an attempt to get to "aha" by simply glancing at the visual representation of the information.
 
-This chapter will cover common patterns in visualizing data with pandas. It is not meant to be exhaustive in coverage. The goal is to give you the required knowledge to create beautiful data visualizations on pandas data quickly and with very few lines of code. 
+This chapter will cover common patterns in visualizing data with pandas. It is not meant to be exhaustive in coverage. The goal is to give you the required knowledge to create beautiful data visualizations on pandas data quickly and with very few lines of code.
 
-This chapter is presented in three sections. The first introduces you to the general concepts of programming visualizations with pandas, emphasizing the process of creating time-series charts. We will also dive into techniques to label axes and create legends, colors, line styles, and markets. 
+This chapter is presented in three sections. The first introduces you to the general concepts of programming visualizations with pandas, emphasizing the process of creating time-series charts. We will also dive into techniques to label axes and create legends, colors, line styles, and markets.
 
-The second part of the chapter will then focus on the many types of data visualizations commonly used in pandas programs and data sciences, including: 
+The second part of the chapter will then focus on the many types of data visualizations commonly used in pandas programs and data sciences, including:
 
 - Bar plots 
 
@@ -16339,11 +15999,11 @@ The second part of the chapter will then focus on the many types of data visuali
 
 - Scatter plot matrixes Heatmaps 
 
-The final section will briefly look at creating composite plots by dividing plots into subparts and drawing multiple plots within a single graphical canvas. 
+The final section will briefly look at creating composite plots by dividing plots into subparts and drawing multiple plots within a single graphical canvas.
 
 # **Setting up the IPython notebook** 
 
-The first step to plot with pandas data, is to first include the appropriate libraries, primarily, matplotlib. The examples in this chapter will all be based on the following imports, where the plotting capabilities are from matplotlib, which will be aliased with `plt` : 
+The first step to plot with pandas data, is to first include the appropriate libraries, primarily, matplotlib. The examples in this chapter will all be based on the following imports, where the plotting capabilities are from matplotlib, which will be aliased with `plt` :
 
 ```
 In [1]:
@@ -16373,21 +16033,21 @@ In [1]:
    %matplotlib inline
 ```
 
-The `%matplotlib inline` line is the statement that tells matplotlib to produce inline graphics. This will make the resulting graphs appear either inside your IPython notebook or IPython session. 
+The `%matplotlib inline` line is the statement that tells matplotlib to produce inline graphics. This will make the resulting graphs appear either inside your IPython notebook or IPython session.
 
-All examples will seed the random number generator with `111111` , so that the graphs remain the same every time they run, and so that the reader can reproduce the same charts as in the book. 
+All examples will seed the random number generator with `111111` , so that the graphs remain the same every time they run, and so that the reader can reproduce the same charts as in the book.
 
 # **Plotting basics with pandas** 
 
-The pandas library itself performs data manipulation. It does not provide data visualization capabilities itself. The visualization of data in pandas data structures is handed off by pandas to other robust visualization libraries that are part of the Python ecosystem, most commonly, matplotlib, which is what we will use in this chapter. 
+The pandas library itself performs data manipulation. It does not provide data visualization capabilities itself. The visualization of data in pandas data structures is handed off by pandas to other robust visualization libraries that are part of the Python ecosystem, most commonly, matplotlib, which is what we will use in this chapter.
 
-All of the visualizations and techniques covered in this chapter can be performed without pandas. These techniques are all available independently in matplotlib. pandas tightly integrates with matplotlib, and by doing this, it is very simple to go directly from pandas data to a matplotlib visualization without having to work with intermediate forms of data. 
+All of the visualizations and techniques covered in this chapter can be performed without pandas. These techniques are all available independently in matplotlib. pandas tightly integrates with matplotlib, and by doing this, it is very simple to go directly from pandas data to a matplotlib visualization without having to work with intermediate forms of data.
 
-pandas does not draw the graphs, but it will tell matplotlib how to draw graphs using pandas data, taking care of many details on your behalf, such as automatically selecting `Series` for plots, labeling axes, creating legends, and defaulting color. Therefore, you often have to write very little code to create stunning visualizations. 
+pandas does not draw the graphs, but it will tell matplotlib how to draw graphs using pandas data, taking care of many details on your behalf, such as automatically selecting `Series` for plots, labeling axes, creating legends, and defaulting color. Therefore, you often have to write very little code to create stunning visualizations.
 
 ## **Creating time-series charts with .plot()** 
 
-One of the most common data visualizations created, is of the time-series data. Visualizing a time series in pandas is as simple as calling `.plot()` on a `DataFrame` or `Series` object. To demonstrate, the following creates a time series representing a random walk of values over time, akin to the movements in the price of a stock: 
+One of the most common data visualizations created, is of the time-series data. Visualizing a time series in pandas is as simple as calling `.plot()` on a `DataFrame` or `Series` object. To demonstrate, the following creates a time series representing a random walk of values over time, akin to the movements in the price of a stock:
 
 ```
 In [2]:
@@ -16401,13 +16061,11 @@ In [2]:
    walk_ts.plot();
 ```
 
-
-
 ### **Note** 
 
-The `;` character at the end suppresses the generation of an IPython out tag, as well as the trace information. 
+The `;` character at the end suppresses the generation of an IPython out tag, as well as the trace information.
 
-It is a common practice to execute the following statement to produce plots that have a richer visual style. This sets a pandas option that makes resulting plots have a shaded background and what is considered a slightly more pleasing style: 
+It is a common practice to execute the following statement to produce plots that have a richer visual style. This sets a pandas option that makes resulting plots have a shaded background and what is considered a slightly more pleasing style:
 
 ```
 In [3]:
@@ -16417,11 +16075,9 @@ In [3]:
    walk_ts.plot();
 ```
 
+The `.plot()` method on pandas objects is a wrapper function around the matplotlib libraries' `plot()` function. It makes plots of pandas data very easy to create. It is coded to know how to use the data in the pandas objects to create the appropriate plots for the data, handling many of the details of plot generation, such as selecting series, labeling, and axes generation. In this situation, the `.plot()` method determines that as `Series` contains dates for its index that the _x_ axis should be formatted as dates and it selects a default color for the data.
 
-
-The `.plot()` method on pandas objects is a wrapper function around the matplotlib libraries' `plot()` function. It makes plots of pandas data very easy to create. It is coded to know how to use the data in the pandas objects to create the appropriate plots for the data, handling many of the details of plot generation, such as selecting series, labeling, and axes generation. In this situation, the `.plot()` method determines that as `Series` contains dates for its index that the _x_ axis should be formatted as dates and it selects a default color for the data. 
-
-This example used a single series and the result would be the same using `DataFrame` with a single column. As an example, the following produces the same graph with one small difference. It has added a legend to the graph, which charts by default, generated from a `DataFrame` object, will have a legend even if there is only one series of data: 
+This example used a single series and the result would be the same using `DataFrame` with a single column. As an example, the following produces the same graph with one small difference. It has added a legend to the graph, which charts by default, generated from a `DataFrame` object, will have a legend even if there is only one series of data:
 
 ```
 In [4]:
@@ -16437,9 +16093,7 @@ In [4]:
    walk_df.plot();
 ```
 
-
-
-The `.plot()` function is smart enough to know whether `DataFrame` has multiple columns, and it should create multiple lines/series in the plot and include a key for each, and also select a distinct color for each line. This is demonstrated with the following example: 
+The `.plot()` function is smart enough to know whether `DataFrame` has multiple columns, and it should create multiple lines/series in the plot and include a key for each, and also select a distinct color for each line. This is demonstrated with the following example:
 
 ```
 In [5]:
@@ -16475,9 +16129,7 @@ In [6]:
    walk_df.plot();
 ```
 
-
-
-If you want to use one column of `DataFrame` as the labels on the _x_ axis of the plot instead of the index labels, you can use the _x_ and _y_ parameters to the `.plot()` method, giving the _x_ parameter the name of the column to use as the _x_ axis and _y_ parameter the names of the columns to be used as data in the plot. The following recreates the random walks as columns `'A'` and `'B'` , creates a column `'C'` with sequential values starting with `0` , and uses these values as the _x_ axis labels and the `'A'` and `'B'` columns values as the two plotted lines: 
+If you want to use one column of `DataFrame` as the labels on the _x_ axis of the plot instead of the index labels, you can use the _x_ and _y_ parameters to the `.plot()` method, giving the _x_ parameter the name of the column to use as the _x_ axis and _y_ parameter the names of the columns to be used as data in the plot. The following recreates the random walks as columns `'A'` and `'B'` , creates a column `'C'` with sequential values starting with `0` , and uses these values as the _x_ axis labels and the `'A'` and `'B'` columns values as the two plotted lines:
 
 ```
 In [7]:
@@ -16491,19 +16143,17 @@ index=df2.index)
    df2.plot(x='C', y=['A', 'B']);
 ```
 
-
-
 ### **Note** 
 
-The `.plot()` functions, provided by pandas for the `Series` and `DataFrame` objects, take care of most of the details of generating plots. However, if you want to modify characteristics of the generated plots beyond their capabilities, you can directly use the matplotlib functions or one of more of the many optional parameters of the `.plot()` method. 
+The `.plot()` functions, provided by pandas for the `Series` and `DataFrame` objects, take care of most of the details of generating plots. However, if you want to modify characteristics of the generated plots beyond their capabilities, you can directly use the matplotlib functions or one of more of the many optional parameters of the `.plot()` method.
 
 ## **Adorning and styling your time-series plot** 
 
-The built-in `.plot()` method has many options that you can use to change the content in the plot. We will cover several of the common options used in most plots. 
+The built-in `.plot()` method has many options that you can use to change the content in the plot. We will cover several of the common options used in most plots.
 
 ### **Adding a title and changing axes labels** 
 
-The title of the chart can be set using the title parameter of the `.plot()` method. Axes labels are not set with `.plot()` , but by directly using the `plt.ylabel()` and `plt.xlabel()` functions after calling `.plot()` : 
+The title of the chart can be set using the title parameter of the `.plot()` method. Axes labels are not set with `.plot()` , but by directly using the `plt.ylabel()` and `plt.xlabel()` functions after calling `.plot()` :
 
 ```
 In [8]:
@@ -16522,15 +16172,13 @@ In [8]:
    plt.ylabel('Money');
 ```
 
+The labels in this plot were added after the call to `.plot()` . A question that may be asked, is that if the plot is generated in the call to `.plot()` , then how are they changed on the plot?
 
-
-The labels in this plot were added after the call to `.plot()` . A question that may be asked, is that if the plot is generated in the call to `.plot()` , then how are they changed on the plot? 
-
-The answer, is that plots in matplotlib are not displayed until either `.show()` is called on the plot or the code reaches the end of the execution and returns to the interactive prompt. At either of these points, any plot generated by plot commands will be flushed out to the display. In this example, although `.plot()` is called, the plot is not generated until the IPython notebook code section finishes completion, so the changes for labels and title are added to the plot. 
+The answer, is that plots in matplotlib are not displayed until either `.show()` is called on the plot or the code reaches the end of the execution and returns to the interactive prompt. At either of these points, any plot generated by plot commands will be flushed out to the display. In this example, although `.plot()` is called, the plot is not generated until the IPython notebook code section finishes completion, so the changes for labels and title are added to the plot.
 
 ### **Specifying the legend content and position** 
 
-To change the text used in the legend (the default is the column name from `DataFrame` ), you can use the `ax` object returned from the `.plot()` method to modify the text using its `.legend()` method. The `ax` object is an `AxesSubplot` object, which is a representation of the elements of the plot, that can be used to change various aspects of the plot before it is generated: 
+To change the text used in the legend (the default is the column name from `DataFrame` ), you can use the `ax` object returned from the `.plot()` method to modify the text using its `.legend()` method. The `ax` object is an `AxesSubplot` object, which is a representation of the elements of the plot, that can be used to change various aspects of the plot before it is generated:
 
 ```
 In [9]:
@@ -16541,17 +16189,13 @@ In [9]:
    ax.legend(['1', '2']);
 ```
 
-
-
-The location of the legend can be set using the `loc` parameter of the `.legend()` method. By default, pandas sets the location to `'best'` , which tells matplotlib to examine the data and determine the best place to put the legend. However, you can also specify any of the following to position the legend more specifically (you can use either the string or the numeric code): 
+The location of the legend can be set using the `loc` parameter of the `.legend()` method. By default, pandas sets the location to `'best'` , which tells matplotlib to examine the data and determine the best place to put the legend. However, you can also specify any of the following to position the legend more specifically (you can use either the string or the numeric code):
 
 |**Text**||**Code**|
 |---|---|---|
 |`'best'`||0|
 |`'upper`|`right'`|1|
 |`'upper`|`left'`|2|
-
-
 
 |**Text**||**Code**|
 |---|---|---|
@@ -16564,9 +16208,7 @@ The location of the legend can be set using the `loc` parameter of the `.legend(
 |`'upper`|`center'`|9|
 |`'center`|`'`|10|
 
-
-
-In our last chart, the `'best'` option actually had the legend overlap the line from one of the series. We can reposition the legend in the upper center of the chart, which will prevent this and create a better chart of this data: 
+In our last chart, the `'best'` option actually had the legend overlap the line from one of the series. We can reposition the legend in the upper center of the chart, which will prevent this and create a better chart of this data:
 
 ```
 In [10]:
@@ -16576,9 +16218,7 @@ In [10]:
    ax.legend(['1', '2'], loc='upper center');
 ```
 
-
-
-Legends can also be turned off with the `legend` parameter: 
+Legends can also be turned off with the `legend` parameter:
 
 ```
 In [11]:
@@ -16586,19 +16226,17 @@ In [11]:
    walk_df.plot(title='Title of the Chart', legend=False);
 ```
 
-
-
 ### **Note** 
 
-There are more possibilities for locating and actually controlling the content of the legend, but we leave that for you to do some more experimentation. **Specifying line colors, styles, thickness, and markers** 
+There are more possibilities for locating and actually controlling the content of the legend, but we leave that for you to do some more experimentation. **Specifying line colors, styles, thickness, and markers**
 
-pandas automatically sets the colors of each series on any chart. If you would like to specify your own color, you can do so by supplying style code to the style parameter of the plot function. pandas has a number of built-in single character code for colors, several of which are listed here: 
+pandas automatically sets the colors of each series on any chart. If you would like to specify your own color, you can do so by supplying style code to the style parameter of the plot function. pandas has a number of built-in single character code for colors, several of which are listed here:
 
-`b` : Blue 
+`b` : Blue
 
-`g` : Green 
+`g` : Green
 
-`r` : Red 
+`r` : Red
 
 - `c` : Cyan `m` : Magenta 
 
@@ -16608,7 +16246,7 @@ pandas automatically sets the colors of each series on any chart. If you would l
 
 - `w` : White 
 
-It is also possible to specify the color using a hexadecimal RGB code of the `#RRGGBB` format. To demonstrate both options, the following example sets the color of the first series to green using a single digit code and the second series to red using the hexadecimal code: 
+It is also possible to specify the color using a hexadecimal RGB code of the `#RRGGBB` format. To demonstrate both options, the following example sets the color of the first series to green using a single digit code and the second series to red using the hexadecimal code:
 
 ```
 In [12]:
@@ -16621,9 +16259,7 @@ In [12]:
    walk_df.plot(style=['g', '#FF0000']);
 ```
 
-
-
-Line styles can be specified using a line style code. These can be used in combination with the color style codes, following the color code. The following are examples of several useful line style codes: 
+Line styles can be specified using a line style code. These can be used in combination with the color style codes, following the color code. The following are examples of several useful line style codes:
 
 ```
 '-' = solid
@@ -16633,7 +16269,7 @@ Line styles can be specified using a line style code. These can be used in combi
 '.' = points
 ```
 
-The following plot demonstrates these five line styles by drawing five data series, each with one of these styles. Notice how each style item now consists of a color symbol and a line style code: 
+The following plot demonstrates these five line styles by drawing five data series, each with one of these styles. Notice how each style item now consists of a color symbol and a line style code:
 
 ```
 In [13]:
@@ -16653,9 +16289,7 @@ each line
    ax.legend(legend_labels, loc='upper left');
 ```
 
-
-
-The thickness of lines can be specified using the `lw` parameter of `.plot()` . This can be passed a thickness for multiple lines, by passing a list of widths, or a single width that is applied to all lines. The following redraws the graph with a line width of `3` , making the lines a little more pronounced: 
+The thickness of lines can be specified using the `lw` parameter of `.plot()` . This can be passed a thickness for multiple lines, by passing a list of widths, or a single width that is applied to all lines. The following redraws the graph with a line width of `3` , making the lines a little more pronounced:
 
 - **`In [14]: # regenerate the plot, specifying color and line style # for each line and a line width of 3 for all lines ax = line_style.plot(style=['r-', 'g--', 'b:', 'm-.', 'k:'], lw=3)`** 
 
@@ -16663,9 +16297,7 @@ The thickness of lines can be specified using the `lw` parameter of `.plot()` . 
    ax.legend(legend_labels, loc='upper left');
 ```
 
-
-
-Markers on a line can also be specified using abbreviations in the style code. There are quite a few marker types provided and you can see them all at <u>http://matplotlib.org/api/markers_api.html. We will examine five of them</u> in the following chart by having each series use a different marker from the following: circles, stars, triangles, diamonds, and points. The type of marker is also specified using a code at the end of the style: 
+Markers on a line can also be specified using abbreviations in the style code. There are quite a few marker types provided and you can see them all at <u>http://matplotlib.org/api/markers_api.html. We will examine five of them</u> in the following chart by having each series use a different marker from the following: circles, stars, triangles, diamonds, and points. The type of marker is also specified using a code at the end of the style:
 
 ```
 In [15]:
@@ -16675,13 +16307,11 @@ In [15]:
    ax.legend(legend_labels, loc='upper left');
 ```
 
-
-
 ### **Specifying tick mark locations and tick labels** 
 
-Every plot we have seen to this point, has used the default tick marks and labels on the ticks that pandas decides are appropriate for the plot. These can also be customized using various matplotlib functions. 
+Every plot we have seen to this point, has used the default tick marks and labels on the ticks that pandas decides are appropriate for the plot. These can also be customized using various matplotlib functions.
 
-We will demonstrate how ticks are handled by first examining a simple `DataFrame` . We can retrieve the locations of the ticks that were generated on the _x_ axis using the `plt.xticks()` method. This method returns two values, the location, and the actual labels: 
+We will demonstrate how ticks are handled by first examining a simple `DataFrame` . We can retrieve the locations of the ticks that were generated on the _x_ axis using the `plt.xticks()` method. This method returns two values, the location, and the actual labels:
 
 ```
 In [16]:
@@ -16701,9 +16331,7 @@ Out [16]:
 ])
 ```
 
-
-
-This array contains the locations of the ticks in units of the values along the _x_ axis. pandas has decided that a range of 0 through 4 (the min and max) and an interval of 0.5 is appropriate. If we want to use other locations, we can provide these by passing them to `plt.xticks()` as a list. The following demonstrates these using even integers from `-1` to `5` , which will both change the extents of the axis, as well as remove non integral labels: 
+This array contains the locations of the ticks in units of the values along the _x_ axis. pandas has decided that a range of 0 through 4 (the min and max) and an interval of 0.5 is appropriate. If we want to use other locations, we can provide these by passing them to `plt.xticks()` as a list. The following demonstrates these using even integers from `-1` to `5` , which will both change the extents of the axis, as well as remove non integral labels:
 
 ```
 In [17]:
@@ -16714,9 +16342,7 @@ In [17]:
    plt.xticks(np.arange(-1, 6));
 ```
 
-
-
-Also, we can specify new labels at these locations by passing them as the second parameter. Just as an example, we can change the _y_ axis ticks and labels to integral values and consecutive alpha characters using the following: 
+Also, we can specify new labels at these locations by passing them as the second parameter. Just as an example, we can change the _y_ axis ticks and labels to integral values and consecutive alpha characters using the following:
 
 ```
 In [18]:
@@ -16726,21 +16352,19 @@ In [18]:
    plt.yticks(np.arange(0, 5), list("ABCDE"));
 ```
 
-
-
 ### **Formatting axes tick date labels using formatters** 
 
-The formatting of axes labels whose underlying data types is `datetime` is performed using locators and formatters. Locators control the position of the ticks, and the formatters control the formatting of the labels. 
+The formatting of axes labels whose underlying data types is `datetime` is performed using locators and formatters. Locators control the position of the ticks, and the formatters control the formatting of the labels.
 
-To facilitate locating ticks and formatting labels based on dates, matplotlib provides several classes in `maptplotlib.dates` to help facilitate the process: 
+To facilitate locating ticks and formatting labels based on dates, matplotlib provides several classes in `maptplotlib.dates` to help facilitate the process:
 
 - `MinuteLocator` , `HourLocator` , `DayLocator` , `WeekdayLocator` , `MonthLocator` , and `YearLocator` : These are specific locators coded to determine where ticks for each type of date field will be found on the axis 
 
 - `DateFormatter` : This is a class that can be used to format date objects into labels on the axis 
 
-By default, the default locator and formatter are `AutoDateLocator` and `AutoDateFormatter` , respectively. You can change these by providing different objects to use the appropriate methods on the specific axis object. 
+By default, the default locator and formatter are `AutoDateLocator` and `AutoDateFormatter` , respectively. You can change these by providing different objects to use the appropriate methods on the specific axis object.
 
-To demonstrate, we will use a subset of the random walk data from earlier, which represents just the data from January through February of 2014. Plotting this gives us the following output: 
+To demonstrate, we will use a subset of the random walk data from earlier, which represents just the data from January through February of 2014. Plotting this gives us the following output:
 
 ```
 In [19]:
@@ -16748,11 +16372,9 @@ In [19]:
    walk_df.loc['2014-01':'2014-02'].plot();
 ```
 
+The labels on the _x_ axis of this plot have two series of labels, the minor and the major. The minor labels in this plot contain the day of the month, and the major contains the year and month (the year only for the first month). We can set locators and formatters for each of the minor and major levels.
 
-
-The labels on the _x_ axis of this plot have two series of labels, the minor and the major. The minor labels in this plot contain the day of the month, and the major contains the year and month (the year only for the first month). We can set locators and formatters for each of the minor and major levels. 
-
-This will be demonstrated by changing the minor labels to be located at the Monday of each week and to contain the date and day of the week (right now, the chart uses weekly and only Friday's date—without the day name). On the major labels, we will use the monthly location and always include both the month name and the year: 
+This will be demonstrated by changing the minor labels to be located at the Monday of each week and to contain the date and day of the week (right now, the chart uses weekly and only Friday's date—without the day name). On the major labels, we will use the monthly location and always include both the month name and the year:
 
 ```
 In [20]:
@@ -16773,11 +16395,9 @@ In [20]:
    ax.xaxis.set_major_formatter(DateFormatter('\n\n\n%b\n%Y'));
 ```
 
+This is almost what we wanted. However, note that the year is being reported as **45** . This, unfortunately, seems to be an issue between pandas and the matplotlib representation of values for the year. The best reference I have on this is this following link from Stack Overflow <u>(http://stackoverflow.com/questions/12945971/pandas-timeseries-plotsetting-x-axis-major-and-minor-ticks-and-labels).</u>
 
-
-This is almost what we wanted. However, note that the year is being reported as **45** . This, unfortunately, seems to be an issue between pandas and the matplotlib representation of values for the year. The best reference I have on this is this following link from Stack Overflow <u>(http://stackoverflow.com/questions/12945971/pandas-timeseries-plotsetting-x-axis-major-and-minor-ticks-and-labels).</u> 
-
-So, it appears to create a plot with custom-date-based labels, we need to avoid the pandas `.plot()` and need to kick all the way down to using matplotlib. Fortunately, this is not too hard. The following changes the code slightly and renders what we wanted: 
+So, it appears to create a plot with custom-date-based labels, we need to avoid the pandas `.plot()` and need to kick all the way down to using matplotlib. Fortunately, this is not too hard. The following changes the code slightly and renders what we wanted:
 
 ```
 In [21]:
@@ -16819,9 +16439,7 @@ variable
    ax.xaxis.set_major_formatter(DateFormatter('\n\n\n%b\n%Y'));
 ```
 
-
-
-To add grid lines for the minor axes ticks, you can use the `.grid()` method of the _x_ axis object of the plot, the first parameter specifying the lines to use and the second parameter specifying the minor or major set of ticks. The following replots this graph without the major grid line and with the minor grid lines: 
+To add grid lines for the minor axes ticks, you can use the `.grid()` method of the _x_ axis object of the plot, the first parameter specifying the lines to use and the second parameter specifying the minor or major set of ticks. The following replots this graph without the major grid line and with the minor grid lines:
 
 ```
 In [22]:
@@ -16852,9 +16470,7 @@ lines
    ax.xaxis.set_major_formatter(DateFormatter('\n\n\n%b\n%Y'));
 ```
 
-
-
-The last demonstration of formatting will use only the major labels but on a weekly basis and using a `YYYY-MM-DD` format. However, because these would overlap, we will specify that they should be rotated to prevent the overlap. This is done using the `fig.autofmt_xdate()` function: 
+The last demonstration of formatting will use only the major labels but on a weekly basis and using a `YYYY-MM-DD` format. However, because these would overlap, we will specify that they should be rotated to prevent the overlap. This is done using the `fig.autofmt_xdate()` function:
 
 ```
 In [23]:
@@ -16888,15 +16504,13 @@ lines
    fig.autofmt_xdate();
 ```
 
-
-
 # **Common plots used in statistical analyses** 
 
-Having seen how to create, lay out, and annotate time-series charts, we will now look at creating a number of charts, other than time series that are commonplace in presenting statistical information. 
+Having seen how to create, lay out, and annotate time-series charts, we will now look at creating a number of charts, other than time series that are commonplace in presenting statistical information.
 
 ## **Bar plots** 
 
-Bar plots are useful in order to visualize the relative differences in values of non time-series data. Bar plots can be created using the `kind='bar'` parameter of the `.plot()` method: 
+Bar plots are useful in order to visualize the relative differences in values of non time-series data. Bar plots can be created using the `kind='bar'` parameter of the `.plot()` method:
 
 ```
 In [24]:
@@ -16908,9 +16522,7 @@ In [24]:
    s.plot(kind='bar');
 ```
 
-
-
-If the data being plotted consists of multiple columns, a multiple series bar plot will be created: 
+If the data being plotted consists of multiple columns, a multiple series bar plot will be created:
 
 ```
 In [25]:
@@ -16923,9 +16535,7 @@ In [25]:
    df2.plot(kind='bar');
 ```
 
-
-
-If you would prefer stacked bars, you can use the `stacked` parameter, setting it to `True` : 
+If you would prefer stacked bars, you can use the `stacked` parameter, setting it to `True` :
 
 ```
 In [26]:
@@ -16933,9 +16543,7 @@ In [26]:
    df2.plot(kind='bar', stacked=True);
 ```
 
-
-
-If you want the bars to be horizontally aligned, you can use `kind='barh'` : 
+If you want the bars to be horizontally aligned, you can use `kind='barh'` :
 
 ```
 In [27]:
@@ -16943,11 +16551,9 @@ In [27]:
 
 - **`# horizontal stacked bar chart df2.plot(kind='barh', stacked=True);`** 
 
-
-
 ## **Histograms** 
 
-Histograms are useful for visualizing distributions of data. The following shows you a histogram of generating 1000 values from the normal distribution: 
+Histograms are useful for visualizing distributions of data. The following shows you a histogram of generating 1000 values from the normal distribution:
 
 ```
 In [28]:
@@ -16959,9 +16565,7 @@ In [28]:
    dfh.hist();
 ```
 
-
-
-The resolution of a histogram can be controlled by specifying the number of bins to allocate to the graph. The default is 10, and increasing the number of bins gives finer detail to the histogram. The following increases the number of bins to `100` : 
+The resolution of a histogram can be controlled by specifying the number of bins to allocate to the graph. The default is 10, and increasing the number of bins gives finer detail to the histogram. The following increases the number of bins to `100` :
 
 ```
 In [29]:
@@ -16969,9 +16573,7 @@ In [29]:
    dfh.hist(bins = 100);
 ```
 
-
-
-If the data has multiple series, the histogram function will automatically generate multiple histograms, one for each series: 
+If the data has multiple series, the histogram function will automatically generate multiple histograms, one for each series:
 
 ```
 In [30]:
@@ -16985,9 +16587,7 @@ In [30]:
    dfh.hist();
 ```
 
-
-
-If you want to overlay multiple histograms on the same graph (to give a quick visual difference of distribution), you can call the `pyplot.hist()` function multiple times before `.show()` is called to render the chart: 
+If you want to overlay multiple histograms on the same graph (to give a quick visual difference of distribution), you can call the `pyplot.hist()` function multiple times before `.show()` is called to render the chart:
 
 ```
 In [31]:
@@ -17015,11 +16615,9 @@ In [31]:
    plt.legend(loc='upper right');
 ```
 
-
-
 ## **Box and whisker charts** 
 
-Box plots come from descriptive statistics and are a useful way of graphically depicting the distributions of categorical data using quartiles. Each box represents the values between the first and third quartiles of the data with a line across the box at the median. Each whisker reaches out to demonstrate the extent to five interquartile ranges below and above the first and third quartiles: 
+Box plots come from descriptive statistics and are a useful way of graphically depicting the distributions of categorical data using quartiles. Each box represents the values between the first and third quartiles of the data with a line across the box at the median. Each whisker reaches out to demonstrate the extent to five interquartile ranges below and above the first and third quartiles:
 
 ```
 In [32]:
@@ -17031,17 +16629,15 @@ In [32]:
    dfb.boxplot(return_type='axes');
 ```
 
-
-
 ### **Note** 
 
-There are ways to overlay dots and show outliers, but for brevity, they will not be covered in this text. 
+There are ways to overlay dots and show outliers, but for brevity, they will not be covered in this text.
 
 ## **Area plots** 
 
-Area plots are used to represent cumulative totals over time, to demonstrate the change in trends over time among related attributes. They can also be "stacked" to demonstrate representative totals across all variables. 
+Area plots are used to represent cumulative totals over time, to demonstrate the change in trends over time among related attributes. They can also be "stacked" to demonstrate representative totals across all variables.
 
-Area plots are generated by specifying `kind='area'` . A stacked area chart is the default: 
+Area plots are generated by specifying `kind='area'` . A stacked area chart is the default:
 
 ```
 In [33]:
@@ -17057,9 +16653,7 @@ In [33]:
    dfa.plot(kind='area');
 ```
 
-
-
-To produce an unstacked plot, specify `stacked=False` : 
+To produce an unstacked plot, specify `stacked=False` :
 
 ```
 In [34]:
@@ -17070,15 +16664,13 @@ In [34]:
    dfa.plot(kind='area', stacked=False);
 ```
 
-
-
 ### **Note** 
 
-By default, unstacked plots have an alpha value of 0.5, so that it is possible to see how the data series overlaps. 
+By default, unstacked plots have an alpha value of 0.5, so that it is possible to see how the data series overlaps.
 
 ## **Scatter plots** 
 
-A scatter plot displays the correlation between a pair of variables. A scatter plot can be created from `DataFrame` using `.plot()` and specifying `kind='scatter'` , as well as specifying the `x` and `y` columns from the `DataFrame` source: 
+A scatter plot displays the correlation between a pair of variables. A scatter plot can be created from `DataFrame` using `.plot()` and specifying `kind='scatter'` , as well as specifying the `x` and `y` columns from the `DataFrame` source:
 
 ```
 In [35]:
@@ -17091,9 +16683,7 @@ In [35]:
    sp_df.plot(kind='scatter', x='a', y='b')
 ```
 
-
-
-We can easily create more elaborate scatter plots by dropping down a little lower into matplotlib. The following code gets Google stock data for the year of 2011 and calculates delta in the closing price per day, and renders close versus volume as bubbles of different sizes, derived on the size of the values in the data: 
+We can easily create more elaborate scatter plots by dropping down a little lower into matplotlib. The following code gets Google stock data for the year of 2011 and calculates delta in the closing price per day, and renders close versus volume as bubbles of different sizes, derived on the size of the values in the data:
 
 ```
 In [36]:
@@ -17136,15 +16726,13 @@ alpha=0.5)
    ax.grid(True);
 ```
 
-
-
 ### **Note** 
 
-Note the nomenclature for the `x` and `y` axes labels, which creates a nice mathematical style for the labels. 
+Note the nomenclature for the `x` and `y` axes labels, which creates a nice mathematical style for the labels.
 
 ## **Density plot** 
 
-You can create kernel density estimation plots using the `.plot()` method and setting the `kind='kde'` parameter. A kernel density estimate plot, instead of being a pure empirical representation of the data, makes an attempt and estimates the true distribution of the data, and hence smoothes it into a continuous plot. The following generates a normal distributed set of numbers, displays it as a histogram, and overlays the `kde` plot: 
+You can create kernel density estimation plots using the `.plot()` method and setting the `kind='kde'` parameter. A kernel density estimate plot, instead of being a pure empirical representation of the data, makes an attempt and estimates the true distribution of the data, and hence smoothes it into a continuous plot. The following generates a normal distributed set of numbers, displays it as a histogram, and overlays the `kde` plot:
 
 ```
 In [37]:
@@ -17157,11 +16745,9 @@ In [37]:
    s.plot(kind='kde');
 ```
 
-
-
 ## **The scatter plot matrix** 
 
-The final composite graph we'll look at in this chapter, is one that is provided by pandas in its plotting tools subcomponent: the scatter plot matrix. A scatter plot matrix is a popular way of determining whether there is a linear correlation between multiple variables. The following creates a scatter plot matrix with random values, which then shows a scatter plot for each combination, as well as a kde graph for each variable: 
+The final composite graph we'll look at in this chapter, is one that is provided by pandas in its plotting tools subcomponent: the scatter plot matrix. A scatter plot matrix is a popular way of determining whether there is a linear correlation between multiple variables. The following creates a scatter plot matrix with random values, which then shows a scatter plot for each combination, as well as a kde graph for each variable:
 
 ```
 In [38]:
@@ -17180,19 +16766,17 @@ In [38]:
 diagonal='kde');
 ```
 
-
-
 ### **Note** 
 
-We will see this plot again, as it is applied to finance in the next chapter, where we look at correlations of various stocks. 
+We will see this plot again, as it is applied to finance in the next chapter, where we look at correlations of various stocks.
 
 ## **Heatmaps** 
 
-A heatmap is a graphical representation of data, where values within a matrix are represented by colors. This is an effective means to show relationships of values that are measured at the intersection of two 
+A heatmap is a graphical representation of data, where values within a matrix are represented by colors. This is an effective means to show relationships of values that are measured at the intersection of two
 
-variables, at each intersection of the rows and the columns of the matrix. A common scenario, is to have the values in the matrix normalized to 0.0 through 1.0 and have the intersections between a row and column represent the correlation between the two variables. Values with less correlation (0.0) are the darkest, and those with the highest correlation (1.0) are white. 
+variables, at each intersection of the rows and the columns of the matrix. A common scenario, is to have the values in the matrix normalized to 0.0 through 1.0 and have the intersections between a row and column represent the correlation between the two variables. Values with less correlation (0.0) are the darkest, and those with the highest correlation (1.0) are white.
 
-Heatmaps are easily created with pandas and matplotlib using the `.imshow()` function: 
+Heatmaps are easily created with pandas and matplotlib using the `.imshow()` function:
 
 ```
 In [39]:
@@ -17229,19 +16813,17 @@ heatmap_data.columns)
    plt.yticks(range(len(heatmap_data)), heatmap_data.index);
 ```
 
-
-
 ### **Note** 
 
-We will see an example of heatmaps to show correlations in the next chapter. 
+We will see an example of heatmaps to show correlations in the next chapter.
 
 # **Multiple plots in a single chart** 
 
-It is often useful to contrast data by displaying multiple plots next to each other. This is actually quite easy to when using matplotlib. 
+It is often useful to contrast data by displaying multiple plots next to each other. This is actually quite easy to when using matplotlib.
 
-To draw multiple subplots on a grid, we can make multiple calls to `plt.subplot2grid()` , each time passing the size of the grid the subplot is to be located on ( `shape=(height, width)` ) and the location on the grid of the upper-left section of the subplot ( `loc=(row, column)` ). Each call to `plt.subplot2grid()` returns a different `AxesSubplot` object that can be used to reference the specific subplot and direct the rendering into. 
+To draw multiple subplots on a grid, we can make multiple calls to `plt.subplot2grid()` , each time passing the size of the grid the subplot is to be located on ( `shape=(height, width)` ) and the location on the grid of the upper-left section of the subplot ( `loc=(row, column)` ). Each call to `plt.subplot2grid()` returns a different `AxesSubplot` object that can be used to reference the specific subplot and direct the rendering into.
 
-The following demonstrates this, by creating a plot with two subplots based on a two row by one column grid ( `shape=(2,1)` ). The first subplot, referred to by `ax1` , is located in the first row ( `loc=(0,0)` ), and the second, referred to as `ax2` , is in the second row ( `loc=(1,0)` ): 
+The following demonstrates this, by creating a plot with two subplots based on a two row by one column grid ( `shape=(2,1)` ). The first subplot, referred to by `ax1` , is located in the first row ( `loc=(0,0)` ), and the second, referred to as `ax2` , is in the second row ( `loc=(1,0)` ):
 
 ```
 In [41]:
@@ -17255,13 +16837,11 @@ In [41]:
    ax2 = plt.subplot2grid(shape=(2,1), loc=(1,0))
 ```
 
+The subplots have been created, but we have not drawn into either yet.
 
+The size of any subplot can be specified using the `rowspan` and `colspan` parameters in each call to `plt.subplot2grid()` . This actually feels a lot like placing content in HTML tables.
 
-The subplots have been created, but we have not drawn into either yet. 
-
-The size of any subplot can be specified using the `rowspan` and `colspan` parameters in each call to `plt.subplot2grid()` . This actually feels a lot like placing content in HTML tables. 
-
-The following demonstrates a more complicated layout of five plots, specifying different row and column spans for each: 
+The following demonstrates a more complicated layout of five plots, specifying different row and column spans for each:
 
 ```
 In [42]:
@@ -17282,9 +16862,7 @@ In [42]:
    ax5 = plt.subplot2grid((4,4), (2,1));
 ```
 
-
-
-To draw into a specific subplot using the pandas `.plot()` method, you can pass the specific axes into the plot function via the `ax` parameter. The following demonstrates this by extracting each series from the random walk we created at the beginning of the chapter, and drawing each into different subplots: 
+To draw into a specific subplot using the pandas `.plot()` method, you can pass the specific axes into the plot function via the `ax` parameter. The following demonstrates this by extracting each series from the random walk we created at the beginning of the chapter, and drawing each into different subplots:
 
 ```
 In [43]:
@@ -17299,9 +16877,7 @@ In [43]:
    walk_df[[1]].plot(ax = ax6);
 ```
 
-
-
-Using this technique, we can perform combinations of different series of data, such as a stock close versus volume graph. Given the data we read during a previous example for Google, the following will plot the volume versus the closing price: 
+Using this technique, we can perform combinations of different series of data, such as a stock close versus volume graph. Given the data we read during a previous example for Google, the following will plot the volume versus the closing price:
 
 ```
 In [44]:
@@ -17322,23 +16898,21 @@ colspan=4)
    plt.gcf().set_size_inches(15,8)
 ```
 
-
-
 # **Summary** 
 
-Visualizing your data is one of the best ways to quickly understand the story that is being told with the data. Python, pandas, and matplotlib (and a few other libraries) provide a means of very quickly, and with a few lines of code, getting the gist of what you are trying to discover, as well as the underlying message (and displaying it beautifully too). 
+Visualizing your data is one of the best ways to quickly understand the story that is being told with the data. Python, pandas, and matplotlib (and a few other libraries) provide a means of very quickly, and with a few lines of code, getting the gist of what you are trying to discover, as well as the underlying message (and displaying it beautifully too).
 
-In this chapter, we examined many of the most common means of visualizing data from pandas. There are also a lot of interesting visualizations that were not covered, and indeed, the concept of data visualization with pandas and/or Python is the subject of entire texts, but I believe this chapter provides a much-needed reference to get up and going with the visualizations that provide most of what is needed. 
+In this chapter, we examined many of the most common means of visualizing data from pandas. There are also a lot of interesting visualizations that were not covered, and indeed, the concept of data visualization with pandas and/or Python is the subject of entire texts, but I believe this chapter provides a much-needed reference to get up and going with the visualizations that provide most of what is needed.
 
-In the next and final chapter of the book, we will look at a few applied applications of pandas, which also demonstrates visualizing real-world information. 
+In the next and final chapter of the book, we will look at a few applied applications of pandas, which also demonstrates visualizing real-world information.
 
 # **Chapter 12. Applications to Finance** 
 
-Throughout the first 11 chapters of this book, we looked at pandas and how you perform various tasks with the library. We focused mostly on how to work with pandas, often using made-up data created to demonstrate the feature but with an occasional diversion now and then into some more realworld examples. 
+Throughout the first 11 chapters of this book, we looked at pandas and how you perform various tasks with the library. We focused mostly on how to work with pandas, often using made-up data created to demonstrate the feature but with an occasional diversion now and then into some more realworld examples.
 
-In this final chapter, we will use pandas to perform a number of different financial analyses of stock data obtained from Yahoo! Finance. We will briefly cover a number of topics in financial analysis. The focus will be on using pandas to derive results from the domain of finance, specifically, time-series stock data, and not on details of the financial theory. 
+In this final chapter, we will use pandas to perform a number of different financial analyses of stock data obtained from Yahoo! Finance. We will briefly cover a number of topics in financial analysis. The focus will be on using pandas to derive results from the domain of finance, specifically, time-series stock data, and not on details of the financial theory.
 
-Specifically, in this chapter, we will progress through the following tasks: 
+Specifically, in this chapter, we will progress through the following tasks:
 
 - Fetching and organizing stock data from Yahoo! 
 
@@ -17366,9 +16940,9 @@ Specifically, in this chapter, we will progress through the following tasks:
 
 # **Setting up the IPython notebook** 
 
-The first step is to make sure that we have included all of the necessary Python libraries for all of the tasks that will be performed. This includes matplotlib for graphs, `datetime` to manage various dates and time in the 
+The first step is to make sure that we have included all of the necessary Python libraries for all of the tasks that will be performed. This includes matplotlib for graphs, `datetime` to manage various dates and time in the
 
-data, a few methods from NumPy, and random number capabilities from the random library: 
+data, a few methods from NumPy, and random number capabilities from the random library:
 
 ```
 In [1]:
@@ -17393,9 +16967,9 @@ In [1]:
 
 # **Obtaining and organizing stock data from Yahoo!** 
 
-The first step we will take is to write a couple of functions that help us with retrieving stock data from Yahoo! Finance. We have already seen that this data can be read using a pandas `DataReader` object, but we will need to organize the data a little differently than how it is provided by Yahoo! as we are going to perform various pivots of this information later. 
+The first step we will take is to write a couple of functions that help us with retrieving stock data from Yahoo! Finance. We have already seen that this data can be read using a pandas `DataReader` object, but we will need to organize the data a little differently than how it is provided by Yahoo! as we are going to perform various pivots of this information later.
 
-To facilitate this, we will start with the following function to get all the Yahoo! data for a specific stock between the two specified dates and also add the stock's symbol in a column for each entry. This will be needed later for pivots: 
+To facilitate this, we will start with the following function to get all the Yahoo! data for a specific stock between the two specified dates and also add the stock's symbol in a column for each entry. This will be needed later for pivots:
 
 ```
 In [2]:
@@ -17414,7 +16988,7 @@ inplace=True)
        return data
 ```
 
-For consistency and reproducibility by the reader, examples in this chapter will use a fixed 3-year window spanning the years of 2012 through 2014. The following reads data for that 3-year period for the `MSFT` ticker and prints the first 5 rows: 
+For consistency and reproducibility by the reader, examples in this chapter will use a fixed 3-year window spanning the years of 2012 through 2014. The following reads data for that 3-year period for the `MSFT` ticker and prints the first 5 rows:
 
 ```
 In [3]:
@@ -17435,9 +17009,7 @@ In [3]:
 |**`09   MSFT`**|**`28.05  28.10   ..`**|**`.    27.74  59706800     25.31`**|
 |**`[5 rows`**|**`x 7 columns]`**||
 
-
-
-Now that we have a function that can get data for a single ticker, it will be convenient to have a function that can read the data for multiple tickers and return them all in a single data structure. The following code performs this task: 
+Now that we have a function that can get data for a single ticker, it will be convenient to have a function that can read the data for multiple tickers and return them all in a single data structure. The following code performs this task:
 
 ```
 In [4]:
@@ -17457,11 +17029,11 @@ In [4]:
        return stocks
 ```
 
-The examples in this chapter will use historical quotes for **Apple** ( **AAPL** ), **Microsoft** ( **MSFT** ), **General Electric** ( **GE** ), **IBM** ( **IBM** ), **American Airlines** ( **AA** ), **Delta Airlines** ( **DAL** ), **United Airlines** ( **UAL** ), **Pepsi** ( **PEP** ), and **Coca Cola** ( **KO** ). 
+The examples in this chapter will use historical quotes for **Apple** ( **AAPL** ), **Microsoft** ( **MSFT** ), **General Electric** ( **GE** ), **IBM** ( **IBM** ), **American Airlines** ( **AA** ), **Delta Airlines** ( **DAL** ), **United Airlines** ( **UAL** ), **Pepsi** ( **PEP** ), and **Coca Cola** ( **KO** ).
 
-These stocks were chosen deliberately to have a sample of multiple stocks in each of three different sectors: technology, airlines, and soft drinks. The purpose of this is to demonstrate how to derive correlations in various stock price measurements over the selected time period among the stocks in similar sectors and to also demonstrate the difference in stocks between sectors. 
+These stocks were chosen deliberately to have a sample of multiple stocks in each of three different sectors: technology, airlines, and soft drinks. The purpose of this is to demonstrate how to derive correlations in various stock price measurements over the selected time period among the stocks in similar sectors and to also demonstrate the difference in stocks between sectors.
 
-We can read all of these with the following code, which uses the function we just created: 
+We can read all of these with the following code, which uses the function we just created:
 
 ```
 In [5]:
@@ -17493,9 +17065,9 @@ jClose
    [5 rows x 7 columns]
 ```
 
-We will be particularly interested in the adjusted close values in the `AdjClose` column. However, it would be most convenient for us if we had a `DataFrame` object indexed by date but where each column is the stock ticker for one stock and the values in each column are the adjusted close value for 
+We will be particularly interested in the adjusted close values in the `AdjClose` column. However, it would be most convenient for us if we had a `DataFrame` object indexed by date but where each column is the stock ticker for one stock and the values in each column are the adjusted close value for
 
-that ticker at that date. We can have this format if we pivot the data around. The following function will do this for us: 
+that ticker at that date. We can have this format if we pivot the data around. The following function will do this for us:
 
 ```
 In [7]:
@@ -17520,7 +17092,7 @@ In [7]:
        return ri.pivot("Date", "Ticker", column)
 ```
 
-We can now use this to pivot the data to the new organization: 
+We can now use this to pivot the data to the new organization:
 
 ```
 In [8]:
@@ -17543,19 +17115,17 @@ Out [8]:
 |**`2012-01-06`**|**`8.83  56.92  8.19`**|**`...    25.64  59.52  18.21`**|
 |**`2012-01-09`**|**`9.09  56.83  8.15`**|**`...    25.31  59.83  17.93`**|
 
-
-
 ```
    [5 rows x 9 columns]
 ```
 
-We now have the adjusted close values for all stocks as values in a column for each respective stock. In this format, we will be able to very easily 
+We now have the adjusted close values for all stocks as values in a column for each respective stock. In this format, we will be able to very easily
 
-compare closing price values of each stock against the others. 
+compare closing price values of each stock against the others.
 
 # **Plotting time-series prices** 
 
-We will perform a graphical comparison of the closing values for `AAPL` and `MSFT` . Using the closing prices `DataFrame` , it is simple to plot the values for a specific stock using the `.plot()` method of `Series` . The following plots the adjusted closing price for `AAPL` : 
+We will perform a graphical comparison of the closing values for `AAPL` and `MSFT` . Using the closing prices `DataFrame` , it is simple to plot the values for a specific stock using the `.plot()` method of `Series` . The following plots the adjusted closing price for `AAPL` :
 
 ```
 In [9]:
@@ -17563,9 +17133,7 @@ In [9]:
    close_px['AAPL'].plot();
 ```
 
-
-
-The following code plots the adjusted closing price for `MSFT` : 
+The following code plots the adjusted closing price for `MSFT` :
 
 ```
 In [10]:
@@ -17576,9 +17144,7 @@ In [10]:
    close_px['MSFT'].plot();
 ```
 
-
-
-Both sets of closing values can easily be displayed on a single chart in order to give a side-by-side comparison: 
+Both sets of closing values can easily be displayed on a single chart in order to give a side-by-side comparison:
 
 ```
 In [11]:
@@ -17586,13 +17152,11 @@ In [11]:
    close_px[['MSFT', 'AAPL']].plot();
 ```
 
-The output is seen in the following screenshot: 
-
-
+The output is seen in the following screenshot:
 
 ## **Plotting volume-series data** 
 
-Volume data can be plotted using bar charts. We first need to get the volume data, which can be done using the `pivotTickersToColumns()` function created earlier: 
+Volume data can be plotted using bar charts. We first need to get the volume data, which can be done using the `pivotTickersToColumns()` function created earlier:
 
 ```
 In [12]:
@@ -17622,7 +17186,7 @@ Out [12]:
    [5 rows x 9 columns]
 ```
 
-We can now use this `DataFrame` to plot a bar chart. The following plots the volume for `MSFT` : 
+We can now use this `DataFrame` to plot a bar chart. The following plots the volume for `MSFT` :
 
 ```
 In [13]:
@@ -17632,11 +17196,9 @@ In [13]:
    plt.gcf().set_size_inches(15,8)
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
-
-
-A common type of financial graph plots a stock volume relative to its closing price: 
+A common type of financial graph plots a stock volume relative to its closing price:
 
 ```
 In [14]:
@@ -17655,15 +17217,11 @@ colspan=4)
    plt.gcf().set_size_inches(15,8)
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
+**Calculating the simple daily percentage change** The simple daily percentage change (without dividends and other factors) is the percentage change in value of a stock over a single day of trading. It is defined by the following formula:
 
-
-**Calculating the simple daily percentage change** The simple daily percentage change (without dividends and other factors) is the percentage change in value of a stock over a single day of trading. It is defined by the following formula: 
-
-
-
-This can be easily calculated in pandas using `.shift()` : 
+This can be easily calculated in pandas using `.shift()` :
 
 ```
 In [15]:
@@ -17683,11 +17241,9 @@ In [15]:
 |**`2012-01-06 -0.021  0.010 -0.001  ...    0.015 -0.013 -0.010`**|
 |**`2012-01-09  0.029 -0.002 -0.005  ...   -0.013  0.005 -0.015`**|
 
-
-
 ##### **`[5 rows x 9 columns]`** 
 
-A quick check shows you that the return for `AAPL` on `2011-09-08` is correct: 
+A quick check shows you that the return for `AAPL` on `2011-09-08` is correct:
 
 ```
 In [16]:
@@ -17705,7 +17261,7 @@ Out [16]:
    0.011129061209836699
 ```
 
-Plotting the daily percentage change yields the following plot: 
+Plotting the daily percentage change yields the following plot:
 
 ##### **`In [17]:`** 
 
@@ -17714,19 +17270,15 @@ Plotting the daily percentage change yields the following plot:
    daily_pc["AAPL"].plot();
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
-
-
-A plot of daily percentage change will tend to look like noise, as shown in the preceding chart. However, when we use the cumulative product of these values, known as the daily cumulative return, then we can see how the value changes over time. 
+A plot of daily percentage change will tend to look like noise, as shown in the preceding chart. However, when we use the cumulative product of these values, known as the daily cumulative return, then we can see how the value changes over time.
 
 ## **Calculating simple daily cumulative returns** 
 
-We can calculate the cumulative daily return by taking the cumulative product of the daily percentage change. This calculation is represented by the following equation: 
+We can calculate the cumulative daily return by taking the cumulative product of the daily percentage change. This calculation is represented by the following equation:
 
-
-
-This is actually calculated very succinctly using the following code, which utilizes the `.cumprod()` method: 
+This is actually calculated very succinctly using the following code, which utilizes the `.cumprod()` method:
 
 ```
 In [18]:
@@ -17751,11 +17303,9 @@ Out [18]:
 |**`2012-01-06  0.993  1.027  1.034  ...    1.050  0.985  0.963`**|
 |**`2012-01-09  1.022  1.026  1.029  ...    1.036  0.990  0.949`**|
 
-
-
 ##### **`[5 rows x 9 columns]`** 
 
-We can plot the cumulative returns to see how the different stocks compare: 
+We can plot the cumulative returns to see how the different stocks compare:
 
 ```
 In [19]:
@@ -17768,13 +17318,11 @@ In [19]:
    plt.legend(loc=2);
 ```
 
-The output is seen in the following screenshot: 
-
-
+The output is seen in the following screenshot:
 
 ## **Resampling data from daily to monthly returns** 
 
-To calculate the monthly rate of return, we can use a little pandas magic and resample the original daily dates to throw out the days that are not an end of month value as well as forward filling anywhere there are missing values. This can be done using the `ffill` method to replace any `NaN` values from missing data with the previous value: 
+To calculate the monthly rate of return, we can use a little pandas magic and resample the original daily dates to throw out the days that are not an end of month value as well as forward filling anywhere there are missing values. This can be done using the `ffill` method to replace any `NaN` values from missing data with the previous value:
 
 ```
 In [20]:
@@ -17795,15 +17343,13 @@ Out [20]:
 |**`2012-04-30  9.40  78.69  10.79  ...    29.40  60.57  21.92`**|
 |**`2012-05-31  8.29  77.85  11.92  ...    26.98  62.76  25.17`**|
 
-
-
 ```
    [5 rows x 9 columns]
 ```
 
-Note the date of the entries and how they are now only month-end dates. Values have not changed as the resample only selects the dates at the end of the month or fills the value with the value prior to that date if it did not exist in the source. 
+Note the date of the entries and how they are now only month-end dates. Values have not changed as the resample only selects the dates at the end of the month or fills the value with the value prior to that date if it did not exist in the source.
 
-Now we can use this to calculate the monthly percentage changes: 
+Now we can use this to calculate the monthly percentage changes:
 
 ```
 In [21]:
@@ -17825,11 +17371,9 @@ In [21]:
 |**`2012-04-30 -0.029 -0.026  0.104  ...   -0.007 -0.005  0.020`**|
 |**`2012-05-31 -0.118 -0.011  0.105  ...   -0.082  0.036  0.148`**|
 
-
-
 ##### **`[5 rows x 9 columns]`** 
 
-From that result, calculate the monthly cumulative returns and plot the results: 
+From that result, calculate the monthly cumulative returns and plot the results:
 
 ```
 In [22]:
@@ -17848,8 +17392,6 @@ In [22]:
 |**`2012-04-30  0.960  1.279  1.038  ...    1.091  1.013  0.949`**|
 |**`2012-05-31  0.847  1.266  1.147  ...    1.001  1.050  1.090`**|
 
-
-
 ```
    [5 rows x 9 columns]
 ```
@@ -17861,17 +17403,15 @@ In [23]:
    plt.legend(loc=2);
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
-
-
-This looks very similar to the daily returns, but overall, it is not as smooth. This is because it uses roughly a 30th of the data and is tied to the end of month. 
+This looks very similar to the daily returns, but overall, it is not as smooth. This is because it uses roughly a 30th of the data and is tied to the end of month.
 
 ## **Analyzing distribution of returns** 
 
-You can get a feel for the difference in distribution of the daily percentage changes for a particular stock by plotting that data in a histogram. A trick with generating histograms for data such as daily returns is to select the number of bins to lump values into. We will use 50 bins, which gives you a good feel for the distribution of daily changes across three years of data. 
+You can get a feel for the difference in distribution of the daily percentage changes for a particular stock by plotting that data in a histogram. A trick with generating histograms for data such as daily returns is to select the number of bins to lump values into. We will use 50 bins, which gives you a good feel for the distribution of daily changes across three years of data.
 
-To demonstrate, the following shows you the distribution of the daily percentage change for `AAPL` : 
+To demonstrate, the following shows you the distribution of the daily percentage change for `AAPL` :
 
 ##### **`In [24]:`** 
 
@@ -17881,11 +17421,9 @@ To demonstrate, the following shows you the distribution of the daily percentage
    aapl.hist(bins=50);
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
-
-
-This chart tells us several things. First, most of the daily movements center around 0.0, and there is a small amount of skew to the left, but the data appears fairly symmetric. If we use the `.describe()` method on this data, we will very quickly get some useful analysis to describe the histogram: 
+This chart tells us several things. First, most of the daily movements center around 0.0, and there is a small amount of skew to the left, but the data appears fairly symmetric. If we use the `.describe()` method on this data, we will very quickly get some useful analysis to describe the histogram:
 
 ```
 In [25]:
@@ -17912,9 +17450,9 @@ Out [25]:
    Name: AAPL, dtype: float64
 ```
 
-A valuable conclusion to be drawn from this is the 95 percent coverage interval, which varies from `-0.007476` to `0.010893` . This states that over this 3-year period, the daily percent of change fit between these two percentages 95 percent of the time. This gives us a sense of the overall volatility in the stock. Technically, the closer these values, the less volatile the stock over that time. 
+A valuable conclusion to be drawn from this is the 95 percent coverage interval, which varies from `-0.007476` to `0.010893` . This states that over this 3-year period, the daily percent of change fit between these two percentages 95 percent of the time. This gives us a sense of the overall volatility in the stock. Technically, the closer these values, the less volatile the stock over that time.
 
-We can plot the histograms of the daily percentage change for all the stocks in a single histogram matrix plot. This gives us a means to quickly determine the differences in stock behavior over these 3 years: 
+We can plot the histograms of the daily percentage change for all the stocks in a single histogram matrix plot. This gives us a means to quickly determine the differences in stock behavior over these 3 years:
 
 ```
 In [26]:
@@ -17922,25 +17460,23 @@ In [26]:
 
 - **`# matrix of all stocks daily percentage changes histograms daily_pc.hist(bins=50, figsize=(8,6));`** 
 
-The output is seen in the following screenshot: 
-
-
+The output is seen in the following screenshot:
 
 ### **Note** 
 
-The labels on the axis are a bit squished together, but it's the histogram shape that is the most important. 
+The labels on the axis are a bit squished together, but it's the histogram shape that is the most important.
 
-From this chart, we can very easily see the difference in performance of these nine stocks during this time, particularly, the skewedness (more exceptional values on one side of the mean) as well as easily being able to easily see the difference in the overall distribution at various confidence levels, thereby giving a quick view of which stocks have been more or less volatile. 
+From this chart, we can very easily see the difference in performance of these nine stocks during this time, particularly, the skewedness (more exceptional values on one side of the mean) as well as easily being able to easily see the difference in the overall distribution at various confidence levels, thereby giving a quick view of which stocks have been more or less volatile.
 
-This is an excellent demonstration of the value of a picture versus using raw data items. Exploratory analysis like this is made very simple by the pandas ecosystem and allows you to more agilely analyze information. 
+This is an excellent demonstration of the value of a picture versus using raw data items. Exploratory analysis like this is made very simple by the pandas ecosystem and allows you to more agilely analyze information.
 
 # **Performing a moving-average calculation** 
 
-The moving average of a stock can be calculated using the pandas statistical package that is a part of pandas and is in the `pd.stats` namespace, specifically, the `.rolling_mean()` function. 
+The moving average of a stock can be calculated using the pandas statistical package that is a part of pandas and is in the `pd.stats` namespace, specifically, the `.rolling_mean()` function.
 
-The moving average will give you a sense of the performance of a stock over a given time period by eliminating "noise" in the performance of the stock. The larger the moving window, the smoother and less random the graph will be—at the expense of accuracy. 
+The moving average will give you a sense of the performance of a stock over a given time period by eliminating "noise" in the performance of the stock. The larger the moving window, the smoother and less random the graph will be—at the expense of accuracy.
 
-To demonstrate, the following calculates the moving average for `MSFT` on `30` and `90` day periods using the daily close. The difference in the reduction of noise can be easily determined from the visual: 
+To demonstrate, the following calculates the moving average for `MSFT` on `30` and `90` day periods using the daily close. The difference in the reduction of noise can be easily determined from the visual:
 
 ```
 In [27]:
@@ -17958,13 +17494,11 @@ In [27]:
    plt.gcf().set_size_inches(12,8)
 ```
 
-The output is seen in the following screenshot: 
-
-
+The output is seen in the following screenshot:
 
 ## **The comparison of average daily returns across stocks** 
 
-A scatter plot is a very effective means of being able to visually determine the relationship between the rates of change in stock prices between two stocks. The following graphs the relationship of the daily percentage change in the closing price between `MSFT` and `AAPL` : 
+A scatter plot is a very effective means of being able to visually determine the relationship between the rates of change in stock prices between two stocks. The following graphs the relationship of the daily percentage change in the closing price between `MSFT` and `AAPL` :
 
 ```
 In [28]:
@@ -17974,15 +17508,13 @@ In [28]:
    plt.ylabel('AAPL');
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
+What this gives us is a very quick view of the overall correlation of the daily returns between the two stocks. Each dot represents a single day for both stocks. Each dot is plotted along the vertical based on the percentage change for `AAPL` and along the horizontal for `MSFT` .
 
+If for every amount that `AAPL` changed in value, `MSFT` also changed an identically proportional amount each day, then all the dots would fall along a perfect vertical diagonal from the lower-left to upper-right section. In this case, the two variables would be perfectly correlated with a correlation value of `1.0` . If the two variables were perfectly uncorrelated, the correlation and hence the slope of the line would be `0` , which is perfectly horizontal.
 
-What this gives us is a very quick view of the overall correlation of the daily returns between the two stocks. Each dot represents a single day for both stocks. Each dot is plotted along the vertical based on the percentage change for `AAPL` and along the horizontal for `MSFT` . 
-
-If for every amount that `AAPL` changed in value, `MSFT` also changed an identically proportional amount each day, then all the dots would fall along a perfect vertical diagonal from the lower-left to upper-right section. In this case, the two variables would be perfectly correlated with a correlation value of `1.0` . If the two variables were perfectly uncorrelated, the correlation and hence the slope of the line would be `0` , which is perfectly horizontal. 
-
-To demonstrate what a perfect correlation would look like, we can plot `MSFT` versus `MSFT` . Any such series when correlated with itself will always be `1.0` : 
+To demonstrate what a perfect correlation would look like, we can plot `MSFT` versus `MSFT` . Any such series when correlated with itself will always be `1.0` :
 
 ```
 In [29]:
@@ -17990,15 +17522,13 @@ In [29]:
    plt.scatter(daily_pc['MSFT'], daily_pc['MSFT']);
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
+Getting back to the plot of `AAPL` versus `MSFT` , excluding several outliers, this cluster appears to demonstrate a moderate correlation between the two stocks.
 
+An actual regression actually shows the correlation to be 0.213 (the slope of the regression line). The regression line would be more toward horizontal than diagonal. This means that for any specific change in the price of `AAPL` , statistically, we would, more times than not, not be able to predict the change in price of `MSFT` on the given day from the price change in `AAPL` .
 
-Getting back to the plot of `AAPL` versus `MSFT` , excluding several outliers, this cluster appears to demonstrate a moderate correlation between the two stocks. 
-
-An actual regression actually shows the correlation to be 0.213 (the slope of the regression line). The regression line would be more toward horizontal than diagonal. This means that for any specific change in the price of `AAPL` , statistically, we would, more times than not, not be able to predict the change in price of `MSFT` on the given day from the price change in `AAPL` . 
-
-To facilitate the bulk analysis of multiple correlations, pandas provides the very useful scatter matrix graph, which will plot the scatters for all combinations of stocks. This plot gives a very easy means of eyeballing correlations between all of the combinations: 
+To facilitate the bulk analysis of multiple correlations, pandas provides the very useful scatter matrix graph, which will plot the scatters for all combinations of stocks. This plot gives a very easy means of eyeballing correlations between all of the combinations:
 
 ```
 In [30]:
@@ -18013,19 +17543,17 @@ In [30]:
 (12,12));
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
+The diagonal in this plot is a kernel density estimation graph. If you refer to the section on using histograms to show the distribution of daily percentage changes for a single stock, this plot is essentially the same information, giving you a quick overview of how volatile the different stocks are relative
 
-
-The diagonal in this plot is a kernel density estimation graph. If you refer to the section on using histograms to show the distribution of daily percentage changes for a single stock, this plot is essentially the same information, giving you a quick overview of how volatile the different stocks are relative 
-
-to each other. The narrower curves are less volatile than those that are wider, with the skew representing a tendency for greater returns or losses. 
+to each other. The narrower curves are less volatile than those that are wider, with the skew representing a tendency for greater returns or losses.
 
 ## **The correlation of stocks based on the daily percentage change of the closing price** 
 
-The previous section mentioned briefly the concept of correlation. Correlation is a measure of the strength of the association between two variables. A correlation coefficient of 1.0 means that every change in value in one set of data has a proportionate change in value to the other set of data. A 0.0 correlation means that the data sets have no relationship. The higher the correlation, the more ability there is to predict a change in the other based on a change in the first. 
+The previous section mentioned briefly the concept of correlation. Correlation is a measure of the strength of the association between two variables. A correlation coefficient of 1.0 means that every change in value in one set of data has a proportionate change in value to the other set of data. A 0.0 correlation means that the data sets have no relationship. The higher the correlation, the more ability there is to predict a change in the other based on a change in the first.
 
-The correlation between columns of data in `DataFrame` can be calculated very easily by simply calling its `.corr()` method. This will produce a matrix of all possible correlations between the variables represented by the values in all columns. To demonstrate, the following calculates the correlation in the daily percentage change in the close price for all of these stocks over the 3 years of the sample: 
+The correlation between columns of data in `DataFrame` can be calculated very easily by simply calling its `.corr()` method. This will produce a matrix of all possible correlations between the variables represented by the values in all columns. To demonstrate, the following calculates the correlation in the daily percentage change in the close price for all of these stocks over the 3 years of the sample:
 
 ```
 In [31]:
@@ -18055,13 +17583,11 @@ Out [31]:
 |**`PEP     0.227  0.092  0.174  ...    0.284  1.000  0.130`**|
 |**`UAL     0.223  0.062  0.761  ...    0.127  0.130  1.000`**|
 
-
-
 ```
    [9 rows x 9 columns]
 ```
 
-The diagonal is 1.0, as a series is always perfectly correlated with itself. This correlation matrix can be visualized using a heat map with the following code: 
+The diagonal is 1.0, as a series is always perfectly correlated with itself. This correlation matrix can be visualized using a heat map with the following code:
 
 ```
 In [32]:
@@ -18073,19 +17599,17 @@ In [32]:
    plt.gcf().set_size_inches(8,8)
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
-
-
-The idea with this diagram is that you can see the level of correlation via color by finding the intersection of vertical and horizontal variables. The darker the color, the less the correlation; the lighter the color, the greater the correlation. The diagonal is necessarily white (1.0), as it is each stock compared to itself. 
+The idea with this diagram is that you can see the level of correlation via color by finding the intersection of vertical and horizontal variables. The darker the color, the less the correlation; the lighter the color, the greater the correlation. The diagonal is necessarily white (1.0), as it is each stock compared to itself.
 
 # **Volatility calculation** 
 
-The volatility of a stock is a measurement of the amount change of variance in the price of a stock over a specific period of time. It is common to compare the volatility to another stock to get a feel for which may have less risk or to a market index to compare the stock's volatility to the overall market. Generally, the higher the volatility, the riskier the investment in that stock. 
+The volatility of a stock is a measurement of the amount change of variance in the price of a stock over a specific period of time. It is common to compare the volatility to another stock to get a feel for which may have less risk or to a market index to compare the stock's volatility to the overall market. Generally, the higher the volatility, the riskier the investment in that stock.
 
-Volatility is calculated by taking a rolling-window standard deviation on percentage change in a stock (and scaling it relative to the size of the window). The size of the window affects the overall result. The wider a window, the less representative the measurement will become. As the window narrows, the result approaches the standard deviation. So, it is a bit of an art to pick the proper window size based on the data sampling frequency. Fortunately, pandas makes this very easy to modify interactively. 
+Volatility is calculated by taking a rolling-window standard deviation on percentage change in a stock (and scaling it relative to the size of the window). The size of the window affects the overall result. The wider a window, the less representative the measurement will become. As the window narrows, the result approaches the standard deviation. So, it is a bit of an art to pick the proper window size based on the data sampling frequency. Fortunately, pandas makes this very easy to modify interactively.
 
-As a demonstration, the following calculates the volatility of the stocks in our sample given a window of `75` periods: 
+As a demonstration, the following calculates the volatility of the stocks in our sample given a window of `75` periods:
 
 ```
 In [33]:
@@ -18099,17 +17623,15 @@ In [33]:
    vol.plot(figsize=(10, 8));
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
-
-
-Lines higher on the chart represent overall higher volatility, and the change of volatility over time is shown. 
+Lines higher on the chart represent overall higher volatility, and the change of volatility over time is shown.
 
 # **Determining risk relative to expected returns** 
 
-A useful analysis is to relate the volatility of a stock's daily percentage change to its expected return. This gives a feel for the risk/return ratio of the investment. This can be performed by mapping the mean of the daily percentage change relative to the standard deviation of the same values. 
+A useful analysis is to relate the volatility of a stock's daily percentage change to its expected return. This gives a feel for the risk/return ratio of the investment. This can be performed by mapping the mean of the daily percentage change relative to the standard deviation of the same values.
 
-To demonstrate, the following code will create a scatter plot that relates the risk and return of our sample set of stocks: 
+To demonstrate, the following code will create a scatter plot that relates the risk and return of our sample set of stocks:
 
 ```
 In [34]:
@@ -18139,11 +17661,9 @@ change
    plt.gcf().set_size_inches(8,8)
 ```
 
-The output is seen in the following screenshot: 
+The output is seen in the following screenshot:
 
-
-
-The results of this immediately jump out from the visualization and may have been more difficult to see by just looking at tables of numbers: 
+The results of this immediately jump out from the visualization and may have been more difficult to see by just looking at tables of numbers:
 
 - Airline stocks (AA, DAL, and UAL) have the highest risk but also have the highest returns (Isn't that the general rule of investing?) Our tech stocks are of medium risk but also have medium return. Among the tech stocks, IBM and GE are the most conservative of the four. 
 
@@ -18151,13 +17671,13 @@ The results of this immediately jump out from the visualization and may have bee
 
 # **Summary** 
 
-We have reached the end of our journey in learning about pandas and the features it offers for data manipulation. Prior to this chapter, we spent our time mostly learning the features, most of the time using data designed to demonstrate the concepts instead of using real-world data. 
+We have reached the end of our journey in learning about pandas and the features it offers for data manipulation. Prior to this chapter, we spent our time mostly learning the features, most of the time using data designed to demonstrate the concepts instead of using real-world data.
 
-In this chapter, we used everything that we learned up to this point to demonstrate how easy it is to use pandas to analyze real-world data— specifically, stock data—and derive results from the data, and in many cases, make quick conclusions through visualizations designed to make the patterns in the data apparent. 
+In this chapter, we used everything that we learned up to this point to demonstrate how easy it is to use pandas to analyze real-world data— specifically, stock data—and derive results from the data, and in many cases, make quick conclusions through visualizations designed to make the patterns in the data apparent.
 
-This chapter also introduced a number of financial concepts, such as the daily percentage change, calculating returns, and the correlation of timeseries data, among several others. The focus was not on financial theory but to demonstrate how easy it is to use pandas to manage and derive meaning from what was otherwise just lists and lists of numbers. 
+This chapter also introduced a number of financial concepts, such as the daily percentage change, calculating returns, and the correlation of timeseries data, among several others. The focus was not on financial theory but to demonstrate how easy it is to use pandas to manage and derive meaning from what was otherwise just lists and lists of numbers.
 
-In closing, it is worth noting that although pandas was created by financial analysts—hence its ability to provide simple solutions in the financial domain—pandas is in no way limited to just finance. It is a very robust tool for data science and can be applied just as effectively to many other domains. Several of these are emerging markets with significant opportunity, such as social network analysis or applications of wearable computing, such as fitness data collected continuously and used to make people healthier. Whatever your domain of use for pandas, I hope you find using pandas as fascinating as I do. 
+In closing, it is worth noting that although pandas was created by financial analysts—hence its ability to provide simple solutions in the financial domain—pandas is in no way limited to just finance. It is a very robust tool for data science and can be applied just as effectively to many other domains. Several of these are emerging markets with significant opportunity, such as social network analysis or applications of wearable computing, such as fitness data collected continuously and used to make people healthier. Whatever your domain of use for pandas, I hope you find using pandas as fascinating as I do.
 
 # **Index** 
 
@@ -18211,23 +17731,23 @@ In closing, it is worth noting that although pandas was created by financial ana
 
    - about / <u>Bar plots</u> 
 
-binning 
+binning
 
-about / <u>Discretization and Binning</u> 
+about / <u>Discretization and Binning</u>
 
-box plots 
+box plots
 
-about / <u>Box and whisker charts</u> **C** 
+about / <u>Box and whisker charts</u> **C**
 
 #### calendars 
 
-used, for handling holidays / <u>Handling holidays using calendars</u> columns, DataFrame 
+used, for handling holidays / <u>Handling holidays using calendars</u> columns, DataFrame
 
 - selecting / <u>Selecting columns of a DataFrame</u> 
 
 - renaming / <u>Renaming columns</u> 
 
-adding / <u>Adding and inserting columns</u> 
+adding / <u>Adding and inserting columns</u>
 
    - inserting / <u>Adding and inserting columns</u> 
 
@@ -18245,7 +17765,7 @@ adding / <u>Adding and inserting columns</u>
 
 - contents, DataFrame 
 
-modifying / <u>Modifying the structure and content of DataFrame</u> correlation / <u>The correlation of stocks based on the daily percentage change of the closing price, Volatility calculation</u> 
+modifying / <u>Modifying the structure and content of DataFrame</u> correlation / <u>The correlation of stocks based on the daily percentage change of the closing price, Volatility calculation</u>
 
 - CSV 
 
@@ -18271,7 +17791,7 @@ modifying / <u>Modifying the structure and content of DataFrame</u> correlation 
 
 - cumulative daily returns 
 
-calculating / <u>Calculating simple daily cumulative returns</u> 
+calculating / <u>Calculating simple daily cumulative returns</u>
 
 ## **D** 
 
@@ -18391,23 +17911,23 @@ calculating / <u>Calculating simple daily cumulative returns</u>
 
 - DataFrame, example data 
 
-S&P 500 / <u>S</u> 
+S&P 500 / <u>S</u>
 
 - monthly stock historical prices / <u>Monthly stock historical prices</u> 
 
 - DataFrame object 
 
-about / <u>The pandas DataFrame object</u> .iloc property / <u>The pandas DataFrame object</u> 
+about / <u>The pandas DataFrame object</u> .iloc property / <u>The pandas DataFrame object</u>
 
-.loc property / <u>The pandas DataFrame object</u> 
+.loc property / <u>The pandas DataFrame object</u>
 
 - data visualization 
 
-about / <u>Simplicity of visualization of pandas data</u> 
+about / <u>Simplicity of visualization of pandas data</u>
 
-date offsets 
+date offsets
 
-about / <u>Date offsets</u> 
+about / <u>Date offsets</u>
 
 - dates 
 
@@ -18415,11 +17935,11 @@ about / <u>Date offsets</u>
 
 - DatetimeIndex 
 
-about / <u>DatetimeIndex</u> 
+about / <u>DatetimeIndex</u>
 
 - datetime object 
 
-about / <u>The datetime, day, and time objects</u> 
+about / <u>The datetime, day, and time objects</u>
 
 - day 
 
@@ -18427,7 +17947,7 @@ about / <u>The datetime, day, and time objects</u>
 
 - density plot 
 
-about / <u>Density plot</u> 
+about / <u>Density plot</u>
 
 - discretization 
 
@@ -18479,45 +17999,45 @@ about / <u>Density plot</u>
 
    - aggregation functions, applying / <u>Applying aggregation functions to groups</u> 
 
-filtering / <u>Filtering groups, Discretization and Binning</u> 
+filtering / <u>Filtering groups, Discretization and Binning</u>
 
 ## **H** 
 
-HDF5 format files 
+HDF5 format files
 
-reading / <u>Reading and writing HDF5 format files</u> 
+reading / <u>Reading and writing HDF5 format files</u>
 
-heatmap 
+heatmap
 
-about / <u>Heatmaps</u> 
+about / <u>Heatmaps</u>
 
-examples / <u>Heatmaps</u> 
+examples / <u>Heatmaps</u>
 
-hierarchical indexes 
+hierarchical indexes
 
-used, for unstacking / <u>Unstacking using hierarchical indexes</u> hierarchical indexing 
+used, for unstacking / <u>Unstacking using hierarchical indexes</u> hierarchical indexing
 
-about / <u>Hierarchical indexing</u> 
+about / <u>Hierarchical indexing</u>
 
-histograms 
+histograms
 
-about / <u>Histograms</u> holidays 
+about / <u>Histograms</u> holidays
 
-handling, calendars used / <u>Handling holidays using calendars</u> HTML data 
+handling, calendars used / <u>Handling holidays using calendars</u> HTML data
 
-reading, from Web / <u>Reading HTML data from the Web</u> 
+reading, from Web / <u>Reading HTML data from the Web</u>
 
 ## **I** 
 
-index labels 
+index labels
 
-used, for filling / <u>Filling using index labels</u> index levels 
+used, for filling / <u>Filling using index labels</u> index levels
 
-used, for grouping / <u>Grouping using index levels</u> installation, Anaconda 
+used, for grouping / <u>Grouping using index levels</u> installation, Anaconda
 
-about / <u>Installing Anaconda</u> 
+about / <u>Installing Anaconda</u>
 
-on Linux / <u>Installing Anaconda on Linux</u> on Mac OS X / <u>Installing Anaconda on Mac OS X</u> on Windows / <u>Installing Anaconda on Windows</u> installation, IPython Notebooks / <u>Installing and running IPython Notebooks</u> 
+on Linux / <u>Installing Anaconda on Linux</u> on Mac OS X / <u>Installing Anaconda on Mac OS X</u> on Windows / <u>Installing Anaconda on Windows</u> installation, IPython Notebooks / <u>Installing and running IPython Notebooks</u>
 
 - intervals 
 
@@ -18527,19 +18047,19 @@ on Linux / <u>Installing Anaconda on Linux</u> on Mac OS X / <u>Installing Anaco
 
    - sample pandas application, executing / <u>Running a small pandas sample in IPython</u> 
 
-IPython Notebooks about / <u>pandas and IPython Notebooks, Starting the IPython Notebook server</u> URL / <u>pandas and IPython Notebooks, Starting the IPython Notebook server</u> using / <u>pandas and IPython Notebooks</u> starting / <u>Starting the IPython Notebook server</u> installing / <u>Installing and running IPython Notebooks</u> executing / <u>Installing and running IPython Notebooks</u> examples / <u>Installing and running IPython Notebooks</u> **J** 
+IPython Notebooks about / <u>pandas and IPython Notebooks, Starting the IPython Notebook server</u> URL / <u>pandas and IPython Notebooks, Starting the IPython Notebook server</u> using / <u>pandas and IPython Notebooks</u> starting / <u>Starting the IPython Notebook server</u> installing / <u>Installing and running IPython Notebooks</u> executing / <u>Installing and running IPython Notebooks</u> examples / <u>Installing and running IPython Notebooks</u> **J**
 
-JSON files reading / <u>Reading and writing JSON files</u> writing / <u>Reading and writing JSON files</u> **K** 
+JSON files reading / <u>Reading and writing JSON files</u> writing / <u>Reading and writing JSON files</u> **K**
 
-Kenneth French data accessing / <u>Accessing Kenneth French's data</u> URL / <u>Accessing Kenneth French's data</u> **L** 
+Kenneth French data accessing / <u>Accessing Kenneth French's data</u> URL / <u>Accessing Kenneth French's data</u> **L**
 
-Linux Anaconda, installing / <u>Installing Anaconda on Linux</u> logical operation on NumPy arrays / <u>Logical operations on arrays</u> 
+Linux Anaconda, installing / <u>Installing Anaconda on Linux</u> logical operation on NumPy arrays / <u>Logical operations on arrays</u>
 
 ## **M** 
 
-Mac OS X Anaconda, installing / <u>Installing Anaconda on Mac OS X</u> markers reference link / <u>Specifying line colors, styles, thickness, and markers</u> mathematical operations 
+Mac OS X Anaconda, installing / <u>Installing Anaconda on Mac OS X</u> markers reference link / <u>Specifying line colors, styles, thickness, and markers</u> mathematical operations
 
-NaN values, handling / <u>How pandas handles NaN values in mathematical operations</u> 
+NaN values, handling / <u>How pandas handles NaN values in mathematical operations</u>
 
 #### matplotlib 
 
@@ -18649,19 +18169,19 @@ NaN values, handling / <u>How pandas handles NaN values in mathematical operatio
 
    - used, for calculating new dates / <u>Calculating new dates using offsets</u> 
 
-date offsets / <u>Date offsets</u> anchored offsets / <u>Anchored offsets, Representing durations of time using Period objects</u> 
+date offsets / <u>Date offsets</u> anchored offsets / <u>Anchored offsets, Representing durations of time using Period objects</u>
 
 - period object / <u>The Period object</u> PeriodIndex / <u>PeriodIndex</u> 
 
 ## **P** 
 
-.plot() method 
+.plot() method
 
    - time-series charts, creating with / <u>Creating time-series charts with .plot()</u> 
 
 - pandas 
 
-features / <u>pandas and why it is important</u> 
+features / <u>pandas and why it is important</u>
 
    - IPython Notebooks / <u>pandas and IPython Notebooks</u> 
 
@@ -18707,35 +18227,35 @@ features / <u>pandas and why it is important</u>
 
    - about / <u>Primary pandas objects</u> 
 
-Series object / <u>The pandas Series object</u> DataFrame object / <u>The pandas DataFrame object</u> 
+Series object / <u>The pandas Series object</u> DataFrame object / <u>The pandas DataFrame object</u>
 
 ## **R** 
 
-remote data services 
+remote data services
 
-data, reading from / <u>Reading data from remote data services</u> rows, DataFrame 
+data, reading from / <u>Reading data from remote data services</u> rows, DataFrame
 
-selecting, index used / <u>Selecting rows and values of a DataFrame using the index</u> selecting, by index label / <u>Selecting rows by index label and location: .loc[] and .iloc[], Selecting rows by index label and/or location: .ix[]</u> 
+selecting, index used / <u>Selecting rows and values of a DataFrame using the index</u> selecting, by index label / <u>Selecting rows by index label and location: .loc[] and .iloc[], Selecting rows by index label and/or location: .ix[]</u>
 
-selecting, by location / <u>Selecting rows by index label and location: .loc[] and .iloc[], Selecting rows by index label and/or location: .ix[]</u> selecting, Boolean selection used / <u>Selecting rows of a DataFrame by Boolean selection</u> 
+selecting, by location / <u>Selecting rows by index label and location: .loc[] and .iloc[], Selecting rows by index label and/or location: .ix[]</u> selecting, Boolean selection used / <u>Selecting rows of a DataFrame by Boolean selection</u>
 
-adding / <u>Adding rows to a DataFrame</u> adding, append() used / <u>Appending rows with .append()</u> adding, pd.concat() used / <u>Concatenating DataFrame objects with pd.concat()</u> 
+adding / <u>Adding rows to a DataFrame</u> adding, append() used / <u>Appending rows with .append()</u> adding, pd.concat() used / <u>Concatenating DataFrame objects with pd.concat()</u>
 
-adding, via setting with enlargement / <u>Adding rows (and columns) via setting with enlargement</u> 
+adding, via setting with enlargement / <u>Adding rows (and columns) via setting with enlargement</u>
 
-removing / <u>Removing rows from a DataFrame</u> removing, .drop() used / <u>Removing rows using .drop()</u> removing, Boolean selection used / <u>Removing rows using Boolean selection</u> 
+removing / <u>Removing rows from a DataFrame</u> removing, .drop() used / <u>Removing rows using .drop()</u> removing, Boolean selection used / <u>Removing rows using Boolean selection</u>
 
-removing, slice used / <u>Removing rows using a slice</u> 
+removing, slice used / <u>Removing rows using a slice</u>
 
 ## **S** 
 
-scalar lookup, DataFrame 
+scalar lookup, DataFrame
 
-by label, .at[] used / <u>Scalar lookup by label or location using .at[] and .iat[]</u> by location, .at[] used / <u>Scalar lookup by label or location using .at[] and .iat[]</u> 
+by label, .at[] used / <u>Scalar lookup by label or location using .at[] and .iat[]</u> by location, .at[] used / <u>Scalar lookup by label or location using .at[] and .iat[]</u>
 
-scalar values, DataFrame 
+scalar values, DataFrame
 
-changing / <u>Changing scalar values in a DataFrame</u> scatter plot about / <u>Scatter plots</u> scatter plot matrix about / <u>The scatter plot matrix</u> scikit-learn about / <u>pandas and why it is important</u> SciPy about / <u>pandas and why it is important</u> Series object about / <u>The pandas Series object, The Series object</u> creating / <u>Creating Series</u> items, determining / <u>Size, shape, uniqueness, and counts of values</u> .size property, using / <u>Size, shape, uniqueness, and counts of values</u> .shape property, using / <u>Size, shape, uniqueness, and counts of values</u> .count() method, using / <u>Size, shape, uniqueness, and counts of values</u> .unique() method, using / <u>Size, shape, uniqueness, and counts of values</u> .value_counts(), using / <u>Size, shape, uniqueness, and counts of values</u> .head() method, using / <u>Peeking at data with heads, tails, and take</u> .tail() method, using / <u>Peeking at data with heads, tails, and take</u> .take() method, using / <u>Peeking at data with heads, tails, and take</u> values, looking up / <u>Looking up values in Series</u> alignment, examining via index labels / <u>Alignment via index labels</u> arithmetic operations / <u>Arithmetic operations</u> Boolean selection / <u>Boolean selection</u> reindexing / <u>Reindexing a Series</u> modifying, in-place / <u>Modifying a Series in-place</u> slicing / <u>Slicing a Series</u> slicing, DataFrame [] operator used / <u>Slicing using the [] operator</u> split 
+changing / <u>Changing scalar values in a DataFrame</u> scatter plot about / <u>Scatter plots</u> scatter plot matrix about / <u>The scatter plot matrix</u> scikit-learn about / <u>pandas and why it is important</u> SciPy about / <u>pandas and why it is important</u> Series object about / <u>The pandas Series object, The Series object</u> creating / <u>Creating Series</u> items, determining / <u>Size, shape, uniqueness, and counts of values</u> .size property, using / <u>Size, shape, uniqueness, and counts of values</u> .shape property, using / <u>Size, shape, uniqueness, and counts of values</u> .count() method, using / <u>Size, shape, uniqueness, and counts of values</u> .unique() method, using / <u>Size, shape, uniqueness, and counts of values</u> .value_counts(), using / <u>Size, shape, uniqueness, and counts of values</u> .head() method, using / <u>Peeking at data with heads, tails, and take</u> .tail() method, using / <u>Peeking at data with heads, tails, and take</u> .take() method, using / <u>Peeking at data with heads, tails, and take</u> values, looking up / <u>Looking up values in Series</u> alignment, examining via index labels / <u>Alignment via index labels</u> arithmetic operations / <u>Arithmetic operations</u> Boolean selection / <u>Boolean selection</u> reindexing / <u>Reindexing a Series</u> modifying, in-place / <u>Modifying a Series in-place</u> slicing / <u>Slicing a Series</u> slicing, DataFrame [] operator used / <u>Slicing using the [] operator</u> split
 
    - notebook, setting up / <u>Setting up the IPython notebook</u> aggregation / <u>The split, apply, and combine (SAC) pattern</u> transformation / <u>The split, apply, and combine (SAC) pattern</u> filtration / <u>The split, apply, and combine (SAC) pattern</u> 
 
@@ -18845,61 +18365,61 @@ changing / <u>Changing scalar values in a DataFrame</u> scatter plot about / <u>
 
 - Timedelta about / <u>Timedelta</u> 
 
-time objects 
+time objects
 
-about / <u>The datetime, day, and time objects</u> 
+about / <u>The datetime, day, and time objects</u>
 
-timestamp objects 
+timestamp objects
 
-about / <u>Timestamp objects</u> 
+about / <u>Timestamp objects</u>
 
-timestamps 
+timestamps
 
-normalizing, time zones used / <u>Normalizing timestamps using time zones</u> 
+normalizing, time zones used / <u>Normalizing timestamps using time zones</u>
 
-time zones 
+time zones
 
-used, for normalizing timestamps / <u>Normalizing timestamps using time zones</u> 
+used, for normalizing timestamps / <u>Normalizing timestamps using time zones</u>
 
-transformation 
+transformation
 
-of group data / <u>The transformation of group data</u> 
+of group data / <u>The transformation of group data</u>
 
-about / <u>An overview of transformation</u> 
+about / <u>An overview of transformation</u>
 
-examples / <u>Practical examples of transformation</u> 
+examples / <u>Practical examples of transformation</u>
 
 ## **U** 
 
-unstacking 
+unstacking
 
-about / <u>Stacking and unstacking</u> 
+about / <u>Stacking and unstacking</u>
 
 ## **V** 
 
 - values, DataFrame 
 
-selecting, index used / <u>Selecting rows and values of a DataFrame using the index</u> 
+selecting, index used / <u>Selecting rows and values of a DataFrame using the index</u>
 
-volume series data 
+volume series data
 
-plotting / <u>Plotting volume-series data</u> 
+plotting / <u>Plotting volume-series data</u>
 
 ## **W** 
 
-Wakari 
+Wakari
 
-URL / <u>Installing and running IPython Notebooks, Using Wakari for pandas</u> 
+URL / <u>Installing and running IPython Notebooks, Using Wakari for pandas</u>
 
-using, for pandas / <u>Using Wakari for pandas</u> 
+using, for pandas / <u>Using Wakari for pandas</u>
 
-URL, for examples / <u>Using Wakari for pandas</u> 
+URL, for examples / <u>Using Wakari for pandas</u>
 
-Web 
+Web
 
-data, loading / <u>Loading data from files and the Web, Loading data from the Web</u> 
+data, loading / <u>Loading data from files and the Web, Loading data from the Web</u>
 
-whisker charts 
+whisker charts
 
    - about / <u>Box and whisker charts</u> 
 

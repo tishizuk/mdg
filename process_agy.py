@@ -55,6 +55,81 @@ def clean_japanese_text(text: str) -> str:
     text = re.sub(f'({JP_CHAR_RE})[ \t]+({JP_CHAR_RE})', r'\1\2', text)
     return text
 
+def format_vertical_markdown_text(content: str) -> str:
+    """縦書き由来のMarkdownテキストの不要な改行・空白を整形し、自然な段落にまとめる"""
+    # 1. コードブロックを一時退避
+    code_blocks = []
+    def save_code_block(match):
+        code_blocks.append(match.group(0))
+        return f"\x00CODEBLOCK_{len(code_blocks)-1}\x00"
+
+    content = re.sub(r'```[\s\S]*?```', save_code_block, content)
+
+    # 2. 特殊文字置換と日本語間空白除去
+    content = clean_japanese_text(content)
+
+    # 3. 段落ごとの整形
+    blocks = re.split(r'\n{2,}', content)
+    formatted_blocks = []
+
+    for block in blocks:
+        lines = block.splitlines()
+        if not lines:
+            continue
+
+        # ヘッダー、表、区切り線、コードブロックプレースホルダー等のチェック
+        first_line = lines[0].strip()
+        if (first_line.startswith('\x00CODEBLOCK_') or 
+            first_line.startswith('#') or 
+            first_line.startswith('|') or 
+            first_line.startswith('---') or
+            first_line.startswith('***') or
+            first_line.startswith('___') or
+            first_line.startswith('* ') or 
+            first_line.startswith('- ') or 
+            first_line.startswith('+ ') or
+            re.match(r'^\d+\.\s', first_line) or
+            first_line.startswith('> ') or 
+            first_line.startswith('![')):
+            formatted_blocks.append(block)
+            continue
+
+        # 地の文の不要な行内改行を結合
+        joined_lines = []
+        cur = ""
+        for line in lines:
+            l = line.strip()
+            if not l:
+                continue
+            if not cur:
+                cur = l
+            else:
+                prev_char = cur[-1]
+                curr_char = l[0]
+                prev_is_jp = bool(re.search(JP_CHAR_RE, prev_char))
+                curr_is_jp = bool(re.search(JP_CHAR_RE, curr_char))
+
+                if prev_is_jp and curr_is_jp:
+                    cur += l
+                elif prev_char in ('、', '，', '（', '「', '『') or curr_char in ('、', '。', '，', '．', '」', '』', '）', '）', '！', '？'):
+                    cur += l
+                elif prev_is_jp or curr_is_jp:
+                    cur += l
+                else:
+                    cur += " " + l
+        if cur:
+            formatted_blocks.append(cur)
+
+    result = "\n\n".join(formatted_blocks).strip()
+
+    # 4. コードブロック復元
+    for i, cb in enumerate(code_blocks):
+        result = result.replace(f"\x00CODEBLOCK_{i}\x00", cb)
+
+    # 5. 連続改行の正規化
+    result = re.sub(r'\n{3,}', '\n\n', result)
+    return result
+
 def is_vertical_pdf(doc) -> bool:
     """PDFが縦書きかどうか判定する"""
     vert_count = 0
@@ -182,8 +257,8 @@ def convert_epub_to_md(epub_path: Path, md_path: Path) -> bool:
             content = item.get_content().decode("utf-8", errors="ignore")
             text = h.handle(content).strip()
             if text:
-                cleaned = clean_japanese_text(text)
-                md_parts.append(cleaned)
+                formatted = format_vertical_markdown_text(text)
+                md_parts.append(formatted)
         except Exception as e:
             print(f"  Warning on item {item.get_name()}: {e}")
 
@@ -213,7 +288,7 @@ def convert_pdf_to_md(pdf_path: Path, md_path: Path) -> bool:
         print(f"   [横書き検出] pymupdf4llm を実行中...")
         try:
             md_text = pymupdf4llm.to_markdown(str(pdf_path)).strip()
-            md_text = clean_japanese_text(md_text)
+            md_text = format_vertical_markdown_text(md_text)
         except Exception as e:
             print(f"   pymupdf4llmエラー、フォールバック: {e}")
             md_text = extract_vertical_pdf(pdf_path)
@@ -225,70 +300,24 @@ def convert_pdf_to_md(pdf_path: Path, md_path: Path) -> bool:
         f.write(md_text)
     return True
 
-def format_vertical_markdown_text(content: str) -> str:
-    """縦書き由来のMarkdownテキストの不要な改行・空白を整形し、自然な段落にまとめる"""
-    # 1. 特殊文字置換と日本語間空白除去
-    content = clean_japanese_text(content)
-
-    # 2. 段落ごとの整形 (Markdown構造を破壊しないように処理)
-    blocks = re.split(r'\n{2,}', content)
-    formatted_blocks = []
-
-    for block in blocks:
-        lines = block.splitlines()
-        # コードブロック、表、ヘッダー、リスト項目、引用、画像などはそのまま
-        if not lines:
-            continue
-        first_line = lines[0].strip()
-        if (first_line.startswith('```') or first_line.startswith('#') or 
-            first_line.startswith('|') or first_line.startswith('---') or
-            first_line.startswith('* ') or first_line.startswith('- ') or
-            first_line.startswith('> ') or first_line.startswith('![')):
-            formatted_blocks.append(block)
-            continue
-
-        # 日本語を含む地の文の場合、不要な行内改行を連結
-        # 縦書き由来のテキストは1行ごとにぶつ切り改行されている
-        joined_lines = []
-        cur = ""
-        for line in lines:
-            l = line.strip()
-            if not l:
-                continue
-            if not cur:
-                cur = l
-            else:
-                # 前の行末が句読点や閉じ括弧などでなく、現在の行の先頭が日本語などの場合、結合
-                prev_char = cur[-1]
-                curr_char = l[0]
-                prev_is_jp = bool(re.search(JP_CHAR_RE, prev_char))
-                curr_is_jp = bool(re.search(JP_CHAR_RE, curr_char))
-                
-                if prev_is_jp and curr_is_jp:
-                    cur += l
-                elif prev_char in ('、', '，') or curr_char in ('、', '。', '，', '．', '」', '』', '）', '）'):
-                    cur += l
-                else:
-                    cur += " " + l
-        if cur:
-            formatted_blocks.append(cur)
-
-    result = "\n\n".join(formatted_blocks).strip()
-    return result
-
 def clean_and_format_all_md_files(workspace_dir: Path):
     """ワークスペース内のすべての既存Markdownファイルを整形"""
+    updated_count = 0
+    total_count = 0
     for md_path in sorted(workspace_dir.glob("*.md")):
         if md_path.name in ("agy.md", "agy_kindle.md", "url.md"):
             continue
+        total_count += 1
         try:
             content = md_path.read_text(encoding="utf-8", errors="ignore")
-            cleaned = clean_japanese_text(content)
+            cleaned = format_vertical_markdown_text(content)
             if cleaned != content:
                 md_path.write_text(cleaned, encoding="utf-8")
+                updated_count += 1
                 print(f"  [整形完了] {md_path.name}")
         except Exception as e:
             print(f"  [エラー] {md_path.name}: {e}")
+    print(f"  既存Markdownファイル整形完了: {updated_count}/{total_count} ファイルを更新しました")
 
 def main():
     workspace_dir = Path("/home/tishizuk/Documents/mdg")
@@ -299,27 +328,29 @@ def main():
     print(" agy.md 実行バッチ: PDF/EPUB変換 & 縦書きテキスト整形")
     print("=" * 65)
 
-    # 1. ワークスペース内の未処理 PDF / EPUB ファイルの変換
+    # 1. ワークスペース内の未処理 PDF / EPUB ファイルの検出と変換
     print("\n[STEP 1] PDF / EPUB ファイルの検出と変換")
     target_files = []
     for ext in ("*.pdf", "*.epub"):
         for file_path in sorted(workspace_dir.glob(ext)):
+            if (processed_dir / file_path.name).exists():
+                print(f"   -> 既に processed/ に存在するため移動: {file_path.name}")
+                file_path.unlink()
+                continue
             target_files.append(file_path)
 
     if not target_files:
-        print("  対象となる PDF / EPUB ファイルはありません。")
+        print("  対象となる未処理の PDF / EPUB ファイルはありません。")
     else:
         print(f"対象ファイル数: {len(target_files)} 件")
         for i, file_path in enumerate(target_files, 1):
             md_path = file_path.with_suffix(".md")
             print(f"\n[{i}/{len(target_files)}] {file_path.name}")
 
-            # processed フォルダに既にあるか確認
-            dest_file = processed_dir / file_path.name
-            
             # 同名のmdファイルがある場合、変換しないでスキップ
             if md_path.exists():
                 print(f"   -> スキップ (同名mdファイルが既に存在): {md_path.name}")
+                dest_file = processed_dir / file_path.name
                 shutil.move(str(file_path), str(dest_file))
                 print(f"   -> processed/ へ移動しました")
                 continue
@@ -340,6 +371,7 @@ def main():
                 else:
                     print(f"   -> テキスト層なし/空ファイルのためmdファイルを作成しませんでした ({elapsed:.1f}秒)")
 
+                dest_file = processed_dir / file_path.name
                 shutil.move(str(file_path), str(dest_file))
                 print(f"   -> processed/ へ移動しました")
             except Exception as e:

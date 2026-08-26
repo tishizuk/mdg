@@ -969,26 +969,17 @@ f(x::Int) = x + 1
 f(x::Float64) = x + 1.0  
 f(x::Complex) = real(x) + 1 + im*imag(x)  
 
-
-f(10) # -> 11 (Intに最適)  
-f(10.0) # -> 11.0 (Float64に最適)  
-f(1 + 2im) # -> 2 + 2im (Complexに最適)
+f(10) # -> 11 (Intに最適) f(10.0) # -> 11.0 (Float64に最適) f(1 + 2im) # -> 2 + 2im (Complexに最適)
 
 抽象型・具象型・パラメトリック型を組み合わせることで、拡張性と性能を両立します。
 
-abstract type NumberLike end  
-struct MyFloat{T<:AbstractFloat} <: NumberLike  
-v::T  
-end  
-
+abstract type NumberLike end struct MyFloat{T<:AbstractFloat} <: NumberLike v::T end
 
 # 抽象型を受ける汎用実装  
 g(x::NumberLike) = "generic"  
 
-
 # 具体型を受ける高速実装  
 g(x::MyFloat{Float64}) = x.v + 0.5  
-
 
 g(MyFloat(1.0)) # 1.5(専用メソッドが選ばれる)
 
@@ -1019,7 +1010,6 @@ n = length(xs)
 σ = sqrt(sum((x - μ)^2 for x in xs) / (n - 1))  
 return μ, σ  
 end  
-
 
 mean, std = stats([1,2,3,4,5])
 
@@ -1063,8 +1053,7 @@ z = @. sin(x) + cos(y) # @. は行内の演算にドットを自動付与
 
 浮動小数点は有限精度の近似表現であり、演算順序や丸め誤差の影響を受けます。最小二乗計算、固有値、条件数の評価などでは、アルゴリズム選択が安定性に直結します。Juliaでは、Float64を基本に、必要に応じて高精度のBigFloatを使う戦略が現実的です。型で精度を切り替えながら、同じ関数名で異なる精度に対して最適なメソッドを用意できるのは、多重ディスパッチの利点です。
 
-sum_stable(xs::AbstractVector{Float64}) = sum(xs) # 高速・一般的  
-sum_stable(xs::AbstractVector{BigFloat}) = sum(xs) # 高精度志向
+sum_stable(xs::AbstractVector{Float64}) = sum(xs) # 高速・一般的sum_stable(xs::AbstractVector{BigFloat}) = sum(xs) # 高精度志向
 
 ## 5.3 微分方程式・最適化・根探し:表現と解法の橋渡し
 
@@ -1088,7 +1077,6 @@ end
 return (a + b)/2  
 end  
 
-
 bisect(x -> x^3 - 2, 0.0, 2.0) # 立方根の近似
 
 ## 5.4 型安定性:性能の前提条件
@@ -1097,7 +1085,6 @@ JITとLLVMの恩恵を最大化するには、型安定性が鍵です。「同�
 
 # 悪い例:条件で戻り値の型が変わる  
 h(x) = x > 0 ? x : "negative" # Int か String を返す → 型不安定  
-
 
 # 良い例:戻り値の型を数値で統一  
 h_fixed(x) = x > 0 ? x : -x # 常に数値を返す → 型安定
@@ -1122,7 +1109,6 @@ new{T}(lo, hi)
 end  
 end  
 
-
 contains(I::Interval, x) = I.lo <= x <= I.hi
 
 ## 6.2 マクロによる宣言的記述
@@ -1135,12 +1121,7 @@ macro model(ex)
 return :(println("model spec: ", $(QuoteNode(ex))))  
 end  
 
-
-@model begin  
-objective = x^2 + y^2  
-constraint1 = x + y <= 1  
-constraint2 = x >= 0  
-end
+@model begin objective = x^2 + y^2 constraint1 = x + y <= 1 constraint2 = x >= 0 end
 
 この例は最小限ですが、「仕様を書く→検証する→解く」の一連の流れを言語機能で支援できることを示しています。複雑な最適化や微分方程式でも、マクロと型の組み合わせで、宣言的に問題構造を記述し、解法選択やログ、可視化を自動的に差し込めます。
 
@@ -1148,14 +1129,9 @@ end
 
 仕様に応じて解法を切り替えるには、多重ディスパッチが有効です。例えば、StiffODE型とNonStiffODE型に応じて、ステップ幅制御やメソッドを変える、といった設計が自然に書けます。
 
-abstract type ODEModel end  
-struct StiffODE <: ODEModel; end  
-struct NonStiffODE <: ODEModel; end  
+abstract type ODEModel end struct StiffODE <: ODEModel; end struct NonStiffODE <: ODEModel; end
 
-
-solve(m::StiffODE, u0, tspan) = "use implicit method"  
-solve(m::NonStiffODE, u0, tspan) = "use explicit method"  
-
+solve(m::StiffODE, u0, tspan) = "use implicit method" solve(m::NonStiffODE, u0, tspan) = "use explicit method"
 
 solve(StiffODE(), [1.0, 0.0], (0.0, 1.0))
 
@@ -1181,7 +1157,6 @@ tol::Float64
 maxiter::Int  
 step::Float64  
 end  
-
 
 cfg = SolverConfig(1e-8, 10_000, 0.01)
 
@@ -1218,8 +1193,6 @@ cfg = SolverConfig(1e-8, 10_000, 0.01)
   * 成果物をコード化する: 図・表・レポートはコードから生成します。人手の加工を無くし、説明責任を果たします。
   * テストと検証を並走させる: 単体テストに加え、性質の検査とベンチマークで品質と性能を守ります。
 
-
-
 これらの作法は、Juliaの設計思想と相性が良く、短期の生産性と長期の保守性を両立します。汎用プログラミングの快適さを保ちつつ、計算科学の厳密さに耐えられるコードベースを築くための基本指針として、ぜひ意識的に取り入れてください。
 
 * * *
@@ -1242,14 +1215,11 @@ julia実行ファイルへのパスが通っていない場合は、OSの環境�
 # バージョンのみ表示  
 julia -v  
 
-
 # ヘルプと主なオプション一覧  
 julia \--help  
 
-
 # スレッド数を自動設定して起動(v1.5以降)  
 julia -t auto  
-
 
 # 現在のディレクトリの環境(Project.toml)を有効化して起動  
 julia \--project=.
@@ -1266,8 +1236,6 @@ JuliaのREPL(Read–Eval–Print Loop)は、探索・試作・デバッグを高
   * ; シェルモード
   * ] Pkgモード
 
-
-
 これらは1文字入力するだけで、各モードに切り替わります。モードを抜けるにはBackspaceを押します。
 
 ## 2.1 基本操作とショートカット
@@ -1278,8 +1246,6 @@ REPLでは履歴が保存され、上下矢印で過去の入力を辿れます�
   * Ctrl+D REPLの終了
   * Tab 補完
   * Shift+Enter(VS Codeのターミナルなど) 改行
-
-
 
 ## 2.2 ヘルプモード(?)
 
@@ -1293,18 +1259,13 @@ REPLでは履歴が保存され、上下矢印で過去の入力を辿れます�
 
 ;を入力すると、シェルモードになります。ここではOSのコマンドをそのまま実行できます。ディレクトリの確認やgit操作など、開発作業をREPLから離れずに行えます。
 
-;pwd  
-;ls -la  
-;git status
+;pwd ;ls -la ;git status
 
 ## 2.4 Pkgモード(])
 
 ]を入力すると、パッケージ管理のPkgモードに切り替わります。環境の作成・有効化・依存の追加/更新/削除・状況確認・事前コンパイルなどの操作を、対話的に実行できます。
 
-] activate .  
-] status  
-] add DataFrames CSV  
-] precompile
+] activate . ] status ] add DataFrames CSV ] precompile
 
 Pkgモードでは、プロジェクト環境を明示的にactivateするのが基本です。activate .はカレントディレクトリのProject.tomlを環境として有効化します。もし存在しない場合は、空の環境が作成されます。以降、その環境へ依存関係が記録されます。
 
@@ -1318,20 +1279,11 @@ Juliaはプロジェクト単位の環境分離を標準機能として備えて
 
 Project.tomlはプロジェクトのメタ情報と、直接依存するパッケージ(トップレベルの依存)を記述します。主な項目はname、uuid、version、[deps]、[compat]などです。[deps]には依存パッケージ名とそのUUIDが記録され、[compat]でバージョンの互換範囲を指定できます。
 
-name = "MyProject"  
-uuid = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"  
-version = "0.1.0"  
+name = "MyProject" uuid = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" version = "0.1.0"
 
+[deps] DataFrames = "a93c6f00-e57b-5684-b7b6-d8193f3e46c0" CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 
-[deps]  
-DataFrames = "a93c6f00-e57b-5684-b7b6-d8193f3e46c0"  
-CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"  
-
-
-[compat]  
-julia = "1.10"  
-DataFrames = "1"  
-CSV = "0.10"
+[compat] julia = "1.10" DataFrames = "1" CSV = "0.10"
 
 [compat]は再現性と保守性の要で、将来の更新で破壊的変更を取り込まないよう制御できます。
 
@@ -1350,7 +1302,6 @@ instantiateはManifest.tomlに従い、必要なパッケージをダウンロ�
 # 新規ディレクトリを作る  
 mkdir myproj && cd myproj  
 
-
 # REPLを起動し、Pkgモードで環境を有効化  
 julia \--project=.  
 # ] activate .  
@@ -1360,9 +1311,7 @@ julia \--project=.
 
 コードと環境ファイルをVCS(git)で共有すれば、他者はclone後にinstantiateするだけで同じ環境を再現できます。
 
-git init  
-git add Project.toml Manifest.toml src notebooks  
-git commit -m "initial setup"
+git init git add Project.toml Manifest.toml src notebooks git commit -m "initial setup"
 
 ## 3.4 Pkgの主なコマンド
 
@@ -1376,18 +1325,13 @@ git commit -m "initial setup"
   * ] pin <pkg> 特定バージョンへの固定
   * ] dev <path or url> 開発中パッケージを直接参照
 
-
-
 pinは意図的にバージョンを固定したいときに有用です。計算結果の検証や長期プロジェクトで、ライブラリの更新に伴う挙動変化を避けられます。
 
 ## 3.5 コード側からのPkg操作
 
 REPLのPkgモードに加えて、コードからPkg標準ライブラリを使って操作することもできます。自動セットアップスクリプトやCIで役立ちます。
 
-using Pkg  
-Pkg.activate(".")  
-Pkg.instantiate()  
-Pkg.precompile()
+using Pkg Pkg.activate(".") Pkg.instantiate() Pkg.precompile()
 
 * * *
 
@@ -1406,9 +1350,7 @@ Julia: Start REPLで統合REPLが起動します。ソース内の# %%でセル�
 # %%  
 using DataFrames, CSV  
 
-
-df = CSV.read("data.csv", DataFrame)  
-
+df = CSV.read("data.csv", DataFrame)
 
 # %%  
 describe(df)
@@ -1433,19 +1375,16 @@ Jupyterは、対話的な分析、説明のためのノート作成、可視化�
 
 プロジェクト環境をactivateした上で、IJuliaを追加します。
 
-] activate .  
-] add IJulia
+] activate . ] add IJulia
 
 ## 5.2 ノートブックの起動
 
 REPLから次のように起動できます。既存のJupyterが検出される場合はそれを使い、未インストールなら必要なコンポーネントのセットアップが促されます。
 
-using IJulia  
-
+using IJulia
 
 # ノートブックを起動  
 notebook()  
-
 
 # JupyterLabを起動  
 jupyterlab()
@@ -1456,8 +1395,7 @@ jupyterlab()
 
 ノートブックからもプロジェクト環境に乗ることが重要です。セルの先頭で、明示的にPkg.activate(".")を行うと、ノートブックがプロジェクトのProject.toml/Manifest.tomlを参照するようになります。
 
-using Pkg  
-Pkg.activate(".")
+using Pkg Pkg.activate(".")
 
 これにより、VS CodeやREPLで使っているのと同じ依存・バージョンで実行でき、図・表・レポートの再現性が担保されます。
 
@@ -1470,11 +1408,7 @@ Pkg.activate(".")
   * データの読み取り/前処理/可視化/結果出力をセクション化する
   * Pkg.status()やversioninfo()の出力をノート冒頭に記録する
 
-
-
-using Random  
-Random.seed!(20240101)  
-
+using Random Random.seed!(20240101)
 
 versioninfo()
 
@@ -1495,7 +1429,6 @@ catch
 @warn "Revise not available; add it in your environment"  
 end  
 
-
 # 好みのプロンプトや表示設定などをここに記述
 
 Reviseは、ソースコードの変更をREPLへ即時反映できるため、関数の修正を何度も再読み込みせずに試せます。
@@ -1504,16 +1437,9 @@ Reviseは、ソースコードの変更をREPLへ即時反映できるため、�
 
 乱数の種(Random.seed!)は、毎回の実行開始時に明示的に設定します。設定値(許容誤差、最大反復回数、図のスタイルなど)は構造体や辞書で一元管理し、ノートやスクリプトの先頭でインスタンス化します。
 
-using Random  
-Random.seed!(1234)  
+using Random Random.seed!(1234)
 
-
-struct Config  
-tol::Float64  
-maxiter::Int  
-style::Symbol  
-end  
-
+struct Config tol::Float64 maxiter::Int style::Symbol end
 
 cfg = Config(1e-8, 10_000, :paper)
 
@@ -1527,11 +1453,9 @@ git-tree-sha1 = "..."
 
 アーティファクトの取得はコードから行えます。
 
-using Pkg.Artifacts  
+using Pkg.Artifacts
 
-
-path = artifact"mydata"  
-# path 以下のファイルを読み取りに使う
+path = artifact"mydata" # path 以下のファイルを読み取りに使う
 
 * * *
 
@@ -1575,7 +1499,6 @@ Threads.nthreads()
 mkdir jlproj && cd jlproj  
 mkdir src notebooks data reports  
 
-
 # REPLをプロジェクト環境で起動  
 julia \--project=.
 
@@ -1583,23 +1506,17 @@ julia \--project=.
 ] activate .  
 ] add DataFrames CSV Plots IJulia Random  
 
-
 # 事前コンパイル  
 ] precompile
 
 # src/main.jl の例  
 using Random, DataFrames, CSV, Plots  
 
+Random.seed!(20240101)
 
-Random.seed!(20240101)  
+df = DataFrames.DataFrame(a = 1:10, b = rand(10)) CSV.write("reports/sample.csv", df)
 
-
-df = DataFrames.DataFrame(a = 1:10, b = rand(10))  
-CSV.write("reports/sample.csv", df)  
-
-
-plot(df.a, df.b; xlabel="a", ylabel="b", title="sample")  
-savefig("reports/plot.png")
+plot(df.a, df.b; xlabel="a", ylabel="b", title="sample") savefig("reports/plot.png")
 
 # notebooks/analysis.ipynb を作る前に、Jupyterを起動  
 using IJulia, Pkg  
@@ -1608,11 +1525,7 @@ notebook()
 
 ノートの先頭セルで、環境と設定の確認を行います。
 
-using Pkg, Random  
-Pkg.activate(".")  
-Random.seed!(20240101)  
-versioninfo()  
-Pkg.status()
+using Pkg, Random Pkg.activate(".") Random.seed!(20240101) versioninfo() Pkg.status()
 
 この最小セットアップにより、コード・環境・成果物の3点が一致し、いつでも再生成可能な体制が整います。VS Codeでは、ワークスペース設定でJulia: Executable Pathを指定し、タスクやlaunch.jsonで\--project=.と-t autoを固定しておくと、IDEからの起動でも再現性が保たれます。
 
@@ -1624,23 +1537,15 @@ Pkg.status()
 
   * ドット演算の即時検証: 配列演算やブロードキャストの癖をREPLで確認します。
 
-
-
-x = rand(5); y = rand(5)  
-@. sin(x) + y^2
+x = rand(5); y = rand(5) @. sin(x) + y^2
 
   * @timeと@btimeの使い分け: ざっくり計測は@time、厳密なベンチはBenchmarkToolsの@btimeを使います。
 
-
-
-using BenchmarkTools  
-@btime sum(rand(10_000));
+using BenchmarkTools @btime sum(rand(10_000));
 
   * edit/includeの併用: ソースを編集(edit("src/main.jl"))してinclude("src/main.jl")でロード、Reviseを併用すれば即時反映できます。
   * ;シェルモードでの周辺作業: データの配置確認、gitの操作、lsで成果物の一覧をチェックするなど、REPLから離れずに完結できます。
   * ?ヘルプでの関数探索: 未知の関数はまず?でドキュメントを確認し、最小例をREPLで回してから本番コードへ移植します。
-
-
 
 これらのテクニックを、プロジェクト環境の枠組みの中で運用することが重要です。常にactivate済みのプロジェクトで試し、依存関係や設定をファイルへ記録しながら進めることで、探索で得た知見をそのまま再現性のある成果に接続できます。
 
@@ -1661,19 +1566,15 @@ Juliaは複数の数値表現を持ち、演算時に安全な型昇格(プロ�
   * 高精度: BigInt(任意精度整数)、BigFloat(任意精度浮動小数点)
   * 複素数: Complex{T}
 
-
-
 # 整数と浮動小数点  
 a = 42 # Int  
 b = 3.14 # Float64  
 c = 1//3 # Rational{Int}(有理数)  
 z = 1 + 2im # Complex{Int}  
 
-
 # 高精度  
 big_i = BigInt(2)^100  
 big_f = BigFloat("3.1415926535897932384626")  
-
 
 # 型昇格(安全なプロモーション)  
 r = 2 + 3.0 # Int + Float64 → Float64  
@@ -1681,24 +1582,16 @@ typeof(r) # → Float64
 
 浮動小数点では、NaN(非数)やInf(無限大)が生じることがあります。これらは比較の挙動が通常と異なるため、局所的なガードや検査関数の活用が重要です。
 
-x = 0.0/0.0 # NaN  
-y = 1.0/0.0 # Inf  
+x = 0.0/0.0 # NaN y = 1.0/0.0 # Inf
 
-
-isnan(x) # true  
-isfinite(y) # false
+isnan(x) # true isfinite(y) # false
 
 ## 1.2 文字・文字列
 
   * 文字: Charはシングルクォートで表し、Unicodeを扱えます。
   * 文字列: Stringはダブルクォートで表します。改行やタブなどはエスケープで指定します。
 
-
-
-ch = 'α' # Char  
-s = "hello, Julia" # String  
-s2 = "line1\nline2" # 改行を含む  
-
+ch = 'α' # Char s = "hello, Julia" # String s2 = "line1\nline2" # 改行を含む
 
 # 文字列補間  
 name = "Julia"  
@@ -1710,38 +1603,26 @@ msg = "Hello, $name!"
 
 論理値はBool(true/false)です。比較は==(値の比較)と===(同一性、型とオブジェクトの同一)を使い分けます。浮動小数点のNaNは自分自身とも等しくない点に注意してください。
 
-true && false # 短絡AND  
-true || false # 短絡OR  
+true && false # 短絡AND true || false # 短絡OR
 
+1 == 1.0 # true(値の比較) 1 === 1.0 # false(型が異なる)
 
-1 == 1.0 # true(値の比較)  
-1 === 1.0 # false(型が異なる)  
-
-
-NaN == NaN # false  
-isequal(NaN,NaN) # true(NaN同士を等しいと見なす比較)
+NaN == NaN # false isequal(NaN,NaN) # true(NaN同士を等しいと見なす比較)
 
 ## 1.4 欠損と空
 
   * missing: データの欠損値。統計・データフレーム文脈で用います。
   * nothing: 値が存在しないことを表すユニット型。戻り値が無い/意図的に空を返す設計に使います。
 
+m = missing n = nothing
 
-
-m = missing  
-n = nothing  
-
-
-ismissing(m) # true  
-isnothing(n) # true
+ismissing(m) # true isnothing(n) # true
 
 ## 1.5 範囲・集合的なリテラル
 
 範囲は効率的なイテレータであり、配列を生成せずに走査できます。
 
-r1 = 1:10 # 1から10まで  
-r2 = 0:2:10 # ステップ2の範囲 0,2,4,6,8,10  
-
+r1 = 1:10 # 1から10までr2 = 0:2:10 # ステップ2の範囲 0,2,4,6,8,10
 
 collect(r2) # 配列化が必要ならcollect
 
@@ -1754,15 +1635,9 @@ collect(r2) # 配列化が必要ならcollect
   * Tuple: 異種混在を許す不変の順序付きコレクション。
   * NamedTuple: フィールドに名前を持つ不変タプル。軽量なレコードとして有用です。
 
+t = (1, "a", 3.0) nt = (x=1, y=2.0, label="pt")
 
-
-t = (1, "a", 3.0)  
-nt = (x=1, y=2.0, label="pt")  
-
-
-t[2] # "a"  
-nt[:y] # 2.0  
-nt.y # 2.0(ドットアクセス)
+t[2] # "a" nt[:y] # 2.0 nt.y # 2.0(ドットアクセス)
 
 タプルはイミュータブルであり、要素の差し替えはできません。その代わり、コンパイラ最適化が効きやすく、引数パッキングや複数戻り値で活躍します。
 
@@ -1770,20 +1645,15 @@ nt.y # 2.0(ドットアクセス)
 
 Array{T,N}は可変のN次元配列です。1次元はVector{T}、2次元はMatrix{T}の別名を持ちます。
 
-v = [1,2,3] # Vector{Int}  
-M = [1 2 3; 4 5 6] # 2×3 Matrix{Int}  
-A = Array{Float64}(undef, 2, 2) # 未初期化の配列  
-
+v = [1,2,3] # Vector{Int} M = [1 2 3; 4 5 6] # 2×3 Matrix{Int} A = Array{Float64}(undef, 2, 2) # 未初期化の配列
 
 # 要素アクセスと更新  
 v[2] # 2  
 v[2] = 20  
 
-
 # 末尾操作  
 push!(v, 99)  
 pop!(v)  
-
 
 # 範囲・スライス・ビュー  
 using LinearAlgebra  
@@ -1792,10 +1662,7 @@ B = M[:, 2] # コピー
 
 配列生成の基本は内包表記とブロードキャストです。中間配列の生成を避け、演算を融合させることで高速化します。
 
-x = collect(1:10)  
-y = rand(10)  
-z = [xi^2 + yi for (xi, yi) in zip(x, y)] # 内包表記  
-
+x = collect(1:10) y = rand(10) z = [xi^2 + yi for (xi, yi) in zip(x, y)] # 内包表記
 
 @. y = sin(x) + cos(y) # ブロードキャストの融合
 
@@ -1806,39 +1673,22 @@ z = [xi^2 + yi for (xi, yi) in zip(x, y)] # 内包表記
   * Dict{K,V}: キーと値のマップ。可変。
   * Set{T}: 要素の重複のない集合。可変。
 
+d = Dict("a"=>1, "b"=>2) d["a"] = 10 haskey(d, "c") # false get(d, "c", 0) # 無ければデフォルト0
 
-
-d = Dict("a"=>1, "b"=>2)  
-d["a"] = 10  
-haskey(d, "c") # false  
-get(d, "c", 0) # 無ければデフォルト0  
-
-
-s = Set([1,2,2,3]) # {1,2,3}  
-push!(s, 5)  
-in(2, s) # true
+s = Set([1,2,2,3]) # {1,2,3} push!(s, 5) in(2, s) # true
 
 辞書の反復はペアで受け取れます。計算の正確性が重要な場面では、キー型や値型を固定して型安定性を保つことが性能に直結します。
 
-for (k, v) in d  
-println("key=$k value=$v")  
-end
+for (k, v) in d println("key=$k value=$v") end
 
 ## 2.4 コピーとビュー、浅い/深いコピー
 
   * copy: 浅いコピー。一次元要素は共有されることがある。
   * deepcopy: 深いコピー。ネストした構造を含めて独立に複製。
 
+A = [[1,2],[3,4]] B = copy(A) C = deepcopy(A)
 
-
-A = [[1,2],[3,4]]  
-B = copy(A)  
-C = deepcopy(A)  
-
-
-A[1][1] = 99  
-B[1][1] # 99(浅いコピーなので共有)  
-C[1][1] # 1  (深いコピーなので独立)
+A[1][1] = 99 B[1][1] # 99(浅いコピーなので共有) C[1][1] # 1  (深いコピーなので独立)
 
 # 3. 変数・型注釈・型変換
 
@@ -1846,9 +1696,7 @@ C[1][1] # 1  (深いコピーなので独立)
 
 ## 3.1 代入と定数
 
-x = 10  
-x += 5  
-
+x = 10 x += 5
 
 const PI2 = 2 * π # 定数(再代入できない)
 
@@ -1859,11 +1707,7 @@ constはグローバルに有効です。定数はコンパイラ最適化の対
   * 変数の型注釈: 読解性向上・意図の明示
   * 型アサーション: 実行時に型を確認して変換/エラー
 
-
-
-y::Int = 3 # 変数注釈(代入値がIntでなければエラー)  
-z = 3.0::Float64 # アサーション(右辺の型確認)  
-
+y::Int = 3 # 変数注釈(代入値がIntでなければエラー) z = 3.0::Float64 # アサーション(右辺の型確認)
 
 # 明示的型変換  
 v = Int(3.0) # 3  
@@ -1876,7 +1720,6 @@ w = Float64(3) # 3.0
 # 悪い例(型不安定)  
 f(x) = x > 0 ? x : "neg"  
 
-
 # 良い例(型安定)  
 g(x) = x > 0 ? x : -x
 
@@ -1886,15 +1729,7 @@ g(x) = x > 0 ? x : -x
 
 ## 4.1 条件分岐
 
-x = 7  
-if x % 2 == 0  
-println("even")  
-elseif x % 3 == 0  
-println("multiple of 3")  
-else  
-println("other")  
-end  
-
+x = 7 if x % 2 == 0 println("even") elseif x % 3 == 0 println("multiple of 3") else println("other") end
 
 # 三項演算子  
 msg = (x > 0) ? "positive" : "non-positive"
@@ -1911,14 +1746,12 @@ for i in 1:100
 sumx += i  
 end  
 
-
 # while  
 i = 0  
 while i < 5  
 println(i)  
 i += 1  
 end  
-
 
 # break/continue  
 for i in 1:10  
@@ -1936,10 +1769,7 @@ end
 
 配列や辞書、集合は内包表記で生成できます。可読性と速度の両面で優れます。
 
-A = [i^2 for i in 1:10 if i%2==0] # 配列内包  
-D = Dict(i => i^2 for i in 1:5) # 辞書内包  
-S = Set(i^2 for i in 1:5) # 集合生成  
-
+A = [i^2 for i in 1:10 if i%2==0] # 配列内包D = Dict(i => i^2 for i in 1:5) # 辞書内包S = Set(i^2 for i in 1:5) # 集合生成
 
 # 生成器(遅延評価)  
 using Statistics  
@@ -1949,15 +1779,11 @@ using Statistics
 
 要素ごとの演算はドットで書き、融合により中間配列を省いて高速化します。
 
-x = rand(10_000)  
-y = rand(10_000)  
-@. x = sin(x) + 2*y
+x = rand(10_000) y = rand(10_000) @. x = sin(x) + 2*y
 
 必要に応じて@viewsや@inboundsを併用しますが、正しさの確認が先決です。
 
-@views @inbounds for i in 2:length(x)-1  
-x[i] = (x[i-1] + x[i] + x[i+1]) / 3  
-end
+@views @inbounds for i in 2:length(x)-1 x[i] = (x[i-1] + x[i] + x[i+1]) / 3 end
 
 # 5. 関数定義:引数、可変長、キーワード、無名関数、doブロック
 
@@ -1970,10 +1796,8 @@ function add(a::Number, b::Number)
 return a + b  
 end  
 
-
 # 戻り値省略(最後の式が返る)  
 square(x) = x^2  
-
 
 # 複数戻り値(タプル)  
 function stats(xs::AbstractVector{<:Real})  
@@ -1983,14 +1807,11 @@ n = length(xs)
 return μ, σ  
 end  
 
-
 mean, std = stats(rand(100))
 
 ## 5.2 可変長引数(variadic)とスプラット
 
-sum_all(xs...) = sum(xs) # 可変長  
-sum_all(1,2,3,4)  
-
+sum_all(xs...) = sum(xs) # 可変長sum_all(1,2,3,4)
 
 # スプラットでタプルや配列を展開  
 args = (1,2,3)  
@@ -2000,12 +1821,7 @@ sum_all(args...)
 
 キーワードは可読性・拡張性を高め、順序依存を解消します。
 
-function smooth(xs; window=5, method=:mean)  
-# window, method はキーワード引数  
-# 実装は仮  
-return xs  
-end  
-
+function smooth(xs; window=5, method=:mean) # window, method はキーワード引数# 実装は仮return xs end
 
 smooth(rand(10); window=3, method=:median)
 
@@ -2015,9 +1831,7 @@ smooth(rand(10); window=3, method=:median)
 
 匿名関数は短いコールバックに便利です。イテレーションや高階関数でよく使われます。
 
-f = x -> x^3  
-map(x -> x^2, 1:5)  
-
+f = x -> x^3 map(x -> x^2, 1:5)
 
 # doブロック(第一引数が関数のコールバックになる)  
 open("test.txt", "w") do io  
@@ -2032,7 +1846,6 @@ end
 factor = 2  
 bad(x) = x * factor # REPLでは型不安定になりがち  
 
-
 # 良い例(引数化)  
 good(x; factor=2) = x * factor
 
@@ -2042,14 +1855,7 @@ good(x; factor=2) = x * factor
 
 ## 6.1 関数内のスコープ
 
-function demo()  
-x = 0 # 関数のローカル  
-for i in 1:3  
-x += i # 同じローカルxを更新  
-end  
-return x  
-end  
-
+function demo() x = 0 # 関数のローカルfor i in 1:3 x += i # 同じローカルxを更新end return x end
 
 demo() # 6
 
@@ -2069,22 +1875,13 @@ x # 6
 
 letは明示的に新しいローカルスコープを作り、初期値を束縛します。クロージャや一時的な隠蔽に有用です。
 
-let x = 100  
-println(x) # 100  
-end  
-# ここではxは見えない
+let x = 100 println(x) # 100 end # ここではxは見えない
 
 ## 6.4 localとglobalの明示
 
 スコープの境界で変数の所属を明示したい場合は、local/global宣言を使います。読みやすさと正確さが向上します。
 
-function counter()  
-local cnt = 0  
-for _ in 1:10  
-cnt += 1  
-end  
-return cnt  
-end
+function counter() local cnt = 0 for _ in 1:10 cnt += 1 end return cnt end
 
 # 7. 例外処理:try/catch/finally、throw/rethrow、@assert
 
@@ -2092,32 +1889,15 @@ end
 
 ## 7.1 基本構文
 
-try  
-x = parse(Int, "42")  
-y = parse(Int, "not a number")  
-catch e  
-@warn "parse failed" error=e  
-finally  
-println("cleanup if needed")  
-end
+try x = parse(Int, "42") y = parse(Int, "not a number") catch e @warn "parse failed" error=e finally println("cleanup if needed") end
 
 finallyは例外の有無に関わらず実行され、ファイルクローズやロック解放などの後処理に使えます。
 
 ## 7.2 例外の送出と再送出
 
-function sqrt_strict(x::Real)  
-x < 0 && throw(DomainError(x, "x must be nonnegative"))  
-return sqrt(x)  
-end  
+function sqrt_strict(x::Real) x < 0 && throw(DomainError(x, "x must be nonnegative")) return sqrt(x) end
 
-
-try  
-sqrt_strict(-1)  
-catch e  
-# ログを出した後、そのまま外へ伝播  
-@error "domain error" error=e  
-rethrow()  
-end
+try sqrt_strict(-1) catch e # ログを出した後、そのまま外へ伝播@error "domain error" error=e rethrow() end
 
 標準の例外型(ArgumentError, DomainError, BoundsErrorなど)を適切に使うと、呼び出し側のハンドリングが簡潔になります。
 
@@ -2125,11 +1905,7 @@ end
 
 @assertは開発時の不変条件の確認に有用です。失敗時はAssertionErrorが発生します。
 
-function normalize(v::AbstractVector{<:Real})  
-s = sum(abs.(v))  
-@assert s != 0 "zero vector cannot be normalized"  
-return v ./ s  
-end
+function normalize(v::AbstractVector{<:Real}) s = sum(abs.(v)) @assert s != 0 "zero vector cannot be normalized" return v ./ s end
 
 本番向けには、アサーションと例外を使い分けます。ユーザー入力の検証は例外で扱い、内部不変条件の破壊検知はアサーションで素早く気づけるようにします。
 
@@ -2141,103 +1917,43 @@ end
 
 引数に対して具体的な型制約を与え、異常系は早期に例外とします。抽象型の受け口と具体型の最適化を併用するのがJuliaらしい設計です。
 
-abstract type Sampleable end  
-struct Normal <: Sampleable  
-μ::Float64  
-σ::Float64  
-end  
+abstract type Sampleable end struct Normal <: Sampleable μ::Float64 σ::Float64 end
 
-
-function sample(n::Int, d::Normal)  
-@assert n > 0 "n must be positive"  
-return d.μ .+ d.σ .* randn(n)  
-end
+function sample(n::Int, d::Normal) @assert n > 0 "n must be positive" return d.μ .+ d.σ .* randn(n) end
 
 ## 8.2 APIの階層化(位置+キーワード)
 
 位置引数で最小限の仕様を受け、キーワード引数で拡張します。将来の拡張に強いAPIになります。
 
-function solve(f; tol=1e-8, maxiter=10_000, method=:bisect, a=0.0, b=1.0)  
-if method == :bisect  
-return bisect(f, a, b; tol=tol, maxiter=maxiter)  
-else  
-throw(ArgumentError("unknown method"))  
-end  
-end
+function solve(f; tol=1e-8, maxiter=10_000, method=:bisect, a=0.0, b=1.0) if method == :bisect return bisect(f, a, b; tol=tol, maxiter=maxiter) else throw(ArgumentError("unknown method")) end end
 
 ## 8.3 ドキュメント文字列(docstring)
 
 関数・型の直前に文字列リテラルを置くと、?ヘルプで参照できるドキュメントになります。例と注意点を含めると、チームでの再利用性が向上します。
 
-"""  
-bisect(f, a, b; tol=1e-8, maxiter=10_000)  
+""" bisect(f, a, b; tol=1e-8, maxiter=10_000)
 
-
-二分法で`f`の根を探索します。`a`と`b`は符号が逆である必要があります。  
-"""  
-function bisect(f, a, b; tol=1e-8, maxiter=10_000)  
-fa, fb = f(a), f(b)  
-fa*fb < 0 || throw(ArgumentError("bracket must have opposite signs"))  
-for _ in 1:maxiter  
-c = (a + b)/2  
-fc = f(c)  
-if abs(fc) < tol  
-return c  
-elseif fa*fc < 0  
-b, fb = c, fc  
-else  
-a, fa = c, fc  
-end  
-end  
-return (a + b)/2  
-end
+二分法で`f`の根を探索します。`a`と`b`は符号が逆である必要があります。""" function bisect(f, a, b; tol=1e-8, maxiter=10_000) fa, fb = f(a), f(b) fa*fb < 0 || throw(ArgumentError("bracket must have opposite signs")) for _ in 1:maxiter c = (a + b)/2 fc = f(c) if abs(fc) < tol return c elseif fa*fc < 0 b, fb = c, fc else a, fa = c, fc end end return (a + b)/2 end
 
 ## 8.4 破壊的更新と非破壊的操作の区別
 
 関数名の末尾に!を付ける慣習は、引数を破壊的に更新することを示します。数値解析では、メモリの再利用とAPIの明示性を両立できます。
 
-function normalize!(v::AbstractVector{<:Real})  
-s = sum(abs.(v))  
-s == 0 && throw(DomainError(v, "zero vector"))  
-@. v = v / s  
-return v  
-end
+function normalize!(v::AbstractVector{<:Real}) s = sum(abs.(v)) s == 0 && throw(DomainError(v, "zero vector")) @. v = v / s return v end
 
 ## 8.5 デストラクチャリングとパターン
 
 タプルやNamedTupleからの多値受け取りは、安全で可読性の高いデータアクセス方法です。
 
-pt = (x=1.0, y=2.0, label="A")  
-x, y, label = pt.x, pt.y, pt.label
+pt = (x=1.0, y=2.0, label="A") x, y, label = pt.x, pt.y, pt.label
 
 ## 8.6 例:基礎文法を組み合わせた小規模タスク
 
 以下は、基礎文法の総合例です。入力検証、キーワード引数、例外処理、ブロードキャスト、内包表記、複数戻り値をひとつにまとめています。
 
-"""  
-moving_stats(xs; window=5)  
+""" moving_stats(xs; window=5)
 
-
-`xs`の移動平均と移動標準偏差を返します。`window`は奇数で正の値。  
-"""  
-function moving_stats(xs::AbstractVector{<:Real}; window::Int=5)  
-window > 0 && isodd(window) || throw(ArgumentError("window must be positive odd"))  
-n = length(xs)  
-half = (window - 1) ÷ 2  
-μs = Vector{Float64}(undef, n)  
-σs = Vector{Float64}(undef, n)  
-@views for i in 1:n  
-lo = max(1, i - half)  
-hi = min(n, i + half)  
-seg = xs[lo:hi]  
-μ = sum(seg) / length(seg)  
-σ = sqrt(sum((x - μ)^2 for x in seg) / max(1, length(seg)-1))  
-μs[i] = μ  
-σs[i] = σ  
-end  
-return μs, σs  
-end  
-
+`xs`の移動平均と移動標準偏差を返します。`window`は奇数で正の値。""" function moving_stats(xs::AbstractVector{<:Real}; window::Int=5) window > 0 && isodd(window) || throw(ArgumentError("window must be positive odd")) n = length(xs) half = (window - 1) ÷ 2 μs = Vector{Float64}(undef, n) σs = Vector{Float64}(undef, n) @views for i in 1:n lo = max(1, i - half) hi = min(n, i + half) seg = xs[lo:hi] μ = sum(seg) / length(seg) σ = sqrt(sum((x - μ)^2 for x in seg) / max(1, length(seg)-1)) μs[i] = μ σs[i] = σ end return μs, σs end
 
 μ, σ = moving_stats(rand(100); window=7)
 
@@ -2249,22 +1965,13 @@ end
 
 missingは演算に伝播します。集計時はskipmissingで取り除くか、coalesceで代替値に置き換えます。
 
-xs = [1,2,missing,4]  
-sum(skipmissing(xs)) # 7  
-ys = coalesce.(xs, 0) # [1,2,0,4]
+xs = [1,2,missing,4] sum(skipmissing(xs)) # 7 ys = coalesce.(xs, 0) # [1,2,0,4]
 
 ## 9.2 境界チェックと@inbounds
 
 境界チェックは安全性に不可欠ですが、ホットループではオーバーヘッドになります。正しさが確認できた箇所に限り@inboundsで外します。
 
-function diff!(y::Vector{Float64}, x::Vector{Float64})  
-@assert length(y) == length(x)  
-@inbounds for i in 2:length(x)  
-y[i] = x[i] - x[i-1]  
-end  
-y[1] = NaN  
-return y  
-end
+function diff!(y::Vector{Float64}, x::Vector{Float64}) @assert length(y) == length(x) @inbounds for i in 2:length(x) y[i] = x[i] - x[i-1] end y[1] = NaN return y end
 
 ## 9.3 浮動小数点の比較
 
@@ -2282,8 +1989,6 @@ isapprox(0.1 + 0.2, 0.3; atol=1e-12, rtol=1e-8)
   * 例外は標準型で投げ、try/catch/finallyと@assertで失敗を制御します。
   * 欠損・境界・浮動小数点の罠を避けるため、skipmissing・@inbounds・isapprox等のツールを活用します。
 
-
-
 これらの原則は、Juliaの文法を最短で戦力化するための基本姿勢です。文法の機能を単独で覚えるだけでなく、組み合わせて「正しく速い」コードを書く練習を重ねてください。
 
 * * *
@@ -2299,10 +2004,7 @@ f(x::Int) = x + 1
 f(x::Float64) = x + 1.0  
 f(x::Complex) = real(x) + 1 + im*imag(x)  
 
-
-f(10) # 11  
-f(10.0) # 11.0  
-f(1 + 2im) # 2 + 2im
+f(10) # 11 f(10.0) # 11.0 f(1 + 2im) # 2 + 2im
 
 複数引数でも型組み合わせに応じたメソッドを選べます。数値プロモーションや混合精度を安全に扱うために、promote_ruleやconvertと連携する設計が有効です。
 
@@ -2325,18 +2027,13 @@ mul(A::AbstractMatrix{BigFloat}, x::AbstractVector{BigFloat}) = A * x
 # 抽象型の定義  
 abstract type Distribution end  
 
-
 # 具体型は後で追加  
 struct Normal <: Distribution  
 μ::Float64  
 σ::Float64  
 end  
 
-
-struct Uniform <: Distribution  
-a::Float64  
-b::Float64  
-end
+struct Uniform <: Distribution a::Float64 b::Float64 end
 
 抽象型を受け口にした関数は、拡張に強くなります。最小限の共通操作をインターフェースとして定義し、具体型がそれを満たすようにします。
 
@@ -2344,18 +2041,11 @@ end
 mean(d::Distribution) = error("not implemented")  
 var(d::Distribution) = error("not implemented")  
 
-
-mean(d::Normal) = d.μ  
-var(d::Normal) = d.σ^2  
-mean(d::Uniform) = (d.a + d.b) / 2  
-var(d::Uniform) = (d.b - d.a)^2 / 12
+mean(d::Normal) = d.μ var(d::Normal) = d.σ^2 mean(d::Uniform) = (d.a + d.b) / 2 var(d::Uniform) = (d.b - d.a)^2 / 12
 
 抽象型は階層化できます。過度な入れ子は避けつつ、「型で語彙を作る」イメージでドメイン概念を整理すると、後の拡張で破綻しにくくなります。
 
-abstract type ODEModel end  
-abstract type StiffnessTag end  
-struct Stiff <: StiffnessTag end  
-struct NonStiff <: StiffnessTag end
+abstract type ODEModel end abstract type StiffnessTag end struct Stiff <: StiffnessTag end struct NonStiff <: StiffnessTag end
 
 * * *
 
@@ -2368,7 +2058,6 @@ struct State
 x::Float64  
 y::Float64  
 end  
-
 
 # 可変:シミュレーションで場を更新する等、意図がある場合  
 mutable struct Accumulator  
@@ -2383,7 +2072,6 @@ mutable struct BadBox
 value  
 end  
 
-
 # 望ましい例:フィールド型を具体化  
 mutable struct GoodBox{T}  
 value::T  
@@ -2391,14 +2079,7 @@ end
 
 構造体はコンストラクタを定義して整合性を保証できます。
 
-struct Interval{T<:Real}  
-lo::T  
-hi::T  
-function Interval(lo::T, hi::T) where {T<:Real}  
-lo <= hi || throw(ArgumentError("lo must be <= hi"))  
-new{T}(lo, hi)  
-end  
-end
+struct Interval{T<:Real} lo::T hi::T function Interval(lo::T, hi::T) where {T<:Real} lo <= hi || throw(ArgumentError("lo must be <= hi")) new{T}(lo, hi) end end
 
 パフォーマンスを意識する場合、isbits(固定サイズ)の構造体はメモリ局所性が良く、配列に詰めても効率的です。可変構造体や参照型フィールドが多い設計は、メモリアクセスの分散を招くため、データレイアウトの選択に注意します。
 
@@ -2414,21 +2095,13 @@ x::T
 y::T  
 end  
 
-
 norm(v::Vec2{T}) where {T<:Real} = sqrt(v.x^2 + v.y^2)
 
 where句で制約を与え、受け入れる型を明確化します。複数パラメータや依存関係を持たせれば、ドメイン制約を型で表現できます。
 
-struct Sample{T<:Real, RNG}  
-value::T  
-rng::RNG  
-end  
+struct Sample{T<:Real, RNG} value::T rng::RNG end
 
-
-function step!(s::Sample{T,RNG}) where {T<:Real, RNG}  
-# rngの型に応じた処理を記述可能  
-return s  
-end
+function step!(s::Sample{T,RNG}) where {T<:Real, RNG} # rngの型に応じた処理を記述可能return s end
 
 パラメトリック型は**不変(invariant)**です。Vector{Int}はVector{Number}のサブタイプではありません。この性質により、要素型の誤用を防げます。抽象型を使う場合は、AbstractVector{<:Real}のようにパラメトリック抽象型で受けるのが一般的です。
 
@@ -2445,29 +2118,19 @@ g(x::T, y::T) where {T<:Real} = x + y
 
 メソッドがどのように解決されるかを理解するには、メソッドテーブルを確認します。
 
-methods(f) # 関数fの全メソッド一覧  
-@which f(1.0) # 呼び出しで選ばれる具体メソッド
+methods(f) # 関数fの全メソッド一覧@which f(1.0) # 呼び出しで選ばれる具体メソッド
 
 シグネチャに現れる型の包含関係は、具体型がより特殊、抽象型がより一般の関係です。複数メソッドが候補になると、最も特殊なものが選ばれます。曖昧(ambiguity)がある場合は警告が出ることがあり、明示的に片方へ寄せるメソッドを追加して解消します。
 
-h(x::Number, y::Int) = x + y  
-h(x::Int, y::Number) = x + y  
-# h(1, 2) は曖昧になり得る → 専用メソッドで解消  
-h(x::Int, y::Int) = x + y
+h(x::Number, y::Int) = x + y h(x::Int, y::Number) = x + y # h(1, 2) は曖昧になり得る → 専用メソッドで解消h(x::Int, y::Int) = x + y
 
 異種混合の演算を安全に扱うには、promoteを活用します。promote_ruleを定義すると、独自型と他型の混合演算でも自然な共通型へ揃えられます。
 
-struct MyFloat{T<:AbstractFloat}  
-v::T  
-end  
+struct MyFloat{T<:AbstractFloat} v::T end
 
+Base.convert(::Type{MyFloat{T}}, x::T) where {T<:AbstractFloat} = MyFloat{T}(x) Base.promote_rule(::Type{MyFloat{T}}, ::Type{T}) where {T<:AbstractFloat} = MyFloat{T}
 
-Base.convert(::Type{MyFloat{T}}, x::T) where {T<:AbstractFloat} = MyFloat{T}(x)  
-Base.promote_rule(::Type{MyFloat{T}}, ::Type{T}) where {T<:AbstractFloat} = MyFloat{T}  
-
-
-+(a::MyFloat{T}, b::MyFloat{T}) where {T<:AbstractFloat} = MyFloat{T}(a.v + b.v)  
-
++(a::MyFloat{T}, b::MyFloat{T}) where {T<:AbstractFloat} = MyFloat{T}(a.v + b.v)
 
 # 異種を合わせる  
 a = MyFloat(1.0)  
@@ -2485,13 +2148,9 @@ a + 2.0 |> x -> x.v # 3.0(promoteでMyFloat{Float64}へ揃う)
 
 問題の性質(剛性、境界条件の種類、精度方針など)をタグ型で表し、解法を切り替えます。
 
-abstract type BoundaryCondition end  
-struct Dirichlet <: BoundaryCondition end  
-struct Neumann <: BoundaryCondition end  
+abstract type BoundaryCondition end struct Dirichlet <: BoundaryCondition end struct Neumann <: BoundaryCondition end
 
-
-apply!(u, ::Dirichlet, value) = (u .= value; u)  
-apply!(u, ::Neumann, flux) = (u[2:end-1] .+= flux; u)
+apply!(u, ::Dirichlet, value) = (u .= value; u) apply!(u, ::Neumann, flux) = (u[2:end-1] .+= flux; u)
 
 ## 6.2 トレイトパターン:能力で分岐する
 
@@ -2501,27 +2160,13 @@ apply!(u, ::Neumann, flux) = (u[2:end-1] .+= flux; u)
 has_fastpath(::Type{T}) where {T} = false  
 has_fastpath(::Type{Float64}) = true  
 
-
-function kernel(x)  
-if has_fastpath(typeof(x))  
-# 高速経路  
-return x * 2  
-else  
-# 汎用経路  
-return 2 * float(x)  
-end  
-end
+function kernel(x) if has_fastpath(typeof(x)) # 高速経路return x * 2 else # 汎用経路return 2 * float(x) end end
 
 ## 6.3 関数バリア:動的を局所化してJIT最適化を助ける
 
 入出力は抽象型やAnyでも、内部の計算を具体型へpromoteし、関数境界で型を安定化させます。JITの最適化が効きやすくなります。
 
-function outer(x, y)  
-# ここでは抽象的  
-x2, y2 = promote(x, y)  
-return inner(x2, y2) # innerは具体型で高速  
-end  
-
+function outer(x, y) # ここでは抽象的x2, y2 = promote(x, y) return inner(x2, y2) # innerは具体型で高速end
 
 inner(x::Float64, y::Float64) = x + y
 
@@ -2529,12 +2174,7 @@ inner(x::Float64, y::Float64) = x + y
 
 独自配列型を設計するときは、size, getindex, setindex!, IndexStyleなど最小インターフェースを満たすことで、既存の生態系と互換性が取れます。
 
-struct DiagonalView{T<:Real, M<:AbstractMatrix{T}} <: AbstractVector{T}  
-A::M  
-end  
-Base.size(d::DiagonalView) = (min(size(d.A,1), size(d.A,2)),)  
-Base.getindex(d::DiagonalView, i::Int) = d.A[i,i]  
-Base.IndexStyle(::Type{DiagonalView}) = Base.IndexLinear()
+struct DiagonalView{T<:Real, M<:AbstractMatrix{T}} <: AbstractVector{T} A::M end Base.size(d::DiagonalView) = (min(size(d.A,1), size(d.A,2)),) Base.getindex(d::DiagonalView, i::Int) = d.A[i,i] Base.IndexStyle(::Type{DiagonalView}) = Base.IndexLinear()
 
 * * *
 
@@ -2544,8 +2184,7 @@ Base.IndexStyle(::Type{DiagonalView}) = Base.IndexLinear()
 
 条件分岐で戻り値の型が揺れると、最適化が効きません。戻り値は揃えます。
 
-bad(x) = x > 0 ? x : "neg" # 型不安定  
-good(x) = x > 0 ? x : -x # 型安定
+bad(x) = x > 0 ? x : "neg" # 型不安定good(x) = x > 0 ? x : -x # 型安定
 
 ## 7.2 型海賊(type piracy)
 
@@ -2566,43 +2205,25 @@ Union{T1,T2,...}が巨大になるとコンパイル負荷が増えます。抽�
 
 物理量の安全性を高めるには、単位を型へ織り込みます。誤用の防止と可視化時の一貫性に役立ちます。
 
-struct Quantity{T<:Real, U}  
-v::T  
-end  
+struct Quantity{T<:Real, U} v::T end
 
-
-Base.:+(a::Quantity{T,U}, b::Quantity{T,U}) where {T<:Real,U} = Quantity{T,U}(a.v + b.v)  
-# 異単位の加算は未定義 → 型が守ってくれる
+Base.:+(a::Quantity{T,U}, b::Quantity{T,U}) where {T<:Real,U} = Quantity{T,U}(a.v + b.v) # 異単位の加算は未定義 → 型が守ってくれる
 
 ## 8.2 誤差付き値の型
 
 計測誤差や数値誤差を伝播させる設計は、解析の信頼性を高めます。
 
-struct WithErr{T<:Real}  
-v::T  
-e::T  
-end  
+struct WithErr{T<:Real} v::T e::T end
 
-
-Base.:+(a::WithErr{T}, b::WithErr{T}) where {T<:Real} =  
-WithErr{T}(a.v + b.v, sqrt(a.e^2 + b.e^2))
+Base.:+(a::WithErr{T}, b::WithErr{T}) where {T<:Real} = WithErr{T}(a.v + b.v, sqrt(a.e^2 + b.e^2))
 
 ## 8.3 精度の切り替え
 
 同じアルゴリズムでFloat64とBigFloatを使い分けるには、パラメトリック型の受け口が有効です。
 
-function poly_eval(coeffs::AbstractVector{T}, x::T) where {T<:AbstractFloat}  
-# Horner 法  
-acc = zero(T)  
-@inbounds for c in reverse(coeffs)  
-acc = muladd(acc, x, c)  
-end  
-return acc  
-end  
+function poly_eval(coeffs::AbstractVector{T}, x::T) where {T<:AbstractFloat} # Horner 法acc = zero(T) @inbounds for c in reverse(coeffs) acc = muladd(acc, x, c) end return acc end
 
-
-poly_eval(Float64[1,2,3], 0.1)  
-poly_eval(BigFloat[BigFloat(1),BigFloat(2),BigFloat(3)], BigFloat("0.1"))
+poly_eval(Float64[1,2,3], 0.1) poly_eval(BigFloat[BigFloat(1),BigFloat(2),BigFloat(3)], BigFloat("0.1"))
 
 * * *
 
@@ -2630,30 +2251,21 @@ Base.getindex(D::Diag, i::Int, j::Int) = (i == j) ? D.A[i,i] : zero(T) where {T}
 
 最小の仕様を位置引数で受け、追加設定はキーワードで受けます。
 
-function solve_ode(f, u0, tspan; method=:auto, reltol=1e-6, abstol=1e-12)  
-# 実装は省略(概念)  
-return u0  
-end
+function solve_ode(f, u0, tspan; method=:auto, reltol=1e-6, abstol=1e-12) # 実装は省略(概念) return u0 end
 
 ## 10.2 破壊的更新の明示
 
 !付きの関数名は「引数を更新する」契約を明示します。メモリ再利用とAPIの透明性に役立ちます。
 
-function axpy!(y::AbstractVector{T}, a::T, x::AbstractVector{T}) where {T<:Real}  
-@inbounds @. y = a * x + y  
-return y  
-end
+function axpy!(y::AbstractVector{T}, a::T, x::AbstractVector{T}) where {T<:Real} @inbounds @. y = a * x + y return y end
 
 ## 10.3 ドキュメント文字列
 
 ?ヘルプで参照できるdocstringに、契約・前提・例・副作用を記述します。
 
-"""  
-axpy!(y, a, x)  
+""" axpy!(y, a, x)
 
-
-`y ← a*x + y` を破壊的に実行します。`y`と`x`は同じ長さである必要があります。  
-"""
+`y ← a*x + y` を破壊的に実行します。`y`と`x`は同じ長さである必要があります。"""
 
 * * *
 
@@ -2667,21 +2279,13 @@ struct RHS{F} <: ODEModel
 f::F  
 end  
 
+abstract type Stepper end struct ExplicitEuler <: Stepper end struct ImplicitEuler <: Stepper end
 
-abstract type Stepper end  
-struct ExplicitEuler <: Stepper end  
-struct ImplicitEuler <: Stepper end  
-
-
-abstract type PrecTag end  
-struct FP64 <: PrecTag end  
-struct BigP <: PrecTag end  
-
+abstract type PrecTag end struct FP64 <: PrecTag end struct BigP <: PrecTag end
 
 # 精度タグに応じて型を決める(トレイト風)  
 eltype_for(::Type{FP64}) = Float64  
 eltype_for(::Type{BigP}) = BigFloat  
-
 
 # ステッパごとの更新則  
 function step!(u::AbstractVector{T}, m::RHS{F}, h::T, ::ExplicitEuler) where {T<:AbstractFloat,F}  
@@ -2689,17 +2293,7 @@ function step!(u::AbstractVector{T}, m::RHS{F}, h::T, ::ExplicitEuler) where {T<
 return u  
 end  
 
-
-function step!(u::AbstractVector{T}, m::RHS{F}, h::T, ::ImplicitEuler) where {T<:AbstractFloat,F}  
-# 実務では非線形解法を呼ぶ。ここでは簡略化した固定点反復のスケルトン  
-u_new = copy(u)  
-for _ in 1:10  
-@inbounds @. u_new = u + h * m.f(u_new)  
-end  
-@. u = u_new  
-return u  
-end  
-
+function step!(u::AbstractVector{T}, m::RHS{F}, h::T, ::ImplicitEuler) where {T<:AbstractFloat,F} # 実務では非線形解法を呼ぶ。ここでは簡略化した固定点反復のスケルトンu_new = copy(u) for _ in 1:10 @inbounds @. u_new = u + h * m.f(u_new) end @. u = u_new return u end
 
 # ドライバ:関数バリアで精度と型を確定  
 function solve(m::RHS{F}, u0, tspan; stepper::Stepper=ExplicitEuler(), prec::Type{P}=FP64, h=0.01) where {F,P<:PrecTag}  
@@ -2713,7 +2307,6 @@ t += T(h)
 end  
 return u  
 end  
-
 
 # 使用例  
 f(u) = [-u[1]]  
@@ -2736,8 +2329,6 @@ u_final_big = solve(m, [BigFloat(1)], (BigFloat(0), BigFloat(1)); stepper=Implic
   * 型海賊を避け、名前空間の契約を守ります。戻り値の型安定を徹底します。
   * データ構造の特殊性(対角、疎、バンド等)は型で表し、演算を特殊化して高速化します。
 
-
-
 これらの原則は、Juliaの型システムと多重ディスパッチを計算科学の現場で活かすための基本姿勢です。仕様を型で記述し、解法をメソッドで差し替える設計により、正確さ・速度・保守性を同時に満たすコードベースを構築できます。
 
 * * *
@@ -2753,15 +2344,9 @@ v = [1, 2, 3] # Vector{Int}
 M = [1 2 3; 4 5 6] # 2×3 Matrix{Int}(行は;、列は空白で区切る)  
 A = Array{Float64}(undef, 2, 2, 3) # 2×2×3 Array{Float64} 未初期化  
 
+size(M) # (2, 3) length(M) # 6 axes(M) # (Base.OneTo(2), Base.OneTo(3)) eltype(M) # Int
 
-size(M) # (2, 3)  
-length(M) # 6  
-axes(M) # (Base.OneTo(2), Base.OneTo(3))  
-eltype(M) # Int  
-
-
-M[1, 3] # 1行3列の要素(列優先のメモリ配置)  
-M[:, 2] # 2列のコピー(ベクトル)
+M[1, 3] # 1行3列の要素(列優先のメモリ配置) M[:, 2] # 2列のコピー(ベクトル)
 
 Juliaは列優先のメモリ配置です。連続アクセスが速くなるため、列方向の走査か、eachindexによる抽象イテレーションが推奨されます。
 
@@ -2773,20 +2358,15 @@ end
 
 次元の入れ替えや再配置は、permutedims、PermutedDimsArray、reshapeを使います。reshapeはデータをコピーせず、ビュー的に形状だけを変えるのが原則です。
 
-B = reshape(v, 3, 1) # 3×1 Matrix(コピーなし)  
-C = peruted = permutedims(M, (2,1)) # 軸入れ替え(コピーあり)  
-D = PermutedDimsArray(M, (2,1)) # 軸ビュー(原則コピーなし)
+B = reshape(v, 3, 1) # 3×1 Matrix(コピーなし) C = peruted = permutedims(M, (2,1)) # 軸入れ替え(コピーあり) D = PermutedDimsArray(M, (2,1)) # 軸ビュー(原則コピーなし)
 
 多次元の座標にはCartesianIndex/CartesianIndicesを使うと可読性が高く、境界計算を誤りにくくなります。
 
-for I in CartesianIndices(A)  
-@inbounds A[I] = sum(Tuple(I)) # インデックスの各成分の和を代入  
-end
+for I in CartesianIndices(A) @inbounds A[I] = sum(Tuple(I)) # インデックスの各成分の和を代入end
 
 部分次元に対する安全な抽出はselectdimが便利です。可読性の高い「次元名」風の記述で意図を明確にできます。
 
-row2 = selectdim(M, 1, 2) # 第1次元(行)の2番目 → 2行目のビュー  
-col3 = selectdim(M, 2, 3) # 第2次元(列)の3番目 → 3列目のビュー
+row2 = selectdim(M, 1, 2) # 第1次元(行)の2番目 → 2行目のビューcol3 = selectdim(M, 2, 3) # 第2次元(列)の3番目 → 3列目のビュー
 
 * * *
 
@@ -2794,31 +2374,25 @@ col3 = selectdim(M, 2, 3) # 第2次元(列)の3番目 → 3列目のビュー
 
 要素ごとの演算は、ドット記法で簡潔に書けます。Juliaはドット演算を融合(fusing)し、中間配列の生成を避けて高速化します。
 
-x = rand(10_000); y = rand(10_000)  
-@. x = sin(x) + 2*y # @. は行内の演算へ一括でドット付与
+x = rand(10_000); y = rand(10_000) @. x = sin(x) + 2*y # @. は行内の演算へ一括でドット付与
 
 関数にもドットを付けて、要素ごとの適用が可能です。
 
-f(u, v) = u^2 + v^2  
-u = rand(5); v = rand(5)  
-w = f.(u, v) # 要素ごとのf
+f(u, v) = u^2 + v^2 u = rand(5); v = rand(5) w = f.(u, v) # 要素ごとのf
 
 ドット代入(.=)は左辺が既存配列なら再利用され、メモリアロケーションを削減できます。
 
-z = similar(u) # 形状・型を揃えた未初期化配列  
-z .= sin.(u) .+ cos.(v) # 代入側のメモリを再利用
+z = similar(u) # 形状・型を揃えた未初期化配列z .= sin.(u) .+ cos.(v) # 代入側のメモリを再利用
 
 スカラーと配列の混合や次元拡張にはRefが有効です。ブロードキャストの「引数をスカラー扱い」にできます。
 
-off = Ref(0.1)  
-@. u = u + off[] # 等価:u .+= 0.1
+off = Ref(0.1) @. u = u + off[] # 等価:u .+= 0.1
 
 ユーザー定義型に対しても、broadcastableで「要素として扱うか/展開するか」を制御できます。多くの場合、Refで十分です。
 
 形状不一致はエラーの原因です。axesで軸を合わせる、必要ならreshapeで形状を揃えてからブロードキャストします。
 
-a = rand(3,1); b = rand(1,4)  
-C = a .+ b # 3×4 に自動ブロードキャスト
+a = rand(3,1); b = rand(1,4) C = a .+ b # 3×4 に自動ブロードキャスト
 
 * * *
 
@@ -2826,16 +2400,13 @@ C = a .+ b # 3×4 に自動ブロードキャスト
 
 部分配列の抽出は、デフォルトではコピーです。頻繁な切り出しで性能が問題となる場合、viewまたは@viewsを用いてビューに切り替え、コピーを避けます。
 
-M = rand(1000, 1000)  
-
+M = rand(1000, 1000)
 
 # コピー(安全だが重い)  
 col = M[:, 500]  
 
-
 # ビュー(軽い)  
 col_view = view(M, :, 500)  
-
 
 # 大きなコードで一括適用  
 @views for j in 1:size(M,2)  
@@ -2847,8 +2418,7 @@ end
 
 ビューとselectdimを組み合わせると、意図が読みやすく、境界計算の誤りが減ります。
 
-@views row2 = selectdim(M, 1, 2) # 2行目ビュー  
-row2 .+= 1.0
+@views row2 = selectdim(M, 1, 2) # 2行目ビューrow2 .+= 1.0
 
 * * *
 
@@ -2856,28 +2426,15 @@ row2 .+= 1.0
 
 ループで細かい制御を行う場合、配列の形に依存しないeachindexを使うと、最適なインデックス順序で走査されます。
 
-function scale!(x::AbstractVector{<:Real}, a::Real)  
-@inbounds @simd for i in eachindex(x)  
-x[i] = a * x[i]  
-end  
-return x  
-end
+function scale!(x::AbstractVector{<:Real}, a::Real) @inbounds @simd for i in eachindex(x) x[i] = a * x[i] end return x end
 
   * @inboundsは境界チェックを外します。事前に正しさが保証されているホットループのみで使います。
   * @simdはベクトル化のヒントです。同一配列への依存関係がない単純ループで効果が見込めます。
   * @fastmathは数値的再配置の許容(厳密なIEEE754則を緩める)です。数値安定性に影響するため、意図・許容誤差を明示できる場面でのみ使用します。
 
-
-
 多次元ループはCartesianIndicesで安全に書けます。
 
-function laplace2d!(U::AbstractMatrix{<:Real})  
-@views @inbounds for I in CartesianIndices(U)[2:end-1, 2:end-1]  
-i, j = I.I  
-U[i, j] = (U[i-1, j] + U[i+1, j] + U[i, j-1] + U[i, j+1]) / 4  
-end  
-return U  
-end
+function laplace2d!(U::AbstractMatrix{<:Real}) @views @inbounds for I in CartesianIndices(U)[2:end-1, 2:end-1] i, j = I.I U[i, j] = (U[i-1, j] + U[i+1, j] + U[i, j-1] + U[i, j+1]) / 4 end return U end
 
 * * *
 
@@ -2885,8 +2442,7 @@ end
 
 LinearAlgebra標準ライブラリはBLAS/LAPACKに接続し、高性能な線形代数演算を提供します。特に密行列の積・解法はBLASの対象です。
 
-using LinearAlgebra  
-
+using LinearAlgebra
 
 # 行列×ベクトル・行列×行列  
 A = rand(1000, 1000)  
@@ -2895,36 +2451,27 @@ y = A * x # gemv 相当
 B = rand(1000, 1000)  
 C = A * B # gemm 相当  
 
-
 # インプレース演算:既存メモリを再利用  
 C = similar(A)  
 mul!(C, A, B) # C = A*B を代入(メモリ再利用)
 
 ベクトル間のドット積やAXPYもBLASです。
 
-dot(x, x) # 内積  
-axpy!(2.0, x, y) # y ← 2.0*x + y
+dot(x, x) # 内積axpy!(2.0, x, y) # y ← 2.0*x + y
 
 構造付き行列ラッパはアルゴリズム選択を最適化します。対角・三角・対称/エルミートを明示すると、不要計算を避けられます。
 
-D = Diagonal(rand(5))  
-L = LowerTriangular(rand(5,5))  
-S = Symmetric(rand(5,5)) # 対称(上三角を利用)  
+D = Diagonal(rand(5)) L = LowerTriangular(rand(5,5)) S = Symmetric(rand(5,5)) # 対称(上三角を利用)
 
-
-y = D * x # 要素ごとの乗算に最適化  
-z = L \ x # 前進代入(trsv)  
-w = S * x # syrk等に最適化される
+y = D * x # 要素ごとの乗算に最適化z = L \ x # 前進代入(trsv) w = S * x # syrk等に最適化される
 
 連立一次方程式は\で解きます。正方・長方に応じ、適切な分解が選ばれます。
 
-b = rand(1000)  
-x = A \ b # 一般にはLU分解(正方)/QR(長方)を利用
+b = rand(1000) x = A \ b # 一般にはLU分解(正方)/QR(長方)を利用
 
 分解の再利用(複数右辺を解く)では、因数化オブジェクトを保持します。
 
-F = lu(A) # LU分解を保持  
-X = F \ b # 使い回しで高速
+F = lu(A) # LU分解を保持X = F \ b # 使い回しで高速
 
 * * *
 
@@ -2932,32 +2479,26 @@ X = F \ b # 使い回しで高速
 
 分解は計算の中間表現であり、繰り返し計算や安定性確保に有効です。Juliaは分解結果をオブジェクトとして返し、演算子\で連携できます。
 
-A = rand(1000,1000)  
-b = rand(1000)  
-
+A = rand(1000,1000) b = rand(1000)
 
 # LU分解(一般正方)・ピボット付き  
 F_lu = lu(A)  
 x = F_lu \ b  
-
 
 # Cholesky(対称正定値)  
 K = Symmetric(rand(1000,1000)); K = K*K' + I # 正定値の生成例  
 F_chol = cholesky(K)  
 x = F_chol \ b  
 
-
 # QR分解(長方形、最小二乗)  
 M = rand(1200, 1000)  
 F_qr = qr(M)  
 x_ls = F_qr \ b[1:1200] # 過剰決定の最小二乗解  
 
-
 # SVD(特異値・ランク評価・低ランク近似)  
 F_svd = svd(M)  
 σ = F_svd.S # 特異値  
 U = F_svd.U; Vt = F_svd.Vt  
-
 
 # 固有分解(正方)  
 F_eig = eigen(Symmetric(rand(200,200)))  
@@ -2966,14 +2507,7 @@ V = F_eig.vectors
 
 例外・チェックの扱いも重要です。cholesky(A)は非正定値で例外が発生します。事前にSymmetricで性質を宣言し、必要ならcheck=falseでスキップした上で別途検証します(検証はユーザー側の責任になります)。
 
-try  
-F = cholesky(Symmetric(A))  
-x = F \ b  
-catch e  
-# 正定値でない等の失敗  
-# ここで代替経路(例えばルー分解)へ切り替える  
-x = (lu(A) \ b)  
-end
+try F = cholesky(Symmetric(A)) x = F \ b catch e # 正定値でない等の失敗# ここで代替経路(例えばルー分解)へ切り替えるx = (lu(A) \ b) end
 
 分解を活用すると、複数右辺、前処理、条件数評価などの高次処理が簡潔に記述できます。
 
@@ -2987,23 +2521,19 @@ condA = cond(A) # 大きいほど数値的に不安定
 
 巨大でほとんどがゼロの行列は、疎行列で表現します。メモリと計算量を劇的に削減できます。
 
-using SparseArrays  
-
+using SparseArrays
 
 # 座標形式から生成  
 I = [1, 2, 3, 4]; J = [1, 2, 3, 4]; V = [10.0, 20.0, 30.0, 40.0]  
 S = sparse(I, J, V, 4, 4) # 4×4 SparseMatrixCSC{Float64}  
 
-
 # 零の削除・要素数  
 dropzeros!(S)  
 nnz(S) # 非零要素数  
 
-
 # 疎行列×ベクトル・疎×密  
 x = rand(4)  
 y = S * x  
-
 
 # 対角疎行列  
 Sd = spdiagm(0 => rand(1000)) # 主対角のみ
@@ -3033,11 +2563,8 @@ S = sparse(I, J, V, m, n)
   * 比較:浮動小数点の等値比較はisapprox(x, y; rtol, atol)で行います。閾値は問題に応じて設定します。
   * 精度切り替え:Float64を基本とし、必要に応じてBigFloatに切り替えます。アルゴリズムの安定性が精度を補うことも多いため、まず安定な手法を選びます。
 
-
-
 # isapprox の使用例  
 isapprox(0.1 + 0.2, 0.3; atol=1e-12, rtol=1e-8)  
-
 
 # muladd の使用例(内積の加算で丸め減衰の一手)  
 s = 0.0  
@@ -3055,29 +2582,13 @@ end
 
 ## 9.1 移動平均・移動標準偏差(ビュー+ブロードキャスト)
 
-function moving_stats!(μ::AbstractVector{Float64}, σ::AbstractVector{Float64},  
-xs::AbstractVector{<:Real}; window::Int=5)  
-window > 0 && isodd(window) || throw(ArgumentError("window must be positive odd"))  
-n = length(xs); half = (window - 1) ÷ 2  
-@views @inbounds for i in 1:n  
-lo = max(1, i-half); hi = min(n, i+half)  
-seg = xs[lo:hi]  
-m = sum(seg) / length(seg)  
-μ[i] = m  
-σ[i] = sqrt(sum((x - m)^2 for x in seg) / max(1, length(seg)-1))  
-end  
-return μ, σ  
-end  
+function moving_stats!(μ::AbstractVector{Float64}, σ::AbstractVector{Float64}, xs::AbstractVector{<:Real}; window::Int=5) window > 0 && isodd(window) || throw(ArgumentError("window must be positive odd")) n = length(xs); half = (window - 1) ÷ 2 @views @inbounds for i in 1:n lo = max(1, i-half); hi = min(n, i+half) seg = xs[lo:hi] m = sum(seg) / length(seg) μ[i] = m σ[i] = sqrt(sum((x - m)^2 for x in seg) / max(1, length(seg)-1)) end return μ, σ end
 
-
-xs = rand(10_000)  
-μ = similar(xs, Float64); σ = similar(xs, Float64)  
-moving_stats!(μ, σ, xs; window=7)
+xs = rand(10_000) μ = similar(xs, Float64); σ = similar(xs, Float64) moving_stats!(μ, σ, xs; window=7)
 
 ## 9.2 最小二乗回帰(QR分解)
 
-using LinearAlgebra  
-
+using LinearAlgebra
 
 # デザイン行列(先頭列は1で切片)  
 n, p = 10_000, 5  
@@ -3085,54 +2596,38 @@ X = [ones(n) rand(n, p-1)]
 β_true = [1.0, 0.5, -0.2, 0.0, 2.0]  
 y = X * β_true .+ 0.01 .* randn(n)  
 
-
-F = qr(X) # 分解の再利用が可能  
-β_est = F \ y # 最小二乗解
+F = qr(X) # 分解の再利用が可能β_est = F \ y # 最小二乗解
 
 QRは正規方程式より安定です。分解を再利用すると、複数のyに対して高速に解を得られます。
 
 ## 9.3 正定値系の解(Cholesky)
 
-using LinearAlgebra  
-
+using LinearAlgebra
 
 # SPDの例:A = B'B + λI  
 B = rand(2000, 1000)  
 A = Symmetric(B'B + 1e-3I) # 正定値に調整  
 b = rand(2000)  
 
-
-F = cholesky(A)  
-x = F \ b
+F = cholesky(A) x = F \ b
 
 SPDを宣言することで、choleskyが最適な経路を選びます。小さな正則化は条件数の改善に寄与します。
 
 ## 9.4 疎行列の構築と積
 
-using SparseArrays  
+using SparseArrays
 
+m, n = 10_000, 10_000 I = rand(1:m, 200_000) J = rand(1:n, 200_000) V = rand(200_000) S = sparse(I, J, V, m, n)
 
-m, n = 10_000, 10_000  
-I = rand(1:m, 200_000)  
-J = rand(1:n, 200_000)  
-V = rand(200_000)  
-S = sparse(I, J, V, m, n)  
-
-
-x = rand(n)  
-y = S * x # 疎×密の積(メモリ効率が高い)
+x = rand(n) y = S * x # 疎×密の積(メモリ効率が高い)
 
 座標の一括投入で、高速に疎行列を生成します。逐次挿入は行列の再構築コストが高くなりがちです。
 
 ## 9.5 三角解とインプレース更新
 
-using LinearAlgebra  
+using LinearAlgebra
 
-
-L = LowerTriangular(rand(1000,1000))  
-b = rand(1000)  
-x = similar(b)  
-ldiv!(x, L, b) # x ← L \ b をインプレースで計算
+L = LowerTriangular(rand(1000,1000)) b = rand(1000) x = similar(b) ldiv!(x, L, b) # x ← L \ b をインプレースで計算
 
 ldiv!は既存メモリへ解を格納し、アロケーションを抑えます。反復処理やオンライン処理で有効です。
 
@@ -3145,8 +2640,6 @@ ldiv!は既存メモリへ解を格納し、アロケーションを抑えます
   * 数値契約:Symmetric/Hermitian/Diagonal/UnitUpperTriangular等のラッパで構造を宣言すると、適切なアルゴリズムが選ばれます。宣言は正しい性質がある場合のみ行います。
   * 安定性:condで不安定性の兆候を把握し、QR/SVDへ切り替える、スケーリングや正則化を行うなどの手当てをします。
   * メモリ:大規模計算ではインプレース(mul!/ldiv!/.=)を優先し、アロケーションの発生箇所を減らします。
-
-
 
 これらの原則を徹底することで、配列処理と線形代数が滑らかにつながり、Juliaの強みである「短く書いて速い」を実務で安定して引き出せます。
 
@@ -3164,8 +2657,6 @@ ldiv!は既存メモリへ解を格納し、アロケーションを抑えます
   * 計測単位の明確化: 処理あたりの時間、スループット、メモリバイト数、アロケーション回数など、評価指標を事前に決めます。
   * ホットスポット優先: 全体の遅延より、消費時間の大半を占める関数(ホットスポット)から手を入れます。プロファイルで当たりをつけます。
 
-
-
 これらの原則のもと、型安定性、アロケーション削減、プロファイリング、コード生成の読み解きへ進みます。
 
 * * *
@@ -3180,7 +2671,6 @@ Juliaの最適化は型情報に依存します。型安定性とは「関数の
 
 # 悪い例:戻り値がIntかStringで揺れる  
 bad(x) = x > 0 ? x : "neg"  
-
 
 @code_warntype bad(1)
 
@@ -3199,12 +2689,10 @@ mutable struct Box
 value  
 end  
 
-
 # 望ましい(パラメトリック)  
 mutable struct Box{T}  
 value::T  
 end  
-
 
 # コンテナは具体型で  
 xs = Vector{Float64}(undef, 1000)
@@ -3219,9 +2707,7 @@ x2, y2 = promote(x, y) # ここで型を揃える
 return inner(x2, y2)  
 end  
 
-
-inner(x::Float64, y::Float64) = muladd(x, y, 0.0)  
-inner(x::Float32, y::Float32) = muladd(x, y, 0.0f0)
+inner(x::Float64, y::Float64) = muladd(x, y, 0.0) inner(x::Float32, y::Float32) = muladd(x, y, 0.0f0)
 
 ## 2.4 グローバル変数の回避
 
@@ -3230,7 +2716,6 @@ inner(x::Float32, y::Float32) = muladd(x, y, 0.0f0)
 # 悪い例  
 factor = 2  
 badmul(x) = x * factor  
-
 
 # 良い例  
 goodmul(x; factor::Int=2) = x * factor
@@ -3243,13 +2728,11 @@ goodmul(x; factor::Int=2) = x * factor
 
 ## 3.1 基本の計測パターン
 
-using BenchmarkTools  
-
+using BenchmarkTools
 
 # 入力を外で作り、$で挿入(グローバル変数の影響を避ける)  
 x = rand(10_000)  
 @btime sum($x) # $で変数を評価済みにする  
-
 
 # 直前にウォームアップ  
 sum(x)  
@@ -3287,41 +2770,25 @@ println(bytes)
 
 配列・ベクトルの結果は、事前に確保したバッファへ書き込みます。関数名末尾に!を付け、契約(破壊的)を明示します。
 
-function axpy!(y::AbstractVector{T}, a::T, x::AbstractVector{T}) where {T<:Real}  
-@inbounds @simd @. y = a * x + y  
-return y  
-end  
+function axpy!(y::AbstractVector{T}, a::T, x::AbstractVector{T}) where {T<:Real} @inbounds @simd @. y = a * x + y return y end
 
-
-x = rand(10_000); y = rand(10_000)  
-@btime axpy!($y, 2.0, $x) # 0 alloc を目指す
+x = rand(10_000); y = rand(10_000) @btime axpy!($y, 2.0, $x) # 0 alloc を目指す
 
 ベクトル・辞書にはsizehint!で容量の見当を示します。再確保の回数が減ります。
 
-v = Int[]  
-sizehint!(v, 100_000)  
-for i in 1:100_000  
-push!(v, i)  
-end
+v = Int[] sizehint!(v, 100_000) for i in 1:100_000 push!(v, i) end
 
 ## 4.2 ビューでコピー回避
 
 部分配列の抽出はデフォルトでコピーです。viewまたは@viewsでビューに切り替えます。
 
-A = rand(1_000, 1_000)  
-@views for j in axes(A, 2)  
-col = A[:, j] # ビュー  
-col .*= 2  
-end
+A = rand(1_000, 1_000) @views for j in axes(A, 2) col = A[:, j] # ビューcol .*= 2 end
 
 ## 4.3 形状と融合の活用
 
 ブロードキャストの.=代入は左辺のメモリを再利用します。中間配列を作らない式にまとめます。
 
-x = rand(10_000); y = rand(10_000)  
-@btime begin  
-@. x = sin(x) + 2*y  
-end # 中間を避けて1パスで更新
+x = rand(10_000); y = rand(10_000) @btime begin @. x = sin(x) + 2*y end # 中間を避けて1パスで更新
 
 ## 4.4 コンテナの型安定とAnyの回避
 
@@ -3341,7 +2808,6 @@ y::Float64
 end  
 pts = [Pt(rand(), rand()) for _ in 1:100_000]  
 
-
 # SoA:各フィールドの配列  
 xs = rand(100_000); ys = rand(100_000)  
 @inbounds @simd @. xs = xs + 2*ys
@@ -3354,15 +2820,9 @@ xs = rand(100_000); ys = rand(100_000)
 
 ## 5.1 基本操作
 
-using Profile  
+using Profile
 
-
-Profile.clear()  
-@profile begin  
-# 計測したい処理  
-heavy_work()  
-end  
-Profile.print() # 結果をテキストで表示
+Profile.clear() @profile begin # 計測したい処理heavy_work() end Profile.print() # 結果をテキストで表示
 
 Profile.print()はスタックの頻度を表示します。行番号や関数名から、どのループ・どの呼び出しが支配的かを把握します。
 
@@ -3370,16 +2830,13 @@ Profile.print()はスタックの頻度を表示します。行番号や関数�
 
 Profile.init(n, delay)でバッファサイズやサンプリング間隔を調整できます。計測前にはProfile.clear()で過去の記録を消去します。
 
-Profile.init(10_000, 0.001) # バッファを大きく、間隔を短く  
-Profile.clear()
+Profile.init(10_000, 0.001) # バッファを大きく、間隔を短くProfile.clear()
 
 ## 5.3 観察のポイント
 
   * 深いスタックで頻度が高い行がホットスポットです。そこへ@btimeを当て、型不安定なら直します。
   * GC時間が支配的なら、アロケーション削減に注力します。
   * I/O待ちが多い場合、バッチ化や非同期化を検討します(計算の最適化とは別軸)。
-
-
 
 * * *
 
@@ -3392,8 +2849,6 @@ Profile.clear()
   5. 低レベルヒント(@inbounds, @simd)は正しさ確認後に適用。
   6. アルゴリズム切り替え(密→BLAS、長方→QR、SPD→Choleskyなど)。
   7. 再測定して改善を確認。回帰テスト・ベンチで品質を維持。
-
-
 
 * * *
 
@@ -3427,56 +2882,21 @@ Profile.clear()
 
 ## 8.1 素朴実装(毎回サブ配列をコピー)
 
-function moving_stats_naive(xs::AbstractVector{<:Real}, window::Int)  
-n = length(xs); half = (window - 1) ÷ 2  
-μ = Vector{Float64}(undef, n)  
-σ = Vector{Float64}(undef, n)  
-for i in 1:n  
-lo = max(1, i-half); hi = min(n, i+half)  
-seg = xs[lo:hi] # コピーが発生  
-m = sum(seg) / length(seg)  
-s2 = sum((x - m)^2 for x in seg) / max(1, length(seg)-1)  
-μ[i] = m; σ[i] = sqrt(s2)  
-end  
-return μ, σ  
-end
+function moving_stats_naive(xs::AbstractVector{<:Real}, window::Int) n = length(xs); half = (window - 1) ÷ 2 μ = Vector{Float64}(undef, n) σ = Vector{Float64}(undef, n) for i in 1:n lo = max(1, i-half); hi = min(n, i+half) seg = xs[lo:hi] # コピーが発生m = sum(seg) / length(seg) s2 = sum((x - m)^2 for x in seg) / max(1, length(seg)-1) μ[i] = m; σ[i] = sqrt(s2) end return μ, σ end
 
 ## 8.2 最適化実装(ビュー・事前確保・.=融合)
 
-function moving_stats_opt!(μ::AbstractVector{Float64}, σ::AbstractVector{Float64},  
-xs::AbstractVector{<:Real}, window::Int)  
-window > 0 && isodd(window) || throw(ArgumentError("window must be positive odd"))  
-n = length(xs); half = (window - 1) ÷ 2  
-@views @inbounds for i in 1:n  
-lo = max(1, i-half); hi = min(n, i+half)  
-seg = xs[lo:hi] # ビュー(コピー無し)  
-m = sum(seg) / length(seg)  
-μ[i] = m  
-acc = 0.0  
-@inbounds @simd for j in eachindex(seg)  
-d = seg[j] - m  
-acc = muladd(d, d, acc) # 融合乗算加算で丸め影響軽減  
-end  
-σ[i] = sqrt(acc / max(1, length(seg)-1))  
-end  
-return μ, σ  
-end
+function moving_stats_opt!(μ::AbstractVector{Float64}, σ::AbstractVector{Float64}, xs::AbstractVector{<:Real}, window::Int) window > 0 && isodd(window) || throw(ArgumentError("window must be positive odd")) n = length(xs); half = (window - 1) ÷ 2 @views @inbounds for i in 1:n lo = max(1, i-half); hi = min(n, i+half) seg = xs[lo:hi] # ビュー(コピー無し) m = sum(seg) / length(seg) μ[i] = m acc = 0.0 @inbounds @simd for j in eachindex(seg) d = seg[j] - m acc = muladd(d, d, acc) # 融合乗算加算で丸め影響軽減end σ[i] = sqrt(acc / max(1, length(seg)-1)) end return μ, σ end
 
 ## 8.3 計測
 
-using BenchmarkTools  
-xs = rand(100_000)  
-μ = Vector{Float64}(undef, length(xs))  
-σ = similar(μ)  
-
+using BenchmarkTools xs = rand(100_000) μ = Vector{Float64}(undef, length(xs)) σ = similar(μ)
 
 # ウォームアップ  
 moving_stats_naive(xs, 7)  
 moving_stats_opt!(μ, σ, xs, 7)  
 
-
-@btime moving_stats_naive($xs, 7) # アロケーション多いはず  
-@btime moving_stats_opt!($μ, $σ, $xs, 7) # 0〜少量のアロケーション
+@btime moving_stats_naive($xs, 7) # アロケーション多いはず@btime moving_stats_opt!($μ, $σ, $xs, 7) # 0〜少量のアロケーション
 
 期待される改善は、アロケーションと時間の双方です。@allocatedでも粗く差を確認できます。
 
@@ -3488,33 +2908,18 @@ moving_stats_opt!(μ, σ, xs, 7)
 
 ## 9.1 スレッド化の基本
 
-using Base.Threads  
+using Base.Threads
 
-
-function scale_threads!(x::Vector{Float64}, a::Float64)  
-@threads for i in eachindex(x)  
-@inbounds x[i] = a * x[i]  
-end  
-return x  
-end
+function scale_threads!(x::Vector{Float64}, a::Float64) @threads for i in eachindex(x) @inbounds x[i] = a * x[i] end return x end
 
 注意点:
 
   * 偽共有(false sharing): スレッドが近接データを頻繁に書き換えるとキャッシュラインの奪い合いが発生します。チャンク分割で緩和します。
   * 乱数: スレッドごとに独立な生成器を用意し、再現性を確保します。
 
-
-
-using Random  
-rngs = [MersenneTwister(1234 + i) for i in 1:nthreads()]  
-@threads for i in eachindex(x)  
-tid = threadid()  
-x[i] = rand(rngs[tid])  
-end
+using Random rngs = [MersenneTwister(1234 + i) for i in 1:nthreads()] @threads for i in eachindex(x) tid = threadid() x[i] = rand(rngs[tid]) end
 
   * 同期コスト: 軽いタスクはスレッド化で逆に遅くなることがあります。バッチ化して粗粒度に分割します。
-
-
 
 ベンチでは、スレッド数を固定して比較し、@btimeのセットアップで入力を毎回リセットします。
 
@@ -3524,9 +2929,7 @@ end
 
 計測でホットスポットが線形代数なら、LinearAlgebra経由でBLAS/LAPACKに任せます。自前ループより高速で、キャッシュフレンドリーです。
 
-using LinearAlgebra  
-A = rand(2000, 2000); x = rand(2000)  
-@btime $A * $x # BLASのgemv
+using LinearAlgebra A = rand(2000, 2000); x = rand(2000) @btime $A * $x # BLASのgemv
 
 連立解は\、分解はlu/cholesky/qr/svdを選択し、性質の宣言(Symmetric, Hermitian, Diagonal, UpperTriangular)で最適経路へ誘導します。I/Oがボトルネックなら、バッチ読み書きとメモリ再利用でスループットを上げます。
 
@@ -3536,16 +2939,9 @@ A = rand(2000, 2000); x = rand(2000)
 
 性能調査の過程で、入力の妥当性や境界条件を破っていないか確認するため、アサートやログを入れます。本番では削る前提でも、開発時は手厚くしておくとバグの切り分けが容易です。
 
-using Logging  
+using Logging
 
-
-function normalize!(x::AbstractVector{<:Real})  
-s = sum(abs.(x))  
-@assert s != 0 "zero vector cannot be normalized"  
-@. x = x / s  
-@debug "normalized with sum=$s"  
-return x  
-end
+function normalize!(x::AbstractVector{<:Real}) s = sum(abs.(x)) @assert s != 0 "zero vector cannot be normalized" @. x = x / s @debug "normalized with sum=$s" return x end
 
 @assertは内在的不変条件の検知に、例外は入力不正の通知に使い分けます。性能目的で@inboundsを付けたループには、上流で境界チェックを入れておくのが安全です。
 
@@ -3555,47 +2951,17 @@ end
 
 ## 12.1 素朴版(push!でバケットに追加)
 
-function hist_naive(xs::AbstractVector{<:Real}, nbins::Int)  
-lo, hi = minimum(xs), maximum(xs)  
-binw = (hi - lo) / nbins  
-bins = fill(0, nbins)  
-for x in xs  
-b = clamp(Int(floor((x - lo) / binw)) + 1, 1, nbins)  
-bins[b] += 1  
-end  
-return bins  
-end
+function hist_naive(xs::AbstractVector{<:Real}, nbins::Int) lo, hi = minimum(xs), maximum(xs) binw = (hi - lo) / nbins bins = fill(0, nbins) for x in xs b = clamp(Int(floor((x - lo) / binw)) + 1, 1, nbins) bins[b] += 1 end return bins end
 
 ## 12.2 改善版(事前計算・関数バリア・型安定)
 
-function hist!(bins::Vector{Int}, xs::AbstractVector{<:Real}, lo::Real, hi::Real)  
-nbins = length(bins)  
-T = float(promote_type(eltype(xs), typeof(lo), typeof(hi)))  
-loT, hiT = T(lo), T(hi)  
-binw = (hiT - loT) / T(nbins)  
-@inbounds for x in xs  
-xt = T(x)  
-b = Int(floor((xt - loT) / binw)) + 1  
-if 1 <= b <= nbins  
-bins[b] += 1  
-end  
-end  
-return bins  
-end  
+function hist!(bins::Vector{Int}, xs::AbstractVector{<:Real}, lo::Real, hi::Real) nbins = length(bins) T = float(promote_type(eltype(xs), typeof(lo), typeof(hi))) loT, hiT = T(lo), T(hi) binw = (hiT - loT) / T(nbins) @inbounds for x in xs xt = T(x) b = Int(floor((xt - loT) / binw)) + 1 if 1 <= b <= nbins bins[b] += 1 end end return bins end
 
-
-function hist_fast(xs::AbstractVector{<:Real}, nbins::Int)  
-lo, hi = minimum(xs), maximum(xs)  
-bins = zeros(Int, nbins)  
-return hist!(bins, xs, lo, hi)  
-end
+function hist_fast(xs::AbstractVector{<:Real}, nbins::Int) lo, hi = minimum(xs), maximum(xs) bins = zeros(Int, nbins) return hist!(bins, xs, lo, hi) end
 
 ## 12.3 計測
 
-using BenchmarkTools  
-xs = rand(1_000_000)  
-@btime hist_naive($xs, 100) # 参考  
-@btime hist_fast($xs, 100) # 改善後
+using BenchmarkTools xs = rand(1_000_000) @btime hist_naive($xs, 100) # 参考@btime hist_fast($xs, 100) # 改善後
 
 改善点は、型安定化(同一の浮動型に揃える)、事前確保と破壊的更新、境界チェックの局所化です。さらにスレッド分割して各スレッドでローカルバケットを集計し、最後にリダクションする戦略でスケールします(偽共有を避けるためローカル配列を持つのが定石)。
 
@@ -3605,8 +2971,7 @@ xs = rand(1_000_000)
 
 性能(スループット)とは別に、初回実行までの遅延(TTFX: time-to-first-execution)を短縮したい場面があります。Pkg.precompile()で依存パッケージの事前コンパイルを行い、REPLの起動直後の遅延を抑えられます。自作パッケージでは、パブリックAPIに対するprecompileステートメントを配置し、よく使うメソッドのコンパイルを先に済ませます。
 
-using Pkg  
-Pkg.precompile()
+using Pkg Pkg.precompile()
 
 ※TTFX短縮はスループットの改善とは別軸です。ベンチマークではウォームアップ実行でJIT遅延を除去します。
 
@@ -3616,9 +2981,7 @@ Pkg.precompile()
 
 @fastmathは浮動演算に関する厳密なルール(NaN伝播、丸め順序)を緩め、最適化余地を広げますが、数値安定性に影響し得ます。誤差許容が明確な場面でのみ適用します。
 
-@fastmath @inbounds @simd for i in eachindex(x, y)  
-s = muladd(x[i], y[i], s)  
-end
+@fastmath @inbounds @simd for i in eachindex(x, y) s = muladd(x[i], y[i], s) end
 
 ポインタ操作(unsafe_*)は安全性に関わるため、標準のインデックスやeachindexで十分な性能が出る限り避けます。正しさ>速度の順序を守ります。
 
@@ -3631,7 +2994,6 @@ end
 # 単体テスト例(概念)  
 using Test  
 @test isapprox(sum(rand(10)), sum(rand(10)); rtol=1e-12) == false # 乱数は一致しない例  
-
 
 # ベンチマークを定期的に記録(概念)  
 using BenchmarkTools  
@@ -3653,8 +3015,6 @@ CIにベンチを組み込む場合、揺らぎに強い指標(大きめの入�
   * 並列は最後の手段。偽共有や乱数の再現性に注意し、粗粒度の分割でスケールさせます。
   * テストとベンチを併走させ、性能回帰を監視します。数値結果の検証を最優先にします。
 
-
-
 以上の作法を体系的に適用することで、Juliaの「短く書いて速い」を安定して引き出し、実務に耐える性能と保守性を両立できます。
 
 * * *
@@ -3669,20 +3029,13 @@ Juliaのメタプログラミングは「コードをデータとして扱い、
   * args: 引数列(サブツリー)
   * メタデータ(行番号など、表示時には省略されることがあります)
 
-
-
 最も手軽なAST生成は「クォート(quote)」です。:( ... )やquote ... endで、コード断片を実行せずに式オブジェクトへ変換できます。
 
-ex = :(1 + 2 * x) # Expr(:call, :+, 1, Expr(:call, :*, 2, :x))  
-typeof(ex) # Expr  
-dump(ex) # 構造の確認
+ex = :(1 + 2 * x) # Expr(:call, :+, 1, Expr(:call, :*, 2, :x)) typeof(ex) # Expr dump(ex) # 構造の確認
 
 式内部の変数を埋め込みたいときは「アンクォート(スプライス)」を使います。$varで値を式中へ展開できます。
 
-op = :+  
-lhs = :y  
-rhs = 42  
-ex = :($op($lhs, $rhs)) # -> :(+(y, 42))
+op = :+ lhs = :y rhs = 42 ex = :($op($lhs, $rhs)) # -> :(+(y, 42))
 
 式を手作業で組み立てる場合は、Exprコンストラクタを使います。
 
@@ -3690,9 +3043,7 @@ ex = Expr(:call, :+, :x, 10) # :(x + 10)
 
 ASTの表示をS式風に確認するにはMeta.show_sexprが便利です。
 
-using InteractiveUtils  
-Meta.show_sexpr(stdout, :(a*b + c))  
-# (:call, :+, (:call, :*, :a, :b), :c)
+using InteractiveUtils Meta.show_sexpr(stdout, :(a*b + c)) # (:call, :+, (:call, :*, :a, :b), :c)
 
 文字列からASTへ変換するにはMeta.parseを使います。パーサレベルの変換なので、動的な構文生成や簡易DSLの入り口に役立ちます。
 
@@ -3706,34 +3057,19 @@ ASTを直接評価するにはevalがありますが、評価はモジュール�
 
 macroはパース後・型推論前の段階で、入力ASTを別のASTへ変換して差し込みます。展開後のコードは通常の関数と同様にコンパイルされます。基本形は以下のとおりです。
 
-macro sayhello(name)  
-# name は式(Symbol など)として渡される  
-return :(println("hello ", $name))  
-end  
-
+macro sayhello(name) # name は式(Symbol など)として渡されるreturn :(println("hello ", $name)) end
 
 @sayhello :world # hello world
 
 マクロは「衛生的(hygienic)」であるべきです。つまり、マクロ内部で導入する識別子(変数名)が、呼び出し側ユーザーのスコープと衝突しないようにします。衝突回避にはgensym(一意なシンボル生成)が有効です。
 
-macro pow2(ex)  
-tmp = gensym(:tmp)  
-return quote  
-local $(tmp) = $(esc(ex))  
-$(tmp) * $(tmp)  
-end  
-end  
+macro pow2(ex) tmp = gensym(:tmp) return quote local $(tmp) = $(esc(ex)) $(tmp) * $(tmp) end end
 
-
-x = 3  
-@pow2 x # 9
+x = 3 @pow2 x # 9
 
 ここで重要なのがescです。esc(ex)は「呼び出し元のスコープへ式を逃がす」操作で、ユーザーの変数を正しく参照させるために使います。原則として、ユーザー由来の識別子や式はescし、マクロ内部で導入した識別子はgensym等で衛生的に生成します。
 
-macro badpow(ex)  
-# escしないと、ユーザーの変数を別スコープとして扱って誤動作し得る  
-return :( $(ex) * $(ex) )  
-end
+macro badpow(ex) # escしないと、ユーザーの変数を別スコープとして扱って誤動作し得るreturn :( $(ex) * $(ex) ) end
 
 実際の展開結果は@macroexpandで確認できます。マクロの動作確認や衛生性の検証に必須です。
 
@@ -3747,22 +3083,9 @@ end
 
 ## 3.1 計測マクロ(@timeitのスケルトン)
 
-macro timeit(tag, ex)  
-t = gensym(:t)  
-return quote  
-local $(t) = time()  
-local _res = begin  
-$(esc(ex))  
-end  
-println("[", $(esc(tag)), "] elapsed = ", time() - $(t), " s")  
-_res  
-end  
-end  
+macro timeit(tag, ex) t = gensym(:t) return quote local $(t) = time() local _res = begin $(esc(ex)) end println("[", $(esc(tag)), "] elapsed = ", time() - $(t), " s") _res end end
 
-
-@timeit "step1" begin  
-s = sum(rand(10^6))  
-end
+@timeit "step1" begin s = sum(rand(10^6)) end
 
 計測対象をbegin ... endで受けると、複数文を含むブロックにも適用しやすくなります。副作用変数はローカルgensymで衛生化します。
 
@@ -3770,22 +3093,9 @@ end
 
 doブロックを受ける形式は「コンテキスト」を自然に挿入できます。例えば、乱数種の固定や一時的な設定変更をブロック範囲で安全に適用します。
 
-macro with_seed(seed, ex)  
-return quote  
-local _rng_bak = copy(Random.default_rng())  
-try  
-Random.seed!($(esc(seed)))  
-$(esc(ex))  
-finally  
-Random.seed!(Random.default_rng(), UInt(_rng_bak.seed))  
-end  
-end  
-end  
+macro with_seed(seed, ex) return quote local _rng_bak = copy(Random.default_rng()) try Random.seed!($(esc(seed))) $(esc(ex)) finally Random.seed!(Random.default_rng(), UInt(_rng_bak.seed)) end end end
 
-
-@with_seed 1234 begin  
-println(rand())  
-end
+@with_seed 1234 begin println(rand()) end
 
 注意:乱数生成器の扱いは環境やバージョンにより差があり得ます。実務では生成器を引数で受けて関数に渡す設計がより安全です。ここでは構図の例示に留めています。
 
@@ -3793,17 +3103,7 @@ end
 
 式パターンを検出して書き換える例です。
 
-macro guard_nonneg(ex)  
-# ex が代入式 `lhs = rhs` のとき、rhs に max(0, rhs) を挿入する  
-if ex.head == :(=) && length(ex.args) == 2  
-lhs, rhs = ex.args  
-new_rhs = :(max(0, $(rhs)))  
-return :( $(lhs) = $(new_rhs) )  
-else  
-error("@guard_nonneg requires assignment form")  
-end  
-end  
-
+macro guard_nonneg(ex) # ex が代入式 `lhs = rhs` のとき、rhs に max(0, rhs) を挿入するif ex.head == :(=) && length(ex.args) == 2 lhs, rhs = ex.args new_rhs = :(max(0, $(rhs))) return :( $(lhs) = $(new_rhs) ) else error("@guard_nonneg requires assignment form") end end
 
 @guard_nonneg y = -3 # y = max(0, -3) → y = 0
 
@@ -3817,14 +3117,7 @@ end
 
 ## 4.1 代表例:NTuple{N,T}の和をアンロール
 
-@generated function sumtuple(t::NTuple{N,T}) where {N,T<:Real}  
-# N 個の要素を足す式を生成する  
-# 例:N=3なら :(t[1] + t[2] + t[3])  
-terms = [:(t[$i]) for i in 1:N]  
-ex = reduce((a,b)->:( $a + $b ), terms)  
-return ex  
-end  
-
+@generated function sumtuple(t::NTuple{N,T}) where {N,T<:Real} # N 個の要素を足す式を生成する# 例:N=3なら :(t[1] + t[2] + t[3]) terms = [:(t[$i]) for i in 1:N] ex = reduce((a,b)->:( $a + $b ), terms) return ex end
 
 sumtuple((1.0, 2.0, 3.0)) # 6.0
 
@@ -3836,21 +3129,15 @@ sumtuple((1.0, 2.0, 3.0)) # 6.0
   * 純粋性:副作用のある処理を入れると、コンパイルキャッシュと相互作用して非決定的挙動を招きます。
   * デバッグ性:生成コードの可視化に@macroexpandは使えないため、@code_loweredや@code_typedで観察します。
 
-
-
-@code_lowered sumtuple((1.0,2.0,3.0))  
-@code_typed sumtuple((1.0,2.0,3.0))
+@code_lowered sumtuple((1.0,2.0,3.0)) @code_typed sumtuple((1.0,2.0,3.0))
 
 ## 4.3 Valで型レベルの選択
 
 Val{K}は値を型へ持ち上げるユーティリティで、@generatedの代わりに「軽い分岐」を行う場面で有効です。
 
-f(::Val{true}, x) = x^2  
-f(::Val{false}, x) = abs(x)  
+f(::Val{true}, x) = x^2 f(::Val{false}, x) = abs(x)
 
-
-f(Val(true), -3) # 9  
-f(Val(false), -3) # 3
+f(Val(true), -3) # 9 f(Val(false), -3) # 3
 
 Valはコンパイラが分岐を消し込めるため、ifより高速になる場合があります。ただし、過度に多用するとメソッドの増殖でコンパイル負荷を招きます。
 
@@ -3866,8 +3153,6 @@ Valはコンパイラが分岐を消し込めるため、ifより高速になる
   * 明示的なインターフェース:マクロ引数はASTで来るため、契約違反の入力を明確にエラーにします。
   * 展開結果の確認:@macroexpand・@code_typedで確認し、CIに簡単な検証を入れます。
 
-
-
 小規模・明確な効果(可読化・DRY・性能)以外では、生成処理を控えるのが長期運用では賢明です。
 
 * * *
@@ -3882,32 +3167,11 @@ objective::Expr
 constraints::Vector{Expr}  
 end  
 
+function eval_objective(obj::Expr, vars::Dict{Symbol,Float64}) # 極めて簡略な評価(安全性や網羅性は本例では扱わない) # 例::(x^2 + y^2) を vars の値で評価x = vars[:x]; y = vars[:y] return eval(Expr(:block, :(x = $x), :(y = $y), obj)) end
 
-function eval_objective(obj::Expr, vars::Dict{Symbol,Float64})  
-# 極めて簡略な評価(安全性や網羅性は本例では扱わない)  
-# 例::(x^2 + y^2) を vars の値で評価  
-x = vars[:x]; y = vars[:y]  
-return eval(Expr(:block, :(x = $x), :(y = $y), obj))  
-end  
+macro minimize(ex) # 受け口:@minimize begin ... end # ブロック中で objective = ..., constraint: x + y <= 1 のような式を拾うex.head == :block || error("@minimize requires a block")
 
-
-macro minimize(ex)  
-# 受け口:@minimize begin ... end  
-# ブロック中で objective = ..., constraint: x + y <= 1 のような式を拾う  
-ex.head == :block || error("@minimize requires a block")  
-
-
-obj = nothing  
-cons = Expr[]  
-for stmt in ex.args  
-if stmt.head == :(=) && stmt.args[1] == :objective  
-obj = stmt.args[2]  
-elseif stmt isa Expr  
-push!(cons, stmt)  
-end  
-end  
-obj === nothing && error("objective must be defined")  
-
+obj = nothing cons = Expr[] for stmt in ex.args if stmt.head == :(=) && stmt.args[1] == :objective obj = stmt.args[2] elseif stmt isa Expr push!(cons, stmt) end end obj === nothing && error("objective must be defined")
 
 # 実行コードへ展開(例:乱択探索で制約を満たす点を探す)  
 return quote  
@@ -3941,13 +3205,11 @@ end
 end  
 end  
 
-
 # 使用例(非常に単純化された仕様)  
 res = @minimize begin  
 objective = x^2 + y^2  
 x + y <= 1  
 end  
-
 
 println(res)
 
@@ -3970,7 +3232,6 @@ return f(ex)
 end  
 end  
 
-
 # 使用例:sin -> cos へ書き換え(デモ)  
 ex = :(sin(x) + sin(y))  
 ex2 = rewrite(ex) do node  
@@ -3980,7 +3241,6 @@ else
 node  
 end  
 end  
-
 
 ex2 # :(cos(x) + cos(y))
 
@@ -3997,11 +3257,7 @@ ex2 # :(cos(x) + cos(y))
   * @code_typed: 型付きSSAフォームを表示(推論後)。
   * @code_llvm・@code_native: より低レベルの最適化・アセンブリを観察。
 
-
-
-@macroexpand @guard_nonneg z = -5  
-@code_lowered sumtuple((1.0,2.0,3.0))  
-@code_typed sumtuple((1.0,2.0,3.0))
+@macroexpand @guard_nonneg z = -5 @code_lowered sumtuple((1.0,2.0,3.0)) @code_typed sumtuple((1.0,2.0,3.0))
 
 展開結果が「意図通りで、型が安定している」ことを確認し、テストスイートへ最小の例を組み込みます。メタプログラムは小さく検証可能であることが品質の鍵です。
 
@@ -4018,8 +3274,6 @@ ex2 # :(cos(x) + cos(y))
   * バージョン耐性:AST構造やlowered表現はJuliaのバージョンで変わる可能性があります。MacroTools等の抽象化レイヤを使うと保守が楽になります。
   * 計測と検証:展開結果の性能はBenchmarkTools.@btime、型は@code_warntypeで確認し、CIに軽いメタ展開テストを含めます。
 
-
-
 メタプログラミングは、仕様記述と最適化の橋渡しを担う強力な道具です。適切な衛生と検証のもと、最小限・高効果の変換を設計することで、表現力と性能を同時に押し上げられます。コードは「読みやすく、差し替えやすく、検証しやすく」を満たす構造へ保ち、メタレイヤはその補助に徹するのが長期運用の定石です。
 
 * * *
@@ -4034,8 +3288,6 @@ ex2 # :(cos(x) + cos(y))
   * 生成器はオブジェクトとして扱い、関数へ明示的に渡すのが原則です。これにより、状態の共有や意図しない使い回しを避け、再現性とテスト容易性が高まります。
   * 並列化(スレッド・プロセス)時は、各ワーカーに独立な生成器(かつ再現性のため固定可能なシード)を配布します。
 
-
-
 以下では、ジェネレータの選択、乱数種の固定、分布からのサンプリング、推定・検定、モンテカルロ法の実装パターン、並列サンプリングまで、実用上の要点を具体例中心に整理します。
 
 * * *
@@ -4047,29 +3299,23 @@ ex2 # :(cos(x) + cos(y))
   * MersenneTwister(seed): 長周期で古典的に広く使われるジェネレータ。再現性管理が容易で、配列サンプリング等に十分な品質。
   * Xoshiro系(例:Xoshiro256**など)やPCG系:速度・統計的品質に優れ、最新の実装が利用可能。選択はプロジェクトの要件(速度・品質・安定性)に応じます。環境によりパッケージ導入が必要な場合があります。
 
-
-
 基本の使い方は以下のとおりです。
 
-using Random  
-
+using Random
 
 # 1) グローバルの既定生成器の種を固定(手軽だが、並列・大規模では推奨しない)  
 Random.seed!(1234)  
 rand() # U(0,1) の一様乱数  
 rand(1:6) # 1..6 の一様整数(サイコロ)  
 
-
 # 2) 生成器をオブジェクトとして作り、明示的に渡す(推奨)  
 rng = MersenneTwister(1234)  
 rand(rng) # rng から生成  
 rand(rng, 1:6)  
 
-
 # 3) ベクトル・行列に対して  
 rand(rng, 5) # 5要素ベクトル  
 rand(rng, Float64, 2, 3) # 2×3 行列  
-
 
 # 4) 生成器の複製(同じ状態から列を再現)  
 rng2 = copy(rng)  
@@ -4089,21 +3335,14 @@ rand(rng2, 3) # 同じ列が得られる(copy直後なら)
   * 状態を保存・復元:長期・比較実験では、生成器の状態を必要に応じて保存・復元します(copyや独自シリアライズ)。
   * 並列時の独立性:スレッドごと・プロセスごとに異なる種を割り当て、列の重複や相関を避けます(seed + threadid()等の方式)。
 
-
-
 例:
 
-using Random  
-
+using Random
 
 # 入口で種を固定  
 const GLOBAL_SEED = 20240101  
 
-
-function setup_rng(seed::Int=GLOBAL_SEED)  
-return MersenneTwister(seed)  
-end  
-
+function setup_rng(seed::Int=GLOBAL_SEED) return MersenneTwister(seed) end
 
 # 乱数を使う処理は常にrngを受け取る  
 function simulate_once(rng::AbstractRNG; n=1000)  
@@ -4112,10 +3351,7 @@ xs = rand(rng, 0:1, n) # 0/1 の一様
 return sum(xs) / n  
 end  
 
-
-rng = setup_rng()  
-simulate_once(rng)  
-
+rng = setup_rng() simulate_once(rng)
 
 # 状態の複製で同一列を再試行  
 rng_a = setup_rng()  
@@ -4131,31 +3367,22 @@ simulate_once(rng_b) # A と同じ系列に基づく再現
 
 確率分布からのサンプリングは、RandomとDistributions(エコシステムの代表的パッケージ)を組み合わせるのが一般的です。Distributionsを使うと、パラメトリックな分布をオブジェクトとして扱え、randでサンプルが得られます。
 
-using Random  
-using Distributions  
+using Random using Distributions
 
-
-rng = MersenneTwister(42)  
-
+rng = MersenneTwister(42)
 
 # 連続分布  
 dN = Normal(0.0, 1.0)  
 x = rand(rng, dN) # N(0,1)  
 xs = rand(rng, dN, 10_000) # 1万サンプル  
 
-
-dE = Exponential(2.0) # rate=2  
-y = rand(rng, dE)  
-
+dE = Exponential(2.0) # rate=2 y = rand(rng, dE)
 
 # 離散分布  
 dB = Binomial(10, 0.3) # n=10, p=0.3  
 k = rand(rng, dB)  
 
-
-dP = Poisson(5.0)  
-λk = rand(rng, dP)  
-
+dP = Poisson(5.0) λk = rand(rng, dP)
 
 # 一様分布(区間)、整数一様  
 dU = Uniform(-1.0, 1.0)  
@@ -4164,14 +3391,11 @@ i = rand(rng, 1:6) # 整数一様(サイコロ)
 
 混合分布やベクトル化も簡潔に扱えます。
 
-d_mix = MixtureModel([Normal(-2,1), Normal(2,1)], [0.4, 0.6])  
-xs = rand(rng, d_mix, 1000)
+d_mix = MixtureModel([Normal(-2,1), Normal(2,1)], [0.4, 0.6]) xs = rand(rng, d_mix, 1000)
 
 必要に応じてpdf/logpdf/cdf/quantileを用いて、評価・可視化・検証に使います。
 
-pdf(dN, 0.0) # 密度  
-cdf(dN, 1.96) # 累積分布  
-quantile(dN, 0.975) # 上側2.5%点
+pdf(dN, 0.0) # 密度cdf(dN, 1.96) # 累積分布quantile(dN, 0.975) # 上側2.5%点
 
 * * *
 
@@ -4183,24 +3407,11 @@ quantile(dN, 0.975) # 上側2.5%点
 
 正規近似を前提とした母平均の95%信頼区間(分散既知/未知)を例示します。
 
-using Statistics  
+using Statistics
 
+function ci_mean(xs::AbstractVector{<:Real}; level=0.95) n = length(xs) μ = mean(xs) σ = std(xs) # 不偏標準偏差# 正規近似のZ値(両側) α = 1 - level z = 1.959963984540054 # 0.975 の標準正規分位(必要ならquantile(Normal(), 0.975)で取得) half = z * σ / sqrt(n) return (μ - half, μ + half) end
 
-function ci_mean(xs::AbstractVector{<:Real}; level=0.95)  
-n = length(xs)  
-μ = mean(xs)  
-σ = std(xs) # 不偏標準偏差  
-# 正規近似のZ値(両側)  
-α = 1 - level  
-z = 1.959963984540054 # 0.975 の標準正規分位(必要ならquantile(Normal(), 0.975)で取得)  
-half = z * σ / sqrt(n)  
-return (μ - half, μ + half)  
-end  
-
-
-rng = MersenneTwister(0)  
-xs = rand(rng, Normal(10.0, 2.0), 200)  
-ci = ci_mean(xs)
+rng = MersenneTwister(0) xs = rand(rng, Normal(10.0, 2.0), 200) ci = ci_mean(xs)
 
 より厳密な扱い(小標本)ではt分布を用いる方法もあります。分布依存の推定はDistributionsで分位を得れば、同様の形で実装できます。
 
@@ -4208,20 +3419,9 @@ ci = ci_mean(xs)
 
 標本平均がある値μ0と等しいかを検定します。
 
-function ttest_one_sample(xs::AbstractVector{<:Real}, μ0::Real)  
-n = length(xs)  
-μ = mean(xs)  
-s = std(xs) # 不偏標準偏差  
-t = (μ - μ0) / (s / sqrt(n))  
-# ここでは近似的に大標本でZとして扱う例(厳密にはt分布の分位を用いる)  
-p_two = 2 * (1 - cdf(Normal(), abs(t)))  
-return (t=t, p=p_two)  
-end  
+function ttest_one_sample(xs::AbstractVector{<:Real}, μ0::Real) n = length(xs) μ = mean(xs) s = std(xs) # 不偏標準偏差t = (μ - μ0) / (s / sqrt(n)) # ここでは近似的に大標本でZとして扱う例(厳密にはt分布の分位を用いる) p_two = 2 * (1 - cdf(Normal(), abs(t))) return (t=t, p=p_two) end
 
-
-rng = MersenneTwister(1)  
-xs = rand(rng, Normal(0.2, 1.0), 1000)  
-res = ttest_one_sample(xs, 0.0)
+rng = MersenneTwister(1) xs = rand(rng, Normal(0.2, 1.0), 1000) res = ttest_one_sample(xs, 0.0)
 
 検定の実務では、仮定・分布・検出力・多重比較・効果量など、設計上の論点が多数あります。Juliaでは、Distributionsや補助パッケージを組み合わせることで、より厳密な検定を構築できます。
 
@@ -4235,12 +3435,7 @@ res = ttest_one_sample(xs, 0.0)
 
 区間[a,b]上の積分∫ f(x) dxを一様サンプリングで近似します。
 
-function mc_integrate_1d(f, a::Real, b::Real; n::Int=100_000, rng=MersenneTwister(0))  
-xs = rand(rng, Uniform(a, b), n)  
-vals = f.(xs)  
-return (b - a) * mean(vals)  
-end  
-
+function mc_integrate_1d(f, a::Real, b::Real; n::Int=100_000, rng=MersenneTwister(0)) xs = rand(rng, Uniform(a, b), n) vals = f.(xs) return (b - a) * mean(vals) end
 
 mc_integrate_1d(x -> exp(-x^2), -1.0, 1.0)
 
@@ -4250,13 +3445,7 @@ mc_integrate_1d(x -> exp(-x^2), -1.0, 1.0)
 
 単位円面積やπの近似で頻用される方法です。
 
-function estimate_pi(n::Int; rng=MersenneTwister(0))  
-xs = rand(rng, Uniform(-1, 1), n)  
-ys = rand(rng, Uniform(-1, 1), n)  
-inside = sum(@. xs^2 + ys^2 <= 1.0)  
-return 4.0 * inside / n  
-end  
-
+function estimate_pi(n::Int; rng=MersenneTwister(0)) xs = rand(rng, Uniform(-1, 1), n) ys = rand(rng, Uniform(-1, 1), n) inside = sum(@. xs^2 + ys^2 <= 1.0) return 4.0 * inside / n end
 
 estimate_pi(1_000_000)
 
@@ -4264,19 +3453,11 @@ estimate_pi(1_000_000)
 
 目標の積分がE[g(X)]で、Xの分布p(x)に対し、別の提案分布q(x)からサンプルを取り、重みw = p/qで補正します。
 
-using Distributions  
+using Distributions
 
+function importance_sampling(f, p::Distribution, q::Distribution; n::Int=100_000, rng=MersenneTwister(0)) xs = rand(rng, q, n) w = pdf.(p, xs) ./ pdf.(q, xs) return mean(w .* f.(xs)) end
 
-function importance_sampling(f, p::Distribution, q::Distribution; n::Int=100_000, rng=MersenneTwister(0))  
-xs = rand(rng, q, n)  
-w = pdf.(p, xs) ./ pdf.(q, xs)  
-return mean(w .* f.(xs))  
-end  
-
-
-p = Normal(0, 1)  
-q = Normal(0, 2) # tail を厚くして稀事象に強く  
-res = importance_sampling(x -> x^2, p, q)
+p = Normal(0, 1) q = Normal(0, 2) # tail を厚くして稀事象に強くres = importance_sampling(x -> x^2, p, q)
 
 重要度サンプリングは、提案分布の選択が鍵で、支持範囲・尾の厚さ・計算容易性がトレードオフになります。
 
@@ -4290,30 +3471,9 @@ res = importance_sampling(x -> x^2, p, q)
 
 各スレッドに独立な生成器を配布し、重複を避けます。シードは規則的にずらして割り当てます。
 
-using Random  
-using Base.Threads  
+using Random using Base.Threads
 
-
-function estimate_pi_threads(n::Int, rng_seed::Int=0)  
-# スレッドごとに独立RNGを用意  
-rngs = [MersenneTwister(rng_seed + i) for i in 1:nthreads()]  
-counts = zeros(Int, nthreads())  
-@threads for t in 1:nthreads()  
-rng = rngs[threadid()]  
-local_inside = 0  
-# 各スレッドあたりの試行数  
-m = n ÷ nthreads()  
-xs = rand(rng, Uniform(-1,1), m)  
-ys = rand(rng, Uniform(-1,1), m)  
-@inbounds @simd for i in eachindex(xs)  
-local_inside += (xs[i]^2 + ys[i]^2 <= 1.0)  
-end  
-counts[threadid()] = local_inside  
-end  
-inside = sum(counts)  
-return 4.0 * inside / ( (n ÷ nthreads()) * nthreads() )  
-end  
-
+function estimate_pi_threads(n::Int, rng_seed::Int=0) # スレッドごとに独立RNGを用意rngs = [MersenneTwister(rng_seed + i) for i in 1:nthreads()] counts = zeros(Int, nthreads()) @threads for t in 1:nthreads() rng = rngs[threadid()] local_inside = 0 # 各スレッドあたりの試行数m = n ÷ nthreads() xs = rand(rng, Uniform(-1,1), m) ys = rand(rng, Uniform(-1,1), m) @inbounds @simd for i in eachindex(xs) local_inside += (xs[i]^2 + ys[i]^2 <= 1.0) end counts[threadid()] = local_inside end inside = sum(counts) return 4.0 * inside / ( (n ÷ nthreads()) * nthreads() ) end
 
 estimate_pi_threads(10_000_000, 1234)
 
@@ -4322,8 +3482,6 @@ estimate_pi_threads(10_000_000, 1234)
   * グローバル生成器の共有は避ける。rand()を直接呼ぶと、内部で共有状態に依存し競合や相関の原因となる。
   * 偽共有を避けるため、スレッドローカルの集計配列を用いて、最後にリダクションする。
   * 乱数種配置は仕様化し、ドキュメントへ明記しておく(将来の再現性と比較のため)。
-
-
 
 ## 7.2 分散(複数プロセス・複数マシン)
 
@@ -4339,28 +3497,11 @@ estimate_pi_threads(10_000_000, 1234)
   * 自己相関の簡易検査:x[i]とx[i+k]の相関を確認し、顕著な構造がないかを見る。
   * 変換の安定性:一様乱数からのBox–Muller法などで正規乱数を作り、平均・分散・歪度・尖度が期待に近いか確認。
 
+using Statistics
 
+function quick_uniform_check(rng::AbstractRNG; n=1_000_000, bins=50) xs = rand(rng, n) # ヒストグラムの相対頻度を粗く確認counts = zeros(Int, bins) @inbounds for x in xs b = clamp(Int(floor(x * bins)) + 1, 1, bins) counts[b] += 1 end freqs = counts ./ n μ = mean(freqs) σ = std(freqs) return (; μ, σ, freqs) end
 
-using Statistics  
-
-
-function quick_uniform_check(rng::AbstractRNG; n=1_000_000, bins=50)  
-xs = rand(rng, n)  
-# ヒストグラムの相対頻度を粗く確認  
-counts = zeros(Int, bins)  
-@inbounds for x in xs  
-b = clamp(Int(floor(x * bins)) + 1, 1, bins)  
-counts[b] += 1  
-end  
-freqs = counts ./ n  
-μ = mean(freqs)  
-σ = std(freqs)  
-return (; μ, σ, freqs)  
-end  
-
-
-rng = MersenneTwister(123)  
-res = quick_uniform_check(rng)
+rng = MersenneTwister(123) res = quick_uniform_check(rng)
 
 本格的な検証には、連続・離散の統計的適合度検定、スペクトル解析、専用のテストスイートを用います。実務では「採用する生成器の品質が十分である」という前提を守りつつ、自分の処理の使い方(並列・サンプリング方式)で不自然な相関を誘発していないか確認する視点が重要です。
 
@@ -4374,24 +3515,11 @@ res = quick_uniform_check(rng)
 
 母集団の分布が非既知でも、標本からの再標本化で推定量の分布を近似します。
 
-using Random, Statistics  
+using Random, Statistics
 
+function bootstrap_mean(xs::AbstractVector{<:Real}; B::Int=10_000, rng=MersenneTwister(0)) n = length(xs) μs = Vector{Float64}(undef, B) @inbounds for b in 1:B idx = rand(rng, 1:n, n) # 置換ありサンプルμs[b] = mean(@view xs[idx]) end return μs end
 
-function bootstrap_mean(xs::AbstractVector{<:Real}; B::Int=10_000, rng=MersenneTwister(0))  
-n = length(xs)  
-μs = Vector{Float64}(undef, B)  
-@inbounds for b in 1:B  
-idx = rand(rng, 1:n, n) # 置換ありサンプル  
-μs[b] = mean(@view xs[idx])  
-end  
-return μs  
-end  
-
-
-rng = MersenneTwister(123)  
-xs = rand(rng, Normal(0,1), 100)  
-bs = bootstrap_mean(xs; rng=rng)  
-# 区間推定などに用いる
+rng = MersenneTwister(123) xs = rand(rng, Normal(0,1), 100) bs = bootstrap_mean(xs; rng=rng) # 区間推定などに用いる
 
 ## 9.2 ベイズ推論(乱数による事後分布近似の発想)
 
@@ -4416,8 +3544,6 @@ MCMCなど本格的な手法は専門パッケージに譲るとして、乱数�
   * 可読性の保持:統計的ロジックは関数化し、乱数生成は入口で一度に構成して渡す。DSL化・マクロ化は周辺の定型に留めます。
   * 成果物の再生成:乱数種・設定値・依存環境をプロジェクトに固定し、図・表・レポートはコードから一括生成します。
 
-
-
 これらを徹底することで、Juliaの表現力と性能を活かしながら、乱数・確率・統計・モンテカルロを信頼性高く運用できます。実験の設計段階から「乱数の再現性」を最優先に据え、並列化・分布選択・分散縮減といった手段を適切に組み合わせることが、実務で成果を積み上げるための基本姿勢です。
 
 * * *
@@ -4434,8 +3560,6 @@ MCMCなど本格的な手法は専門パッケージに譲るとして、乱数�
   * 注釈と凡例: タイトル、軸ラベル、単位、凡例、注記は最小限で過不足なく。数式はLaTeXStringsで整えます。
   * 再現性: スタイルや乱数種、出力解像度、ファイル形式をコードで固定し、誰が実行しても同じ図が得られる状態にします。
 
-
-
 以下、Plots.jlとMakieを用いた主要プロット、レイアウトとテーマ、相関・分布の表現、3D・インタラクティブ、論文品質への仕上げまでを具体例で示します。
 
 * * *
@@ -4444,25 +3568,19 @@ MCMCなど本格的な手法は専門パッケージに譲るとして、乱数�
 
 Plots.jlは統一APIで複数バックエンドを扱えます。まずは基本のプロットを押さえます。
 
-using Plots  
-# バックエンド(既定はGR)。必要なら明示指定:  
-gr() # 代表例。plotlyjs() 等も選べます  
-
+using Plots # バックエンド(既定はGR)。必要なら明示指定: gr() # 代表例。plotlyjs() 等も選べます
 
 # ラインプロット  
 x = 0:0.1:10  
 y = @. sin(x) * exp(-0.1x)  
 plot(x, y; xlabel="x", ylabel="sin(x)·exp(-0.1x)", label="decay", lw=2, color=:blue)  
 
-
 # 散布図  
 x2 = rand(1000); y2 = 0.5x2 .+ 0.1randn(1000)  
 scatter(x2, y2; xlabel="x", ylabel="y", label="samples", ms=3, alpha=0.6)  
 
-
 # ヒストグラム(密度正規化)  
 histogram(y2; bins=50, normalize=:pdf, xlabel="y", ylabel="density", color=:orange)  
-
 
 # ヒートマップ  
 A = [sin(i/10) * cos(j/10) for i in 1:100, j in 1:100]  
@@ -4474,7 +3592,6 @@ heatmap(A; colorbar=true, c=:viridis, xlabel="j", ylabel="i", clims=(-1,1))
 plot(x, sin.(x); label="sin", lw=2)  
 plot!(x, cos.(x); label="cos", lw=2, ls=:dash)  
 
-
 # サブプロット(レイアウト)  
 p1 = plot(x, sin.(x); label="sin")  
 p2 = plot(x, cos.(x); label="cos")  
@@ -4483,8 +3600,7 @@ plot(p1, p2, p3; layout=(3,1), size=(800,600))
 
 保存はsavefigで行い、解像度や形式は用途に合わせます。
 
-savefig("fig_line.png") # ラスター  
-savefig("fig_line.pdf") # ベクター(論文向け)
+savefig("fig_line.png") # ラスターsavefig("fig_line.pdf") # ベクター(論文向け)
 
 * * *
 
@@ -4495,33 +3611,23 @@ savefig("fig_line.pdf") # ベクター(論文向け)
 # ベーステーマの設定  
 default(fontfamily="Helvetica", guidefont=12, legendfont=10, tickfont=10, lw=2, framestyle=:box)  
 
-
 # カラーパレットを固定  
 palette(:Dark2)  
-
 
 # タイトル・注釈・凡例の位置  
 plot(x, y; title="Damped sine", legend=:topright, annotation=(5,0.3, "peak"), xlim=(0,10), ylim=(-1,1))
 
 複雑なレイアウトは@layoutで定義します。色分布図+断面プロットのような組版を簡潔に記述できます。
 
-l = @layout [a{0.7w} b; c d]  
-pA = heatmap(A; c=:viridis, colorbar=true)  
-pB = plot(A[:,50]; label="col 50", color=:red)  
-pC = plot(A[50,:]; label="row 50", color=:blue)  
-pD = histogram(vec(A); bins=50, normalize=:pdf, label="density")  
-plot(pA, pB, pC, pD; layout=l, size=(900,700))
+l = @layout [a{0.7w} b; c d] pA = heatmap(A; c=:viridis, colorbar=true) pB = plot(A[:,50]; label="col 50", color=:red) pC = plot(A[50,:]; label="row 50", color=:blue) pD = histogram(vec(A); bins=50, normalize=:pdf, label="density") plot(pA, pB, pC, pD; layout=l, size=(900,700))
 
 軸リンクや補助線も活用します。
 
-p1 = scatter(x2, y2; xlabel="x", ylabel="y", label="", alpha=0.5)  
-p2 = histogram2d(x2, y2; nbins=(40,40), c=:magma, xlabel="x", ylabel="y")  
-plot(p1, p2; layout=(1,2), link=:both)
+p1 = scatter(x2, y2; xlabel="x", ylabel="y", label="", alpha=0.5) p2 = histogram2d(x2, y2; nbins=(40,40), c=:magma, xlabel="x", ylabel="y") plot(p1, p2; layout=(1,2), link=:both)
 
 LaTeX風表記を用いた数式の軸ラベルや注釈は、読者の理解を助けます。
 
-using LaTeXStrings  
-plot(x, sin.(x); xlabel=L"\theta\,[\mathrm{rad}]", ylabel=L"\sin(\theta)")
+using LaTeXStrings plot(x, sin.(x); xlabel=L"\theta\,[\mathrm{rad}]", ylabel=L"\sin(\theta)")
 
 * * *
 
@@ -4536,15 +3642,12 @@ p = scatter(x, y; ms=3, alpha=0.4, label="")
 A = [ones(length(x)) x]; β = A \ y  
 plot!(x, A*β; lw=2, color=:red, label="OLS")  
 
-
 # 六角ビン  
 hexbin(x, y; gridsize=40, c=:viridis, xlabel="x", ylabel="y", colorbar=true)  
-
 
 # カーネル密度推定(1D)  
 using StatsPlots  
 density(y; xlabel="y", ylabel="density", label="KDE", color=:green)  
-
 
 # 相関行列ヒートマップ  
 using Statistics  
@@ -4561,16 +3664,11 @@ c=:coolwarm, clims=(-1,1), colorbar=true, title="correlation")
 
 時系列は推移・周期性・不確実性の表現が重要です。
 
-t = 1:300  
-y = cumsum(0.1 .+ 0.05randn(length(t)))  
-μ = [mean(y[max(1,i-10):min(end,i+10)]) for i in eachindex(t)]  
-σ = [std(y[max(1,i-10):min(end,i+10)]) for i in eachindex(t)]  
-
+t = 1:300 y = cumsum(0.1 .+ 0.05randn(length(t))) μ = [mean(y[max(1,i-10):min(end,i+10)]) for i in eachindex(t)] σ = [std(y[max(1,i-10):min(end,i+10)]) for i in eachindex(t)]
 
 # リボン(±σ帯)  
 plot(t, μ; ribbon=σ, color=:steelblue, label="mean ± σ", xlabel="t", ylabel="value")  
 plot!(t, y; color=:gray, alpha=0.4, label="raw")  
-
 
 # ログスケール(指数的成長や広範囲)  
 plot(t, abs.(y) .+ 1; yaxis=:log, xlabel="t", ylabel="log(value)", label="")
@@ -4583,9 +3681,7 @@ plot(t, abs.(y) .+ 1; yaxis=:log, xlabel="t", ylabel="log(value)", label="")
 
 ヒートマップは色の選択が肝要です。連続量には知覚等間隔のパレット(viridis等)、符号対称にはcoolwarmなどを用います。
 
-heatmap(A; c=:viridis, clims=(minimum(A), maximum(A)), colorbar=true)  
-contour(A; levels=10, linewidth=1.0, color=:black)  
-
+heatmap(A; c=:viridis, clims=(minimum(A), maximum(A)), colorbar=true) contour(A; levels=10, linewidth=1.0, color=:black)
 
 # 零中心のZスコア正規化例(視覚的比較に)  
 Am = mean(vec(A)); As = std(vec(A))  
@@ -4600,24 +3696,20 @@ heatmap(Az; c=:balance, clims=(-3,3), colorbar=true, title="z-normalized")
 
 Makieは高機能3D・インタラクティブ可視化に強みがあります。まずは基本図形です。
 
-using GLMakie # 3D/インタラクティブ。静的出力はCairoMakieも選べます  
-
+using GLMakie # 3D/インタラクティブ。静的出力はCairoMakieも選べます
 
 # 3D曲線  
 x = range(0, 10, length=500)  
 lines(x, sin.(x), cos.(x); linewidth=2, color=:blue, axis=(type=Axis3, xlabel="x", ylabel="y", zlabel="z"))  
 
-
 # 3D散布  
 xs = rand(1000); ys = rand(1000); zs = rand(1000)  
 scatter(xs, ys, zs; markersize=5, color=zs, colormap=:viridis)  
-
 
 # サーフェス(等高面)  
 u = range(-2, 2, length=200); v = range(-2, 2, length=200)  
 z = [exp(-(ui^2 + vi^2)) for ui in u, vi in v]  
 surface(u, v, z; colormap=:plasma, shading=true)  
-
 
 # ボリュームレンダリング(例示、データは小規模)  
 vol = rand(64,64,64)  
@@ -4625,12 +3717,7 @@ volume(vol; colormap=:inferno, transparency=true)
 
 カメラ操作、ライティング、保存も重要です。
 
-fig = Figure(resolution=(800,600))  
-ax = Axis3(fig[1,1]; xlabel="x", ylabel="y", zlabel="z")  
-lines!(ax, x, sin.(x), cos.(x))  
-fig  
-# 画像保存(PNG/SVG/PDF)  
-save("fig_3d.png", fig)
+fig = Figure(resolution=(800,600)) ax = Axis3(fig[1,1]; xlabel="x", ylabel="y", zlabel="z") lines!(ax, x, sin.(x), cos.(x)) fig # 画像保存(PNG/SVG/PDF) save("fig_3d.png", fig)
 
 3Dは視点で情報が変わるため、固定視点と回転可能なビューを併用し、主要断面や投影を並置すると理解が進みます。
 
@@ -4640,18 +3727,9 @@ save("fig_3d.png", fig)
 
 インタラクティブは探索に強力です。Observablesで動的更新が可能です。
 
-using GLMakie  
+using GLMakie
 
-
-fig = Figure(resolution=(800,400))  
-ax = Axis(fig[1,1]; xlabel="x", ylabel="y")  
-x = range(0, 10, length=500)  
-k = Node(1.0) # パラメータのObservable  
-y = lift(k) do kk  
-@. sin(kk*x)  
-end  
-lines!(ax, x, y, color=:blue)  
-
+fig = Figure(resolution=(800,400)) ax = Axis(fig[1,1]; xlabel="x", ylabel="y") x = range(0, 10, length=500) k = Node(1.0) # パラメータのObservable y = lift(k) do kk @. sin(kk*x) end lines!(ax, x, y, color=:blue)
 
 # スライダUI  
 s = Slider(fig[2,1], range=0.5:0.1:3.0, startvalue=1.0, label="k")  
@@ -4659,15 +3737,11 @@ on(s.value) do v
 k[] = v  
 end  
 
-
 fig
 
 軸リンク、ツールチップ、選択イベントも容易です。
 
-ax2 = Axis(fig[1,2]; xlabel="x", ylabel="y")  
-scatter!(ax2, x, rand(length(x)); markersize=6)  
-hidedecorations!(ax2, grid=false)  
-
+ax2 = Axis(fig[1,2]; xlabel="x", ylabel="y") scatter!(ax2, x, rand(length(x)); markersize=6) hidedecorations!(ax2, grid=false)
 
 # ツールチップ(簡易)  
 data = rand(100)  
@@ -4692,8 +3766,6 @@ end
   * 色覚配慮: 2~3系列の比較なら色+線種、複数系列では色覚安全パレット+形状(点マーカー)で識別します。
   * 書式: ファイル名・番号付け・キャプションを管理し、レポート生成(PDF/HTML)で自動挿入します。
 
-
-
 # Plots: サイズ・フォント・エクスポート  
 default(size=(800,600), guidefont=12, tickfont=10, legendfont=10)  
 plot(x, y; title="Damped sine", xlabel="x [s]", ylabel="y [a.u.]", lw=2)  
@@ -4701,11 +3773,7 @@ savefig("fig1_damped_sine.pdf")
 
 MakieではCairoMakieでベクター出力が容易です。
 
-using CairoMakie  
-fig = Figure(resolution=(600,400))  
-Axis(fig[1,1]; xlabel="x [s]", ylabel="y [a.u.]")  
-lines!(range(0,10,length=500), sin.(range(0,10,length=500)))  
-save("fig2_lines.svg", fig)
+using CairoMakie fig = Figure(resolution=(600,400)) Axis(fig[1,1]; xlabel="x [s]", ylabel="y [a.u.]") lines!(range(0,10,length=500), sin.(range(0,10,length=500))) save("fig2_lines.svg", fig)
 
 * * *
 
@@ -4717,8 +3785,6 @@ save("fig2_lines.svg", fig)
   * 間引き: 時系列は等間隔サンプリングではなく極値保持間引き(可視上の最大・最小)を使うと誤解が減る。
   * 要約: 尺度別の統計量(中央値・四分位)を示し、全体像を保ちます。
   * 多段表現: 概観(密度)+詳細(選択点の散布)を並置。インタラクティブではズーム連動で詳細図を更新。
-
-
 
 # 2Dヒストグラム例  
 x = randn(200_000)  
@@ -4737,11 +3803,7 @@ histogram2d(x, y; nbins=(200,200), c=:magma, colorbar=true)
   * 乱数種: 試験用データやデモで乱数を使う場合はRandom.seed!(...)または生成器を明示渡し。
   * 出力パイプライン: 図番号・ファイル名・形式を一元管理し、レポート生成時に自動挿入。
 
-
-
-using Random  
-Random.seed!(20240101)  
-
+using Random Random.seed!(20240101)
 
 # 図の一元生成  
 function save_plot(p::Plots.Plot, name::String; dir="reports/figs")  
@@ -4749,9 +3811,7 @@ isdir(dir) || mkpath(dir)
 savefig(joinpath(dir, name))  
 end  
 
-
-p = plot(x, y; title="example")  
-save_plot(p, "fig_example.pdf")
+p = plot(x, y; title="example") save_plot(p, "fig_example.pdf")
 
 Makieでも同様にラッパを用意し、出力先・形式・解像度を統一します。
 
@@ -4761,58 +3821,42 @@ Makieでも同様にラッパを用意し、出力先・形式・解像度を統
 
 ## 12.1 相関行列とペア散布の組版
 
-using Plots, Statistics  
-
+using Plots, Statistics
 
 # データ  
 X = hcat(randn(1000), randn(1000) .+ 0.5randn(1000), randn(1000) .+ 0.2randn(1000))  
 names = ["x1","x2","x3"]  
 C = cor(X)  
 
-
 # 相関行列  
 pC = heatmap(C; c=:coolwarm, clims=(-1,1),  
 xticks=(1:3, names), yticks=(1:3, names),  
 title="correlation matrix", colorbar=true)  
-
 
 # ペア散布(上三角)  
 p12 = scatter(X[:,1], X[:,2]; ms=3, alpha=0.4, xlabel="x1", ylabel="x2", label="")  
 p13 = scatter(X[:,1], X[:,3]; ms=3, alpha=0.4, xlabel="x1", ylabel="x3", label="")  
 p23 = scatter(X[:,2], X[:,3]; ms=3, alpha=0.4, xlabel="x2", ylabel="x3", label="")  
 
-
-l = @layout [a{0.4h}; b c d]  
-plot(pC, p12, p13, p23; layout=l, size=(900,900))  
-savefig("fig_pairs.pdf")
+l = @layout [a{0.4h}; b c d] plot(pC, p12, p13, p23; layout=l, size=(900,900)) savefig("fig_pairs.pdf")
 
 ## 12.2 3Dサーフェスと断面の統合(Makie)
 
-using CairoMakie  
+using CairoMakie
 
+u = range(-3, 3, length=200) v = range(-3, 3, length=200) z = [sin(√(ui^2 + vi^2)) / (1 + ui^2 + vi^2) for ui in u, vi in v]
 
-u = range(-3, 3, length=200)  
-v = range(-3, 3, length=200)  
-z = [sin(√(ui^2 + vi^2)) / (1 + ui^2 + vi^2) for ui in u, vi in v]  
-
-
-fig = Figure(resolution=(900,600))  
-ax3 = Axis3(fig[1,1]; xlabel="u", ylabel="v", zlabel="z")  
-surface!(ax3, u, v, z; colormap=:viridis, shading=true)  
-
+fig = Figure(resolution=(900,600)) ax3 = Axis3(fig[1,1]; xlabel="u", ylabel="v", zlabel="z") surface!(ax3, u, v, z; colormap=:viridis, shading=true)
 
 # 断面(v=0)  
 ax2 = Axis(fig[1,2]; xlabel="u", ylabel="z")  
 plot!(ax2, u, z[:, findfirst(==(0.0), round.(v; digits=1))]; color=:red, label="v=0")  
 
-
 # 断面(u=0)  
 ax2b = Axis(fig[2,2]; xlabel="v", ylabel="z")  
 plot!(ax2b, v, z[findfirst(==(0.0), round.(u; digits=1)), :]; color=:blue, label="u=0")  
 
-
-fig  
-save("fig_surface_sections.pdf", fig)
+fig save("fig_surface_sections.pdf", fig)
 
 * * *
 
@@ -4826,8 +3870,6 @@ save("fig_surface_sections.pdf", fig)
   * 色スケールの不一致: 図間比較ではclimsを固定し、色バーの範囲を統一します。
   * 透明度での偽の重なり: 高透明度は暗い背景で誤解を生むことがあります。背景とライン色のコントラストを再確認します。
   * 3Dの歪み: 3Dでは視点・パースで量感が歪み得ます。2Dの断面・投影を併置し、誤解を減らします。
-
-
 
 これらを抑えることで、Plots.jlとMakieを用いた可視化は、短く書いて速く、かつ論文・レポート品質に耐える「見せる数値」へと仕上がります。
 
@@ -4845,15 +3887,9 @@ save("fig_surface_sections.pdf", fig)
   * カラム指向フォーマットの活用: CSVでの取り込み後、長期保管・高速再読込にはArrowを活用し、ゼロコピー・列指向の利点を得ます。
   * メモリ効率: 不要列の早期削除、カテゴリ化、インプレース更新、文字列のプーリング活用でアロケーションを抑えます。
 
-
-
 以降、具体的なコードとパターンで実践的に説明します。必要なパッケージを先に読み込みます。
 
-using DataFrames  
-using CSV  
-using Arrow  
-using Dates  
-using Statistics
+using DataFrames using CSV using Arrow using Dates using Statistics
 
 * * *
 
@@ -4870,27 +3906,15 @@ dateformat="yyyy-mm-dd") # 日付文字列の書式
 
 列ごとの型を明示する場合はtypesを使います。自動推論に任せると、混在データで意図と異なる型になることがあります。
 
-schema = Dict(  
-"date" => Date,  
-"store_id" => Int,  
-"sku" => String,  
-"units" => Int,  
-"price" => Float64  
-)  
-df = CSV.read("data/raw/sales_2024.csv", DataFrame; types=schema, dateformat="yyyy-mm-dd")
+schema = Dict( "date" => Date, "store_id" => Int, "sku" => String, "units" => Int, "price" => Float64 ) df = CSV.read("data/raw/sales_2024.csv", DataFrame; types=schema, dateformat="yyyy-mm-dd")
 
 巨大ファイルを全読みせずに行を逐次処理したい場合は、CSV.Fileを使ってイテレータとして扱えます(必要に応じて集計だけ行い、素材のDataFrame化を避けてメモリ節約)。
 
-f = CSV.File("data/raw/sales_2024.csv"; dateformat="yyyy-mm-dd", missingstring="NA")  
-total_units = 0  
-for row in f  
-total_units += row.units  
-end
+f = CSV.File("data/raw/sales_2024.csv"; dateformat="yyyy-mm-dd", missingstring="NA") total_units = 0 for row in f total_units += row.units end
 
 列選択は取り込み時に行うと効率的です。不要列を後で落とすより、早い段階で取り込まないことが最善です。
 
-df = CSV.read("data/raw/sales_2024.csv", DataFrame;  
-select=["date", "store_id", "sku", "units", "price"])
+df = CSV.read("data/raw/sales_2024.csv", DataFrame; select=["date", "store_id", "sku", "units", "price"])
 
 * * *
 
@@ -4903,7 +3927,6 @@ size(df) # (行数, 列数)
 names(df) # 列名のベクトル  
 eltype.(eachcol(df)) # 列ごとの要素型  
 
-
 # 概要統計(数値列中心)  
 describe(df)
 
@@ -4915,7 +3938,6 @@ ratios = map(col -> count(ismissing, col) / length(col), eachcol(df))
 return DataFrame(name=names(df), miss_ratio=ratios)  
 end  
 
-
 missing_ratio(df)
 
 バリデーションの一例として、キーの重複・値域チェックを入れます。
@@ -4924,7 +3946,6 @@ missing_ratio(df)
 g = groupby(df, [:store_id, :sku, :date])  
 dup = combine(g, nrow => :n)  
 filter(:n => >(1), dup) # 1より大きければ重複  
-
 
 # 値域チェック(unitsは非負、priceは正)  
 @assert all(@. df.units >= 0) "unitsに負の値があります"  
@@ -4947,7 +3968,6 @@ end
 return missing  
 end  
 
-
 df.date = map(s -> s === missing ? missing : parse_date_safe(s), df.date)
 
 数値変換も同様に安全化します。
@@ -4967,7 +3987,6 @@ return Float64(x)
 end  
 end  
 
-
 df.price = parse_float_safe.(df.price)
 
 * * *
@@ -4979,10 +3998,8 @@ df.price = parse_float_safe.(df.price)
 # 欠損行の削除(指定列のみ)  
 df_clean = dropmissing(df, [:units, :price])  
 
-
 # 一括削除(全列、データ損失に注意)  
 df_complete = dropmissing(df)  
-
 
 # 欠損代入(価格はカテゴリごとの中央値で置き換え)  
 g = groupby(df, :sku)  
@@ -4991,7 +4008,6 @@ med = median(skipmissing(sdf.price))
 sdf.price = coalesce.(sdf.price, med)  
 sdf  
 end  
-
 
 # 欠損フラグの追加(モデル入力用に有用)  
 df.is_missing_price = ismissing.(df.price)
@@ -5012,17 +4028,13 @@ disallowmissing!(df, :price) # :price列の型からMissingを除去
 normalize_str(s) = s === missing ? missing :  
 strip(replace(lowercase(s), r"\s+" => " ")) # 余分空白を1個へ  
 
-
-df.sku = normalize_str.(df.sku)  
-df.store_id = df.store_id # 数値はそのまま
+df.sku = normalize_str.(df.sku) df.store_id = df.store_id # 数値はそのまま
 
 カテゴリ化は、繰り返しが多い文字列を効率的に保持し、比較・結合を高速化します。
 
-using CategoricalArrays  
+using CategoricalArrays
 
-
-df.sku = categorical(df.sku) # Pooledカテゴリ(メモリ効率)  
-df.store_id = categorical(df.store_id) # 必要に応じて
+df.sku = categorical(df.sku) # Pooledカテゴリ(メモリ効率) df.store_id = categorical(df.store_id) # 必要に応じて
 
 重複行の処理は、キーに基づいて代表行を選ぶルール(最新日付・最大unitsなど)を明示します。
 
@@ -5042,10 +4054,8 @@ DataFrames.jlの基本は「列を選ぶ、作る、要約する」の3系統で
 select!(df, [:date, :store_id, :sku, :units, :price])  
 rename!(df, Dict(:units => :qty, :price => :unit_price))  
 
-
 # 新列の作成・変換(ByRowで行単位処理)  
 transform!(df, [:qty, :unit_price] => ByRow((q, p) -> q * p) => :amount)  
-
 
 # 既存列の正規化(Zスコア)  
 μ = mean(df.amount); σ = std(df.amount)  
@@ -5069,23 +4079,19 @@ transform!(df, num_cols .=> ByRow(x -> (x - mean(df[!, num_cols])) / std(df[!, n
 df_sku = CSV.read("data/ref/sku_master.csv", DataFrame)  
 df_store = CSV.read("data/ref/store_master.csv", DataFrame)  
 
-
 # キー正規化(文字列なら正規化関数を適用)  
 df_sku.sku = normalize_str.(df_sku.sku)  
-
 
 # 左外部結合(販売データにマスタ属性を付与)  
 df = leftjoin(df, df_sku, on=:sku)  
 df = leftjoin(df, df_store, on=:store_id)  
-
 
 # 結合後の欠損チェック(参照にないキーの検出)  
 missing_rows = filter(:category => ismissing, df)
 
 半結合(semi)は、左テーブルの行で右テーブルにキーが存在するものだけを残し、反結合(anti)は存在しないものだけを抽出します。参照整合性の検査に有用です。
 
-semi = semijoin(df, df_sku, on=:sku) # skuがマスタにある行  
-anti = antijoin(df, df_sku, on=:sku) # skuがマスタにない行(要対処)
+semi = semijoin(df, df_sku, on=:sku) # skuがマスタにある行anti = antijoin(df, df_sku, on=:sku) # skuがマスタにない行(要対処)
 
 * * *
 
@@ -5103,7 +4109,6 @@ agg = combine(g,
 nrow => :n  
 )  
 
-
 # 比率・単価の派生  
 transform!(agg, [:amount_sum, :qty_sum] => ByRow((a, q) -> q == 0 ? 0.0 : a / q) => :avg_unit_price)
 
@@ -5118,8 +4123,7 @@ wide = unstack(agg, [:store_id, :date_month], :sku, :qty_sum)
 
 時系列は順序が重要です。ソート・連続性の検査・簡単な補間・移動統計を備えます。
 
-sort!(df, [:store_id, :sku, :date]) # ソート  
-
+sort!(df, [:store_id, :sku, :date]) # ソート
 
 # 連続日チェック(ギャップ検出)  
 function detect_gaps(sdf::DataFrame)  
@@ -5128,11 +4132,7 @@ gap_idx = findall(i -> i > 1 && d[i] != d[i-1] + Day(1), 2:length(d))
 return gap_idx  
 end  
 
-
-gap_rows = combine(groupby(df, [:store_id, :sku])) do sdf  
-DataFrame(gap_index=detect_gaps(sdf))  
-end  
-
+gap_rows = combine(groupby(df, [:store_id, :sku])) do sdf DataFrame(gap_index=detect_gaps(sdf)) end
 
 # 移動平均(窓幅wの中心移動平均)  
 function moving_mean(v::AbstractVector{<:Real}, w::Int)  
@@ -5145,10 +4145,7 @@ end
 return out  
 end  
 
-
-df.qty_ma7 = combine(groupby(df, [:store_id, :sku])) do sdf  
-DataFrame(qty_ma7=moving_mean(sdf.qty, 7))  
-end |> x -> vcat(x..., cols=:union) |> _.qty_ma7 # 列の結合(概念)
+df.qty_ma7 = combine(groupby(df, [:store_id, :sku])) do sdf DataFrame(qty_ma7=moving_mean(sdf.qty, 7)) end |> x -> vcat(x..., cols=:union) |> _.qty_ma7 # 列の結合(概念)
 
 (実務では、各グループへtransformで一括適用するヘルパー関数を用意すると簡潔に書けます。)
 
@@ -5161,10 +4158,8 @@ end |> x -> vcat(x..., cols=:union) |> _.qty_ma7 # 列の結合(概念)
 # 早期に不要列を落とす  
 select!(df, [:date, :store_id, :sku, :qty, :unit_price, :amount])  
 
-
 # 列の更新はtransform!で(新列追加もインプレース)  
 transform!(df, :amount => ByRow(x -> clamp(x, 0, typemax(Float64))) => :amount)  
-
 
 # 文字列のカテゴリ化でメモリ削減(skuの重複が非常に多い場合)  
 df.sku = categorical(df.sku)
@@ -5179,7 +4174,6 @@ Arrow.jlは列指向フォーマットへの入出力を提供します。ゼロ
 
 # DataFrameをArrowへ書き出し  
 Arrow.write("data/processed/sales.arrow", df)  
-
 
 # Arrowからの高速読み込み(ゼロコピー的)  
 tbl = Arrow.Table("data/processed/sales.arrow")  
@@ -5198,14 +4192,12 @@ function load_sales(path::AbstractString)
 CSV.read(path, DataFrame; header=true, missingstring="NA", dateformat="yyyy-mm-dd")  
 end  
 
-
 # 正規化  
 function normalize_sales(df::DataFrame)  
 df.sku = normalize_str.(df.sku)  
 df.date = Date.(df.date) # 書式が統一されている前提  
 df  
 end  
-
 
 # 欠損処理  
 function fill_missing_price!(df::DataFrame)  
@@ -5218,7 +4210,6 @@ end |> (x -> df .= vcat(x..., cols=:union)) # インプレース反映(概念)
 df  
 end  
 
-
 # 結合  
 function attach_master!(df::DataFrame, df_sku::DataFrame, df_store::DataFrame)  
 leftjoin!(df, df_sku, on=:sku)  
@@ -5226,13 +4217,11 @@ leftjoin!(df, df_store, on=:store_id)
 df  
 end  
 
-
 # 派生  
 function derive_amount!(df::DataFrame)  
 transform!(df, [:qty, :unit_price] => ByRow(* ) => :amount)  
 df  
 end  
-
 
 # 検証  
 function validate!(df::DataFrame)  
@@ -5240,7 +4229,6 @@ function validate!(df::DataFrame)
 @assert all(@. df.unit_price > 0)  
 df  
 end  
-
 
 # 出力(Arrow)  
 function save_arrow(df::DataFrame, path::AbstractString)  
@@ -5267,7 +4255,6 @@ function invariants(df::DataFrame)
 df  
 end  
 
-
 # キー整合の検査  
 function check_keys(df::DataFrame, df_sku::DataFrame)  
 anti = antijoin(df, df_sku, on=:sku)  
@@ -5281,7 +4268,6 @@ end
 q99 = quantile(df.unit_price, 0.99)  
 outliers = filter(:unit_price => >(q99), df)  
 
-
 # 単位・桁の整合(例:amountはqty×unit_priceに一致するか)  
 @assert all(@. isapprox(df.amount, df.qty * df.unit_price; rtol=1e-12, atol=1e-12))
 
@@ -5294,11 +4280,8 @@ outliers = filter(:unit_price => >(q99), df)
   * CSV: 人間可読・他ツール連携に広く使える。解像度や型情報の保持は限定的。
   * Arrow: スキーマを保ちながら高速に読み書き。中間生成物・長期保管・相互運用に適する。
 
-
-
 # CSVへ書き出し(列順とヘッダを固定)  
 CSV.write("reports/clean/sales_clean.csv", df)  
-
 
 # Arrowへ書き出し(中間成果物として)  
 Arrow.write("data/processed/sales.arrow", df)
@@ -5313,24 +4296,11 @@ Arrow.write("data/processed/sales.arrow", df)
   * 逐次集計: CSV.Fileを用いて行イテレータで走査し、グループ集計だけ行って出力。
   * 列選択・早期削除: 取り込み時に必要列のみ選ぶ、処理初期に不要列を落としてメモリを確保。
 
-
-
 # 期間で分割読み(例:月ごとにファイルがある)  
 months = Date(2024,1):Month(1):Date(2024,12)  
 agg_all = DataFrame(store_id=Int[], sku=String[], date_month=Date[], qty_sum=Int[], amount_sum=Float64[])  
 
-
-for m in months  
-path = "data/raw/sales_$(Dates.month(m)).csv"  
-dfm = CSV.read(path, DataFrame; dateformat="yyyy-mm-dd", missingstring="NA", select=["date", "store_id", "sku", "units", "price"])  
-rename!(dfm, Dict(:units => :qty, :price => :unit_price))  
-dfm.date_month = Date.(firstdayofmonth.(dfm.date))  
-g = groupby(dfm, [:store_id, :sku, :date_month])  
-agg = combine(g, :qty => sum => :qty_sum, [:qty, :unit_price] => ByRow((q, p) -> q * p) => :amount)  
-agg = combine(groupby(agg, [:store_id, :sku, :date_month]), :qty_sum => sum, :amount => sum => :amount_sum)  
-append!(agg_all, agg, promote=true)  
-end  
-
+for m in months path = "data/raw/sales_$(Dates.month(m)).csv" dfm = CSV.read(path, DataFrame; dateformat="yyyy-mm-dd", missingstring="NA", select=["date", "store_id", "sku", "units", "price"]) rename!(dfm, Dict(:units => :qty, :price => :unit_price)) dfm.date_month = Date.(firstdayofmonth.(dfm.date)) g = groupby(dfm, [:store_id, :sku, :date_month]) agg = combine(g, :qty => sum => :qty_sum, [:qty, :unit_price] => ByRow((q, p) -> q * p) => :amount) agg = combine(groupby(agg, [:store_id, :sku, :date_month]), :qty_sum => sum, :amount => sum => :amount_sum) append!(agg_all, agg, promote=true) end
 
 CSV.write("reports/agg/sales_monthly.csv", agg_all)
 
@@ -5354,47 +4324,11 @@ CSV.write("reports/docs/schema.csv", schema)
 
 最後に、ここまでの要点をまとめた骨子スクリプトの例を示します。プロジェクトのsrc/pipeline.jl等に置き、\--project=.で起動します。
 
-using DataFrames, CSV, Arrow, Dates, Statistics, CategoricalArrays  
+using DataFrames, CSV, Arrow, Dates, Statistics, CategoricalArrays
 
+normalize_str(s) = s === missing ? missing : strip(replace(lowercase(s), r"\s+" => " ")) function load_sales(path::AbstractString) CSV.read(path, DataFrame; header=true, missingstring="NA", dateformat="yyyy-mm-dd") end
 
-normalize_str(s) = s === missing ? missing : strip(replace(lowercase(s), r"\s+" => " "))  
-function load_sales(path::AbstractString)  
-CSV.read(path, DataFrame; header=true, missingstring="NA", dateformat="yyyy-mm-dd")  
-end  
-
-
-function process_sales(input_csv::AbstractString, sku_csv::AbstractString, store_csv::AbstractString, output_arrow::AbstractString)  
-df = load_sales(input_csv)  
-# 整形  
-rename!(df, Dict(:units => :qty, :price => :unit_price))  
-df.sku = normalize_str.(df.sku)  
-# 欠損処理  
-g = groupby(df, :sku)  
-df = combine(g) do sdf  
-med = median(skipmissing(sdf.unit_price))  
-sdf.unit_price = coalesce.(sdf.unit_price, med)  
-sdf  
-end  
-# 結合  
-df_sku = CSV.read(sku_csv, DataFrame)  
-df_store = CSV.read(store_csv, DataFrame)  
-df.sku = normalize_str.(df.sku); df_sku.sku = normalize_str.(df_sku.sku)  
-df = leftjoin(df, df_sku, on=:sku)  
-df = leftjoin(df, df_store, on=:store_id)  
-# 派生  
-transform!(df, [:qty, :unit_price] => ByRow(* ) => :amount)  
-# 検証  
-@assert all(@. df.qty >= 0)  
-@assert all(@. df.unit_price > 0)  
-@assert all(@. df.amount >= 0)  
-# 不要列削除・カテゴリ化  
-select!(df, [:date, :store_id, :sku, :qty, :unit_price, :amount, :category])  
-df.sku = categorical(df.sku)  
-# 出力  
-Arrow.write(output_arrow, df)  
-return df  
-end  
-
+function process_sales(input_csv::AbstractString, sku_csv::AbstractString, store_csv::AbstractString, output_arrow::AbstractString) df = load_sales(input_csv) # 整形rename!(df, Dict(:units => :qty, :price => :unit_price)) df.sku = normalize_str.(df.sku) # 欠損処理g = groupby(df, :sku) df = combine(g) do sdf med = median(skipmissing(sdf.unit_price)) sdf.unit_price = coalesce.(sdf.unit_price, med) sdf end # 結合df_sku = CSV.read(sku_csv, DataFrame) df_store = CSV.read(store_csv, DataFrame) df.sku = normalize_str.(df.sku); df_sku.sku = normalize_str.(df_sku.sku) df = leftjoin(df, df_sku, on=:sku) df = leftjoin(df, df_store, on=:store_id) # 派生transform!(df, [:qty, :unit_price] => ByRow(* ) => :amount) # 検証@assert all(@. df.qty >= 0) @assert all(@. df.unit_price > 0) @assert all(@. df.amount >= 0) # 不要列削除・カテゴリ化select!(df, [:date, :store_id, :sku, :qty, :unit_price, :amount, :category]) df.sku = categorical(df.sku) # 出力Arrow.write(output_arrow, df) return df end
 
 df_final = process_sales("data/raw/sales_2024.csv", "data/ref/sku_master.csv", "data/ref/store_master.csv", "data/processed/sales.arrow")
 
@@ -5413,16 +4347,13 @@ df_final = process_sales("data/raw/sales_2024.csv", "data/ref/sku_master.csv", "
   * 誤差の管理: reltol/abstol、ステップ制御、参考解との比較、収束テスト、単体テスト(不変量、境界条件、保存則)。
   * 再現性: 乱数種、パラメータ、バージョン、出力粒度、ファイル形式の固定。コード内に検証ロジックを内蔵します。
 
-
-
 * * *
 
 # 2\. ODEの基本:問題定義、解法、出力の取り扱い
 
 基本的な1次の常微分方程式はODEProblem(f, u0, tspan, p)で記述し、solveで解きます。ここでは指数減衰+正弦外力の例を示します。
 
-using DifferentialEquations  
-
+using DifferentialEquations
 
 # 右辺関数:du/dt = -α*u + β*sin(ω*t)  
 function f!(du, u, p, t)  
@@ -5430,18 +4361,12 @@ function f!(du, u, p, t)
 du[1] = -α*u[1] + β*sin(ω*t)  
 end  
 
+u0 = [0.0] tspan = (0.0, 10.0) p = (0.5, 1.0, 2.0π)
 
-u0 = [0.0]  
-tspan = (0.0, 10.0)  
-p = (0.5, 1.0, 2.0π)  
-
-
-prob = ODEProblem(f!, u0, tspan, p)  
-
+prob = ODEProblem(f!, u0, tspan, p)
 
 # 非剛性向けの高精度・誤差制御つき解法(5次)  
 sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10, saveat=0.01)  
-
 
 # 補間による連続出力  
 u_at_7p5 = sol(7.5) # t=7.5 の補間値  
@@ -5463,14 +4388,9 @@ du[1] = u[2]
 du[2] = μ*(1 - u[1]^2)*u[2] - u[1]  
 end  
 
+u0 = [2.0, 0.0] tspan = (0.0, 30.0) μ = 100.0 # 剛性が強い設定
 
-u0 = [2.0, 0.0]  
-tspan = (0.0, 30.0)  
-μ = 100.0 # 剛性が強い設定  
-
-
-prob = ODEProblem(vdp!, u0, tspan, μ)  
-
+prob = ODEProblem(vdp!, u0, tspan, μ)
 
 # 剛性向け陰的法(Rosenbrock、BDFなど)  
 sol_stiff = solve(prob, Rodas5(); reltol=1e-8, abstol=1e-10, saveat=0.01)
@@ -5483,19 +4403,13 @@ sol_stiff = solve(prob, Rodas5(); reltol=1e-8, abstol=1e-10, saveat=0.01)
 
 イベント(境界到達、符号反転、衝突など)がある系では、コールバックで条件式と作用を記述します。例として「高さが0に到達したら速度を反転・減衰させる」簡易跳ね返りモデルを示します。
 
-using DifferentialEquations  
-
+using DifferentialEquations
 
 # 状態:u = [height, velocity]  
 g = 9.81  
 c = 0.8 # 反発係数  
 
-
-function fall!(du, u, p, t)  
-du[1] = u[2]  
-du[2] = -g  
-end  
-
+function fall!(du, u, p, t) du[1] = u[2] du[2] = -g end
 
 # 連続コールバック:高さが0に到達するゼロ交差を検知  
 condition(u, t, integrator) = u[1] # 0 を跨ぐ  
@@ -5505,10 +4419,7 @@ integrator.u[2] = -c * integrator.u[2]
 end  
 cb = ContinuousCallback(condition, affect!; rootfind=true)  
 
-
-u0 = [10.0, 0.0]  
-prob = ODEProblem(fall!, u0, (0.0, 5.0))  
-sol = solve(prob, Tsit5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.01)
+u0 = [10.0, 0.0] prob = ODEProblem(fall!, u0, (0.0, 5.0)) sol = solve(prob, Tsit5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.01)
 
 イベントの検知では、rootfind=trueで正確な到達時刻へステップを調節可能です。離散イベント(特定時刻やステップごと)はDiscreteCallbackで表現します。コールバック内では物理的制約と整合性(高さを負にしない、エネルギーの扱い)を保つよう更新します。
 
@@ -5518,21 +4429,11 @@ sol = solve(prob, Tsit5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.01)
 
 パラメータ依存を評価するときは、同一グリッドでの指標比較(最大値、到達時刻、L2距離)を使います。
 
-function peak_value(sol)  
-maximum(sol[1, :])  
-end  
+function peak_value(sol) maximum(sol[1, :]) end
 
+params = [0.2, 0.5, 1.0, 2.0] peaks = Float64[]
 
-params = [0.2, 0.5, 1.0, 2.0]  
-peaks = Float64[]  
-
-
-for α in params  
-p = (α, 1.0, 2.0π)  
-prob = ODEProblem(f!, [0.0], (0.0, 10.0), p)  
-sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10, saveat=0.01)  
-push!(peaks, peak_value(sol))  
-end
+for α in params p = (α, 1.0, 2.0π) prob = ODEProblem(f!, [0.0], (0.0, 10.0), p) sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10, saveat=0.01) push!(peaks, peak_value(sol)) end
 
 補間値sol(t)で連続関数として扱えますが、比較は同一時刻集合で行うのが確実です。必要に応じてsaveatで統一グリッドを指定します。
 
@@ -5542,8 +4443,7 @@ end
 
 SDEは確率過程を含む系をモデル化します。例として幾何ブラウン運動(GBM)を示します。
 
-using DifferentialEquations, Random  
-
+using DifferentialEquations, Random
 
 # dX = μ*X*dt + σ*X*dW  
 function f_sde!(du, u, p, t)  
@@ -5555,28 +4455,18 @@ function g_sde!(du, u, p, t)
 du[1] = σ*u[1]  
 end  
 
-
-u0 = [1.0]  
-tspan = (0.0, 1.0)  
-p = (0.1, 0.2)  
-
+u0 = [1.0] tspan = (0.0, 1.0) p = (0.1, 0.2)
 
 # 乱数生成器の固定(再現性)  
 rng = MersenneTwister(1234)  
 
-
-prob = SDEProblem(f_sde!, g_sde!, u0, tspan, p)  
-
+prob = SDEProblem(f_sde!, g_sde!, u0, tspan, p)
 
 sol = solve(prob, EM(); dt=1e-3, adaptive=false, rng=rng, saveat=0.01)
 
 SDEでは数値法の弱/強収束特性を意識し、刻み幅dtを管理します。並列モンテカルロ(多試行)はEnsembleProblemで行い、各試行に独立な乱数生成器を割り当てて、再現性を保ちます。
 
-ensemble = EnsembleProblem(prob)  
-sols = solve(ensemble, EM(); dt=1e-3, adaptive=false, trajectories=100,  
-rng=MersenneTwister(1234), saveat=0.01)  
-# 期待値経路  
-mean_path = reduce(+, (sol.u for sol in sols)) ./ length(sols)
+ensemble = EnsembleProblem(prob) sols = solve(ensemble, EM(); dt=1e-3, adaptive=false, trajectories=100, rng=MersenneTwister(1234), saveat=0.01) # 期待値経路mean_path = reduce(+, (sol.u for sol in sols)) ./ length(sols)
 
 * * *
 
@@ -5584,18 +4474,15 @@ mean_path = reduce(+, (sol.u for sol in sols)) ./ length(sols)
 
 QuadGKはGauss–Kronrod則に基づく1次元積分の高精度ライブラリです。有限区間・無限区間に対応します。
 
-using QuadGK  
-
+using QuadGK
 
 # 有限区間  
 f(x) = exp(-x^2)  
 val, err = quadgk(f, -1.0, 1.0; rtol=1e-10, atol=1e-12)  
 
-
 # 無限区間([0, ∞))  
 g(x) = x^2 * exp(-x)  
 val_inf, err_inf = quadgk(g, 0.0, Inf; rtol=1e-10, atol=1e-12)  
-
 
 # 対称な無限区間((-∞, ∞))  
 h(x) = exp(-x^2)  
@@ -5609,14 +4496,12 @@ val_all, err_all = quadgk(h, -Inf, Inf)
 
 NLsolveはスカラー・ベクトルの非線形方程式を解きます。スカラー関数には二分法の自作も有効ですが、一般系ではヤコビ不要の手法から始めます。
 
-using NLsolve  
-
+using NLsolve
 
 # 1変数:f(x) = cos(x) - x の根  
 f1(x) = cos(x) - x  
 res1 = nlsolve(x -> f1(x[1]), [0.5]) # 初期推定 0.5  
 xstar = res1.zero[1]  
-
 
 # 多変数:Lotka–Volterra の定常点(例)  
 function F!(F, x)  
@@ -5626,9 +4511,7 @@ F[1] = α*x[1] - β*x[1]*x[2]
 F[2] = δ*x[1]*x[2] - γ*x[2]  
 end  
 
-
-res2 = nlsolve(F!, [1.0, 1.0])  
-x_eq = res2.zero
+res2 = nlsolve(F!, [1.0, 1.0]) x_eq = res2.zero
 
 nlsolveはf!(インプレース)とf(非インプレース)の両方に対応します。難しい問題ではヤコビ行列の提供やスケーリングが有効です。収束判定、最大反復、ステップ制御をオプションで設定します。
 
@@ -5643,23 +4526,13 @@ res = nlsolve(F!, [1.0, 1.0]; ftol=1e-12, xtol=1e-12, maxiters=10_000)
   * トレランス: ODE/SDEはreltol/abstolで目標精度を指定。相対誤差が小さな値ではabstolが支配的になります。量のスケールに合わせて設定してください。
   * 参考解: 高精度解(より厳しいトレランス/高次数法)を基準に、低精度解との差をL2/L∞で評価します。
 
-
-
-sol_ref = solve(prob, Vern9(); reltol=1e-12, abstol=1e-14, saveat=0.001)  
-sol_test = solve(prob, Tsit5(); reltol=1e-6, abstol=1e-8, saveat=0.001)  
-err = maximum(abs.(sol_test[1, :] .- sol_ref[1, :]))
+sol_ref = solve(prob, Vern9(); reltol=1e-12, abstol=1e-14, saveat=0.001) sol_test = solve(prob, Tsit5(); reltol=1e-6, abstol=1e-8, saveat=0.001) err = maximum(abs.(sol_test[1, :] .- sol_ref[1, :]))
 
   * 保存則・不変量: ハミルトン系のエネルギー、質量保存、非負制約など、モデルの不変条件を検査します。コールバックや反復の節目でアサートを入れます。
 
-
-
-function check_nonneg(sol)  
-@assert all(@. sol[1, :] >= 0.0) "負値が発生"  
-end
+function check_nonneg(sol) @assert all(@. sol[1, :] >= 0.0) "負値が発生" end
 
   * イベント整合: 連続コールバックの到達時刻、前後での物理量の整合性(連続/不連続の仕様通りか)を確認します。
-
-
 
 * * *
 
@@ -5671,10 +4544,7 @@ end
   * 適応刻み: ODEの誤差制御つき法では自動刻み調整が基本。イベント前後の挙動を診断するため、dense=trueやsaveatで確認します。
   * ステップ診断: sol.destats(解法統計)で拒否ステップ数、関数評価数、線形代数呼び出し回数などを確認し、チューニングします。
 
-
-
-sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10)  
-sol.destats # 統計構造(実行環境に依存して表示)
+sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10) sol.destats # 統計構造(実行環境に依存して表示)
 
 * * *
 
@@ -5682,8 +4552,7 @@ sol.destats # 統計構造(実行環境に依存して表示)
 
 捕食–被食モデルを総合例として扱います。
 
-using DifferentialEquations  
-
+using DifferentialEquations
 
 # dx/dt = αx - βxy  
 # dy/dt = δxy - γy  
@@ -5694,19 +4563,12 @@ du[1] = α*x - β*x*y
 du[2] = δ*x*y - γ*y  
 end  
 
+u0 = [1.0, 1.0] tspan = (0.0, 25.0) p = (1.5, 1.0, 1.0, 3.0)
 
-u0 = [1.0, 1.0]  
-tspan = (0.0, 25.0)  
-p = (1.5, 1.0, 1.0, 3.0)  
-
-
-prob = ODEProblem(lv!, u0, tspan, p)  
-sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10, saveat=0.01)  
-
+prob = ODEProblem(lv!, u0, tspan, p) sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10, saveat=0.01)
 
 # 不変量(例):正の領域維持  
 @assert all(@. sol[1, :] >= 0.0) && all(@. sol[2, :] >= 0.0)  
-
 
 # パラメータ掃引(αを変化)  
 alphas = 0.5:0.5:2.5  
@@ -5730,7 +4592,6 @@ integrator.p = (α, β, δ, γ*0.5) # 一時的に死亡率を半減
 end  
 cb = ContinuousCallback(condition_y, affect_y!)  
 
-
 sol_ev = solve(prob, Tsit5(); callback=cb, reltol=1e-8, abstol=1e-10)
 
 イベントの設計では政策介入・制約をコード化し、介入が妥当な時刻・状態でしか発動しないことを検証します。
@@ -5744,7 +4605,6 @@ ODEと積分・根探しを組み合わせて、到達時刻(閾値到達時間)
 # 到達時刻:u(t) が閾値θへ達する最小 t を求める  
 θ = 0.8  
 f_t(t) = sol(t)[1] - θ  
-
 
 # 区間内で符号が反転していることを確認し、二分法で近似  
 function bisect(f, a, b; tol=1e-10, maxiter=10_000)  
@@ -5764,14 +4624,11 @@ end
 return (a + b)/2  
 end  
 
-
 t_hit = bisect(f_t, 0.0, 10.0)
 
 補助的な期待値(例えば到達までのコストの期待値)は、補間関数とquadgkの組み合わせで定義できます。
 
-using QuadGK  
-cost_density(t) = exp(-0.1*t) # 重みの例  
-val_cost, err_cost = quadgk(t -> cost_density(t)*sol(t)[1], 0.0, t_hit)
+using QuadGK cost_density(t) = exp(-0.1*t) # 重みの例val_cost, err_cost = quadgk(t -> cost_density(t)*sol(t)[1], 0.0, t_hit)
 
 * * *
 
@@ -5783,8 +4640,6 @@ val_cost, err_cost = quadgk(t -> cost_density(t)*sol(t)[1], 0.0, t_hit)
   * 境界条件の扱い: 初期値と境界値が厳密に満たされているか検証。イベントやコールバックで境界の内側へ投影する処理を設計します。
   * 前処理: 根探しでヤコビ行列のスケーリング、ODEで固有スケールを意識した無次元化を行うと収束が安定します。
 
-
-
 * * *
 
 # 14. 計算効率:saveat、スパース/密、ベクトル化、インプレース
@@ -5792,8 +4647,6 @@ val_cost, err_cost = quadgk(t -> cost_density(t)*sol(t)[1], 0.0, t_hit)
   * saveatの最適化: 必要な時刻のみ保存。補間に頼る場合はdense=trueを考慮します。
   * 線形代数の効率: 剛性法では線形系の解が多数発生。行列構造(対称、疎、バンド)がわかっているなら宣言し、効率を上げます。
   * 関数のインプレース: f!(du, u, p, t)形式でアロケーションを削減。状態や右辺のベクトルを再利用します。
-
-
 
 * * *
 
@@ -5803,11 +4656,7 @@ val_cost, err_cost = quadgk(t -> cost_density(t)*sol(t)[1], 0.0, t_hit)
   * ロギング: 解法統計、刻みの最小値、拒否ステップ数、イベント発生回数を記録。
   * 再現性: 乱数種、トレランス、パラメータ、出力粒度を明示。バージョンをProject.tomlで固定。
 
-
-
-using Test  
-@test sol.retcode == :Success  
-@test maximum(abs.(sol[1, :] .- sol_ref[1, :])) < 1e-5
+using Test @test sol.retcode == :Success @test maximum(abs.(sol[1, :] .- sol_ref[1, :])) < 1e-5
 
 * * *
 
@@ -5833,7 +4682,6 @@ end
 end  
 return (a + b)/2  
 end  
-
 
 # ニュートン法(導関数あり・初期値が良好なとき)  
 function newton(f, df, x0; tol=1e-12, maxiter=10_000)  
@@ -5867,14 +4715,9 @@ du[2] = k1*u[1] - k2*u[2]
 du[3] = k2*u[2]  
 end  
 
+u0 = [1.0, 0.0, 0.0] tspan = (0.0, 10.0) p = (100.0, 50.0) # 大きな速度定数で剛性傾向
 
-u0 = [1.0, 0.0, 0.0]  
-tspan = (0.0, 10.0)  
-p = (100.0, 50.0) # 大きな速度定数で剛性傾向  
-
-
-prob = ODEProblem(rxn!, u0, tspan, p)  
-
+prob = ODEProblem(rxn!, u0, tspan, p)
 
 # C が閾値 θ に達したら反応停止(u[2] の生成を止めるなど)  
 θ = 0.8  
@@ -5885,9 +4728,7 @@ integrator.p = (k1, 0.0) # k2=0 へ
 end  
 cb = ContinuousCallback(cond, affect!)  
 
-
-sol = solve(prob, Rodas5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.001)  
-
+sol = solve(prob, Rodas5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.001)
 
 # 定常点の検出(t→∞ での近似。根探しでF(u*)=0 を求める)  
 using NLsolve  
@@ -5912,8 +4753,6 @@ u_star = res.zero
   * 乱数を使う場合(EMなど)は生成器・種を固定し、並列時は独立な生成器を配布して再現性を保ちます。
   * 出力は同一グリッドで比較可能にし、補間は可視化や補助的評価に用います。
 
-
-
 これらの作法を体系的に適用することで、Juliaにおける微分方程式・数値積分・根探しは、正確さ・速度・再現性を同時に満たす堅牢なワークフローへと整えられます。
 
 * * *
@@ -5930,24 +4769,18 @@ u_star = res.zero
   * ソルバ連携: 連続最適化は勾配法/準ニュートン法/境界付き最適化を選択、数理計画はLP/MIP/NLP/QPのソルバを選択し、属性(停止条件・時間制限・許容誤差)を設定します。
   * 再現性: プロジェクト環境・ソルババージョン・乱数種・前処理を固定し、ログと検証を残します。
 
-
-
 * * *
 
 # 2. 連続最適化(無制約):Optim.jlで勾配・準ニュートン法を使う
 
 Optim.jlは無制約最適化の入り口として最適です。目的関数だけで始められ、勾配・ヘッセ行列があれば収束が加速します。自動微分はForwardDiffで簡単です。
 
-using Optim  
-using ForwardDiff  
-
+using Optim using ForwardDiff
 
 # 例:2変数のRosenbrock関数(非凸だが谷に沿って最適へ)  
 rosenbrock(x) = (1.0 - x[1])^2 + 100.0 * (x[2] - x[1]^2)^2  
 
-
-x0 = [-1.2, 1.0]  
-
+x0 = [-1.2, 1.0]
 
 # 準ニュートン:LBFGS(自動微分で勾配を供給)  
 res = optimize(rosenbrock, x0, LBFGS(); autodiff = :forward)  
@@ -5956,9 +4789,7 @@ fstar = Optim.minimum(res)
 
 勾配・ヘッセを明示することで、Newton法も使えます。
 
-∇f(x) = ForwardDiff.gradient(rosenbrock, x)  
-∇2f(x) = ForwardDiff.hessian(rosenbrock, x)  
-resN = optimize(rosenbrock, ∇f, ∇2f, x0, Newton())
+∇f(x) = ForwardDiff.gradient(rosenbrock, x) ∇2f(x) = ForwardDiff.hessian(rosenbrock, x) resN = optimize(rosenbrock, ∇f, ∇2f, x0, Newton())
 
 運用のポイント
 
@@ -5966,18 +4797,13 @@ resN = optimize(rosenbrock, ∇f, ∇2f, x0, Newton())
   * 初期値:非凸では初期値依存が大きいので、複数の初期値で試行し、最良解を採用します。
   * 停止条件:勾配ノルム/ステップ長/相対改善率をログで確認し、Optim.Optionsで上限反復や許容値を設定します。
 
-
-
 * * *
 
 # 3. 連続最適化(境界付き):Fminboxで上下限を課す
 
 多くの実務では「変数は非負」「範囲内」という単純制約があります。Fminboxで上下限を付けられます。
 
-lower = [0.0, 0.0]  
-upper = [2.0, 2.0]  
-res_box = optimize(rosenbrock, lower, upper, x0, Fminbox(LBFGS()); autodiff=:forward)  
-xstar_box = Optim.minimizer(res_box)
+lower = [0.0, 0.0] upper = [2.0, 2.0] res_box = optimize(rosenbrock, lower, upper, x0, Fminbox(LBFGS()); autodiff=:forward) xstar_box = Optim.minimizer(res_box)
 
 Fminboxは境界へ投影しつつ探索するため、単純な箱型制約に適します。非線形等式/不等式制約はOptim.jlでは直接扱えないため、NLPソルバ(後述のJuMP+Ipopt)を選びます。
 
@@ -5987,8 +4813,7 @@ Fminboxは境界へ投影しつつ探索するため、単純な箱型制約に�
 
 連続最適化の代表例として、二値分類のロジスティック回帰を学習します。データはX∈R^{N×d}、ラベルy∈{0,1}。損失は対数損失+L2正則化です。
 
-using Optim, ForwardDiff, Statistics  
-
+using Optim, ForwardDiff, Statistics
 
 # X: N×d, y: N  
 function logreg_loss(w, X, y; λ=1e-2)  
@@ -6004,19 +4829,14 @@ s += λ * sum(abs2, w)
 return s  
 end  
 
-
 # デモ用データ(実務ではCSV/DataFramesから)  
 N, d = 500, 20  
 X = randn(N, d); true_w = randn(d)  
 y = @. (sigmoid(dot(true_w, X[1,:])) > 0.5) ? 1 : 0 # 概念例(実務で適切に生成)  
 
+w0 = zeros(d) f(w) = logreg_loss(w, X, y; λ=1e-2)
 
-w0 = zeros(d)  
-f(w) = logreg_loss(w, X, y; λ=1e-2)  
-
-
-res = optimize(f, w0, LBFGS(); autodiff=:forward)  
-ŵ = Optim.minimizer(res)
+res = optimize(f, w0, LBFGS(); autodiff=:forward) ŵ = Optim.minimizer(res)
 
 ポイント
 
@@ -6024,17 +4844,13 @@ res = optimize(f, w0, LBFGS(); autodiff=:forward)
   * 特徴量の標準化(平均0・分散1)で収束が安定します。
   * 交差検証は別スクリプトで行い、再現可能な乱数種・分割を固定します。
 
-
-
 * * *
 
 # 5\. JuMPでの線形計画(LP):宣言的モデル化とソルバ連携
 
 JuMPは数理計画のモデル言語です。LPは「線形目的+線形制約」で構成され、汎用ソルバ(HiGHS/GLPKなど)で解けます。例:生産計画(製品別数量の決定)。
 
-using JuMP  
-using HiGHS  
-
+using JuMP using HiGHS
 
 # データ(実務ではCSVから)  
 profit = [8.0, 5.0, 6.0] # 製品別利益  
@@ -6042,24 +4858,15 @@ A = [1.0 2.0 1.0; 3.0 0.0 2.0] # 資源使用係数(資源×製品)
 b = [100.0, 120.0] # 資源上限  
 n = length(profit); m = length(b)  
 
+model = Model(HiGHS.Optimizer) @variable(model, x[1:n] >= 0) # 生産量@objective(model, Max, sum(profit[j]*x[j] for j in 1:n)) @constraint(model, [i in 1:m], sum(A[i,j]*x[j] for j in 1:n) <= b[i])
 
-model = Model(HiGHS.Optimizer)  
-@variable(model, x[1:n] >= 0) # 生産量  
-@objective(model, Max, sum(profit[j]*x[j] for j in 1:n))  
-@constraint(model, [i in 1:m], sum(A[i,j]*x[j] for j in 1:n) <= b[i])  
+optimize!(model)
 
+xstar = value.(x) obj = objective_value(model)
 
-optimize!(model)  
+診断・感度LPでは線形制約の**双対値(shadow price)**が取れます(ソルバが対応していれば)。
 
-
-xstar = value.(x)  
-obj = objective_value(model)
-
-診断・感度  
-LPでは線形制約の**双対値(shadow price)**が取れます(ソルバが対応していれば)。
-
-dual_vals = [dual( JuMP.constraint_by_name(model, string("constraint[$i]")) ) for i in 1:m] # 参照方法は実装に応じて  
-# あるいは、@constraint作成時に名前を付け、dual(c[i])で取得
+dual_vals = [dual( JuMP.constraint_by_name(model, string("constraint[$i]")) ) for i in 1:m] # 参照方法は実装に応じて# あるいは、@constraint作成時に名前を付け、dual(c[i])で取得
 
 双対値は「資源上限を微小に緩めたときの目的関数の改善率」を意味し、資源の価値評価や投資優先度の示唆に使えます。
 
@@ -6069,24 +4876,13 @@ dual_vals = [dual( JuMP.constraint_by_name(model, string("constraint[$i]")) ) fo
 
 整数変数を使うと、施設配置/配車/選択問題などの離散意思決定を表現できます。例:0-1ナップサック。
 
-using JuMP, HiGHS  
+using JuMP, HiGHS
 
+value = [10.0, 4.0, 9.0, 12.0] weight = [5.0, 3.0, 4.0, 7.0] W = 10.0 n = length(value)
 
-value = [10.0, 4.0, 9.0, 12.0]  
-weight = [5.0, 3.0, 4.0, 7.0]  
-W = 10.0  
-n = length(value)  
+model = Model(HiGHS.Optimizer) @variable(model, z[1:n], Bin) @objective(model, Max, sum(value[i]*z[i] for i in 1:n)) @constraint(model, sum(weight[i]*z[i] for i in 1:n) <= W)
 
-
-model = Model(HiGHS.Optimizer)  
-@variable(model, z[1:n], Bin)  
-@objective(model, Max, sum(value[i]*z[i] for i in 1:n))  
-@constraint(model, sum(weight[i]*z[i] for i in 1:n) <= W)  
-
-
-optimize!(model)  
-zstar = value.(z)  
-obj = objective_value(model)
+optimize!(model) zstar = value.(z) obj = objective_value(model)
 
 実務のコツ
 
@@ -6094,40 +4890,24 @@ obj = objective_value(model)
   * ウォームスタート:近似解やヒューリスティクスから初期値を入れるset_start_value。
   * モデルの強化:有効不等式、弱いビッグMの見直し、対称性の回避(対称構造は探索を増やす)。
 
-
-
 * * *
 
 # 7\. QP/最小分散ポートフォリオ:二次目的+線形制約
 
 平均–分散ポートフォリオは、二次目的(分散)と線形制約(合計1・非負・期待収益閾値)で表せます。NLPソルバ(Ipopt)かQPソルバを用います。
 
-using JuMP, Ipopt  
+using JuMP, Ipopt
 
+μ = [0.05, 0.08, 0.12] # 期待収益Σ = [0.10 0.02 0.01; 0.02 0.08 0.03; 0.01 0.03 0.15] # 共分散μ_target = 0.09 n = length(μ)
 
-μ = [0.05, 0.08, 0.12] # 期待収益  
-Σ = [0.10 0.02 0.01; 0.02 0.08 0.03; 0.01 0.03 0.15] # 共分散  
-μ_target = 0.09  
-n = length(μ)  
+model = Model(Ipopt.Optimizer) @variable(model, x[1:n] >= 0) @constraint(model, sum(x) == 1.0) @constraint(model, sum(μ[i]*x[i] for i in 1:n) >= μ_target) @objective(model, Min, sum(Σ[i,j]*x[i]*x[j] for i in 1:n, j in 1:n))
 
-
-model = Model(Ipopt.Optimizer)  
-@variable(model, x[1:n] >= 0)  
-@constraint(model, sum(x) == 1.0)  
-@constraint(model, sum(μ[i]*x[i] for i in 1:n) >= μ_target)  
-@objective(model, Min, sum(Σ[i,j]*x[i]*x[j] for i in 1:n, j in 1:n))  
-
-
-optimize!(model)  
-xstar = value.(x)  
-risk = objective_value(model)
+optimize!(model) xstar = value.(x) risk = objective_value(model)
 
 注意
 
   * Σは対称正定値が望ましい。数値安定性のため、小さなεIで正則化することがあります。
   * 期待収益制約を掃引し、効率的フロンティアを描くと意思決定が明確になります。
-
-
 
 * * *
 
@@ -6135,21 +4915,15 @@ risk = objective_value(model)
 
 物理/工学では非線形制約が自然です。JuMPのNL機能とIpoptで解きます。
 
-using JuMP, Ipopt  
+using JuMP, Ipopt
 
-
-model = Model(Ipopt.Optimizer)  
-@variable(model, x >= 0)  
-@variable(model, y >= 0)  
-
+model = Model(Ipopt.Optimizer) @variable(model, x >= 0) @variable(model, y >= 0)
 
 # 例:非線形目的(エネルギー最小)+非線形制約(幾何条件)  
 @NLobjective(model, Min, (x - 1)^2 + (y - 2)^2)  
 @NLconstraint(model, x * y >= 2.0) # 双曲線領域  
 
-
-optimize!(model)  
-
+optimize!(model)
 
 xstar, ystar = value(x), value(y)
 
@@ -6159,42 +4933,26 @@ xstar, ystar = value(x), value(y)
   * スケーリング:変数・制約のスケールを揃えて、勾配の振れを抑えます。
   * 収束診断:termination_status(model)・objective_value(model)・制約違反量を確認します。
 
-
-
 * * *
 
 # 9. 現場データとの結合:DataFramesからJuMPへ安全に渡す
 
 データは型・単位を確定してからモデルに渡します。例:製品別データからLPを構築。
 
-using CSV, DataFrames, JuMP, HiGHS  
+using CSV, DataFrames, JuMP, HiGHS
 
+df = CSV.read("data/products.csv", DataFrame) # 列: name, profit, a1, a2, capacity1, capacity2 ...
 
-df = CSV.read("data/products.csv", DataFrame)  
-# 列: name, profit, a1, a2, capacity1, capacity2 ...  
+profit = Float64.(df.profit) A = hcat(Float64.(df.a1), Float64.(df.a2))' # 資源×製品(行列化) b = [df.capacity1[1], df.capacity2[1]]
 
+model = Model(HiGHS.Optimizer) @variable(model, x[1:length(profit)] >= 0) @objective(model, Max, sum(profit[j]*x[j] for j in 1:length(profit))) @constraint(model, sum(A[1,j]*x[j] for j in 1:length(profit)) <= b[1]) @constraint(model, sum(A[2,j]*x[j] for j in 1:length(profit)) <= b[2])
 
-profit = Float64.(df.profit)  
-A = hcat(Float64.(df.a1), Float64.(df.a2))' # 資源×製品(行列化)  
-b = [df.capacity1[1], df.capacity2[1]]  
-
-
-model = Model(HiGHS.Optimizer)  
-@variable(model, x[1:length(profit)] >= 0)  
-@objective(model, Max, sum(profit[j]*x[j] for j in 1:length(profit)))  
-@constraint(model, sum(A[1,j]*x[j] for j in 1:length(profit)) <= b[1])  
-@constraint(model, sum(A[2,j]*x[j] for j in 1:length(profit)) <= b[2])  
-
-
-optimize!(model)  
-solution = value.(x)
+optimize!(model) solution = value.(x)
 
 ベストプラクティス
 
   * データ検証(非負・範囲・欠損)を前処理で行い、モデルに入る前に不正を弾きます。
   * 列名・単位・スキーマを固定し、複数ファイルの整合性をチェックします。
-
-
 
 * * *
 
@@ -6202,24 +4960,12 @@ solution = value.(x)
 
 意思決定のロバスト性を評価します。LPなら双対値、NLPならパラメータ掃引で影響を測ります。
 
-targets = 0.06:0.01:0.12  
-risks = Float64[]  
-for μt in targets  
-model = Model(Ipopt.Optimizer)  
-@variable(model, x[1:n] >= 0)  
-@constraint(model, sum(x) == 1.0)  
-@constraint(model, sum(μ[i]*x[i] for i in 1:n) >= μt)  
-@objective(model, Min, sum(Σ[i,j]*x[i]*x[j] for i in 1:n, j in 1:n))  
-optimize!(model)  
-push!(risks, objective_value(model))  
-end
+targets = 0.06:0.01:0.12 risks = Float64[] for μt in targets model = Model(Ipopt.Optimizer) @variable(model, x[1:n] >= 0) @constraint(model, sum(x) == 1.0) @constraint(model, sum(μ[i]*x[i] for i in 1:n) >= μt) @objective(model, Min, sum(Σ[i,j]*x[i]*x[j] for i in 1:n, j in 1:n)) optimize!(model) push!(risks, objective_value(model)) end
 
 再現性の工夫
 
   * 同一モデル・同一ソルバ・同一属性で走らせ、比較は同じグリッド(同じパラメータ集合)で行います。
   * MIPではランダム化ヒューリスティクスがあるソルバもあるため、乱数種や決定論モードを設定します(ソルバ依存)。
-
-
 
 * * *
 
@@ -6227,18 +4973,12 @@ end
 
 実務では「時間内に最良解」「許容ギャップ以内に停止」という現実的な運用が重要です。ソルバ属性で設定します(属性名はソルバごとに異なるため、ドキュメントを参照し、コードに明記します)。
 
-using JuMP, HiGHS  
-model = Model(HiGHS.Optimizer)  
-# 例:時間制限・最良許容ギャップ(ソルバ依存)  
-# set_optimizer_attribute(model, "time_limit", 60.0)  
-# set_optimizer_attribute(model, "mip_rel_gap", 0.01)
+using JuMP, HiGHS model = Model(HiGHS.Optimizer) # 例:時間制限・最良許容ギャップ(ソルバ依存) # set_optimizer_attribute(model, "time_limit", 60.0) # set_optimizer_attribute(model, "mip_rel_gap", 0.01)
 
 ログ
 
   * 目的値・停止理由・反復数・ギャップ・探索ノード数(MIP)を記録します。
   * 入力パラメータ(ターゲット収益・能力上限・正則化強度)を一緒に保存し、比較可能にします。
-
-
 
 * * *
 
@@ -6246,12 +4986,7 @@ model = Model(HiGHS.Optimizer)
 
 論理制約(if/then)で使うビッグMは、過大だと緩い境界(弱い定式化)になり、数値も不安定になります。Mの下限を理論/データから導出して最小化します。目的に弾性項(違反ペナルティ)を入れて、不可解な無可行を避ける設計も有効です。
 
-using JuMP, HiGHS  
-model = Model(HiGHS.Optimizer)  
-@variable(model, x >= 0)  
-@variable(model, y, Bin)  
-M = 100.0 # データから根拠ある最小Mを設定  
-@constraint(model, x <= M * y) # y=0ならx=0、y=1ならx自由(Mまで)
+using JuMP, HiGHS model = Model(HiGHS.Optimizer) @variable(model, x >= 0) @variable(model, y, Bin) M = 100.0 # データから根拠ある最小Mを設定@constraint(model, x <= M * y) # y=0ならx=0、y=1ならx自由(Mまで)
 
 * * *
 
@@ -6275,8 +5010,6 @@ MIPでは、LP緩和の解やヒューリスティクスからの初期解を与
   * 小さな正則化(例:Σ + εI)でヘッセ行列の条件数を改善。
   * ペナルティ法(制約違反にペナルティ)で可行性へ誘導。
 
-
-
 * * *
 
 # 15. 連続最適化と数理計画の橋渡し:ハイブリッド設計
@@ -6286,8 +5019,6 @@ MIPでは、LP緩和の解やヒューリスティクスからの初期解を与
   1. 連続パラメータをOptim.jlで推定。
   2. 推定結果をJuMPへ渡してMIPを解く。
   3. 目的値が悪ければパラメータを再学習(外ループ最適化)。
-
-
 
 このハイブリッドで、データ駆動のパラメータと実務制約の意思決定を統合できます。
 
@@ -6299,11 +5030,7 @@ MIPでは、LP緩和の解やヒューリスティクスからの初期解を与
   * 最適性:LPなら双対ギャップ、MIPならMIPギャップ。NLPはKKT条件の残差。
   * テスト:小規模インスタンスで期待解を@test、境界ケース(ゼロ能力・高ターゲット)で安定動作を検証。
 
-
-
-using Test  
-# @test termination_status(model) == MOI.OPTIMAL  
-# @test objective_value(model) ≈ expected_value atol=1e-6
+using Test # @test termination_status(model) == MOI.OPTIMAL # @test objective_value(model) ≈ expected_value atol=1e-6
 
 * * *
 
@@ -6314,8 +5041,6 @@ using Test
   * 出力(解ベクトル・目的値・双対値・ログ)をファイルへ保存し、レポート生成(PDF/HTML)を自動化。
   * 乱数要素を使う場合(MIPヒューリスティクスなど)は種を固定(ソルバ依存属性)。
 
-
-
 * * *
 
 # 18. 総合ケース:需要充足の生産・配分(LP→MIP→感度)
@@ -6324,8 +5049,6 @@ using Test
   2. 施設の稼働/休止を0-1変数で追加しMIP化(固定費・最小稼働量)。
   3. 需要ベース/能力上限を掃引し、費用曲線と双対値で投資優先度を評価。
   4. 時間制限・ギャップ許容で現実的に運用、候補解を可視化し意思決定へ。
-
-
 
 この一連の流れを、JuMPのモデルとDataFramesのデータで統一し、Optim.jlで必要な連続パラメータ(例えばコスト係数の校正)を事前に推定してから投入すれば、実務で通用する一気通貫の最適化パイプラインになります。
 
@@ -6336,11 +5059,9 @@ using Test
 # JuMP: 変数の初期値  
 set_start_value(x[1], 0.5)  
 
-
 # JuMP: 解の取得と丸め  
 xsol = value.(x)  
 xbin = round.(Int, xsol) # MIPのヒューリスティック案には注意  
-
 
 # JuMP: ステータス・目的・違反量  
 using MathOptInterface  
@@ -6348,11 +5069,9 @@ const MOI = MathOptInterface
 term = termination_status(model)  
 obj = objective_value(model)  
 
-
 # Optim: 統計・停止条件  
 res = optimize(f, x0, LBFGS(); autodiff=:forward)  
 # Optim.converged(res), Optim.iterations(res), Optim.minimum(res), Optim.minimizer(res)  
-
 
 # Optim: オプション(最大反復・許容)  
 # optimize(f, x0, LBFGS(); autodiff=:forward, iterations=10_000, g_tol=1e-8)
@@ -6368,8 +5087,6 @@ res = optimize(f, x0, LBFGS(); autodiff=:forward)
   * 乱数を使う場面では種を固定し、比較は同一設定・同一データで行う。
   * 失敗(無可行・数値不安定)は、前処理・スケーリング・緩和・初期値で手当する。
   * ドキュメント化(目的・制約・データ・属性・結果)と再現スクリプト整備は、長期運用の生命線。
-
-
 
 これらを一貫して適用することで、Optim.jlとJuMPを中核とするJuliaの最適化基盤は、連続・離散・非線形の多様な課題に対して、速く・正しく・再現可能な解を提供します。
 
@@ -6387,8 +5104,6 @@ res = optimize(f, x0, LBFGS(); autodiff=:forward)
   * 再現性: 乱数・設定値・データ分割規則を「仕様化」してコードに明示。CPUスレッド・プロセス・GPU各レイヤで一貫したルールを守ります。
   * 計測優先: 並列化の前後で必ず計測し、スレッド/プロセス/デバイス転送のオーバーヘッドを可視化します。
 
-
-
 以下、Threads・Distributed・CUDAを順に、実用コードと設計要点で掘り下げます。
 
 * * *
@@ -6397,8 +5112,7 @@ res = optimize(f, x0, LBFGS(); autodiff=:forward)
 
 CPUスレッドは同一メモリ空間を共有します。データ競合(同じ場所への同時書き込み)は厳禁です。要点は「読み取り共有・書き込み局所化・最後に縮約」です。
 
-using Base.Threads  
-
+using Base.Threads
 
 # 要素ごとの変換(書き込み先は独立なので競合なし)  
 function scale!(x::Vector{Float64}, a::Float64)  
@@ -6407,7 +5121,6 @@ function scale!(x::Vector{Float64}, a::Float64)
 end  
 return x  
 end  
-
 
 # リダクション(各スレッドがローカルに集計して最後に和)  
 function sum_threads(x::Vector{Float64})  
@@ -6426,49 +5139,26 @@ end
   * 偽共有(false sharing): スレッドローカルの部分和配列は「連続要素を異なるスレッドが更新しない」ため概ね安全ですが、狭い配列に全スレッドが書くと同一キャッシュライン争奪が起きます。必要ならパディング(ntupleで余分な要素を挿入)で緩和します。
   * チャンク分割: ループ本体が重い場合、手動でstart:endを割り当てるとスケジューリングのオーバーヘッドを下げられます。
 
-
-
 * * *
 
 # 3. スレッド並列の乱数:スレッドローカルRNG、再現性の確保
 
 グローバルRNG(既定のRandom.GLOBAL_RNG)の共有は、並列で相関や競合の原因になります。各スレッドに独立なRNGを配布し、初期化規則を固定します。
 
-using Random, Base.Threads  
-
+using Random, Base.Threads
 
 # スレッドごとに独立なRNGを用意(種の規則を仕様化)  
 function rngs_for_threads(seed::Int)  
 return [MersenneTwister(seed + i) for i in 1:nthreads()]  
 end  
 
-
-function montecarlo_pi_threads(n::Int; seed::Int=0)  
-rngs = rngs_for_threads(seed)  
-counts = zeros(Int, nthreads())  
-@threads for t in 1:nthreads()  
-rng = rngs[threadid()]  
-local_inside = 0  
-# スレッドあたりの試行数(端数は最後に加算)  
-m = n ÷ nthreads()  
-xs = rand(rng, m)  
-ys = rand(rng, m)  
-@inbounds @simd for i in 1:m  
-local_inside += (xs[i]^2 + ys[i]^2 <= 1.0)  
-end  
-counts[threadid()] = local_inside  
-end  
-inside = sum(counts)  
-return 4.0 * inside / ( (n ÷ nthreads()) * nthreads() )  
-end
+function montecarlo_pi_threads(n::Int; seed::Int=0) rngs = rngs_for_threads(seed) counts = zeros(Int, nthreads()) @threads for t in 1:nthreads() rng = rngs[threadid()] local_inside = 0 # スレッドあたりの試行数(端数は最後に加算) m = n ÷ nthreads() xs = rand(rng, m) ys = rand(rng, m) @inbounds @simd for i in 1:m local_inside += (xs[i]^2 + ys[i]^2 <= 1.0) end counts[threadid()] = local_inside end inside = sum(counts) return 4.0 * inside / ( (n ÷ nthreads()) * nthreads() ) end
 
 再現性の要点
 
   * 種を「仕様値」としてコードか設定ファイルに固定します。
   * 分割規則(各スレッド何試行か)を固定します。
   * 乱数の生成・消費の順序は実行ごとに不変であるべきです(早期終了・条件分岐の内部で乱数を消費しないなど)。
-
-
 
 * * *
 
@@ -6497,12 +5187,9 @@ I/Oや待ちのある処理には@asyncとChannelでパイプライン化する�
 
 複数プロセス(複数CPUコア/複数ノード)で粗粒度タスクを並べます。ワーカー起動とコード配布はDistributedで行います。
 
-using Distributed  
-addprocs(4) # ローカルに4ワーカー追加  
+using Distributed addprocs(4) # ローカルに4ワーカー追加
 
-
-@everywhere using Random  
-
+@everywhere using Random
 
 # 各ワーカーで仕事(π推定)を実行し、結果を集約  
 @everywhere function estimate_pi_trials(n::Int, seed::Int)  
@@ -6514,7 +5201,6 @@ inside += (xs[i]^2 + ys[i]^2 <= 1.0)
 end  
 return 4.0 * inside / n  
 end  
-
 
 # pmap(可変重いタスク向け):各ワーカーへ種と試行数を配布  
 seeds = 1:32  
@@ -6536,16 +5222,13 @@ avg = tot / length(seeds)
   * SharedArray(単一ノード)で読み取り共有を行い、集計はローカル→縮約にします。
   * 乱数再現性: ワーカーIDに基づく種の規則(seed + myid())を固定し、分割数・順序を変えないようにします。
 
-
-
 * * *
 
 # 6\. GPU基礎:CUDA.jlのCuArrayとブロードキャスト、独自カーネル
 
 大量の同型演算はGPUへ載せると効果的です。基本はデータをデバイスへ移す→ブロードキャストで融合→ホストへ戻すです。
 
-using CUDA  
-
+using CUDA
 
 # データをGPUへ  
 x = rand(Float32, 10_000_000)  
@@ -6553,14 +5236,11 @@ y = rand(Float32, 10_000_000)
 dx = CuArray(x)  
 dy = CuArray(y)  
 
-
 # ブロードキャストは融合され、暫定配列を作らず高速  
 dz = @. sin(dx) + 2f0 * dy  
 
-
 # 結果をホストへ(必要時のみ)  
 z = Array(dz)  
-
 
 # スカラー禁止(誤ってデバイスメモリへスカラーアクセスすると遅い)  
 CUDA.allowscalar(false)
@@ -6576,12 +5256,7 @@ end
 return  
 end  
 
-
-n = length(dx)  
-dz2 = similar(dx)  
-threads = 256  
-blocks = cld(n, threads)  
-@cuda threads=threads blocks=blocks vadd_kernel!(dz2, dx, dy)
+n = length(dx) dz2 = similar(dx) threads = 256 blocks = cld(n, threads) @cuda threads=threads blocks=blocks vadd_kernel!(dz2, dx, dy)
 
 GPUの原則
 
@@ -6589,8 +5264,6 @@ GPUの原則
   * 融合: ブロードキャスト・mul!等のインプレース演算を使い、中間メモリを減らします。
   * スカラー禁止: CUDA.allowscalar(false)で誤用検知。ループで1要素ずつCuArrayを読む/書くのは避けます。
   * 精度・型: Float32が基本。必要時のみFloat64。整数・論理の混在に注意し、型を揃えます。
-
-
 
 * * *
 
@@ -6601,16 +5274,12 @@ GPU内で乱数を直接生成する方法もありますが、再現規則・�
   1. CPUで乱数を生成してからGPUへ転送(種を固定し、生成順序を統一)。
   2. 乱数配列を事前生成し、カーネルには乱数を引数で渡す(消費数が固定される)。
 
-
-
-using Random, CUDA  
-
+using Random, CUDA
 
 # 1) CPU側で固定種・固定順序の乱数を準備  
 rng = MersenneTwister(1234)  
 r = rand(rng, Float32, 10_000_000)  
 dr = CuArray(r) # まとめて転送  
-
 
 # 2) カーネルは dr[i] を消費する設計に  
 function kernel_with_noise!(out, a, noise)  
@@ -6620,11 +5289,7 @@ if i <= length(out)
 end  
 end  
 
-
-da = CuArray(rand(Float32, 10_000_000))  
-do = similar(da)  
-threads = 256; blocks = cld(length(da), threads)  
-@cuda threads=threads blocks=blocks kernel_with_noise!(do, da, dr)
+da = CuArray(rand(Float32, 10_000_000)) do = similar(da) threads = 256; blocks = cld(length(da), threads) @cuda threads=threads blocks=blocks kernel_with_noise!(do, da, dr)
 
 この設計なら、種→乱数列→転送→消費までが固定され、再現性を保てます。GPU内生成を使う場合は、ストリームごとの種管理・消費順序の規約化が必要です(ここでは詳細は割愛し、再現性重視の運用を推奨します)。
 
@@ -6640,8 +5305,6 @@ threads = 256; blocks = cld(length(da), threads)
   * 融合: @.で演算を一式にまとめ、dz .= f.(dx) .+ g.(dy)のように中間を作らない形にします。
   * レイアウト: AoS(構造体配列)よりSoA(配列構造体)がベターな場面が多いです。フィールドごとに配列を持つと連続アクセスになり帯域効率が上がります。
 
-
-
 * * *
 
 # 9. 統合レシピ:Threads・Distributed・CUDAのモンテカルロと検証
@@ -6651,7 +5314,6 @@ threads = 256; blocks = cld(length(da), threads)
 # 仕様値  
 const SEED = 20240101  
 const N = 10_000_000  
-
 
 # 単一スレッド  
 function mc_pi_single(n::Int, seed::Int)  
@@ -6664,10 +5326,8 @@ end
 return 4.0 * inside / n  
 end  
 
-
 # スレッド  
 mc_pi_threads(N; seed=SEED) # 前述関数を流用  
-
 
 # 分散(ワーカーごとに独立種で集計)  
 using Distributed  
@@ -6689,7 +5349,6 @@ mc_pi_worker(per, SEED + k)
 end  
 pi_dist = 4.0 * tot_inside / (per * parts)  
 
-
 # GPU(乱数はCPU生成→転送)  
 using CUDA  
 rng = MersenneTwister(SEED)  
@@ -6697,20 +5356,9 @@ xs = rand(rng, Float32, N); ys = rand(rng, Float32, N)
 dx = CuArray(xs); dy = CuArray(ys)  
 dflag = similar(dx, Int32)  
 
+function inside_kernel!(flag, x, y) i = (blockIdx().x - 1) * blockDim().x + threadIdx().x if i <= length(flag) @inbounds flag[i] = (x[i]^2 + y[i]^2 <= 1f0) ? 1 : 0 end end
 
-function inside_kernel!(flag, x, y)  
-i = (blockIdx().x - 1) * blockDim().x + threadIdx().x  
-if i <= length(flag)  
-@inbounds flag[i] = (x[i]^2 + y[i]^2 <= 1f0) ? 1 : 0  
-end  
-end  
-
-
-threads = 256; blocks = cld(N, threads)  
-@cuda threads=threads blocks=blocks inside_kernel!(dflag, dx, dy)  
-CUDA.synchronize()  
-inside_gpu = sum(Array(dflag))  
-pi_gpu = 4.0 * inside_gpu / N
+threads = 256; blocks = cld(N, threads) @cuda threads=threads blocks=blocks inside_kernel!(dflag, dx, dy) CUDA.synchronize() inside_gpu = sum(Array(dflag)) pi_gpu = 4.0 * inside_gpu / N
 
 この3系統は「仕様(種・分割・消費順序)」を固定して比較できます。Threadsは共有メモリ・偽共有の罠、Distributedは転送コスト・ワーカー起動のオーバーヘッド、GPUは転送とデバイス帯域の支配をそれぞれ確認し、対象と規模に応じて最適な層を選びます。
 
@@ -6720,13 +5368,11 @@ pi_gpu = 4.0 * inside_gpu / N
 
 並列計測の基本は「同期して測る」「小さすぎる対象を測らない」です。
 
-using BenchmarkTools  
-
+using BenchmarkTools
 
 # スレッド計測(小さすぎるとスレッド起動オーバーヘッドに支配される)  
 x = rand(10_000_000)  
 @btime scale!($x, 2.0) # ウォームアップ後に測定  
-
 
 # 分散計測(全体を同期して壁時計時間を測る)  
 using Distributed  
@@ -6738,7 +5384,6 @@ end
 synchronize()  
 return time() - t0, tot  
 end  
-
 
 # GPU計測(カーネル起動は非同期なので、同期して測る)  
 function time_gpu(N)  
@@ -6760,8 +5405,6 @@ end
   * アロケーション: @btimeの出力でバイト数が増えていないか。インプレース化・融合で減らします。
   * GPU: カーネルがメモリ帯域支配か演算支配かを意識します(簡易診断は問題の演算密度から推定)。複数カーネルを一つにまとめると帯域効率が上がります。
 
-
-
 * * *
 
 # 11. 分散の運用:ワーカーライフサイクル、データ配置、障害耐性の基本
@@ -6770,8 +5413,6 @@ end
   * データ配置: 大きなデータは各ワーカーがローカルに読み込む設計(パスとスキーマを共有)。pmapは引数転送が重いので、引数は軽く。
   * SharedArray: 単一ノードなら読取り中心のデータをSharedArrayで共有し、書き込みはローカル→縮約。
   * 障害耐性: 長時間の分散計算では、失敗時のリトライ・ログ・部分結果の保存を設計します(本章では詳細実装は割愛し設計原則のみ)。
-
-
 
 * * *
 
@@ -6787,15 +5428,11 @@ if i <= length(out)
 end  
 end  
 
-
-threads = 256; blocks = cld(length(dx), threads)  
-@cuda threads=threads blocks=blocks fused_kernel!(dz2, dx, dy)
+threads = 256; blocks = cld(length(dx), threads) @cuda threads=threads blocks=blocks fused_kernel!(dz2, dx, dy)
 
   * 境界の安全: i <= length(out)でチェック。@inboundsは正しさが確認済みの範囲でのみ付与。
   * 連続アクセス: 隣接要素を同じワープ(32スレッド)で処理し、帯域効率を確保。
   * インプレース: similarや再利用でアロケーションを抑えます。
-
-
 
 * * *
 
@@ -6809,8 +5446,6 @@ threads = 256; blocks = cld(length(dx), threads)
   * 停止条件: 時間予算、反復上限、誤差許容など。
   * 環境: JULIA_NUM_THREADS、versioninfo()、GPUデバイス情報の記録。
 
-
-
 * * *
 
 # 14. よくある落とし穴と回避策(記述のみ)
@@ -6822,8 +5457,6 @@ threads = 256; blocks = cld(length(dx), threads)
   * 転送乱発:ホスト↔デバイスの往復で遅くなります。転送はまとめ、演算はデバイス内で連鎖。
   * 乱数順序の揺れ:条件分岐の中で乱数を消費すると順序が揺れます。乱数生成と消費を外側で固定します。
 
-
-
 * * *
 
 # 15. 実務指針(記述のみ)
@@ -6834,8 +5467,6 @@ threads = 256; blocks = cld(length(dx), threads)
   * 転送は最小化し、融合・インプレースで中間メモリを削減します。
   * 計測は同期点を設け、起動オーバーヘッドを意識して規模を選びます。
   * 環境・種・分割・計測指標をドキュメント化し、誰が実行しても同じ結論が得られる体制を整えます。
-
-
 
 この設計と運用で、Threads・Distributed・CUDAを「正しく・速く・再現可能」に使い分け、Juliaの並列計算を現場水準へスケールさせられます。
 
@@ -6854,27 +5485,17 @@ threads = 256; blocks = cld(length(dx), threads)
   * 感度・同定:自動微分・随伴法で感度を得て、Optimization.jlと組み合わせてパラメータ同定を行います。
   * 検証:不変量・境界・次元・単位、初期一致性をコードで検査し、再現可能なプロジェクトとして運用します。
 
-
-
 * * *
 
 # 2. 記号・数値ハイブリッドの基本構文
 
 MTKでは、変数・パラメータ・微分演算子を宣言し、方程式を~で結びます。
 
-using ModelingToolkit  
+using ModelingToolkit
 
+@variables t x(t) y(t) # 時間tに依存する状態@parameters α β δ γ # パラメータD = Differential(t) # d/dt 演算子
 
-@variables t x(t) y(t) # 時間tに依存する状態  
-@parameters α β δ γ # パラメータ  
-D = Differential(t) # d/dt 演算子  
-
-
-eqs = [  
-D(x) ~ α*x - β*x*y,  
-D(y) ~ δ*x*y - γ*y  
-]  
-sys = ODESystem(eqs, t, [x, y], [α, β, δ, γ])
+eqs = [ D(x) ~ α*x - β*x*y, D(y) ~ δ*x*y - γ*y ] sys = ODESystem(eqs, t, [x, y], [α, β, δ, γ])
 
   * @variables:未知の時間依存変数を宣言します。
   * @parameters:定数パラメータを宣言します。
@@ -6882,38 +5503,21 @@ sys = ODESystem(eqs, t, [x, y], [α, β, δ, γ])
   * ~:方程式(左辺と右辺の同値)を表します。
   * ODESystem:常微分方程式系としてシステムを構築します(DAEはDAESystem)。
 
-
-
 この記号的モデルから、structural_simplifyで整理された数値的モデルを生成し、DEへ渡します。
 
 * * *
 
 # 3\. ODEモデルの定義から解法まで(Lotka–Volterra を例に)
 
-using ModelingToolkit, DifferentialEquations  
+using ModelingToolkit, DifferentialEquations
 
+@variables t x(t) y(t) @parameters α β δ γ D = Differential(t)
 
-@variables t x(t) y(t)  
-@parameters α β δ γ  
-D = Differential(t)  
+eqs = [ D(x) ~ α*x - β*x*y, D(y) ~ δ*x*y - γ*y ] @named lv = ODESystem(eqs, t, [x, y], [α, β, δ, γ])
 
+sys = structural_simplify(lv) # 記号的簡約u0 = [x => 1.0, y => 1.0] # 初期値p = [α => 1.5, β => 1.0, δ => 1.0, γ => 3.0] tspan = (0.0, 25.0)
 
-eqs = [  
-D(x) ~ α*x - β*x*y,  
-D(y) ~ δ*x*y - γ*y  
-]  
-@named lv = ODESystem(eqs, t, [x, y], [α, β, δ, γ])  
-
-
-sys = structural_simplify(lv) # 記号的簡約  
-u0 = [x => 1.0, y => 1.0] # 初期値  
-p = [α => 1.5, β => 1.0, δ => 1.0, γ => 3.0]  
-tspan = (0.0, 25.0)  
-
-
-prob = ODEProblem(sys, u0, tspan, p) # 数値問題へ変換  
-sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10, saveat=0.01)  
-
+prob = ODEProblem(sys, u0, tspan, p) # 数値問題へ変換sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10, saveat=0.01)
 
 # 出力の参照  
 t_grid = sol.t  
@@ -6926,55 +5530,30 @@ y_vals = sol[y]
   * structural_simplifyは、冗長方程式や代入可能な関係を整理して、ソルバに相性の良い形へ変換します。
   * sol[var]で状態の時系列を取り出せます(saveatで出力グリッドを統一すると比較が容易)。
 
-
-
 * * *
 
 # 4. サブシステム合成:再利用可能なモデルを積み木で組む
 
 モデルを部品化して合成できます。例として、2個の質点バネダンパ(直列)を合成します。
 
-using ModelingToolkit, DifferentialEquations  
+using ModelingToolkit, DifferentialEquations
 
+@variables t x1(t) v1(t) x2(t) v2(t) @parameters m1 c1 k1 m2 c2 k2 f(t) D = Differential(t)
 
-@variables t x1(t) v1(t) x2(t) v2(t)  
-@parameters m1 c1 k1 m2 c2 k2 f(t)  
-D = Differential(t)  
+eqs1 = [ D(x1) ~ v1, m1*D(v1) ~ f - c1*v1 - k1*x1 - k2*(x1 - x2) - c2*(v1 - v2) ]
 
+eqs2 = [ D(x2) ~ v2, m2*D(v2) ~ k2*(x1 - x2) + c2*(v1 - v2) - (k2*x2 + c2*v2) ]
 
-eqs1 = [  
-D(x1) ~ v1,  
-m1*D(v1) ~ f - c1*v1 - k1*x1 - k2*(x1 - x2) - c2*(v1 - v2)  
-]  
+@named s1 = ODESystem(eqs1, t, [x1, v1], [m1, c1, k1, k2, c2, f]) @named s2 = ODESystem(eqs2, t, [x2, v2], [m2, c2, k2])
 
+sys = structural_simplify(ODESystem(s1.eqs ∪ s2.eqs, t, [x1, v1, x2, v2], [m1, c1, k1, m2, c2, k2, f]))
 
-eqs2 = [  
-D(x2) ~ v2,  
-m2*D(v2) ~ k2*(x1 - x2) + c2*(v1 - v2) - (k2*x2 + c2*v2)  
-]  
-
-
-@named s1 = ODESystem(eqs1, t, [x1, v1], [m1, c1, k1, k2, c2, f])  
-@named s2 = ODESystem(eqs2, t, [x2, v2], [m2, c2, k2])  
-
-
-sys = structural_simplify(ODESystem(s1.eqs ∪ s2.eqs, t,  
-[x1, v1, x2, v2], [m1, c1, k1, m2, c2, k2, f]))  
-
-
-u0 = [x1 => 0.0, v1 => 0.0, x2 => 0.0, v2 => 0.0]  
-p = [m1 => 1.0, c1 => 0.1, k1 => 10.0,  
-m2 => 1.0, c2 => 0.1, k2 => 5.0, f => 1.0]  
-tspan = (0.0, 10.0)  
-prob = ODEProblem(sys, u0, tspan, p)  
-sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10)
+u0 = [x1 => 0.0, v1 => 0.0, x2 => 0.0, v2 => 0.0] p = [m1 => 1.0, c1 => 0.1, k1 => 10.0, m2 => 1.0, c2 => 0.1, k2 => 5.0, f => 1.0] tspan = (0.0, 10.0) prob = ODEProblem(sys, u0, tspan, p) sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10)
 
 要点
 
   * サブシステムの方程式集合を結合し、一体でstructural_simplifyします。
   * connectなどの高位API(標準ライブラリの回路・機械系コネクタ)も活用可能ですが、まずは生の式合成から慣れると理解が深まります。
-
-
 
 * * *
 
@@ -6982,35 +5561,17 @@ sol = solve(prob, Tsit5(); reltol=1e-8, abstol=1e-10)
 
 代数制約を含む系(例:ペンデュラムの幾何制約)をDAEとして記述します。
 
-using ModelingToolkit, DifferentialEquations  
+using ModelingToolkit, DifferentialEquations
 
+@variables t x(t) y(t) vx(t) vy(t) λ(t) # λはラグランジュ乗数@parameters m g L D = Differential(t)
 
-@variables t x(t) y(t) vx(t) vy(t) λ(t) # λはラグランジュ乗数  
-@parameters m g L  
-D = Differential(t)  
+eqs = [ D(x) ~ vx, D(y) ~ vy, m*D(vx) ~ -λ*x, m*D(vy) ~ -λ*y - m*g, x^2 + y^2 ~ L^2 # 幾何制約(代数方程式) ]
 
+@named pend = ODESystem(eqs, t, [x, y, vx, vy, λ], [m, g, L]) sys = structural_simplify(pend)
 
-eqs = [  
-D(x) ~ vx,  
-D(y) ~ vy,  
-m*D(vx) ~ -λ*x,  
-m*D(vy) ~ -λ*y - m*g,  
-x^2 + y^2 ~ L^2 # 幾何制約(代数方程式)  
-]  
+u0 = [x => L, y => 0.0, vx => 0.0, vy => 0.0, λ => 0.0] du0 = [D(x) => 0.0, D(y) => 0.0, D(vx) => 0.0, D(vy) => 0.0, D(λ) => 0.0] # 一致性が必要p = [m => 1.0, g => 9.81, L => 1.0] tspan = (0.0, 5.0)
 
-
-@named pend = ODESystem(eqs, t, [x, y, vx, vy, λ], [m, g, L])  
-sys = structural_simplify(pend)  
-
-
-u0 = [x => L, y => 0.0, vx => 0.0, vy => 0.0, λ => 0.0]  
-du0 = [D(x) => 0.0, D(y) => 0.0, D(vx) => 0.0, D(vy) => 0.0, D(λ) => 0.0] # 一致性が必要  
-p = [m => 1.0, g => 9.81, L => 1.0]  
-tspan = (0.0, 5.0)  
-
-
-prob = DAEProblem(sys, du0, u0, tspan, p)  
-sol = solve(prob, DFBDF(); reltol=1e-8, abstol=1e-10, saveat=0.01)
+prob = DAEProblem(sys, du0, u0, tspan, p) sol = solve(prob, DFBDF(); reltol=1e-8, abstol=1e-10, saveat=0.01)
 
 要点
 
@@ -7018,36 +5579,19 @@ sol = solve(prob, DFBDF(); reltol=1e-8, abstol=1e-10, saveat=0.01)
   * structural_simplifyがインデックス低減を図るため、安定性が向上します。
   * 剛性傾向が強ければ、陰的法(DFBDFなど)を選びます。
 
-
-
 * * *
 
 # 6. イベント・切替:物理的境界と政策介入を仕様記述する
 
 モデルに境界到達や離散介入があるときは、DEのコールバックで仕様化します。例:バウンス(高さ0で速度反転)。
 
-using DifferentialEquations  
+using DifferentialEquations
 
+g = 9.81; c = 0.8 function fall!(du, u, p, t) du[1] = u[2] du[2] = -g end
 
-g = 9.81; c = 0.8  
-function fall!(du, u, p, t)  
-du[1] = u[2]  
-du[2] = -g  
-end  
+condition(u, t, integrator) = u[1] # 高さが0を跨ぐfunction affect!(integrator) integrator.u[1] = 0.0 integrator.u[2] = -c * integrator.u[2] end cb = ContinuousCallback(condition, affect!; rootfind=true)
 
-
-condition(u, t, integrator) = u[1] # 高さが0を跨ぐ  
-function affect!(integrator)  
-integrator.u[1] = 0.0  
-integrator.u[2] = -c * integrator.u[2]  
-end  
-cb = ContinuousCallback(condition, affect!; rootfind=true)  
-
-
-u0 = [10.0, 0.0]  
-tspan = (0.0, 5.0)  
-prob = ODEProblem(fall!, u0, tspan)  
-sol = solve(prob, Tsit5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.01)
+u0 = [10.0, 0.0] tspan = (0.0, 5.0) prob = ODEProblem(fall!, u0, tspan) sol = solve(prob, Tsit5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.01)
 
 要点
 
@@ -7055,26 +5599,17 @@ sol = solve(prob, Tsit5(); callback=cb, reltol=1e-9, abstol=1e-12, saveat=0.01)
   * rootfind=trueで到達時刻を精密化できます。
   * モデル側(MTK)で仕様、ソルバ側(DE)でイベントを扱うのが実務上の分担として自然です。
 
-
-
 * * *
 
 # 7. 記号的ヤコビアンとコード生成:高速化の基礎
 
 MTKは記号的にヤコビアン・質量行列などを自動導出できます。ソルバへ渡すとステップ毎の線形代数が高速化されます。
 
-using ModelingToolkit, DifferentialEquations  
+using ModelingToolkit, DifferentialEquations
 
+@variables t u(t) @parameters a D = Differential(t) eqs = [D(u) ~ -a*u] @named sys = ODESystem(eqs, t, [u], [a])
 
-@variables t u(t)  
-@parameters a  
-D = Differential(t)  
-eqs = [D(u) ~ -a*u]  
-@named sys = ODESystem(eqs, t, [u], [a])  
-
-
-sys_simpl = structural_simplify(sys)  
-
+sys_simpl = structural_simplify(sys)
 
 # ODEFunctionへ変換(記号的ヤコビアンを含む)  
 f_ode = ODEFunction(sys_simpl)  
@@ -7082,16 +5617,12 @@ u0 = [u => 1.0]
 p = [a => 0.5]  
 tspan = (0.0, 10.0)  
 
-
-prob = ODEProblem(f_ode, u0, tspan, p)  
-sol = solve(prob, Rosenbrock23(); reltol=1e-10, abstol=1e-12)
+prob = ODEProblem(f_ode, u0, tspan, p) sol = solve(prob, Rosenbrock23(); reltol=1e-10, abstol=1e-12)
 
 要点
 
   * 記号ヤコビアンは陰的法や剛性系で効果が大きいです。
   * build_functionで純Julia関数へコード生成し、外部最適化との連携や埋め込みにも応用できます。
-
-
 
 * * *
 
@@ -7099,30 +5630,15 @@ sol = solve(prob, Rosenbrock23(); reltol=1e-10, abstol=1e-12)
 
 出力y(t; p)のパラメータ感度∂y/∂pを、随伴法や自動微分で計算できます。SciMLSensitivity.jlを経由してDEから指定します。
 
-using ModelingToolkit, DifferentialEquations, SciMLSensitivity  
+using ModelingToolkit, DifferentialEquations, SciMLSensitivity
 
+@variables t x(t) y(t) @parameters α β δ γ D = Differential(t) eqs = [D(x) ~ α*x - β*x*y, D(y) ~ δ*x*y - γ*y] @named lv = ODESystem(eqs, t, [x, y], [α, β, δ, γ]) sys = structural_simplify(lv)
 
-@variables t x(t) y(t)  
-@parameters α β δ γ  
-D = Differential(t)  
-eqs = [D(x) ~ α*x - β*x*y,  
-D(y) ~ δ*x*y - γ*y]  
-@named lv = ODESystem(eqs, t, [x, y], [α, β, δ, γ])  
-sys = structural_simplify(lv)  
+u0 = [x => 1.0, y => 1.0] p = [α => 1.5, β => 1.0, δ => 1.0, γ => 3.0] tspan = (0.0, 20.0)
 
+prob = ODEProblem(sys, u0, tspan, p) tobs = 0:0.1:20
 
-u0 = [x => 1.0, y => 1.0]  
-p = [α => 1.5, β => 1.0, δ => 1.0, γ => 3.0]  
-tspan = (0.0, 20.0)  
-
-
-prob = ODEProblem(sys, u0, tspan, p)  
-tobs = 0:0.1:20  
-
-
-sol = solve(prob, Tsit5(); saveat=tobs,  
-sensealg = InterpolatingAdjoint()) # 随伴感度  
-
+sol = solve(prob, Tsit5(); saveat=tobs, sensealg = InterpolatingAdjoint()) # 随伴感度
 
 # 感度を取得(例:xに対するαの感度)  
 # 実務ではSciMLSensitivityのAPIでパラメータごと・出力指標ごとに取り出します
@@ -7132,17 +5648,13 @@ sensealg = InterpolatingAdjoint()) # 随伴感度
   * 感度は同定の前工程として、どのパラメータが目的指標に効いているかの判断材料になります。
   * 随伴法は長時間・多数パラメータで計算量を抑えられます。
 
-
-
 * * *
 
 # 9. モデル同定:Optimization.jlでパラメータを推定する
 
 観測データに最も整合的なパラメータを最適化で求めます。損失関数は観測とモデル出力の差の平方和などを使います。
 
-using ModelingToolkit, DifferentialEquations, SciMLSensitivity  
-using Optimization, OptimizationOptimJL  
-
+using ModelingToolkit, DifferentialEquations, SciMLSensitivity using Optimization, OptimizationOptimJL
 
 # モデル(Lotka–Volterra)  
 @variables t x(t) y(t)  
@@ -7153,41 +5665,21 @@ D(y) ~ δ*x*y - γ*y]
 @named lv = ODESystem(eqs, t, [x, y], [α, β, δ, γ])  
 sys = structural_simplify(lv)  
 
-
-u0 = [x => 1.0, y => 1.0]  
-tspan = (0.0, 20.0)  
-tobs = 0:0.2:20  
-
+u0 = [x => 1.0, y => 1.0] tspan = (0.0, 20.0) tobs = 0:0.2:20
 
 # 観測データ(実務ではCSVから読み、前処理・スケーリングを済ませます)  
 x_obs = rand(length(tobs)) # 例示用ダミー  
 y_obs = rand(length(tobs))  
 
+function loss(pvec) p = [α => pvec[1], β => pvec[2], δ => pvec[3], γ => pvec[4]] prob = ODEProblem(sys, u0, tspan, p) sol = solve(prob, Tsit5(); saveat=tobs, sensealg=InterpolatingAdjoint(), reltol=1e-8, abstol=1e-10) x_pred = Array(sol[x]) y_pred = Array(sol[y]) return sum((x_pred .- x_obs).^2) + sum((y_pred .- y_obs).^2) end
 
-function loss(pvec)  
-p = [α => pvec[1], β => pvec[2], δ => pvec[3], γ => pvec[4]]  
-prob = ODEProblem(sys, u0, tspan, p)  
-sol = solve(prob, Tsit5(); saveat=tobs, sensealg=InterpolatingAdjoint(),  
-reltol=1e-8, abstol=1e-10)  
-x_pred = Array(sol[x])  
-y_pred = Array(sol[y])  
-return sum((x_pred .- x_obs).^2) + sum((y_pred .- y_obs).^2)  
-end  
-
-
-p0 = [1.5, 1.0, 1.0, 3.0]  
-optf = OptimizationFunction((θ, _) -> loss(θ), autodiff=:forward)  
-optprob = OptimizationProblem(optf, p0)  
-res = optimize(optprob, LBFGS(); maxiters=500)  
-p̂ = res.minimizer
+p0 = [1.5, 1.0, 1.0, 3.0] optf = OptimizationFunction((θ, _) -> loss(θ), autodiff=:forward) optprob = OptimizationProblem(optf, p0) res = optimize(optprob, LBFGS(); maxiters=500) p̂ = res.minimizer
 
 要点
 
   * sensealgを指定して随伴法を活用し、高速化します。
   * 正則化(L2等)で過適合を抑えます。観測ノイズモデルを設計し、尤度最大化へ拡張することも可能です。
   * 検証データによる汎化誤差評価を行い、推定の妥当性を確認します。
-
-
 
 * * *
 
@@ -7201,8 +5693,6 @@ p̂ = res.minimizer
   * APIの統一:solve_model(params; saveat, solver, tol)のように、入口を揃える。
   * ドキュメント文字列:方程式・パラメータの意味・範囲をdocstringで記し、?ヘルプで参照できるようにする。
 
-
-
 仕様をコードに落とすことで、レビュー・再利用・自動化テストが容易になります。
 
 * * *
@@ -7215,41 +5705,24 @@ p̂ = res.minimizer
   * 成果物:Arrowで列指向に保存し、再読込・相互運用を高速化。
   * ログ:パラメータ・ソルバ・誤差・収束統計を記録(sol.destats等)。
 
-
-
 * * *
 
 # 12. ステディステート・根探し:定常解の計算
 
 定常点はSteadyStateProblemやNLsolveで求められます。MTKから代数的にf(u)=0を取り出し、初期推定から解きます。
 
-using ModelingToolkit, NonlinearSolve  
+using ModelingToolkit, NonlinearSolve
 
+@variables x y @parameters α β δ γ eqs = [ α*x - β*x*y ~ 0, δ*x*y - γ*y ~ 0 ] @named steady = NonlinearSystem(eqs, [x, y], [α, β, δ, γ]) sys = structural_simplify(steady)
 
-@variables x y  
-@parameters α β δ γ  
-eqs = [  
-α*x - β*x*y ~ 0,  
-δ*x*y - γ*y ~ 0  
-]  
-@named steady = NonlinearSystem(eqs, [x, y], [α, β, δ, γ])  
-sys = structural_simplify(steady)  
+p = [α => 1.5, β => 1.0, δ => 1.0, γ => 3.0] u0 = [x => 1.0, y => 1.0]
 
-
-p = [α => 1.5, β => 1.0, δ => 1.0, γ => 3.0]  
-u0 = [x => 1.0, y => 1.0]  
-
-
-prob = NonlinearProblem(sys, u0, p)  
-sol = solve(prob, NewtonRaphson())  
-x_eq = sol[x]; y_eq = sol[y]
+prob = NonlinearProblem(sys, u0, p) sol = solve(prob, NewtonRaphson()) x_eq = sol[x]; y_eq = sol[y]
 
 要点
 
   * 定常点を出発点に、周辺の線形化・安定性解析へ繋げられます。
   * ODEの長時間解から終端値を初期推定にして非線形解法を回す手も実用的です。
-
-
 
 * * *
 
@@ -7261,8 +5734,6 @@ x_eq = sol[x]; y_eq = sol[y]
   * 小さな正則化(Σ + εI等)で条件数を改善します。
   * 記号的簡約後も、数値出力の桁と軸スケールを確認し、テストを通します。
 
-
-
 * * *
 
 # 14. チーム開発のための構成:モジュール化とテスト
@@ -7273,54 +5744,23 @@ x_eq = sol[x]; y_eq = sol[y]
   * CI:主要パラメータセットで簡易ベンチ・検証を自動実行。
   * ドキュメント:方程式・パラメータ表・単位・データ前処理の仕様をdocs/へ。
 
-
-
 * * *
 
 # 15. 実例レシピ:質点バネダンパの同定ワークフロー(抜粋)
 
   1. モデル記述(バネ・ダンパ・外力):
 
-
-
-@variables t x(t) v(t)  
-@parameters m c k f(t)  
-D = Differential(t)  
-eqs = [ D(x) ~ v,  
-m*D(v) ~ f - c*v - k*x ]  
-@named msd = ODESystem(eqs, t, [x, v], [m, c, k, f])  
-sys = structural_simplify(msd)
+@variables t x(t) v(t) @parameters m c k f(t) D = Differential(t) eqs = [ D(x) ~ v, m*D(v) ~ f - c*v - k*x ] @named msd = ODESystem(eqs, t, [x, v], [m, c, k, f]) sys = structural_simplify(msd)
 
   2. 測定データの取り込み・スケーリング:
 
-
-
-using CSV, DataFrames  
-df = CSV.read("data.csv", DataFrame)  
-tobs = df.time; x_obs = df.disp  
-f_in = t -> 1.0*sin(2π*1.0*t) # 試験の入力力(仕様化)  
-u0 = [x => x_obs[1], v => 0.0]  
-p0 = [m => 1.0, c => 0.1, k => 10.0, f => f_in]
+using CSV, DataFrames df = CSV.read("data.csv", DataFrame) tobs = df.time; x_obs = df.disp f_in = t -> 1.0*sin(2π*1.0*t) # 試験の入力力(仕様化) u0 = [x => x_obs[1], v => 0.0] p0 = [m => 1.0, c => 0.1, k => 10.0, f => f_in]
 
   3. 損失関数と最適化:
 
-
-
-function lossθ(θ)  
-p = [m => θ[1], c => θ[2], k => θ[3], f => f_in]  
-prob = ODEProblem(sys, u0, (tobs[1], tobs[end]), p)  
-sol = solve(prob, Tsit5(); saveat=tobs)  
-x_pred = Array(sol[x])  
-return sum((x_pred .- x_obs).^2)  
-end  
-optf = OptimizationFunction((θ,_) -> lossθ(θ), autodiff=:forward)  
-optprob = OptimizationProblem(optf, [1.0, 0.1, 10.0])  
-res = optimize(optprob, LBFGS())  
-θ̂ = res.minimizer
+function lossθ(θ) p = [m => θ[1], c => θ[2], k => θ[3], f => f_in] prob = ODEProblem(sys, u0, (tobs[1], tobs[end]), p) sol = solve(prob, Tsit5(); saveat=tobs) x_pred = Array(sol[x]) return sum((x_pred .- x_obs).^2) end optf = OptimizationFunction((θ,_) -> lossθ(θ), autodiff=:forward) optprob = OptimizationProblem(optf, [1.0, 0.1, 10.0]) res = optimize(optprob, LBFGS()) θ̂ = res.minimizer
 
   4. 検証:不変量・残差・再現図の生成、レポート出力。
-
-
 
 # 再走・図出力(省略)
 
@@ -7339,8 +5779,6 @@ MTKには、PDEを離散化(空間差分・自動離散)してODE系へ落とす
   * 剛性:Rodas5/DFBDF等を第一候補に、reltol/abstolを調整。
   * ログ:sol.destatsで関数評価数・拒否ステップ等を記録し、性能回帰を検知します。
 
-
-
 * * *
 
 # 18. 失敗の切り分け:一致性・スケール・可視化で原因を掴む
@@ -7351,8 +5789,6 @@ MTKには、PDEを離散化(空間差分・自動離散)してODE系へ落とす
   * データ整合:観測列・単位・時刻対が不一致。前処理で統一し、saveatグリッドを揃える。
   * 可視化不足:生時系列・残差・フェーズ平面・パラメトリック図で挙動を点検します。
 
-
-
 * * *
 
 # 19. 再現可能なプロジェクト雛形(骨子)
@@ -7362,17 +5798,7 @@ module MyModel
 using ModelingToolkit  
 export build_system  
 
-
-function build_system()  
-@variables t x(t) y(t)  
-@parameters α β δ γ  
-D = Differential(t)  
-eqs = [D(x) ~ α*x - β*x*y,  
-D(y) ~ δ*x*y - γ*y]  
-@named lv = ODESystem(eqs, t, [x, y], [α, β, δ, γ])  
-return structural_simplify(lv)  
-end  
-end
+function build_system() @variables t x(t) y(t) @parameters α β δ γ D = Differential(t) eqs = [D(x) ~ α*x - β*x*y, D(y) ~ δ*x*y - γ*y] @named lv = ODESystem(eqs, t, [x, y], [α, β, δ, γ]) return structural_simplify(lv) end end
 
 # src/solve.jl  
 using .MyModel, DifferentialEquations  
@@ -7408,8 +5834,6 @@ end
   * Project.toml/Manifest.tomlで依存を固定し、instantiateで再現可能に。
   * test/で簡易検証を提供。不変量・残差・パラメータ境界をチェック。
 
-
-
 * * *
 
 # 20. 実務の心得(記述のみ)
@@ -7419,8 +5843,6 @@ end
   * DAEは一致性が命。初期値・微分初期値の組を代数制約と整合させます。
   * 感度→同定→検証の順で進め、正則化・交差検証・可視化で妥当性を支えます。
   * 出力グリッド・乱数種・ソルバ属性・環境を固定し、誰がいつ実行しても同じ結論に到達できる体制を整えます。
-
-
 
 この流儀で、ModelingToolkitを中核に「記述から解へ」を一気通貫で運用でき、科学計算の仕様記述言語としてのJuliaの強みを最大限に引き出せます。
 
@@ -7441,10 +5863,7 @@ end
   * ログ: ハイパーパラメータ、学習曲線、評価指標、モデルのサイズ、乱数種、日付を記録します。
   * 出力: モデルと重みは可搬な形式(BSON/JLSO)で保存し、メタデータ(前処理のパイプライン定義、特徴量一覧)を同梱します。
 
-
-
-using Random  
-Random.seed!(20240101)
+using Random Random.seed!(20240101)
 
 * * *
 
@@ -7452,8 +5871,7 @@ Random.seed!(20240101)
 
 数値特徴量はスケーリング(標準化・最小最大)、カテゴリはエンコーディング(one-hot、ターゲットエンコード)、文字列は正規化(大小・空白・全半角など)を一貫して行います。学習・検証・テストに分割し、リークを防ぎます。
 
-using DataFrames, Statistics  
-
+using DataFrames, Statistics
 
 # 例:標準化(学習集合の統計量で揃える)  
 function standardize!(df::DataFrame, cols::Vector{Symbol})  
@@ -7475,11 +5893,9 @@ end
 
 Flux.jlは「書いたとおりに動く」シンプルなAPIです。基本は、Chainでモデルを定義し、損失関数、オプティマイザ(ADAMなど)を選び、gradientで勾配計算してパラメータを更新します。
 
-using Flux, Random  
+using Flux, Random
 
-
-Random.seed!(20240101)  
-
+Random.seed!(20240101)
 
 # 例:多層パーセプトロン(回帰)  
 model = Chain(  
@@ -7488,27 +5904,15 @@ Dense(64, 64, relu),
 Dense(64, 1) # 出力1  
 )  
 
-
-loss(ŷ, y) = Flux.Losses.mse(ŷ, y)  
-opt = Flux.Adam(1e-3)  
-
+loss(ŷ, y) = Flux.Losses.mse(ŷ, y) opt = Flux.Adam(1e-3)
 
 # ダミーデータ(実務ではDataLoaderでバッチ化)  
 X = rand(Float32, 20, 1024) # 特徴量 20次元 × サンプル数  
 Y = rand(Float32, 1, 1024)  
 
+ps = Flux.params(model)
 
-ps = Flux.params(model)  
-
-
-for epoch in 1:50  
-grads = gradient(ps) do  
-ŷ = model(X)  
-loss(ŷ, Y)  
-end  
-Flux.Optimise.update!(opt, ps, grads)  
-@info "epoch=$epoch mse=$(loss(model(X), Y))"  
-end
+for epoch in 1:50 grads = gradient(ps) do ŷ = model(X) loss(ŷ, Y) end Flux.Optimise.update!(opt, ps, grads) @info "epoch=$epoch mse=$(loss(model(X), Y))" end
 
 ポイント
 
@@ -7517,18 +5921,7 @@ end
   * GPU: CUDA.jlがロードされていればgpu(model)やgpu(X)でデバイスへ移動(積み替えは最小限に)。
   * 評価: 検証集合でRMSE/MAE/Accuracy/AUCなどを定期的に計測。
 
-
-
-using Flux: DataLoader  
-loader = DataLoader((X, Y), batchsize=64, shuffle=true)  
-for epoch in 1:50  
-for (xb, yb) in loader  
-grads = gradient(ps) do  
-loss(model(xb), yb)  
-end  
-Flux.Optimise.update!(opt, ps, grads)  
-end  
-end
+using Flux: DataLoader loader = DataLoader((X, Y), batchsize=64, shuffle=true) for epoch in 1:50 for (xb, yb) in loader grads = gradient(ps) do loss(model(xb), yb) end Flux.Optimise.update!(opt, ps, grads) end end
 
 * * *
 
@@ -7536,21 +5929,9 @@ end
 
 評価の品質を守るために、前処理→モデル→評価を「ひとつの関数」にまとめ、検証でのみ使う乱数要素(シャッフル)も固定し、リーク防止のため学習集合の統計量でのみ適用します。早期停止は「検証損失が連続して改善しない回数」を閾値として止めるのが実務的です。
 
-struct EarlyStopper  
-patience::Int  
-best::Float64  
-count::Int  
-end  
+struct EarlyStopper patience::Int best::Float64 count::Int end
 
-
-function update!(es::EarlyStopper, val::Float64)  
-if val < es.best - 1e-8  
-es.best = val; es.count = 0  
-else  
-es.count += 1  
-end  
-return es  
-end
+function update!(es::EarlyStopper, val::Float64) if val < es.best - 1e-8 es.best = val; es.count = 0 else es.count += 1 end return es end
 
 * * *
 
@@ -7558,27 +5939,21 @@ end
 
 MLJ.jlは、異なる学習器を共通インターフェースで扱い、Tableデータ、パイプライン、評価指標、交差検証、ハイパーパラメータ最適化を統合します。Fluxモデルもラップ可能ですが、まずは既製の学習器(決定木、ランダムフォレスト、ロジスティック回帰など)で手順を掴むと良いです。
 
-using MLJ  
-
+using MLJ
 
 # データ(DataFrame)をMLJのテーブルへ  
 X_tbl = MLJ.table(df[:, Not(:target)])  
 y = df.target  
 
-
 # モデルの選択(例:決定木)  
 DecisionTreeRegressor = @load DecisionTreeRegressor pkg=DecisionTree  
 tree = DecisionTreeRegressor(max_depth=5)  
-
 
 # パイプライン(標準化→モデル)  
 Standardizer = @load Standardizer pkg=MLJModels  
 pipe = Standardizer() |> tree  
 
-
-mach = machine(pipe, X_tbl, y)  
-fit!(mach)  
-
+mach = machine(pipe, X_tbl, y) fit!(mach)
 
 # 予測と評価  
 yhat = predict(mach, X_tbl) |> MLJ.unwrap  
@@ -7586,16 +5961,7 @@ r2 = MLJ.r_squared(yhat, y)
 
 交差検証とグリッドサーチ
 
-r = range(tree, :max_depth, lower=3, upper=12)  
-self_tuning = TunedModel(model=pipe,  
-resampling=CV(nfolds=5, shuffle=true),  
-measure=rms,  
-ranges=[r],  
-tuning=Grid(resolution=10),  
-acceleration=CPUThreads())  
-mt = machine(self_tuning, X_tbl, y)  
-fit!(mt)  
-best_model = fitted_params(mt).best_model
+r = range(tree, :max_depth, lower=3, upper=12) self_tuning = TunedModel(model=pipe, resampling=CV(nfolds=5, shuffle=true), measure=rms, ranges=[r], tuning=Grid(resolution=10), acceleration=CPUThreads()) mt = machine(self_tuning, X_tbl, y) fit!(mt) best_model = fitted_params(mt).best_model
 
 ポイント
 
@@ -7603,40 +5969,24 @@ best_model = fitted_params(mt).best_model
   * 評価指標: 回帰ならrms/r_squared/mae、分類ならaccuracy/aucなど。
   * 再現性: CV(..., shuffle=true)の乱数種はセッション種に依存するため、冒頭で固定。
 
-
-
 * * *
 
 # 7\. Turingによるベイズ推論:モデル化・MCMC・事後予測
 
 Turing.jlは確率モデルを直接記述し、NUTS/HMC/GibbsなどのMCMCで事後分布をサンプリングします。例として、ベイズ線形回帰を示します。
 
-using Turing, Random, Statistics, Distributions  
+using Turing, Random, Statistics, Distributions
 
-
-Random.seed!(20240101)  
-Turing.setadbackend(:forwarddiff) # ADの選択(状況に応じて)  
-
+Random.seed!(20240101) Turing.setadbackend(:forwarddiff) # ADの選択(状況に応じて)
 
 # 合成データ  
 N = 500  
 x = rand(N); true_a = 2.0; true_b = -0.5; σ = 0.2  
 y = true_a .* x .+ true_b .+ σ .* randn(N)  
 
+@model function bayes_linreg(x, y) a ~ Normal(0, 5) # 事前(傾き) b ~ Normal(0, 5) # 事前(切片) σ ~ truncated(Normal(0, 1), 0, Inf) for i in eachindex(x) y[i] ~ Normal(a * x[i] + b, σ) end end
 
-@model function bayes_linreg(x, y)  
-a ~ Normal(0, 5) # 事前(傾き)  
-b ~ Normal(0, 5) # 事前(切片)  
-σ ~ truncated(Normal(0, 1), 0, Inf)  
-for i in eachindex(x)  
-y[i] ~ Normal(a * x[i] + b, σ)  
-end  
-end  
-
-
-model = bayes_linreg(x, y)  
-chain = sample(model, NUTS(), 2_000; discard_adapt=true)  
-
+model = bayes_linreg(x, y) chain = sample(model, NUTS(), 2_000; discard_adapt=true)
 
 # 事後要約  
 a_post = mean(chain[:a])  
@@ -7657,8 +6007,6 @@ mean_pred = mean(ys); interval = quantile(ys, [0.025, 0.975])
   * 収束診断: gelman_rubin_diagnostic、トレースプロット、effective_sample_sizeで混合と有効サンプル数を確認。
   * 再現性: Random.seed!の固定に加え、並列サンプル時はチェーンごとに種をずらして規則化。
 
-
-
 * * *
 
 # 8\. Flux×Turingの橋渡し:確率的深層学習の最小例
@@ -7673,8 +6021,6 @@ mean_pred = mean(ys); interval = quantile(ys, [0.025, 0.975])
   * 分散: ワーカーID(myid())に基づく種を配布し、pmapの順序を固定(入力リスト順)。
   * GPU: 乱数列はCPUで生成→GPUへ転送し、消費順序を固定(カーネル内での生成は複雑化しやすい)。
 
-
-
 * * *
 
 # 10. 評価指標と検証:ホールドアウト・交差・時系列の注意
@@ -7684,20 +6030,16 @@ mean_pred = mean(ys); interval = quantile(ys, [0.025, 0.975])
   * 時系列: 時系列はシャッフル禁止・時系列分割(rolling)で検証。リーク防止のため、未来情報を使わない。
   * クラス不均衡: AUC、適合率/再現率、F1、ROC曲線を併用し、しきい値最適化を行います。
 
-
-
 * * *
 
 # 11. モデル配布:重み・前処理・メタデータの一体化
 
 配布時は、(1) モデル構造(コード)、(2) 重み(BSONやJLSO)、(3) 前処理パイプライン(スケーラの平均・分散、エンコーダのカテゴリ辞書)、(4) 乱数種・バージョン・依存関係、を一体化します。
 
-using BSON: @save, @load  
-
+using BSON: @save, @load
 
 # 保存  
 @save "model.bson" model μ σ # 例:標準化の統計量も保存  
-
 
 # 復元  
 @load "model.bson" model μ σ
@@ -7710,35 +6052,17 @@ MLJのパイプラインはsaveで一括保存し、推論時に同じ前処理�
 
 ## 12.1 Fluxで二値分類(簡略版)
 
-using Flux, Random  
-Random.seed!(20240101)  
+using Flux, Random Random.seed!(20240101)
 
+model = Chain(Dense(10, 32, relu), Dense(32, 2), softmax) loss(ŷ, y) = Flux.Losses.logitcrossentropy(ŷ, y) opt = Flux.Adam(1e-3)
 
-model = Chain(Dense(10, 32, relu), Dense(32, 2), softmax)  
-loss(ŷ, y) = Flux.Losses.logitcrossentropy(ŷ, y)  
-opt = Flux.Adam(1e-3)  
+X = rand(Float32, 10, 2048) Y = Flux.onehotbatch(rand(0:1, 2048), 0:1)
 
-
-X = rand(Float32, 10, 2048)  
-Y = Flux.onehotbatch(rand(0:1, 2048), 0:1)  
-
-
-for epoch in 1:30  
-grads = gradient(Flux.params(model)) do  
-loss(model(X), Y)  
-end  
-Flux.Optimise.update!(opt, Flux.params(model), grads)  
-end
+for epoch in 1:30 grads = gradient(Flux.params(model)) do loss(model(X), Y) end Flux.Optimise.update!(opt, Flux.params(model), grads) end
 
 ## 12.2 MLJでベースライン比較
 
-using MLJ  
-@load LogisticClassifier pkg=MLJLinearModels  
-clf = LogisticClassifier()  
-mach = machine(clf, MLJ.table(X'), argmax.(eachcol(Y))) # ラベルへ戻す  
-fit!(mach)  
-yhat = predict(mach, MLJ.table(X'))  
-acc = MLJ.accuracy(yhat, argmax.(eachcol(Y)))
+using MLJ @load LogisticClassifier pkg=MLJLinearModels clf = LogisticClassifier() mach = machine(clf, MLJ.table(X'), argmax.(eachcol(Y))) # ラベルへ戻すfit!(mach) yhat = predict(mach, MLJ.table(X')) acc = MLJ.accuracy(yhat, argmax.(eachcol(Y)))
 
 ## 12.3 Turingで閾値の不確実性評価(概念)
 
@@ -7753,8 +6077,6 @@ acc = MLJ.accuracy(yhat, argmax.(eachcol(Y)))
   * 停止: 時間制限、試行数上限、改善が止まったら終了。
   * 記録: 試行ごとの設定・指標・モデルサイズ・乱数種を記録し、後で再現できるようにします。
 
-
-
 MLJのTunedModelや、Fluxでは自前ループ+Grid/Random/Bayesian探索の実装で対応します。
 
 * * *
@@ -7765,8 +6087,6 @@ MLJのTunedModelや、Fluxでは自前ループ+Grid/Random/Bayesian探索の実
   * プロファイリング: 学習時間、アロケーション、GPUメモリ占有、I/O待ちを計測。
   * 監査: データの欠損率・分布変化(ドリフト)・ラベル品質・モデルの公平性指標(必要に応じて)。
 
-
-
 * * *
 
 # 15. 実務上の注意:ドリフト対策・分布外検知・堅牢化
@@ -7774,8 +6094,6 @@ MLJのTunedModelや、Fluxでは自前ループ+Grid/Random/Bayesian探索の実
   * ドリフト: 本番データの分布が学習時とズレたら、再学習やオンライン更新で対応。
   * 分布外検知: 異常値に弱いモデルには、一貫した前処理と外れ値ロバストな指標を用意。
   * 堅牢化: L2正則化、データ拡張(画像・音声・テキストでの適切な拡張)、アンサンブルで安定性向上。
-
-
 
 * * *
 
@@ -7787,8 +6105,6 @@ MLJのTunedModelや、Fluxでは自前ループ+Grid/Random/Bayesian探索の実
   * MLJでベースライン比較とハイパーパラメータ探索を行い、指標のばらつきを評価します。
   * Turingで不確実性を明示化し、事前・事後・事後予測を一体で記述して推論します。
   * モデル配布では、重み・前処理・メタデータ・乱数種・依存関係のセットを提供し、追試可能性を担保します。
-
-
 
 この流儀により、Flux・MLJ・Turingのそれぞれの強み(表現力・統合インターフェース・不確実性の扱い)を一つのプロジェクトの中で活かし、現場水準の品質と再現性を両立できます。
 
@@ -7807,8 +6123,6 @@ MLJのTunedModelや、Fluxでは自前ループ+Grid/Random/Bayesian探索の実
   * 連携(どう外部とつなぐか):シミュレータ・最適化器・可視化器・データ源。
   * 運用(どう保守するか):拡張性・後方互換性・バージョニング・ドキュメント・テスト。
 
-
-
 本章では、Juliaの型・マクロ・メタプログラミングを駆使して、検証可能な仕様記述言語を作るための設計指針と具体例を示します。
 
 * * *
@@ -7821,8 +6135,6 @@ DSLは、宣言的に「仕様」を書けることを優先します。命令�
   * 最小核:目的・制約・パラメータ・データ・モデル構造のごく基本セットから始める。
   * 拡張点:プラグイン式に演算子や構文糖衣を足せるフック(型・マクロ)を用意する。
   * 直交性:仕様の各概念が互いに独立(直交)で、組み合わせが爆発しないように設計。
-
-
 
 悪い例は、糖衣に偏りすぎて意味的曖昧さを招くこと/構文の自由度が高すぎて解析が困難になることです。まず「語彙と意味」を型で固め、上に薄い記法を乗せます。
 
@@ -7837,7 +6149,6 @@ abstract type Objective end
 abstract type Constraint end  
 abstract type EventSpec end  
 
-
 # 目的関数(最小化/最大化)  
 struct Minimize <: Objective  
 expr::Expr  
@@ -7845,7 +6156,6 @@ end
 struct Maximize <: Objective  
 expr::Expr  
 end  
-
 
 # 代表的制約  
 struct Eq <: Constraint  
@@ -7861,13 +6171,11 @@ lhs::Expr
 rhs::Expr  
 end  
 
-
 # イベント仕様  
 struct When <: EventSpec  
 cond::Expr # 条件式(ゼロ交差など)  
 act::Expr # 作用(更新・介入)  
 end  
-
 
 # モデル全体(仕様のコンテナ)  
 struct SpecModel  
@@ -7885,30 +6193,9 @@ Exprを保持するのは、宣言と実行計画の生成を分けるためで�
 
 マクロはパース後・型推論前に式を変換する仕組みです。ユーザー式を受け、衛生的に展開し、SpecModelを組み立てるスケルトンを用意します。
 
-macro spec(ex)  
-# ブロック専用  
-ex.head == :block || error("@spec は begin ... end ブロックで使います")  
-objective = nothing  
-constraints = Expr[]  
-events = Expr[]  
-params = Dict{Symbol,Any}()  
+macro spec(ex) # ブロック専用ex.head == :block || error("@spec は begin ... end ブロックで使います") objective = nothing constraints = Expr[] events = Expr[] params = Dict{Symbol,Any}()
 
-
-for stmt in ex.args  
-if stmt.head == :(=) && stmt.args[1] == :objective  
-objective = stmt.args[2]  
-elseif stmt isa Expr && stmt.head == :call && stmt.args[1] == :constraint  
-push!(constraints, stmt)  
-elseif stmt isa Expr && stmt.head == :call && stmt.args[1] == :event  
-push!(events, stmt)  
-elseif stmt.head == :(=) && stmt.args[1] == :param  
-# 例:param = (:alpha => 0.1) のような入力を期待  
-pair = stmt.args[2]  
-params[pair.args[1]] = pair.args[2]  
-end  
-end  
-objective === nothing && error("objective がありません")  
-
+for stmt in ex.args if stmt.head == :(=) && stmt.args[1] == :objective objective = stmt.args[2] elseif stmt isa Expr && stmt.head == :call && stmt.args[1] == :constraint push!(constraints, stmt) elseif stmt isa Expr && stmt.head == :call && stmt.args[1] == :event push!(events, stmt) elseif stmt.head == :(=) && stmt.args[1] == :param # 例:param = (:alpha => 0.1) のような入力を期待pair = stmt.args[2] params[pair.args[1]] = pair.args[2] end end objective === nothing && error("objective がありません")
 
 # Objective 型へ包む  
 obj_node = :(Minimize($(esc(objective)))) # 例では最小化に固定(実務では切替)  
@@ -7924,8 +6211,6 @@ end
   * マクロ内部で導入する識別子はgensymで一意化する(衝突防止)。
   * 論理チェック(期待される式形でなければ明確にerror)を行い、曖昧さを避ける。
 
-
-
 実務では、MacroTools.jl的な構文支援があると便利ですが、まずは自前で式形を確かめる基本を徹底します。
 
 * * *
@@ -7937,7 +6222,6 @@ end
 # ダミーのマーカー関数(@spec が拾う)  
 constraint(lhs, rhs) = :(lhs <= rhs) # プレースホルダ  
 event(cond, act) = :(when cond then act) # プレースホルダ  
-
 
 # 使用例  
 spec = @spec begin  
@@ -7961,26 +6245,13 @@ struct ValidationError <: Exception
 msg::String  
 end  
 
-
-function validate(spec::SpecModel)  
-# 目的が式か  
-spec.objective isa Objective || throw(ValidationError("objective が不正です"))  
-# 制約は少なくとも1つ  
-isempty(spec.constraints) && throw(ValidationError("制約がありません"))  
-# パラメータ値の範囲(例)  
-for (k,v) in spec.params  
-k == :alpha && !(0.0 <= v <= 1.0) && throw(ValidationError("alpha の範囲が不正"))  
-end  
-return spec  
-end
+function validate(spec::SpecModel) # 目的が式かspec.objective isa Objective || throw(ValidationError("objective が不正です")) # 制約は少なくとも1つisempty(spec.constraints) && throw(ValidationError("制約がありません")) # パラメータ値の範囲(例) for (k,v) in spec.params k == :alpha && !(0.0 <= v <= 1.0) && throw(ValidationError("alpha の範囲が不正")) end return spec end
 
 強化案:
 
   * 単位付き量を型に織り込む(Quantity{T,U})ことで単位不整合を型レベルで検出。
   * 値域・境界・不変量(非負・保存則・整合条件)の検査を宣言可能にし、実行前に自動チェック。
   * 代数的矛盾(同値式の重複・不可能条件)を記号的に検出(段階的に導入)。
-
-
 
 * * *
 
@@ -7996,46 +6267,7 @@ callback::Function # state→state(イベント作用)
 params::Dict{Symbol,Any}  
 end  
 
-
-function compile(spec::SpecModel)  
-validate(spec)  
-# 目的関数(簡略例:x,y を引数に取る)  
-obj = let ex = spec.objective::Minimize  
-(x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), ex.expr))  
-end  
-# 制約関数群  
-cons = map(spec.constraints) do c  
-if c isa Le  
-lhs, rhs = c.lhs, c.rhs  
-(x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(lhs) <= $(rhs))))  
-elseif c isa Ge  
-lhs, rhs = c.lhs, c.rhs  
-(x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(lhs) >= $(rhs))))  
-elseif c isa Eq  
-lhs, rhs = c.lhs, c.rhs  
-(x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(lhs) == $(rhs))))  
-else  
-(x,y) -> false  
-end  
-end  
-# イベント(簡略例)  
-cb = if isempty(spec.events)  
-st -> st  
-else  
-ev = spec.events[1]  
-(st::NamedTuple) -> begin  
-cond = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), ev.cond))  
-if cond == 0  
-# 作用を適用(x = 0.5 など)  
-xnew = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), ev.act))  
-(; x = xnew, y = st.y)  
-else  
-st  
-end  
-end  
-end  
-return CompiledSpec(obj, cons, cb, spec.params)  
-end
+function compile(spec::SpecModel) validate(spec) # 目的関数(簡略例:x,y を引数に取る) obj = let ex = spec.objective::Minimize (x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), ex.expr)) end # 制約関数群cons = map(spec.constraints) do c if c isa Le lhs, rhs = c.lhs, c.rhs (x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(lhs) <= $(rhs)))) elseif c isa Ge lhs, rhs = c.lhs, c.rhs (x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(lhs) >= $(rhs)))) elseif c isa Eq lhs, rhs = c.lhs, c.rhs (x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(lhs) == $(rhs)))) else (x,y) -> false end end # イベント(簡略例) cb = if isempty(spec.events) st -> st else ev = spec.events[1] (st::NamedTuple) -> begin cond = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), ev.cond)) if cond == 0 # 作用を適用(x = 0.5 など) xnew = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), ev.act)) (; x = xnew, y = st.y) else st end end end return CompiledSpec(obj, cons, cb, spec.params) end
 
 本例は最小の雛形です。実務では、evalを減らし、式→ネイティブ関数のコード生成(build_function相当)へ寄せることで高速化・安全化します。
 
@@ -8059,11 +6291,7 @@ st2 = cs.callback((; x=x_new, y=y_new))
 return st2  
 end  
 
-
-function feasible(cs::CompiledSpec, state::NamedTuple)  
-all(f -> f(state.x, state.y), cs.constraints)  
-end  
-
+function feasible(cs::CompiledSpec, state::NamedTuple) all(f -> f(state.x, state.y), cs.constraints) end
 
 # 実行例  
 st = (; x=0.9, y=1.5)  
@@ -8085,8 +6313,6 @@ DSLの品質はエラーメッセージで決まります。何が・どこで�
   * なぜ:期待された文法・型・値域を明確に記載。
   * どう直すか:有効な例・既定値・利用可能なオプションを提示。
 
-
-
 マクロ展開時に、式と位置情報をラップしておくと、エラーに位置を付せます。
 
 * * *
@@ -8099,8 +6325,6 @@ DSLの品質はエラーメッセージで決まります。何が・どこで�
   * 拡張:追加の演算子・構文糖衣・ドメイン固有の検証ルール・最適化。
   * 直交性:拡張が核の他要素へ副作用を持たない(影響範囲が局所)。
   * プラグイン登録:register!(dsl_extension)のように明示的に拡張を有効化。
-
-
 
 無秩序な拡張は互換性を崩します。後方互換は固定し、破壊的変更はメジャーバージョンでのみ許容します(セマンティックバージョニング)。
 
@@ -8116,8 +6340,6 @@ DSLの品質はエラーメッセージで決まります。何が・どこで�
   * メッセージ品質:エラーが読みやすく、修正指針が明確。
   * テスト:不変量・境界・互換性・パフォーマンスの回帰を監視。
 
-
-
 失敗例に通底する要素:
 
   * 型海賊:他人の型へ他人の関数をグローバル拡張(予測不能な挙動)。
@@ -8125,8 +6347,6 @@ DSLの品質はエラーメッセージで決まります。何が・どこで�
   * 過度な糖衣:短期的快適だが意味を隠し、検証と最適化を阻害。
   * 互換性軽視:拡張で既存仕様を壊し、再現性が崩れる。
   * 計測不足:性能・メモリ・起動遅延・エラー率の把握がない。
-
-
 
 * * *
 
@@ -8139,12 +6359,10 @@ function cost(cs::CompiledSpec, x::Float64, y::Float64)
 return cs.objective(x, y)  
 end  
 
-
 # 可行性チェック  
 function feasible(cs::CompiledSpec, x::Float64, y::Float64)  
 return all(f -> f(x, y), cs.constraints)  
 end  
-
 
 # 乱暴な座標降下(例)  
 function solve_min(cs::CompiledSpec; x0=0.0, y0=0.0, η=0.01, maxiter=10_000)  
@@ -8169,7 +6387,6 @@ end
 return best  
 end  
 
-
 best = solve_min(compile(spec))
 
 DSLからシミュレーションへ渡すときは、step!・イベント・状態型(構造体)を整え、ループ・停止条件・ログ・可視化を組み合わせます。仕様側で状態・更新・制約・イベントを宣言し、ブリッジ層でシミュレータAPIへ写像するのが定石です。
@@ -8180,18 +6397,13 @@ DSLからシミュレーションへ渡すときは、step!・イベント・状
 
 @generatedは型パラメータに依存するコード展開に向きます(タプル長に応じた展開・固定サイズ演算のアンロールなど)。DSLでは、静的に決まる部分(固定次元の線形代数・演算テンプレート)に限って使用し、動的値に依存する生成は避けます。
 
-@generated function sum_tuple(t::NTuple{N,Float64}) where {N}  
-ex = reduce((a,b)->:( $a + $b ), [:(t[$i]) for i in 1:N])  
-return ex  
-end
+@generated function sum_tuple(t::NTuple{N,Float64}) where {N} ex = reduce((a,b)->:( $a + $b ), [:(t[$i]) for i in 1:N]) return ex end
 
 適用指針:
 
   * 速度の要が静的構造にあるときのみ採用。
   * 生成コードの検証(@code_typed・@code_llvm)とベンチで回帰監視。
   * 過度なメソッド増殖・巨大Unionの生成を避ける(コンパイル負荷になる)。
-
-
 
 * * *
 
@@ -8202,8 +6414,6 @@ end
   * ドキュメント:語彙・意味・文法・例・拡張点・エラー一覧・FAQを整備。docstringで?ヘルプも提供。
   * バージョニング:セマンティックバージョニング(MAJOR.MINOR.PATCH)。破壊的変更はメジャーで告知・移行ガイド同梱。
 
-
-
 * * *
 
 # 15. 実務の前処理・後処理:データ・可視化・成果物の一体化
@@ -8212,22 +6422,15 @@ end
   * 可視化:Plots/Makieで仕様→結果を一体で図化。凡例・軸・単位を統一し、再生成可能なスクリプトにする。
   * 成果物:Arrowで中間生成物を列指向保存。仕様・コンパイル結果・ログ・図を同梱して配布。
 
-
-
 * * *
 
 # 16. 拡張設計パターン:タグ・トレイト・インターフェース準拠
 
 DSLの拡張は、タグディスパッチとトレイトが有効です。例えば、制約の種類・解法の選択をタグで切り替えます。
 
-abstract type SolverTag end  
-struct FastGrad <: SolverTag end  
-struct Robust <: SolverTag end  
+abstract type SolverTag end struct FastGrad <: SolverTag end struct Robust <: SolverTag end
 
-
-solve(cs::CompiledSpec, st; ::FastGrad) = solve_min(cs; x0=st.x, y0=st.y, η=0.05)  
-solve(cs::CompiledSpec, st; ::Robust) = solve_min(cs; x0=st.x, y0=st.y, η=0.005)  
-
+solve(cs::CompiledSpec, st; ::FastGrad) = solve_min(cs; x0=st.x, y0=st.y, η=0.05) solve(cs::CompiledSpec, st; ::Robust) = solve_min(cs; x0=st.x, y0=st.y, η=0.005)
 
 # トレイト(能力判定)  
 has_event(::CompiledSpec) = true # 例(本来はeventsの有無を見る)
@@ -8244,47 +6447,26 @@ has_event(::CompiledSpec) = true # 例(本来はeventsの有無を見る)
   * Project.toml/Manifest.toml:依存固定・再現性確保。
   * CI:テスト・ベンチ・ドキュメント生成を自動化。
 
-
-
 * * *
 
 # 18. 具体例:制約付き二変数最小化DSLの小さな完成形(雛形)
 
 下記は、これまでの断片をひとつにまとめた最小DSLの雛形です。学習目的の簡易版として参照ください。
 
-module MiniDSL  
-export @spec, SpecModel, compile, validate, solve_min  
-
+module MiniDSL export @spec, SpecModel, compile, validate, solve_min
 
 # --- 語彙型 ---  
 abstract type Objective end  
 abstract type Constraint end  
 abstract type EventSpec end  
 
+struct Minimize <: Objective expr::Expr end struct Le <: Constraint lhs::Expr; rhs::Expr end struct When <: EventSpec cond::Expr; act::Expr end
 
-struct Minimize <: Objective  
-expr::Expr  
-end  
-struct Le <: Constraint  
-lhs::Expr; rhs::Expr  
-end  
-struct When <: EventSpec  
-cond::Expr; act::Expr  
-end  
-
-
-struct SpecModel  
-objective::Objective  
-constraints::Vector{Constraint}  
-events::Vector{EventSpec}  
-params::Dict{Symbol,Any}  
-end  
-
+struct SpecModel objective::Objective constraints::Vector{Constraint} events::Vector{EventSpec} params::Dict{Symbol,Any} end
 
 # --- マーカー関数(文法素片) ---  
 constraint(lhs, rhs) = (:constraint, lhs, rhs)  
 event(cond, act) = (:event, cond, act)  
-
 
 # --- マクロ ---  
 macro spec(ex)  
@@ -8294,23 +6476,7 @@ constraints = Expr[]
 events = Expr[]  
 params = Dict{Symbol,Any}()  
 
-
-for stmt in ex.args  
-if stmt.head == :(=) && stmt.args[1] == :objective  
-objective = stmt.args[2]  
-elseif stmt isa Expr && stmt.head == :tuple && stmt.args[1] == :constraint  
-push!(constraints, :(Le($(esc(stmt.args[2])), $(esc(stmt.args[3])))))  
-elseif stmt isa Expr && stmt.head == :tuple && stmt.args[1] == :event  
-push!(events, :(When($(esc(stmt.args[2])), $(esc(stmt.args[3])))))  
-elseif stmt.head == :(=) && stmt.args[1] == :param  
-pair = stmt.args[2]  
-params[pair.args[1]] = pair.args[2]  
-end  
-end  
-objective === nothing && error("objective がありません")  
-return :(SpecModel(Minimize($(esc(objective))), $constraints, $events, $(esc(params))))  
-end  
-
+for stmt in ex.args if stmt.head == :(=) && stmt.args[1] == :objective objective = stmt.args[2] elseif stmt isa Expr && stmt.head == :tuple && stmt.args[1] == :constraint push!(constraints, :(Le($(esc(stmt.args[2])), $(esc(stmt.args[3]))))) elseif stmt isa Expr && stmt.head == :tuple && stmt.args[1] == :event push!(events, :(When($(esc(stmt.args[2])), $(esc(stmt.args[3]))))) elseif stmt.head == :(=) && stmt.args[1] == :param pair = stmt.args[2] params[pair.args[1]] = pair.args[2] end end objective === nothing && error("objective がありません") return :(SpecModel(Minimize($(esc(objective))), $constraints, $events, $(esc(params)))) end
 
 # --- 検証 ---  
 struct ValidationError <: Exception  
@@ -8326,7 +6492,6 @@ end
 return spec  
 end  
 
-
 # --- コンパイル(簡易) ---  
 struct CompiledSpec  
 objective::Function  
@@ -8335,29 +6500,7 @@ callback::Function
 params::Dict{Symbol,Any}  
 end  
 
-
-function compile(spec::SpecModel)  
-validate(spec)  
-obj = let ex = (spec.objective::Minimize).expr  
-(x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), ex))  
-end  
-cons = map(spec.constraints) do c  
-(c::Le; (x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(c.lhs) <= $(c.rhs)))))  
-end  
-cb = isempty(spec.events) ? (st->st) : let e = spec.events[1]  
-(st::NamedTuple) -> begin  
-cond = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), e.cond))  
-if cond == 0  
-xnew = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), e.act))  
-(; x=xnew, y=st.y)  
-else  
-st  
-end  
-end  
-end  
-return CompiledSpec(obj, cons, cb, spec.params)  
-end  
-
+function compile(spec::SpecModel) validate(spec) obj = let ex = (spec.objective::Minimize).expr (x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), ex)) end cons = map(spec.constraints) do c (c::Le; (x,y) -> eval(Expr(:block, :(x=$(x)), :(y=$(y)), :($(c.lhs) <= $(c.rhs))))) end cb = isempty(spec.events) ? (st->st) : let e = spec.events[1] (st::NamedTuple) -> begin cond = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), e.cond)) if cond == 0 xnew = eval(Expr(:block, :(x=$(st.x)), :(y=$(st.y)), e.act)) (; x=xnew, y=st.y) else st end end end return CompiledSpec(obj, cons, cb, spec.params) end
 
 # --- 最小化(座標降下の簡易例) ---  
 function solve_min(cs::CompiledSpec; x0=0.0, y0=0.0, η=0.01, maxiter=10_000)  
@@ -8379,12 +6522,9 @@ end
 return best  
 end  
 
+end # module
 
-end # module  
-
-
-using .MiniDSL  
-
+using .MiniDSL
 
 # 使用例  
 spec = @spec begin  
@@ -8395,9 +6535,7 @@ event(x - 0.5, :(x = 0.5))
 param = (:alpha => 0.1)  
 end  
 
-
-cs = MiniDSL.compile(spec)  
-ans = MiniDSL.solve_min(cs; x0=0.9, y0=1.5)
+cs = MiniDSL.compile(spec) ans = MiniDSL.solve_min(cs; x0=0.9, y0=1.5)
 
 この雛形は、仕様→検証→コンパイル→実行の流れの骨格です。実務では、evalの削減・自動微分・イベントの連続検知・実シミュレータへの橋渡し・高度な検証(単位・不変量)などを段階的に追加します。
 
@@ -8409,8 +6547,6 @@ ans = MiniDSL.solve_min(cs; x0=0.9, y0=1.5)
   * 再現性:プロジェクト環境・乱数・前処理・出力グリッド・ソルバ属性を固定。仕様・検証・ログ・成果物を同梱。
   * 保守:核の直交性・プラグイン拡張・後方互換・セマンティックバージョニング。ドキュメントとテストを先行。
 
-
-
 * * *
 
 # 20. 運用箇条(記述のみ)
@@ -8420,8 +6556,6 @@ ans = MiniDSL.solve_min(cs; x0=0.9, y0=1.5)
   * 仕様は必ず検証可能にし、単位・値域・不変量・初期一致性をコード化します。
   * 実行計画は、中間表現→最適化(関数化)→シミュレータ橋渡しへ段階設計します。
   * 成功例に学び、曖昧文法・型海賊・過度な糖衣・互換性軽視を避けます。
-
-
 
 この指針に従うことで、Juliaを仕様記述言語として活用し、領域固有の文法をもつDSLを正しく・速く・検証可能に設計・運用できます。
 
@@ -8439,51 +6573,20 @@ ans = MiniDSL.solve_min(cs; x0=0.9, y0=1.5)
 
 雛形は「コード・テスト・ドキュメント・CI・ライセンス」を同梱した最小完全形が望ましいです。PkgTemplatesでプロジェクト骨子を作ります。
 
-julia> using PkgTemplates  
+julia> using PkgTemplates
 
-
-julia> t = Template(  
-user="YourGitHubID",  
-authors=["Your Name <you@example.com>"],  
-license="MIT",  
-julia_version=v"1.10",  
-dir=joinpath(homedir(), ".julia", "dev"),  
-plugins=[  
-GitHubActions(), # CI  
-Documenter{GitHubActions}(),  
-Codecov(), # 任意:カバレッジ  
-CompatHelper(), # 任意:互換性PR  
-TagBot() # リリースタグ自動化  
-],  
-);  
-
+julia> t = Template( user="YourGitHubID", authors=["Your Name <you@example.com>"], license="MIT", julia_version=v"1.10", dir=joinpath(homedir(), ".julia", "dev"), plugins=[ GitHubActions(), # CI Documenter{GitHubActions}(), Codecov(), # 任意:カバレッジCompatHelper(), # 任意:互換性PR TagBot() # リリースタグ自動化], );
 
 julia> generate("AwesomePackage", t)
 
 生成後の標準構成(例):
 
-AwesomePackage/  
-├─ Project.toml  
-├─ src/  
-│ └─ AwesomePackage.jl  
-├─ test/  
-│ └─ runtests.jl  
-├─ docs/  
-│ ├─ Project.toml  
-│ ├─ make.jl  
-│ └─ src/  
-│ └─ index.md  
-├─ .github/workflows/  
-│ ├─ CI.yml  
-│ └─ TagBot.yml  
-└─ LICENSE
+AwesomePackage/ ├─ Project.toml ├─ src/ │ └─ AwesomePackage.jl ├─ test/ │ └─ runtests.jl ├─ docs/ │ ├─ Project.toml │ ├─ make.jl │ └─ src/ │ └─ index.md ├─ .github/workflows/ │ ├─ CI.yml │ └─ TagBot.yml └─ LICENSE
 
   * src/:公開API(モジュール)を定義します。
   * test/:単体テスト・プロパティテスト・統合テストの入口です。
   * docs/:DocumenterでAPIとチュートリアルを自動生成します。
   * .github/workflows/:CIとドキュメントの自動デプロイ設定を含みます。
-
-
 
 * * *
 
@@ -8491,53 +6594,23 @@ AwesomePackage/
 
 公開APIは「薄いが頑丈」であることが理想です。型・関数にドキュメント文字列(docstring)を必ず付与します。
 
-module AwesomePackage  
+module AwesomePackage
 
+export addthree, Accumulator
 
-export addthree, Accumulator  
+""" addthree(x::Number, y::Number, z::Number) -> Number
 
+3つの数値`x, y, z`を足し合わせて返します。引数は`Number`であれば混合型でも受け付けます(必要に応じて`promote`)。""" function addthree(x::Number, y::Number, z::Number) x2, y2, z2 = promote(x, y, z) return x2 + y2 + z2 end
 
-"""  
-addthree(x::Number, y::Number, z::Number) -> Number  
+""" Accumulator{T}
 
+数値を累積する軽量な可変構造体。`push!`で値を追加し、`sum`と`count`を保持します。""" mutable struct Accumulator{T<:Real} sum::T count::Int end
 
-3つの数値`x, y, z`を足し合わせて返します。  
-引数は`Number`であれば混合型でも受け付けます(必要に応じて`promote`)。  
-"""  
-function addthree(x::Number, y::Number, z::Number)  
-x2, y2, z2 = promote(x, y, z)  
-return x2 + y2 + z2  
-end  
+Accumulator{T}() where {T<:Real} = Accumulator{T}(zero(T), 0)
 
+""" push!(acc::Accumulator{T}, x::T) -> Accumulator{T}
 
-"""  
-Accumulator{T}  
-
-
-数値を累積する軽量な可変構造体。  
-`push!`で値を追加し、`sum`と`count`を保持します。  
-"""  
-mutable struct Accumulator{T<:Real}  
-sum::T  
-count::Int  
-end  
-
-
-Accumulator{T}() where {T<:Real} = Accumulator{T}(zero(T), 0)  
-
-
-"""  
-push!(acc::Accumulator{T}, x::T) -> Accumulator{T}  
-
-
-値`x`を累積します。戻り値は`acc`自身です。  
-"""  
-function Base.push!(acc::Accumulator{T}, x::T) where {T<:Real}  
-acc.sum += x  
-acc.count += 1  
-return acc  
-end  
-
+値`x`を累積します。戻り値は`acc`自身です。""" function Base.push!(acc::Accumulator{T}, x::T) where {T<:Real} acc.sum += x acc.count += 1 return acc end
 
 end # module
 
@@ -8549,38 +6622,17 @@ end # module
 
 テストは「正常系」「境界」「異常系」を網羅します。@testと@test_throwsを組み合わせます。
 
-using Test  
-using AwesomePackage  
+using Test using AwesomePackage
 
+@testset "addthree" begin @test addthree(1, 2, 3) == 6 @test addthree(1.0, 2, 3) ≈ 6.0 @test addthree(-1, -2, 3) == 0 end
 
-@testset "addthree" begin  
-@test addthree(1, 2, 3) == 6  
-@test addthree(1.0, 2, 3) ≈ 6.0  
-@test addthree(-1, -2, 3) == 0  
-end  
-
-
-@testset "Accumulator" begin  
-acc = Accumulator{Float64}()  
-@test acc.sum == 0.0  
-@test acc.count == 0  
-push!(acc, 1.5)  
-@test acc.sum ≈ 1.5  
-@test acc.count == 1  
-end
+@testset "Accumulator" begin acc = Accumulator{Float64}() @test acc.sum == 0.0 @test acc.count == 0 push!(acc, 1.5) @test acc.sum ≈ 1.5 @test acc.count == 1 end
 
 プロパティテスト(性質検査)では、単調性・閉包性・不変量を検査します。簡易にはRandomでランダム値を生成し、性質を確認します。
 
-using Random  
+using Random
 
-
-@testset "Properties" begin  
-rng = MersenneTwister(1234)  
-for _ in 1:1000  
-a, b, c = rand(rng), rand(rng), rand(rng)  
-@test addthree(a, b, c) ≥ max(a, b, c) # (例)非負の範囲では最大値以上  
-end  
-end
+@testset "Properties" begin rng = MersenneTwister(1234) for _ in 1:1000 a, b, c = rand(rng), rand(rng), rand(rng) @test addthree(a, b, c) ≥ max(a, b, c) # (例)非負の範囲では最大値以上end end
 
 注意:性質の正当性はドメインに依存します。無条件の不等式は誤りになり得るため、検査式は仕様通りに記述してください。
 
@@ -8590,15 +6642,11 @@ end
 
 性能は「速さだけでなくアロケーション量」も重要です。BenchmarkToolsで関数単位の計測、PkgBenchmarkでバージョン間の性能比較を行います。
 
-using BenchmarkTools  
-using AwesomePackage  
+using BenchmarkTools using AwesomePackage
 
+x = rand(10_000); y = rand(10_000); z = rand(10_000)
 
-x = rand(10_000); y = rand(10_000); z = rand(10_000)  
-
-
-@btime addthree($x[1], $y[1], $z[1])  
-
+@btime addthree($x[1], $y[1], $z[1])
 
 # アロケーション量の粗確認  
 bytes = @allocated addthree(1.0, 2.0, 3.0)  
@@ -8609,16 +6657,11 @@ PkgBenchmarkの基本構成(パッケージ直下にbenchmark/benchmark.jlを用
 # benchmark/benchmark.jl  
 using AwesomePackage, BenchmarkTools  
 
-
-suite = BenchmarkGroup()  
-suite["addthree"] = @benchmarkable addthree($(rand()), $(rand()), $(rand()))  
-suite
+suite = BenchmarkGroup() suite["addthree"] = @benchmarkable addthree($(rand()), $(rand()), $(rand())) suite
 
 実行例(比較):
 
-julia> using PkgBenchmark  
-julia> results = benchmarkpkg("AwesomePackage") # 現行 vs 登録版の比較  
-julia> export_markdown(results, "benchmark_results.md")
+julia> using PkgBenchmark julia> results = benchmarkpkg("AwesomePackage") # 現行 vs 登録版の比較julia> export_markdown(results, "benchmark_results.md")
 
 ベンチはCIで定期実行し、性能回帰(遅くなる・アロケーション増)が検出されたら原因を追います。
 
@@ -8632,21 +6675,9 @@ docs/make.jlでサイト構築の設定を行います。最小例:
 using Documenter  
 using AwesomePackage  
 
+DocMeta.setdocmeta!(AwesomePackage, :DocTestSetup, :(using AwesomePackage); recursive=true)
 
-DocMeta.setdocmeta!(AwesomePackage, :DocTestSetup, :(using AwesomePackage); recursive=true)  
-
-
-makedocs(  
-modules=[AwesomePackage],  
-sitename="AwesomePackage.jl",  
-clean=true,  
-format=Documenter.HTML(),  
-pages=[  
-"Home" => "index.md",  
-"API" => "api.md",  
-],  
-)  
-
+makedocs( modules=[AwesomePackage], sitename="AwesomePackage.jl", clean=true, format=Documenter.HTML(), pages=[ "Home" => "index.md", "API" => "api.md", ], )
 
 # GitHub Pages等にデプロイする場合  
 deploydocs(  
@@ -8658,36 +6689,28 @@ devbranch="main",
 
 # API  
 
-
 ```@docs  
 AwesomePackage.addthree  
 AwesomePackage.Accumulator
 
 **doctest**:`DocMeta.setdocmeta!`の設定により、`jldoctest`ブロック内のコードがテストされます。例:  
 
-
 ```markdown  
 # 使い方  
 
-
 ```jldoctest  
 julia> using AwesomePackage  
-
 
 julia> addthree(1, 2, 3)  
 6
 
 `PkgTemplates`のドキュメントプラグインを使うと、CIで自動ビルド・デプロイが整います。  
 
-
 \---  
-
 
 # 7. 継続的インテグレーション(CI):テスト・ドキュメント・ベンチを自動化する  
 
-
 `GitHub Actions`の最小CI例(`/.github/workflows/CI.yml`):  
-
 
 ```yaml  
 name: CI  
@@ -8696,35 +6719,11 @@ push:
 branches: [ "main" ]  
 pull_request:  
 
-
-jobs:  
-test:  
-runs-on: ubuntu-latest  
-steps:  
-\- uses: actions/checkout@v4  
-\- uses: julia-actions/setup-julia@v2  
-with:  
-version: '1'  
-\- uses: julia-actions/cache@v2  
-\- name: Install dependencies  
-run: julia --project -e 'using Pkg; Pkg.instantiate()'  
-\- name: Run tests  
-run: julia --project -e 'using Pkg; Pkg.test(coverage=true)'  
-docs:  
-runs-on: ubuntu-latest  
-steps:  
-\- uses: actions/checkout@v4  
-\- uses: julia-actions/setup-julia@v2  
-with:  
-version: '1'  
-\- name: Build docs  
-run: julia --project=docs -e 'using Pkg; Pkg.instantiate(); include("docs/make.jl")'
+jobs: test: runs-on: ubuntu-latest steps: \- uses: actions/checkout@v4 \- uses: julia-actions/setup-julia@v2 with: version: '1' \- uses: julia-actions/cache@v2 \- name: Install dependencies run: julia --project -e 'using Pkg; Pkg.instantiate()' \- name: Run tests run: julia --project -e 'using Pkg; Pkg.test(coverage=true)' docs: runs-on: ubuntu-latest steps: \- uses: actions/checkout@v4 \- uses: julia-actions/setup-julia@v2 with: version: '1' \- name: Build docs run: julia --project=docs -e 'using Pkg; Pkg.instantiate(); include("docs/make.jl")'
 
   * テストジョブ:Pkg.test()で単体・プロパティテストを実行、カバレッジ収集。
   * ドキュメントジョブ:docs環境でmake.jlを実行してビルド。
   * ベンチジョブ:必要に応じて別ワークフローでPkgBenchmarkを実行し、差分をレポートします。
-
-
 
 Secrets(DOCUMENTER_KEY等)を設定すると、GitHub Pagesへの自動デプロイが可能です。
 
@@ -8736,26 +6735,15 @@ Secrets(DOCUMENTER_KEY等)を設定すると、GitHub Pagesへの自動デプロ
 
 Project.tomlの例:
 
-name = "AwesomePackage"  
-uuid = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"  
-version = "0.3.1"  
+name = "AwesomePackage" uuid = "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" version = "0.3.1"
 
+[deps] Documenter = "xxxx..." BenchmarkTools = "yyyy..."
 
-[deps]  
-Documenter = "xxxx..."  
-BenchmarkTools = "yyyy..."  
-
-
-[compat]  
-julia = "1.10"  
-Documenter = "1"  
-BenchmarkTools = "1"
+[compat] julia = "1.10" Documenter = "1" BenchmarkTools = "1"
 
   * juliaのバージョン範囲を固定します(例:"1.10")。
   * 依存パッケージのメジャー範囲を固定し、破壊的変更取り込みを防ぎます。
   * CIでPkg.status()を出力し、依存の差分をログに残します。
-
-
 
 * * *
 
@@ -8766,8 +6754,6 @@ BenchmarkTools = "1"
   * CHANGELOG.mdに「Added/Changed/Deprecated/Removed/Fixed」の分類で記録。
   * Deprecated期間を設け、警告を出して移行を促す(警告は一度だけ表示する設計が望ましい)。
   * 移行ガイドで旧APIと新APIの対応表を示し、サンプルコードを添えます。
-
-
 
 * * *
 
@@ -8781,8 +6767,6 @@ BenchmarkTools = "1"
   4. TagBotでリリースタグに応じたリリースノートを自動生成。
   5. 利用者は] add AwesomePackageでインストール可能になります。
 
-
-
 バージョン更新時は、[compat]の更新・CHANGELOGの追記・タグ付け・CI合格を確認してから登録します。
 
 * * *
@@ -8795,8 +6779,6 @@ BenchmarkTools = "1"
   * 例:doctestで実行可能な最小例に揃え、CIで破綻なくテストされる状態を維持。
   * FAQ:インストールエラー、互換性、既知の限界、パフォーマンスのコツを載せます。
 
-
-
 * * *
 
 # 12. テストの拡張:プロパティ・隠れバグ検知・カバレッジ
@@ -8804,8 +6786,6 @@ BenchmarkTools = "1"
   * プロパティテスト:仕様的性質(可逆性、単調性、保存量)をランダム入力で検証。
   * 隠れバグの検知:境界値(0・Inf・NaN・空配列・巨大配列)・異種型・ミュータブル/イミュータブルを取り合わせる。
   * カバレッジ:CIでカバレッジを集計し、閾値を設定(過度に高すぎる閾値は逆効果)。重要分岐を優先的に網羅します。
-
-
 
 * * *
 
@@ -8815,23 +6795,16 @@ BenchmarkTools = "1"
   * 最適化:型安定・.=融合・ビュー・インプレース・@inbounds(正しさ確認後)を適用。
   * 回帰検知:PkgBenchmarkでバージョン比較を自動化(CIで前回リリースと比較)。
 
-
-
 * * *
 
 # 14. 開発フロー:dev運用・Revise・ローカルCI
 
   * ローカル開発:] dev AwesomePackageで作業ディレクトリへリンク、Revise.jlで関数変更をREPLに即時反映。
 
-
-
-using Revise  
-using AwesomePackage
+using Revise using AwesomePackage
 
   * ローカルCI:Pkg.test()・docs/make.jl・ベンチをローカルで回し、PR前に品質を担保。
   * ブランチ戦略:mainへ直接コミットしない、PRベース運用・レビュー必須・CI必須を徹底。
-
-
 
 * * *
 
@@ -8840,13 +6813,9 @@ using AwesomePackage
   * 例外型:ArgumentError/DomainError/BoundsErrorなど標準を優先。独自型は必要最小限。
   * メッセージ品質:原因・値・期待範囲・対処の一行を含める。
 
-
-
 x ≥ 0 || throw(DomainError(x, "x must be nonnegative"))
 
   * 失敗の再現性:ランダム要素のある処理は種を固定し、失敗が再現可能であることを保証。
-
-
 
 * * *
 
@@ -8855,8 +6824,6 @@ x ≥ 0 || throw(DomainError(x, "x must be nonnegative"))
   * 秘密情報:APIキー・トークンはENVで渡し、コードに直書きしない。CIのsecretsを利用。
   * ライセンス:LICENSEをプロジェクト直下に配置。依存パッケージのライセンス互換性も確認。
   * 著作権表示:ドキュメント・ソースのヘッダに年・著作者を明記。
-
-
 
 * * *
 
@@ -8870,8 +6837,6 @@ x ≥ 0 || throw(DomainError(x, "x must be nonnegative"))
   * 互換性:[compat]が埋められ、破壊的変更を避け、CHANGELOGに記録されているか。
   * 配布:タグ・登録・リリースノート・ドキュメント公開が整っているか。
 
-
-
 * * *
 
 # 18. 参考スニペット:Release準備の一連コマンド例(ローカル)
@@ -8880,17 +6845,14 @@ x ≥ 0 || throw(DomainError(x, "x must be nonnegative"))
 julia \--project -e 'using Pkg; Pkg.test()'  
 julia \--project=docs -e 'using Pkg; Pkg.instantiate(); include("docs/make.jl")'  
 
-
 # 2) バージョンを更新(Project.toml)  
 # version = "0.3.2" へ変更、CHANGELOG.mdを追記  
-
 
 # 3) タグ付け(シェル)  
 git add .  
 git commit -m "Release v0.3.2"  
 git tag v0.3.2  
 git push \--follow-tags  
-
 
 # 4) CI完了後、レジストリ登録手続きを実行(ワークフローやBotに従う)
 
@@ -8904,8 +6866,6 @@ git push \--follow-tags
   * CIは「壊れる前に止める」。PRに必須化し、失敗の原因がログで即時把握できるように。
   * バージョニングは約束事。互換性を尊重し、破壊的変更は慎重に告知・移行ガイドを添える。
   * 登録・配布は利用者の体験。タグ・リリースノート・ドキュメントが揃っていて初めて「使える」になります。
-
-
 
 以上の流儀で、PkgTemplates・Documenter・Test・BenchmarkTools・PkgBenchmark・CIを組み合わせれば、Juliaパッケージを正しく・速く・説明可能な形で開発・配布できます。
 
@@ -8926,7 +6886,6 @@ git push \--follow-tags
 # REPLでプロジェクト環境を起動  
 julia \--project=.  
 
-
 # Pkgモード(`]`)での基本操作  
 # ] activate .  
 # ] instantiate  
@@ -8934,8 +6893,6 @@ julia \--project=.
 
   * Project.toml:パッケージ名・UUID・バージョン・直接依存([deps])・互換性([compat])。
   * Manifest.toml:依存グラフの完全スナップショット(間接依存を含む)。手編集しない。
-
-
 
 新しいメンバーは、リポジトリをclone→julia --project=.→] instantiateで同じ環境を再構築できます。開発・検証・本番で環境を分離(例:/env/dev・/env/prod)し、\--project=env/prodで本番を固定する運用も有効です。
 
@@ -8945,17 +6902,11 @@ julia \--project=.
 
 Project.tomlの[compat]は安全装置です。最低限、juliaと主要依存を固定します。
 
-[compat]  
-julia = "1.10"  
-DataFrames = "1"  
-CSV = "0.10"  
-Plots = "1"
+[compat] julia = "1.10" DataFrames = "1" CSV = "0.10" Plots = "1"
 
   * ] update:互換範囲内で更新。更新前後で ] status の差分をログへ保存。
   * ] pin SomePkg:特定依存を固定し、更新から除外。
   * ] resolve:互換性の衝突を再解決。
-
-
 
 CIでPkg.status()の出力を成果物と一緒にアーカイブしておくと、いつどの依存で実行したかを検証できます。
 
@@ -8970,7 +6921,6 @@ using Pkg
 Pkg.activate(".")  
 Pkg.instantiate()  
 
-
 # 実行環境の記録  
 using InteractiveUtils  
 open("run_meta/versioninfo.txt", "w") do io  
@@ -8978,7 +6928,6 @@ redirect_stdout(io) do
 versioninfo()  
 end  
 end  
-
 
 # 依存一覧の記録  
 open("run_meta/status.txt", "w") do io  
@@ -8992,7 +6941,6 @@ using Pkg; Pkg.activate(".")
 # 設定・乱数種の集中管理  
 include("src/config.jl")  
 cfg = load_config("config/default.toml") # テキスト設定にしてもよい  
-
 
 # パイプラインの実行(後述)  
 include("src/pipeline.jl")  
@@ -9012,26 +6960,11 @@ julia \--project=. scripts/bootstrap.jl && julia \--project=. scripts/run.jl
 module Config  
 using Random  
 
+struct AppConfig seed::Int report_dir::String plot_theme::Symbol tol::Float64 maxiter::Int end
 
-struct AppConfig  
-seed::Int  
-report_dir::String  
-plot_theme::Symbol  
-tol::Float64  
-maxiter::Int  
-end  
+function load_config(path::AbstractString) # 例として固定値(実務ではTOML読み取り) return AppConfig(20240101, "reports", :default, 1e-8, 10_000) end
 
-
-function load_config(path::AbstractString)  
-# 例として固定値(実務ではTOML読み取り)  
-return AppConfig(20240101, "reports", :default, 1e-8, 10_000)  
-end  
-
-
-function mk_rng(cfg::AppConfig)  
-return MersenneTwister(cfg.seed)  
-end  
-
+function mk_rng(cfg::AppConfig) return MersenneTwister(cfg.seed) end
 
 end # module
 
@@ -9039,7 +6972,6 @@ end # module
 using .Config  
 cfg = Config.load_config("config/default.toml")  
 rng = Config.mk_rng(cfg)  
-
 
 # 下位関数は rng::AbstractRNG を受け取る  
 function sample_some(rng::AbstractRNG; n=1000)  
@@ -9058,57 +6990,21 @@ end
 module Pipeline  
 using CSV, DataFrames, Plots  
 
+function ensure_dirs(cfg) for d in (cfg.report_dir, joinpath(cfg.report_dir, "figures"), joinpath(cfg.report_dir, "tables"), joinpath(cfg.report_dir, "numbers")) isdir(d) || mkpath(d) end end
 
-function ensure_dirs(cfg)  
-for d in (cfg.report_dir, joinpath(cfg.report_dir, "figures"),  
-joinpath(cfg.report_dir, "tables"),  
-joinpath(cfg.report_dir, "numbers"))  
-isdir(d) || mkpath(d)  
-end  
-end  
+function gen_tables(cfg, df::DataFrame) out = combine(groupby(df, :category), :value => mean => :value_mean) CSV.write(joinpath(cfg.report_dir, "tables", "value_mean.csv"), out) return out end
 
+function gen_figures(cfg, df::DataFrame) default(); # 必要ならテーマ固定p = histogram(df.value; bins=50, xlabel="value", ylabel="count", title="Value Distribution") savefig(joinpath(cfg.report_dir, "figures", "hist_value.png")) return p end
 
-function gen_tables(cfg, df::DataFrame)  
-out = combine(groupby(df, :category), :value => mean => :value_mean)  
-CSV.write(joinpath(cfg.report_dir, "tables", "value_mean.csv"), out)  
-return out  
-end  
+function gen_numbers(cfg, df::DataFrame) open(joinpath(cfg.report_dir, "numbers", "summary.txt"), "w") do io println(io, "count=$(nrow(df))") println(io, "mean=$(mean(df.value))") println(io, "std=$(std(df.value))") end end
 
-
-function gen_figures(cfg, df::DataFrame)  
-default(); # 必要ならテーマ固定  
-p = histogram(df.value; bins=50, xlabel="value", ylabel="count", title="Value Distribution")  
-savefig(joinpath(cfg.report_dir, "figures", "hist_value.png"))  
-return p  
-end  
-
-
-function gen_numbers(cfg, df::DataFrame)  
-open(joinpath(cfg.report_dir, "numbers", "summary.txt"), "w") do io  
-println(io, "count=$(nrow(df))")  
-println(io, "mean=$(mean(df.value))")  
-println(io, "std=$(std(df.value))")  
-end  
-end  
-
-
-function run_pipeline(cfg)  
-ensure_dirs(cfg)  
-df = CSV.read("data/input.csv", DataFrame)  
-gen_tables(cfg, df)  
-gen_figures(cfg, df)  
-gen_numbers(cfg, df)  
-return nothing  
-end  
-
+function run_pipeline(cfg) ensure_dirs(cfg) df = CSV.read("data/input.csv", DataFrame) gen_tables(cfg, df) gen_figures(cfg, df) gen_numbers(cfg, df) return nothing end
 
 end # module
 
   * 図のテーマ・サイズ・フォントは固定(同一出力のため)。
   * 表はCSV.writeでバイナリ差分も追跡可能。
   * 数値はnumbers/配下へテキストで保存し、CIで閾値比較できます。
-
-
 
 * * *
 
@@ -9120,24 +7016,9 @@ end # module
 module Provenance  
 using SHA  
 
+function file_sha256(path::AbstractString) open(path, "r") do io return bytes2hex(sha256(read(io))) end end
 
-function file_sha256(path::AbstractString)  
-open(path, "r") do io  
-return bytes2hex(sha256(read(io)))  
-end  
-end  
-
-
-function record_provenance(cfg; input_path="data/input.csv")  
-open(joinpath(cfg.report_dir, "run_meta.txt"), "w") do io  
-println(io, "seed=$(cfg.seed)")  
-println(io, "input=$(abspath(input_path)) sha256=$(file_sha256(input_path))")  
-println(io, "plot_theme=$(cfg.plot_theme)")  
-println(io, "tol=$(cfg.tol) maxiter=$(cfg.maxiter)")  
-# バージョン情報は bootstrap で出力済み(versioninfo/status)  
-end  
-end  
-
+function record_provenance(cfg; input_path="data/input.csv") open(joinpath(cfg.report_dir, "run_meta.txt"), "w") do io println(io, "seed=$(cfg.seed)") println(io, "input=$(abspath(input_path)) sha256=$(file_sha256(input_path))") println(io, "plot_theme=$(cfg.plot_theme)") println(io, "tol=$(cfg.tol) maxiter=$(cfg.maxiter)") # バージョン情報は bootstrap で出力済み(versioninfo/status) end end
 
 end # module
 
@@ -9153,9 +7034,7 @@ end # module
 [my_dataset]  
 git-tree-sha1 = "abcdef1234567890..." # コンテンツID
 
-using Pkg.Artifacts  
-path = artifact"my_dataset"  
-df = CSV.read(joinpath(path, "dataset.csv"), DataFrame)
+using Pkg.Artifacts path = artifact"my_dataset" df = CSV.read(joinpath(path, "dataset.csv"), DataFrame)
 
 これにより、取得元と内容が固定され、他メンバーやCIでも同じ資源を参照できます。大規模データは分割・サブセットを作り、作業再現を優先します。
 
@@ -9169,30 +7048,14 @@ df = CSV.read(joinpath(path, "dataset.csv"), DataFrame)
 using Test  
 using .Config, .Pipeline, .Provenance  
 
+@testset "reproducible pipeline" begin cfg = Config.AppConfig(20240101, "reports_test", :default, 1e-8, 10_000) # 簡易入力を作るusing CSV, DataFrames, Random rng = Random.MersenneTwister(cfg.seed) df = DataFrame(category = rand(rng, ["A","B","C"], 1000), value = rand(rng, 1000)) CSV.write("data/input.csv", df)
 
-@testset "reproducible pipeline" begin  
-cfg = Config.AppConfig(20240101, "reports_test", :default, 1e-8, 10_000)  
-# 簡易入力を作る  
-using CSV, DataFrames, Random  
-rng = Random.MersenneTwister(cfg.seed)  
-df = DataFrame(category = rand(rng, ["A","B","C"], 1000),  
-value = rand(rng, 1000))  
-CSV.write("data/input.csv", df)  
-
-
-Pipeline.run_pipeline(cfg)  
-# 出力の存在  
-@test isfile(joinpath(cfg.report_dir, "figures", "hist_value.png"))  
-@test isfile(joinpath(cfg.report_dir, "tables", "value_mean.csv"))  
-@test isfile(joinpath(cfg.report_dir, "numbers", "summary.txt"))  
-end
+Pipeline.run_pipeline(cfg) # 出力の存在@test isfile(joinpath(cfg.report_dir, "figures", "hist_value.png")) @test isfile(joinpath(cfg.report_dir, "tables", "value_mean.csv")) @test isfile(joinpath(cfg.report_dir, "numbers", "summary.txt")) end
 
   * 正しさ:数値妥当性(例:平均が期待範囲)・表の行数など。
   * 再現性:同じ種で同じ出力(ファイルのハッシュ一致など)。
   * プロパティ:単調性・保存量・単位など仕様に基づく性質検査。
   * 性能回帰:BenchmarkTools/PkgBenchmarkで閾値監視。
-
-
 
 * * *
 
@@ -9206,8 +7069,6 @@ end
   * 成果物がコード化され、手作業の「貼り付け」工程がないか。
   * ログ・プロベナンス記録が更新され、入力ハッシュが残っているか。
   * テスト・ベンチ・CIが通過しているか。
-
-
 
 PRテンプレートに上記のチェック項目を含めると、長期運用での事故が減ります。
 
@@ -9224,32 +7085,12 @@ push:
 branches: [ "main" ]  
 pull_request:  
 
+jobs: test: runs-on: ubuntu-latest steps: - uses: actions/checkout@v4 - uses: julia-actions/setup-julia@v2 with: { version: '1' } - uses: julia-actions/cache@v2 - run: julia --project -e 'using Pkg; Pkg.instantiate(); Pkg.test()'
 
-jobs:  
-test:  
-runs-on: ubuntu-latest  
-steps:  
-- uses: actions/checkout@v4  
-- uses: julia-actions/setup-julia@v2  
-with: { version: '1' }  
-- uses: julia-actions/cache@v2  
-- run: julia --project -e 'using Pkg; Pkg.instantiate(); Pkg.test()'  
-
-
-pipeline-smoke:  
-runs-on: ubuntu-latest  
-steps:  
-- uses: actions/checkout@v4  
-- uses: julia-actions/setup-julia@v2  
-with: { version: '1' }  
-- run: julia --project -e 'using Pkg; Pkg.instantiate()'  
-- run: julia --project=. scripts/run.jl  
-- run: test -f reports/figures/hist_value.png && echo "ok"
+pipeline-smoke: runs-on: ubuntu-latest steps: - uses: actions/checkout@v4 - uses: julia-actions/setup-julia@v2 with: { version: '1' } - run: julia --project -e 'using Pkg; Pkg.instantiate()' - run: julia --project=. scripts/run.jl - run: test -f reports/figures/hist_value.png && echo "ok"
 
   * 「スモークテスト」的にパイプラインを一度回し、成果物の存在を検証。
   * 大規模生成は時間制限に配慮してスキップ版(サンプル入力)を用意。
-
-
 
 * * *
 
@@ -9262,17 +7103,13 @@ with: { version: '1' }
   * CHANGELOG.mdに「Added/Changed/Deprecated/Removed/Fixed」を明記。
   * 依存更新は[compat]の範囲内で。外れる更新は、上流変更の影響をレビューの上で慎重に。
 
-
-
 * * *
 
 # 13. セキュリティ・秘密情報:ENVとシークレット管理
 
 APIキー・トークンはコードに直書きしないで、ENVから渡します。
 
-api_key = get(ENV, "MY_API_KEY", nothing)  
-api_key === nothing && error("MY_API_KEY is not set")  
-
+api_key = get(ENV, "MY_API_KEY", nothing) api_key === nothing && error("MY_API_KEY is not set")
 
 # 取得したキーを使う処理...
 
@@ -9289,8 +7126,6 @@ CIでもsecretsを設定し、ENVへ注入します。プロベナンス記録�
   * reports/numbers/<metric>.txt(KPIなどはテキスト化)。
   * run_meta(環境・依存・設定・ハッシュの記録)。
 
-
-
 この規約をドキュメント化し、レビューで運用を徹底します。
 
 * * *
@@ -9305,8 +7140,6 @@ julia \--project=. -t auto scripts/run.jl
   * 重い前処理は一度だけ実行してArrowやJLD2で保存し、以降のパイプラインでは再読込。
   * 「前処理バージョン」や入力ハッシュに紐付けたキャッシュキーを設計し、整合性が崩れたら自動再生成。
 
-
-
 * * *
 
 # 16. 失敗時の切り分け:環境・設定・入力・コードの4象限で診断
@@ -9317,8 +7150,6 @@ julia \--project=. -t auto scripts/run.jl
   2. 設定:種・トレランス・パス・閾値。run_metaの記録と比較。
   3. 入力:入力のハッシュ差・列型の変更・欠損率の変化。
   4. コード:最近のコミット差分。テスト/ベンチ回帰の検知。
-
-
 
 「どれが変わったか」を先に確定できると、復旧が速くなります。
 
@@ -9367,8 +7198,6 @@ echo "done."
   * テスト・ベンチ・CIで回帰を早期検知し、壊れる前に止める運用にします。
   * チームの「入口」を統一(bootstrap→run)し、誰でも同じ手順で成果物を出せる状態を維持します。
 
-
-
 この流儀を継続すると、Juliaプロジェクトは長期運用でも再現可能性と品質を保ち、安心して積み上げられる資産になります。
 
 * * *
@@ -9382,13 +7211,11 @@ echo "done."
 # 共通: 環境起動(REPL): julia --project=.  
 # 依存(例): DataFrames, CSV, Plots, DifferentialEquations, JuMP, Optimization, SciMLSensitivity  
 
-
 # scripts/bootstrap.jl  
 using Pkg, InteractiveUtils  
 Pkg.activate("."); Pkg.instantiate()  
 open("run_meta/versioninfo.txt","w") do io; redirect_stdout(io) do; versioninfo(); end; end  
 open("run_meta/status.txt","w") do io; redirect_stdout(io) do; Pkg.status(); end; end  
-
 
 # src/config.jl  
 module Config  
@@ -9411,16 +7238,12 @@ end
 
 リターン系列(多資産)を合成し、日次の期待収益と共分散行列を推定します。乱数種固定で再現可能です。
 
-using Random, DataFrames, CSV, Statistics  
-using .Config  
-cfg = Config.load_config(); rng = Config.mk_rng(cfg)  
-
+using Random, DataFrames, CSV, Statistics using .Config cfg = Config.load_config(); rng = Config.mk_rng(cfg)
 
 # 合成: 3資産の日次リターン(1年=252営業日)  
 n, T = 3, 252  
 μ_true = [0.0002, 0.0001, 0.0003] # 真の平均(例)  
 Σ_true = [0.0004 0.0001 0.0000; 0.0001 0.0003 0.0001; 0.0000 0.0001 0.0005] # 真の共分散(例)  
-
 
 # 多変量正規に基づく合成  
 using LinearAlgebra  
@@ -9432,7 +7255,6 @@ df = DataFrame(date = dates, asset1 = R[:,1], asset2 = R[:,2], asset3 = R[:,3])
 isdir("reports/tables") || mkpath("reports/tables")  
 CSV.write("reports/tables/returns.csv", df)  
 
-
 # 推定  
 μ_hat = [mean(df.asset1), mean(df.asset2), mean(df.asset3)]  
 Σ_hat = cov(Matrix(df[:, [:asset1,:asset2,:asset3]]))
@@ -9441,30 +7263,17 @@ CSV.write("reports/tables/returns.csv", df)
 
 期待収益の下限を設定して分散(リスク)を最小化します。非負・合計1の制約を課します。
 
-using JuMP, Ipopt  
-μ_target = 0.00015  
-n = length(μ_hat)  
-model = Model(Ipopt.Optimizer)  
-@variable(model, w[1:n] >= 0)  
-@constraint(model, sum(w) == 1.0)  
-@constraint(model, sum(μ_hat[i]*w[i] for i in 1:n) >= μ_target)  
-@objective(model, Min, sum(Σ_hat[i,j]*w[i]*w[j] for i in 1:n, j in 1:n))  
-optimize!(model)  
-w_star = value.(w)  
-risk_star = objective_value(model)
+using JuMP, Ipopt μ_target = 0.00015 n = length(μ_hat) model = Model(Ipopt.Optimizer) @variable(model, w[1:n] >= 0) @constraint(model, sum(w) == 1.0) @constraint(model, sum(μ_hat[i]*w[i] for i in 1:n) >= μ_target) @objective(model, Min, sum(Σ_hat[i,j]*w[i]*w[j] for i in 1:n, j in 1:n)) optimize!(model) w_star = value.(w) risk_star = objective_value(model)
 
 ## 2.3 可視化(構成比・効率フロンティア)
 
 構成比棒グラフと、μ_targetを掃引した効率フロンティアを出力します。
 
-using Plots  
-isdir("reports/figures") || mkpath("reports/figures")  
-
+using Plots isdir("reports/figures") || mkpath("reports/figures")
 
 # 構成比  
 bar(["asset1","asset2","asset3"], w_star; legend=false, title="weights", ylim=(0,1))  
 savefig("reports/figures/weights.png")  
-
 
 # フロンティア  
 targets = range(0.00005, 0.00035; length=20)  
@@ -9492,7 +7301,6 @@ cum = cumsum(Matrix(df[:,2:4]) * w_star)
 plot(1:T, cum; xlabel="day", ylabel="cumulative", title="cumulative portfolio")  
 savefig("reports/figures/cumulative.png")  
 
-
 # 数値出力  
 isdir("reports/numbers") || mkpath("reports/numbers")  
 open("reports/numbers/portfolio.txt","w") do io  
@@ -9508,12 +7316,7 @@ end
 
 1D 熱方程式 ∂u/∂t = α ∂2u/∂x2 を有限差分で離散化し、温度分布を時間発展させます。境界はディリクレ(端部温度固定)とします。
 
-using DifferentialEquations  
-# 空間離散  
-Nx, L = 100, 1.0  
-dx = L/(Nx-1)  
-α = 1e-4  
-
+using DifferentialEquations # 空間離散Nx, L = 100, 1.0 dx = L/(Nx-1) α = 1e-4
 
 # ラプラシアン離散(内部点のみ)  
 function laplace!(du, u, p, t)  
@@ -9524,21 +7327,16 @@ end
 du[1] = 0.0; du[end] = 0.0  
 end  
 
-
 # 初期温度(中央高温のガウス)  
 x = range(0, L; length=Nx)  
 u0 = @. exp(-((x-0.5)^2)/(2*0.05^2))  
 tspan = (0.0, 10.0)  
 
-
-prob = ODEProblem(laplace!, u0, tspan)  
-sol = solve(prob, TRBDF2(); reltol=1e-8, abstol=1e-10, saveat=0.1)
+prob = ODEProblem(laplace!, u0, tspan) sol = solve(prob, TRBDF2(); reltol=1e-8, abstol=1e-10, saveat=0.1)
 
 ## 3.2 可視化(温度分布の時間発展)
 
-using Plots  
-isdir("reports/figures") || mkpath("reports/figures")  
-
+using Plots isdir("reports/figures") || mkpath("reports/figures")
 
 # スナップショット  
 for (k,t) in enumerate(sol.t)  
@@ -9547,7 +7345,6 @@ plot(x, sol.u[k]; xlabel="x", ylabel="temperature", title="t=$(round(t,digits=2)
 savefig("reports/figures/heat_t$(k).png")  
 end  
 end  
-
 
 # 2D ヒートマップ (x-t)  
 U = hcat(sol.u...) # Nx × Nt  
@@ -9558,9 +7355,7 @@ savefig("reports/figures/heatmap.png")
 
 熱方程式は「質量保存」ではなく「滑らか化」ですが、数値的にエネルギーが減衰していくことを確認します。
 
-E = [sum(abs2, sol.u[k]) for k in eachindex(sol.u)]  
-plot(sol.t, E; xlabel="t", ylabel="||u||^2", title="energy decay")  
-savefig("reports/figures/energy_decay.png")
+E = [sum(abs2, sol.u[k]) for k in eachindex(sol.u)] plot(sol.t, E; xlabel="t", ylabel="||u||^2", title="energy decay") savefig("reports/figures/energy_decay.png")
 
 * * *
 
@@ -9570,42 +7365,21 @@ savefig("reports/figures/energy_decay.png")
 
 Lorenz-63 系のパラメータを固定し、時間発展を解きます。カオス的性質に注意しつつ、種・設定を固定して可視化します。
 
-using DifferentialEquations  
-σ, ρ, β = 10.0, 28.0, 8/3  
-function lorenz!(du,u,p,t)  
-du[1] = σ*(u[2]-u[1])  
-du[2] = u[1]*(ρ - u[3]) - u[2]  
-du[3] = u[1]*u[2] - β*u[3]  
-end  
-u0 = [1.0, 1.0, 1.0]  
-tspan = (0.0, 50.0)  
-prob = ODEProblem(lorenz!, u0, tspan)  
-sol = solve(prob, Tsit5(); reltol=1e-9, abstol=1e-12, saveat=0.01)
+using DifferentialEquations σ, ρ, β = 10.0, 28.0, 8/3 function lorenz!(du,u,p,t) du[1] = σ*(u[2]-u[1]) du[2] = u[1]*(ρ - u[3]) - u[2] du[3] = u[1]*u[2] - β*u[3] end u0 = [1.0, 1.0, 1.0] tspan = (0.0, 50.0) prob = ODEProblem(lorenz!, u0, tspan) sol = solve(prob, Tsit5(); reltol=1e-9, abstol=1e-12, saveat=0.01)
 
 ## 4.2 可視化(軌道・相図)
 
-using Plots  
-plot(sol.t, hcat(sol[1,:], sol[2,:], sol[3,:]); label=["x" "y" "z"], xlabel="t", ylabel="value", title="Lorenz-63")  
-savefig("reports/figures/lorenz_timeseries.png")  
+using Plots plot(sol.t, hcat(sol[1,:], sol[2,:], sol[3,:]); label=["x" "y" "z"], xlabel="t", ylabel="value", title="Lorenz-63") savefig("reports/figures/lorenz_timeseries.png")
 
+plot(sol[1,:], sol[3,:]; xlabel="x", ylabel="z", title="phase: x-z", legend=false) savefig("reports/figures/lorenz_phase_xz.png")
 
-plot(sol[1,:], sol[3,:]; xlabel="x", ylabel="z", title="phase: x-z", legend=false)  
-savefig("reports/figures/lorenz_phase_xz.png")  
-
-
-plot(sol[2,:], sol[3,:]; xlabel="y", ylabel="z", title="phase: y-z", legend=false)  
-savefig("reports/figures/lorenz_phase_yz.png")
+plot(sol[2,:], sol[3,:]; xlabel="y", ylabel="z", title="phase: y-z", legend=false) savefig("reports/figures/lorenz_phase_yz.png")
 
 ## 4.3 検証(パラメータ感度)
 
 パラメータをわずかに変化させたときの差分を可視化し、カオス性に伴う発散傾向を確認します。
 
-ρ2 = 27.9  
-sol2 = solve(remake(prob); p=nothing, Tsit5(); reltol=1e-9, abstol=1e-12, saveat=0.01)  
-# 差分 (初期条件一致)  
-Δ = abs.(sol[1,:] .- sol2[1,:])  
-plot(sol.t, Δ; xlabel="t", ylabel="|Δx|", title="sensitivity to ρ")  
-savefig("reports/figures/lorenz_sensitivity.png")
+ρ2 = 27.9 sol2 = solve(remake(prob); p=nothing, Tsit5(); reltol=1e-9, abstol=1e-12, saveat=0.01) # 差分 (初期条件一致) Δ = abs.(sol[1,:] .- sol2[1,:]) plot(sol.t, Δ; xlabel="t", ylabel="|Δx|", title="sensitivity to ρ") savefig("reports/figures/lorenz_sensitivity.png")
 
 * * *
 
@@ -9615,16 +7389,7 @@ savefig("reports/figures/lorenz_sensitivity.png")
 
 人口は定数、感染・回復率をパラメータとし、観測系列(合成)から同定します。
 
-using DifferentialEquations  
-N = 1_000_000  
-function sir!(du,u,p,t)  
-S, I, R = u  
-β, γ = p  
-du[1] = -β*S*I/N  
-du[2] = β*S*I/N - γ*I  
-du[3] = γ*I  
-end  
-
+using DifferentialEquations N = 1_000_000 function sir!(du,u,p,t) S, I, R = u β, γ = p du[1] = -β*S*I/N du[2] = β*S*I/N - γ*I du[3] = γ*I end
 
 # 初期値  
 I0, R0 = 100.0, 0.0  
@@ -9633,60 +7398,33 @@ u0 = [S0, I0, R0]
 tspan = (0.0, 160.0)  
 p_true = [0.3, 0.1]  
 
-
-prob = ODEProblem(sir!, u0, tspan, p_true)  
-sol = solve(prob, Tsit5(); reltol=1e-9, abstol=1e-12, saveat=1.0)
+prob = ODEProblem(sir!, u0, tspan, p_true) sol = solve(prob, Tsit5(); reltol=1e-9, abstol=1e-12, saveat=1.0)
 
 ## 5.2 合成観測と前処理
 
 観測ノイズを加えて「観測感染者数」を作り、データフレームに保存します(乱数種固定)。
 
-using Random, DataFrames, CSV  
-rng = Config.mk_rng(cfg)  
-I_series = Array(sol[2,:])  
-obs = I_series .+ 50 .* randn(rng, length(I_series)) # 合成雑音  
-obs = clamp.(obs, 0, Inf) # 非負  
-df = DataFrame(day = 0:length(I_series)-1, I_obs = obs)  
-CSV.write("reports/tables/sir_obs.csv", df)
+using Random, DataFrames, CSV rng = Config.mk_rng(cfg) I_series = Array(sol[2,:]) obs = I_series .+ 50 .* randn(rng, length(I_series)) # 合成雑音obs = clamp.(obs, 0, Inf) # 非負df = DataFrame(day = 0:length(I_series)-1, I_obs = obs) CSV.write("reports/tables/sir_obs.csv", df)
 
 ## 5.3 同定(最小二乗)
 
 β, γ を最小二乗で推定します。SciMLSensitivityの随伴法で高速化可能ですが、ここでは単純化します。
 
-using Optimization, OptimizationOptimJL  
+using Optimization, OptimizationOptimJL
 
+function lossθ(θ) prob2 = ODEProblem(sir!, u0, tspan, θ) sol2 = solve(prob2, Tsit5(); saveat=1.0, reltol=1e-8, abstol=1e-10) I_pred = Array(sol2[2,:]) return sum((I_pred .- df.I_obs).^2) end
 
-function lossθ(θ)  
-prob2 = ODEProblem(sir!, u0, tspan, θ)  
-sol2 = solve(prob2, Tsit5(); saveat=1.0, reltol=1e-8, abstol=1e-10)  
-I_pred = Array(sol2[2,:])  
-return sum((I_pred .- df.I_obs).^2)  
-end  
-
-
-θ0 = [0.2, 0.05]  
-optf = OptimizationFunction((θ,_) -> lossθ(θ), autodiff=:forward)  
-optprob = OptimizationProblem(optf, θ0)  
-res = optimize(optprob, LBFGS(); maxiters=500)  
-θ_hat = res.minimizer
+θ0 = [0.2, 0.05] optf = OptimizationFunction((θ,_) -> lossθ(θ), autodiff=:forward) optprob = OptimizationProblem(optf, θ0) res = optimize(optprob, LBFGS(); maxiters=500) θ_hat = res.minimizer
 
 ## 5.4 検証と可視化
 
 推定パラメータで再計算し、観測との整合を図・数値で確認します。
 
-prob_hat = ODEProblem(sir!, u0, tspan, θ_hat)  
-sol_hat = solve(prob_hat, Tsit5(); saveat=1.0)  
+prob_hat = ODEProblem(sir!, u0, tspan, θ_hat) sol_hat = solve(prob_hat, Tsit5(); saveat=1.0)
 
+plot(df.day, df.I_obs; label="obs", xlabel="day", ylabel="I", title="SIR fit") plot!(df.day, Array(sol_hat[2,:]); label="fit") savefig("reports/figures/sir_fit.png")
 
-plot(df.day, df.I_obs; label="obs", xlabel="day", ylabel="I", title="SIR fit")  
-plot!(df.day, Array(sol_hat[2,:]); label="fit")  
-savefig("reports/figures/sir_fit.png")  
-
-
-open("reports/numbers/sir_fit.txt","w") do io  
-println(io, "θ_hat=$(θ_hat)")  
-println(io, "loss=$(lossθ(θ_hat))")  
-end
+open("reports/numbers/sir_fit.txt","w") do io println(io, "θ_hat=$(θ_hat)") println(io, "loss=$(lossθ(θ_hat))") end
 
 * * *
 
@@ -9702,7 +7440,6 @@ isdir("reports/figures") || mkpath("reports/figures")
 isdir("reports/tables") || mkpath("reports/tables")  
 isdir("reports/numbers") || mkpath("reports/numbers")  
 
-
 # 1) 金融  
 include("src/case_finance.jl") # 上記コードを関数化しておく  
 # 2) 材料  
@@ -9711,7 +7448,6 @@ include("src/case_materials.jl")
 include("src/case_weather.jl")  
 # 4) ライフサイエンス  
 include("src/case_life.jl")  
-
 
 println("done.")
 
@@ -9746,8 +7482,6 @@ with: { version: '1' }
   * 気象:パラメータ・初期値の記録(感度検証用)、時間刻みの適切性(適応刻み)、相図の再現性(同一種)。
   * ライフ:非負制約(S, I, R ≥ 0)、人口保存(S+I+R = N)、推定値の妥当(範囲・単位)、残差の分布。
 
-
-
 テストコードでは、これらを@testで網羅し、失敗時のログ(設定・種・依存)をrun_metaに記録しておきます。
 
 * * *
@@ -9759,8 +7493,6 @@ with: { version: '1' }
   * 数値:reports/numbers/<case>_<metric>.txt(KPI)。
   * メタ:run_meta/versioninfo.txt・run_meta/status.txt(環境・依存)・reports/numbers/<case>_hash.txt(入力ハッシュ)。
 
-
-
 上記をREADMEに明文化し、レビューで運用を徹底します。
 
 * * *
@@ -9769,21 +7501,7 @@ with: { version: '1' }
 
 例示コードは関数化しておくと、パラメータ掃引やベンチが容易になります。金融のフロンティア計算を関数化する例:
 
-function efficient_frontier(μ::Vector{Float64}, Σ::Matrix{Float64}, targets::AbstractVector{Float64})  
-using JuMP, Ipopt  
-n = length(μ)  
-risks = Float64[]  
-for μt in targets  
-m = Model(Ipopt.Optimizer)  
-@variable(m, w[1:n] >= 0)  
-@constraint(m, sum(w) == 1.0)  
-@constraint(m, sum(μ[i]*w[i] for i in 1:n) >= μt)  
-@objective(m, Min, sum(Σ[i,j]*w[i]*w[j] for i in 1:n, j in 1:n))  
-optimize!(m)  
-push!(risks, objective_value(m))  
-end  
-return risks  
-end
+function efficient_frontier(μ::Vector{Float64}, Σ::Matrix{Float64}, targets::AbstractVector{Float64}) using JuMP, Ipopt n = length(μ) risks = Float64[] for μt in targets m = Model(Ipopt.Optimizer) @variable(m, w[1:n] >= 0) @constraint(m, sum(w) == 1.0) @constraint(m, sum(μ[i]*w[i] for i in 1:n) >= μt) @objective(m, Min, sum(Σ[i,j]*w[i]*w[j] for i in 1:n, j in 1:n)) optimize!(m) push!(risks, objective_value(m)) end return risks end
 
 * * *
 
@@ -9794,8 +7512,6 @@ end
   * 図・表・数値はコードから出力し、手作業工程を排除します。
   * 各ドメイン固有の検証観点(制約・保存・安定性)をテストで明文化し、レビューで徹底します。
   * パラメータ・入力・依存のプロベナンスを成果物と並置し、比較可能性を担保します。
-
-
 
 以上の設計で、金融・材料・気象・ライフサイエンスの各ミニプロジェクトを、汎用から高度計算まで一貫して扱える再現可能な環境として運用できます。
 
@@ -9809,39 +7525,24 @@ JuliaのREPLは「読んで(Read)評価して(Eval)印字する(Print)」を高�
 
   * ?(ヘルプモード):関数・型・マクロのdocstringをその場で参照します。終了はBackspace。
 
-
-
-?println  
-?LinearAlgebra
+?println ?LinearAlgebra
 
   * ;(シェルモード):OSコマンドをREPLから実行します。終了はBackspace。
 
-
-
-;pwd  
-;ls -la  
-;git status
+;pwd ;ls -la ;git status
 
   * ](Pkgモード):パッケージ管理を対話的に操作します。終了はBackspace。
 
-
-
-] activate .  
-] instantiate  
-] add DataFrames CSV  
-] status  
-] precompile
+] activate . ] instantiate ] add DataFrames CSV ] status ] precompile
 
 補助のREPLコマンドやリテラルも覚えておくと便利です。
 
 # ヘルプなしでもdocstringを参照  
 @doc println  
 
-
 # 型情報・メソッド解決  
 @which sum([1,2,3]) # どのメソッドが呼ばれるか  
 methods(sum) # 関数のメソッド一覧  
-
 
 # コード生成・最適化の確認(型推論・LLVM・ネイティブ)  
 @code_warntype sqrt(3.0)  
@@ -9866,15 +7567,11 @@ methods(sum) # 関数のメソッド一覧
     * Ctrl+D:REPL終了
   * ショートスニペット:
 
-
-
 # 編集中のファイルへジャンプ(VS Code連携前提)  
 @edit sum([1,2,3])  
 
-
 # 型・構造の中身をすぐ確認  
 dump((a=1, b=2.0))  
-
 
 # 実行時間の粗計測と厳密計測  
 @time sum(rand(10^6))  
@@ -9883,14 +7580,7 @@ using BenchmarkTools
 
 Pkgモードの最小セット(迷ったらこれだけ覚える):
 
-] activate . # カレントのProject.tomlで環境を有効化  
-] instantiate # Manifest.tomlに従って依存を復元  
-] add Foo Bar # 依存を追加  
-] status # 依存とバージョンの一覧  
-] precompile # 事前コンパイル(TTFX短縮)  
-] test # パッケージテストの実行(プロジェクトがパッケージ構造の場合)  
-] update # 互換範囲で更新  
-] pin Foo # 特定バージョンへ固定(解除は `] free Foo`)
+] activate . # カレントのProject.tomlで環境を有効化] instantiate # Manifest.tomlに従って依存を復元] add Foo Bar # 依存を追加] status # 依存とバージョンの一覧] precompile # 事前コンパイル(TTFX短縮) ] test # パッケージテストの実行(プロジェクトがパッケージ構造の場合) ] update # 互換範囲で更新] pin Foo # 特定バージョンへ固定(解除は `] free Foo`)
 
 * * *
 
@@ -9908,21 +7598,13 @@ julia \--project=.
   * Project.toml:パッケージ名・UUID・バージョン・直接依存([deps])・互換性([compat])。
   * Manifest.toml:依存グラフの完全スナップショット(間接依存も含む)。手編集しないのが原則。
 
-
-
 互換性固定の最小例(Project.toml抜粋):
 
-[compat]  
-julia = "1.10"  
-DataFrames = "1"  
-CSV = "0.10"  
-Plots = "1"
+[compat] julia = "1.10" DataFrames = "1" CSV = "0.10" Plots = "1"
 
 CIやレポートの冒頭で環境情報を記録すると復旧が速くなります。
 
-using Pkg, InteractiveUtils  
-versioninfo()  
-Pkg.status()
+using Pkg, InteractiveUtils versioninfo() Pkg.status()
 
 * * *
 
@@ -9932,84 +7614,47 @@ Juliaは多数の標準ライブラリを同梱しています。日常利用で
 
   * LinearAlgebra:行列・ベクトル・分解(lu/cholesky/qr/svd/eigen)、BLAS/LAPACK連携
 
-
-
-using LinearAlgebra  
-A = rand(5,5); b = rand(5)  
-x = A \ b  
-F = cholesky(Symmetric(A'A) + I)
+using LinearAlgebra A = rand(5,5); b = rand(5) x = A \ b F = cholesky(Symmetric(A'A) + I)
 
   * SparseArrays:疎行列(CSR)、spdiagm/sparse/nnz
 
-
-
-using SparseArrays  
-S = spdiagm(0 => rand(1000))  
-nnz(S)
+using SparseArrays S = spdiagm(0 => rand(1000)) nnz(S)
 
   * Statistics:mean/std/median/cor/cov
 
-
-
-using Statistics  
-mean(rand(1000)); std(rand(1000))
+using Statistics mean(rand(1000)); std(rand(1000))
 
   * Random:乱数生成器・seed!・分布一様乱数
 
-
-
-using Random  
-rng = MersenneTwister(20240101)  
-rand(rng, 1:6)
+using Random rng = MersenneTwister(20240101) rand(rng, 1:6)
 
   * Dates:日時型・書式・加減算
 
-
-
-using Dates  
-d = Date("2024-12-31"); d + Day(7)
+using Dates d = Date("2024-12-31"); d + Day(7)
 
   * Printf:整形出力(@printf/@sprintf)
 
-
-
-using Printf  
-@printf "pi=%.5f\n" π
+using Printf @printf "pi=%.5f\n" π
 
   * Markdown:Markdown生成(docstring・レポート補助)
   * Distributed:複数プロセス・addprocs・@distributed・pmap
 
-
-
-using Distributed  
-addprocs(4)  
-@distributed (+) for i in 1:10^6  
-1  
-end
+using Distributed addprocs(4) @distributed (+) for i in 1:10^6 1 end
 
   * Sockets:ネットワークソケット・簡易TCP/UDP
   * Logging:@info/@warn/@error/@debug
 
-
-
-using Logging  
-@info "start"; @warn "careful"; @error "fail"
+using Logging @info "start"; @warn "careful"; @error "fail"
 
   * Test:単体テスト・@test/@test_throws/@testset
 
-
-
-using Test  
-@test 1 + 1 == 2
+using Test @test 1 + 1 == 2
 
   * InteractiveUtils:versioninfo/@which/methods/@edit
   * REPL:REPL拡張・システム統合(高度用途)
   * Pkg:パッケージ管理API(コード内から操作)
 
-
-
-using Pkg  
-Pkg.activate("."); Pkg.instantiate()
+using Pkg Pkg.activate("."); Pkg.instantiate()
 
   * Serialization:Juliaオブジェクトの直列化(同一バージョン前提)
   * DelimitedFiles:readdlm/writedlm(簡易CSV/TSV)
@@ -10018,8 +7663,6 @@ Pkg.activate("."); Pkg.instantiate()
   * LibGit2:Git操作(内部用)
   * Libdl:動的ライブラリローダ(FFI)
   * Unicode:文字種・正規化・カテゴリ判定
-
-
 
 補足:BaseとCoreは言語の核(Baseは日常API、Coreは言語の内部機能)。直接触れるよりは上記標準ライブラリ経由で必要機能へアクセスするのが一般的です。
 
@@ -10052,8 +7695,6 @@ Pkg.activate("."); Pkg.instantiate()
   * Flux:深層学習の最小API。Chain/Dense/ADAMで素早く試作。
   * Turing:確率的プログラミング(ベイズ/MCMC)。事前・事後・事後予測を一気通貫。
 
-
-
 * * *
 
 # 6\. REPLでの計測・診断・編集(最短ループ)
@@ -10063,16 +7704,13 @@ Pkg.activate("."); Pkg.instantiate()
 # 1) 型推論は安定しているか  
 @code_warntype yourfunc(args...)  
 
-
 # 2) どのメソッドが選ばれているか  
 @which yourfunc(args...)  
-
 
 # 3) 時間とアロケーションは妥当か(粗→厳密)  
 @time yourfunc(args...)  
 using BenchmarkTools  
 @btime yourfunc($args...)  
-
 
 # 4) 行きたい定義へジャンプ(VS Code連携)  
 @edit yourfunc(args...)
@@ -10085,8 +7723,6 @@ using BenchmarkTools
   * 型を揃える(promote)・Anyを排除
   * ホットループを具体型に落とす(関数バリア)
 
-
-
 * * *
 
 # 7. 標準ライブラリ実用断片(すぐ貼って使える)
@@ -10097,11 +7733,9 @@ xs = [1,2,missing,4]
 mean(skipmissing(xs)) # 欠損を除いて平均  
 coalesce.(xs, 0) # 欠損を0に置換  
 
-
 # Dates: パーサと加算  
 using Dates  
 Date("2025-01-01") + Day(30)  
-
 
 # Logging: 重要イベントを記録  
 using Logging  
@@ -10109,14 +7743,12 @@ using Logging
 @warn "retry" attempt=2  
 @error "failed" reason="timeout"  
 
-
 # Distributed: 粗粒度の総和(単ノードでもOK)  
 using Distributed  
 addprocs(4)  
 @distributed (+) for i in 1:10^6  
 1  
 end  
-
 
 # Test: 境界と異常系  
 using Test  
@@ -10135,8 +7767,6 @@ end
   * GPUが遅い:スカラーアクセス禁止(CUDA.allowscalar(false))。転送をまとめ、ブロードキャストで融合。
   * TTFXが長い:Pkg.precompile()、頻用関数へprecompile声明。ウォームアップ実行。
   * 乱数が揺れる:入口でseed!固定。スレッド/プロセスはseed + id規則で配布。消費順序が分岐で変わらない設計に。
-
-
 
 * * *
 
@@ -10167,8 +7797,6 @@ end
     * JuliaのGitHub Organization
     * Zulip(Julia)
     * 主要会議・ミートアップ(JuliaCon など)
-
-
 
 * * *
 
