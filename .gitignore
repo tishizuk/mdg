@@ -2,6 +2,7 @@
 *.pdf
 *.epub
 processed/
+scratch_*/
 
 # Python / Virtual Environment
 .venv/
@@ -11,3 +12,4 @@ __pycache__/
 # System / OS files
 .DS_Store
 Thumbs.db
+
