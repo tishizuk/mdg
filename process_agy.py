@@ -4,6 +4,9 @@
 #     "pymupdf4llm",
 #     "ebooklib",
 #     "html2text",
+#     "google-genai",
+#     "python-dotenv",
+#     "pillow",
 # ]
 # ///
 
@@ -12,8 +15,28 @@ import sys
 import re
 import time
 import shutil
+import zipfile
 import unicodedata
+import xml.etree.ElementTree as ET
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
+
+# --- 環境変数の読み込み (GEMINI_API_KEY from ~/.env) ---
+def load_env():
+    env_path = Path.home() / ".env"
+    if not env_path.exists():
+        return {}
+    with open(env_path, "r", encoding="utf-8", errors="ignore") as f:
+        for line in f:
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            k, v = line.split("=", 1)
+            k = k.strip()
+            v = v.strip().strip("\"'")
+            os.environ[k] = v
+
+load_env()
 
 # --- 文字マッピング辞書 ---
 CHAR_MAP = {
@@ -95,7 +118,6 @@ def format_vertical_markdown_text(content: str) -> str:
             continue
 
         # 地の文の不要な行内改行を結合
-        joined_lines = []
         cur = ""
         for line in lines:
             l = line.strip()
@@ -111,7 +133,7 @@ def format_vertical_markdown_text(content: str) -> str:
 
                 if prev_is_jp and curr_is_jp:
                     cur += l
-                elif prev_char in ('、', '，', '（', '「', '『') or curr_char in ('、', '。', '，', '．', '」', '』', '）', '）', '！', '？'):
+                elif prev_char in ('、', '，', '（', '「', '『') or curr_char in ('、', '。', '，', '．', '」', '』', '）', '！', '？'):
                     cur += l
                 elif prev_is_jp or curr_is_jp:
                     cur += l
@@ -183,6 +205,225 @@ def clean_tables_in_text(text: str) -> str:
         i += 1
         
     return "\n".join(result_lines)
+
+# --- 固定レイアウト判定 & Gemini API OCR ---
+
+def is_fixed_layout_epub(epub_path: Path) -> bool:
+    """EPUBが固定レイアウト（プリント・レプリカ含む画像書式）かどうか判定"""
+    if "プリント・レプリカ" in epub_path.name or "print replica" in epub_path.name.lower():
+        return True
+    try:
+        with zipfile.ZipFile(epub_path, 'r') as z:
+            names = z.namelist()
+            xhtml_files = [n for n in names if n.endswith('.xhtml') or n.endswith('.html')]
+            if not xhtml_files:
+                return True
+            # 数ファイルをサンプリングして画像のみのラッパーか確認
+            sample = xhtml_files[:min(10, len(xhtml_files))]
+            text_lengths = []
+            for s in sample:
+                content = z.read(s).decode('utf-8', errors='ignore')
+                raw_text = re.sub(r'<[^>]+>', '', content).strip()
+                text_lengths.append(len(raw_text))
+            if max(text_lengths, default=0) < 30:
+                return True
+    except Exception:
+        pass
+    return False
+
+def convert_fixed_layout_images_with_gemini(image_paths: list[Path], output_md: Path, book_title: str) -> bool:
+    """Gemini API (3.7 Flash) を用いて画像群を高精度Markdownに変換して保存"""
+    from google import genai
+    from google.genai import types
+
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("   [Gemini API エラー] GEMINI_API_KEY が ~/.env に見つかりません。")
+        return False
+
+    client = genai.Client(api_key=api_key)
+
+    cache_dir = Path("/home/tishizuk/Documents/mdg") / f"scratch_cache_{re.sub(r'[^a-zA-Z0-9]', '_', book_title[:30])}"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+
+    total_pages = len(image_paths)
+    print(f"   [Gemini VLM 変換] 総ページ数: {total_pages} ページを並列処理します...")
+
+    prompt_text = (
+        "あなたは技術書や専門書の文字起こしを行う最高精度のエキスパートです。画像の内容を忠実にMarkdown形式で書き起こしてください。\n"
+        "【重要なルール】\n"
+        "1. プログラムコードやコマンド、REPL・ターミナル出力は、必ず適切な言語タグ（```zsh, ```bash, ```python など）を付けたコードブロックで正確に記述してください。\n"
+        "   - 本文画像のコードに行番号（「1 | 」「2 | 」など）が付いている場合、行番号は除去して純粋な実行可能コードのみを記載してください。\n"
+        "2. 数式がある場合は必ずLaTeX形式（インラインは $...$ 、独立行は $$...$$）で正確に記述してください。\n"
+        "3. 章・節・項の見出しは適切なMarkdown見出し（#、##、###、####）に変換してください。\n"
+        "4. 箇条書き、番号付きリスト、表（テーブル）もMarkdown記法で忠実に再現してください。\n"
+        "5. ページ上部や下部の単独のページ番号や柱（章タイトルのみのヘッダー・フッター）は省略してください。\n"
+        "6. RAG（検索拡張生成）用のナレッジベースとして利用されるため、文脈が分かりやすく、ノイズの少ない綺麗なMarkdownにしてください。\n"
+        "7. 余計な挨拶や説明は一切出力せず、書き起こしたMarkdown本文のみを出力してください。"
+    )
+
+    def process_page(idx, img_path):
+        cache_file = cache_dir / f"page_{idx:04d}.txt"
+        if cache_file.exists():
+            return idx, cache_file.read_text(encoding="utf-8"), True
+
+        img_bytes = img_path.read_bytes()
+        suffix = img_path.suffix.lower()
+        mime_type = "image/png" if suffix == ".png" else "image/jpeg"
+
+        max_retries = 5
+        for attempt in range(max_retries):
+            try:
+                resp = client.models.generate_content(
+                    model="gemini-3.7-flash",
+                    contents=[
+                        types.Part.from_bytes(data=img_bytes, mime_type=mime_type),
+                        prompt_text
+                    ]
+                )
+                text = resp.text.strip() if resp.text else ""
+                cache_file.write_text(text, encoding="utf-8")
+                return idx, text, False
+            except Exception as e:
+                wait_sec = (2 ** attempt) * 2
+                print(f"     [ページ {idx+1}/{total_pages}] 再試行 {attempt+1}/{max_retries} ({e}). {wait_sec}秒待機...")
+                time.sleep(wait_sec)
+
+        error_text = f"<!-- エラー: ページ {idx+1} の処理に失敗しました -->"
+        cache_file.write_text(error_text, encoding="utf-8")
+        return idx, error_text, False
+
+    results = {}
+    max_workers = 10
+    start_time = time.time()
+
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {executor.submit(process_page, idx, img_path): idx for idx, img_path in enumerate(image_paths)}
+        completed_count = 0
+        for future in as_completed(futures):
+            idx, text, from_cache = future.result()
+            results[idx] = text
+            completed_count += 1
+            if completed_count % 20 == 0 or completed_count == total_pages:
+                status_str = "キャッシュ利用" if from_cache else "API処理"
+                print(f"     進行状況: [{completed_count}/{total_pages}] ({status_str})")
+
+    elapsed = time.time() - start_time
+    print(f"   [Gemini VLM 完了] {total_pages} ページの処理が完了しました ({elapsed:.1f}秒)")
+
+    # 結合 & 整形
+    all_pages = []
+    for i in range(total_pages):
+        p_text = results.get(i, "").strip()
+        if p_text.startswith("```markdown") and p_text.endswith("```"):
+            p_text = p_text[len("```markdown"): -3].strip()
+        if p_text:
+            all_pages.append(p_text)
+
+    full_md = "\n\n---\n\n".join(all_pages).strip()
+    formatted_md = format_vertical_markdown_text(full_md)
+    output_md.write_text(formatted_md, encoding="utf-8")
+    return True
+
+def convert_fixed_layout_epub_with_gemini(epub_path: Path, md_path: Path) -> bool:
+    """固定レイアウトEPUB内の全ページ画像を抽出してGemini APIで変換"""
+    import pymupdf
+    print(f"   [固定レイアウトEPUB検出] 画像ページを抽出中...")
+    extract_dir = Path("/home/tishizuk/Documents/mdg") / f"scratch_pages_{re.sub(r'[^a-zA-Z0-9]', '_', epub_path.stem[:30])}"
+    extract_dir.mkdir(parents=True, exist_ok=True)
+
+    image_paths = []
+    with zipfile.ZipFile(epub_path, 'r') as z:
+        names = z.namelist()
+        opf_files = [n for n in names if n.endswith('.opf')]
+        if opf_files:
+            opf_name = opf_files[0]
+            opf_dir = str(Path(opf_name).parent)
+            if opf_dir == ".":
+                opf_dir = ""
+            
+            opf_content = z.read(opf_name)
+            root = ET.fromstring(opf_content)
+            
+            manifest = {}
+            for item in root.iter():
+                if item.tag.endswith('item') and 'id' in item.attrib:
+                    manifest[item.attrib['id']] = item.attrib.get('href')
+                    
+            spine_ids = []
+            for itemref in root.iter():
+                if itemref.tag.endswith('itemref') and 'idref' in itemref.attrib:
+                    spine_ids.append(itemref.attrib['idref'])
+                    
+            for idx, idref in enumerate(spine_ids):
+                href = manifest.get(idref)
+                if not href:
+                    continue
+                full_href = f"{opf_dir}/{href}".lstrip("/") if opf_dir else href
+                if full_href in names:
+                    doc_content = z.read(full_href).decode('utf-8', errors='ignore')
+                    m = re.search(r'(?:src|xlink:href)=[\"\']([^\"\']+)[\"\']', doc_content, re.I)
+                    if m:
+                        target_rel = m.group(1)
+                        doc_parent = str(Path(full_href).parent)
+                        target_full = f"{doc_parent}/{target_rel}".lstrip("/") if doc_parent != "." else target_rel
+                        target_full = str(Path(target_full)).replace("\\", "/")
+                        if target_full in names:
+                            img_out = extract_dir / f"page_{idx:04d}.png"
+                            if not img_out.exists():
+                                data = z.read(target_full)
+                                if target_full.lower().endswith('.pdf'):
+                                    doc = pymupdf.open(stream=data, filetype="pdf")
+                                    pix = doc[0].get_pixmap(dpi=150)
+                                    pix.save(str(img_out))
+                                    doc.close()
+                                else:
+                                    img_out.write_bytes(data)
+                            image_paths.append(img_out)
+
+    if not image_paths:
+        # フォールバック: zip内のすべての画像/PDFファイルを名前順で抽出
+        with zipfile.ZipFile(epub_path, 'r') as z:
+            all_targets = [n for n in sorted(z.namelist()) if re.search(r'\.(jpe?g|png|pdf)$', n, re.I) and not n.startswith('__')]
+            for idx, target_name in enumerate(all_targets):
+                img_out = extract_dir / f"page_{idx:04d}.png"
+                if not img_out.exists():
+                    data = z.read(target_name)
+                    if target_name.lower().endswith('.pdf'):
+                        doc = pymupdf.open(stream=data, filetype="pdf")
+                        pix = doc[0].get_pixmap(dpi=150)
+                        pix.save(str(img_out))
+                        doc.close()
+                    else:
+                        img_out.write_bytes(data)
+                image_paths.append(img_out)
+
+    if not image_paths:
+        print("   -> 有効なページ画像が見つかりませんでした。")
+        return False
+
+    return convert_fixed_layout_images_with_gemini(image_paths, md_path, epub_path.stem)
+
+def convert_fixed_layout_pdf_with_gemini(pdf_path: Path, md_path: Path) -> bool:
+    """テキスト層のないPDFを画像レンダリングしてGemini APIで変換"""
+    import pymupdf
+    print(f"   [画像PDF検出] PDFページを画像にレンダリング中...")
+    extract_dir = Path("/home/tishizuk/Documents/mdg") / f"scratch_pages_{re.sub(r'[^a-zA-Z0-9]', '_', pdf_path.stem[:30])}"
+    extract_dir.mkdir(parents=True, exist_ok=True)
+
+    doc = pymupdf.open(str(pdf_path))
+    image_paths = []
+    for idx, page in enumerate(doc):
+        img_out = extract_dir / f"page_{idx:04d}.png"
+        if not img_out.exists():
+            pix = page.get_pixmap(dpi=150)
+            pix.save(str(img_out))
+        image_paths.append(img_out)
+    doc.close()
+
+    return convert_fixed_layout_images_with_gemini(image_paths, md_path, pdf_path.stem)
+
+# --- 通常のPDF/EPUB抽出処理 ---
 
 def is_vertical_pdf(doc) -> bool:
     """PDFが縦書きかどうか判定する"""
@@ -282,6 +523,11 @@ def extract_vertical_pdf(pdf_path: Path) -> str:
     return "\n\n".join(pages_text).strip()
 
 def convert_epub_to_md(epub_path: Path, md_path: Path) -> bool:
+    # 1. 固定レイアウト・プリントレプリカ判定
+    if is_fixed_layout_epub(epub_path):
+        return convert_fixed_layout_epub_with_gemini(epub_path, md_path)
+
+    # 2. リフロー型EPUBのテキスト抽出
     import ebooklib
     from ebooklib import epub
     import html2text
@@ -317,8 +563,9 @@ def convert_epub_to_md(epub_path: Path, md_path: Path) -> bool:
             print(f"  Warning on item {item.get_name()}: {e}")
 
     full_md = "\n\n---\n\n".join(md_parts).strip()
-    if not full_md:
-        return False
+    if not full_md or len(full_md) < 50:
+        # テキストがほとんど抽出できなかった場合は固定レイアウトとしてGeminiにフォールバック
+        return convert_fixed_layout_epub_with_gemini(epub_path, md_path)
 
     with open(md_path, "w", encoding="utf-8") as f:
         f.write(full_md)
@@ -347,8 +594,9 @@ def convert_pdf_to_md(pdf_path: Path, md_path: Path) -> bool:
             print(f"   pymupdf4llmエラー、フォールバック: {e}")
             md_text = extract_vertical_pdf(pdf_path)
 
-    if not md_text or len(md_text) < 10:
-        return False
+    if not md_text or len(md_text) < 50:
+        print("   -> テキスト層が極小/なしのため Gemini VLM OCR にフォールバックします...")
+        return convert_fixed_layout_pdf_with_gemini(pdf_path, md_path)
 
     with open(md_path, "w", encoding="utf-8") as f:
         f.write(md_text)
@@ -423,7 +671,7 @@ def main():
                     size_mb = md_path.stat().st_size / (1024 * 1024)
                     print(f"   -> 変換完了 ({elapsed:.1f}秒, {size_mb:.2f} MB)")
                 else:
-                    print(f"   -> テキスト層なし/空ファイルのためmdファイルを作成しませんでした ({elapsed:.1f}秒)")
+                    print(f"   -> 変換できませんでした ({elapsed:.1f}秒)")
 
                 dest_file = processed_dir / file_path.name
                 shutil.move(str(file_path), str(dest_file))
