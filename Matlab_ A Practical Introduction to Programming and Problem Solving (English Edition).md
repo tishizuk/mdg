@@ -434,8 +434,6 @@ _>> 6 = mynum_
 
 6 = mynum
 
-| 
-
 Error: The expression to the left of the equals sign is not a valid target for an assignment.
 
 >>
@@ -5862,8 +5860,6 @@ Syntax errors are mistakes in using the language. Examples of syntax errors are 
 _>> mystr = 'how are you;_
 
 mystr = 'how are you;
-
-| 
 
 Error: A MATLAB string constant is not terminated properly.
 

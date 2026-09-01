@@ -3577,7 +3577,6 @@ When I try to load this file into GHCi, I get this horrible-looking error messag
         (use -fprint-potential-instances to see them all)
     • In the expression: plotFunc [] [0, 0.01 .. 10] cos
       In an equation for 'plot1': plot1 = plotFunc [] [0, 0.01 .. 10] cos
-   |
 3  | plot1 = plotFunc [] [0,0.01..10] cos
    |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 ```

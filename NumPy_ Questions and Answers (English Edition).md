@@ -31346,7 +31346,6 @@ Skip code block
 Help on ufunc object:
 sin =class ufunc(__builtin__.object)
 |Functions that operate element by element on whole arrays.
-|
 ```
 
 ```

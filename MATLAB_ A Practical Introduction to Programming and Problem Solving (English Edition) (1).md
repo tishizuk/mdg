@@ -15034,9 +15034,7 @@ The computer screen is called the **_root object_** and is referenced using the 
 
 ```
 Root (screen)     Parent
-           |
 Figure Window       |
-           |
  Axes          |
            ↓
 Primitive objects   Children

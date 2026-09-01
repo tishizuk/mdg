@@ -1042,10 +1042,8 @@ $ cargo build
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
 warning: unused `Result` that must be used
   --> src/main.rs:10:5
-   |
 10 |     io::stdin().read_line(&mut guess);
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-   |
    = note: `#[warn(unused_must_use)]` on by default
    = note: this `Result` may be an `Err` variant, which should be handled
 ```
@@ -1265,10 +1263,8 @@ However, the code in Listing 2-4 won’t compile yet. Let’s try it:
    Compiling guessing_game v0.1.0 (file:///projects/guessing_game)
 error[E0308]: mismatched types
   --> src/main.rs:22:21
-   |
 22 |     match guess.cmp(&secret_number) {
    |                     ^^^^^^^^^^^^^^ expected struct `String`, found integer
-   |
    = note: expected reference `&String`
               found reference `&{integer}`
 ```
@@ -1543,11 +1539,9 @@ $ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
 error[E0384]: cannot assign twice to immutable variable `x`
  --> src/main.rs:4:5
-  |
 2 |     let x = 5;
-  |         -
-  |         |
   |         first assignment to `x`
+  |         -
   |         help: consider making this binding mutable: `mut x`
 3 |     println!("The value of x is: {x}");
 4 |     x = 6;
@@ -1675,7 +1669,6 @@ $ cargo run
    Compiling variables v0.1.0 (file:///projects/variables)
 error[E0308]: mismatched types
  --> src/main.rs:3:14
-  |
 2 |     let mut spaces = "   ";
   |                      ----- expected due to this value
 3 |     spaces = spaces.len();
@@ -1706,7 +1699,6 @@ $ cargo build
    Compiling no_type_annotations v0.1.0 (file:///projects/no_type_annotations)
 error[E0282]: type annotations needed
  --> src/main.rs:2:9
-  |
 2 |     let guess = "42".parse().expect("Not a number!");
   |         ^^^^^ consider giving `guess` a type
 ```
@@ -2118,17 +2110,13 @@ $ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
 error: expected expression, found statement (`let`)
  --> src/main.rs:2:14
-  |
 2 |     let x = (let y = 6);
   |              ^^^^^^^^^
-  |
   = note: variable declaration using `let` is a statement
 error[E0658]: `let` expressions in this position are unstable
  --> src/main.rs:2:14
-  |
 2 |     let x = (let y = 6);
   |              ^^^^^^^^^
-  |
   = note: see issue #53667 <https://github.com/rust-lang/rust/issues/53667> for
 more information
 ```
@@ -2213,10 +2201,8 @@ $ cargo run
    Compiling functions v0.1.0 (file:///projects/functions)
 error[E0308]: mismatched types
  --> src/main.rs:7:24
-  |
 7 | fn plus_one(x: i32) -> i32 {
   |    --------            ^^^ expected `i32`, found `()`
-  |    |
   |    implicitly returns `()` as its body has no tail or `return` expression
 8 |     x + 1;
   |          - help: remove this semicolon
@@ -2351,7 +2337,6 @@ The `if` condition evaluates to a value of `3` this time, and Rust throws an err
    Compiling branches v0.1.0 (file:///projects/branches)
 error[E0308]: mismatched types
  --> src/main.rs:4:8
-  |
 ```
 
 ```
@@ -2456,11 +2441,9 @@ $ cargo run
    Compiling branches v0.1.0 (file:///projects/branches)
 error[E0308]: `if` and `else` have incompatible types
  --> src/main.rs:4:44
-  |
 4 |     let number = if condition { 5 } else { "six" };
   |                                 -          ^^^^^ expected integer, found `&s
 tr`
-  |                                 |
   |                                 expected because of this
 ```
 
@@ -2864,7 +2847,6 @@ You’ll get an error like this because Rust prevents you from using the invalid
 ```
 error[E0382]: borrow of moved value: `s1`
  --> src/main.rs:5:28
-  |
 2 |     let s1 = String::from("hello");
   |         -- move occurs because `s1` has type `String`, which
  does not implement the `Copy` trait
@@ -3109,7 +3091,6 @@ fn change(some_string: &String) {
 error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` ref
 erence
  --> src/main.rs:8:5
-  |
 7 | fn change(some_string: &String) {
   |                        ------- help: consider changing this to be a mutable
 reference: `&mut String`
@@ -3154,7 +3135,6 @@ println!("{r1}, {r2}");
 ```
 error[E0499]: cannot borrow `s` as mutable more than once at a time
  --> src/main.rs:5:14
-  |
 4 |     let r1 = &mut s;
   |              ------ first mutable borrow occurs here
 5 |     let r2 = &mut s;
@@ -3198,7 +3178,6 @@ println!("{r1}, {r2}, and {r3}");
 error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
 ble
  --> src/main.rs:6:14
-  |
 4 |     let r1 = &s; // no problem
   |              -- immutable borrow occurs here
 5 |     let r2 = &s; // no problem
@@ -3257,14 +3236,11 @@ Here’s the error:
 ```
 error[E0106]: missing lifetime specifier
  --> src/main.rs:5:16
-  |
 5 | fn dangle() -> &String {
   |                ^ expected named lifetime parameter
-  |
   = help: this function's return type contains a borrowed value,
 but there is no value for it to be borrowed from
 help: consider using the `'static` lifetime
-  |
 5 | fn dangle() -> &'static String {
   |                ~~~~~~~~
 ```
@@ -3467,7 +3443,6 @@ fn main() {
 error[E0502]: cannot borrow `s` as mutable because it is also borrowed as immuta
 ble
   --> src/main.rs:18:5
-   |
 16 |     let word = first_word(&s);
    |                           -- immutable borrow occurs here
 17 |
@@ -3772,24 +3747,17 @@ $ cargo run
    Compiling structs v0.1.0 (file:///projects/structs)
 error[E0106]: missing lifetime specifier
  --> src/main.rs:3:15
-  |
 3 |     username: &str,
   |               ^ expected named lifetime parameter
-  |
 help: consider introducing a named lifetime parameter
-  |
 1 ~ struct User<'a> {
 2 |     active: bool,
 3 ~     username: &'a str,
-  |
 error[E0106]: missing lifetime specifier
  --> src/main.rs:4:12
-  |
 4 |     email: &str,
   |            ^ expected named lifetime parameter
-  |
 help: consider introducing a named lifetime parameter
-  |
 1 ~ struct User<'a> {
 ```
 
@@ -3797,7 +3765,6 @@ help: consider introducing a named lifetime parameter
 2 |     active: bool,
 3 |     username: &str,
 4 ~     email: &'a str,
-  |
 ```
 
 In Chapter 10, we’ll discuss how to fix these errors so you can store references in structs, but for now, we’ll fix errors like these using owned types like `String` instead of references like `&str` .
@@ -4361,10 +4328,8 @@ If we run this code, we get an error message like this one:
 ```
 error[E0277]: cannot add `Option<i8>` to `i8`
  --> src/main.rs:5:17
-  |
 5 |     let sum = x + y;
   |                 ^ no implementation for `i8 + Option<i8>`
-  |
   = help: the trait `Add<Option<i8>>` is not implemented for `i8`
 ```
 
@@ -4516,19 +4481,15 @@ We didn’t handle the `None` case, so this code will cause a bug. Luckily, it�
 ```
 error[E0004]: non-exhaustive patterns: `None` not covered
  --> src/main.rs:3:15
-  |
 3 |         match x {
   |               ^ pattern `None` not covered
-  |
   note: `Option<i32>` defined here
       = note: the matched value is of type `Option<i32>`
 help: ensure that all possible cases are being handled by adding
 a match arm with a wildcard pattern or an explicit pattern as
 shown
-    |
 4   ~             Some(i) => Some(i + 1),
 5   ~             None => todo!(),
-    |
 ```
 
 Rust knows that we didn’t cover every possible case, and even knows which pattern we forgot! Matches in Rust are _exhaustive_ : we must exhaust every last possibility in order for the code to be valid. Especially in the case of `Option<T>` , when Rust prevents us from forgetting to explicitly handle the `None` case, it protects us from assuming that we have a value when we might have null, thus making the billion-dollar mistake discussed earlier impossible.
@@ -4901,24 +4862,18 @@ $ cargo build
    Compiling restaurant v0.1.0 (file:///projects/restaurant)
 error[E0603]: module `hosting` is private
  --> src/lib.rs:9:28
-  |
 9 |     crate::front_of_house::hosting::add_to_waitlist();
   |                            ^^^^^^^ private module
-  |
 note: the module `hosting` is defined here
  --> src/lib.rs:2:5
-  |
 2 |     mod hosting {
   |     ^^^^^^^^^^^
 error[E0603]: module `hosting` is private
   --> src/lib.rs:12:21
-   |
 12 |     front_of_house::hosting::add_to_waitlist();
    |                     ^^^^^^^ private module
-   |
 note: the module `hosting` is defined here
   --> src/lib.rs:2:5
-   |
 2  |     mod hosting {
    |     ^^^^^^^^^^^
 ```
@@ -4962,21 +4917,16 @@ Unfortunately, the code in Listing 7-5 still results in compiler errors, as show
 ```
 9 |     crate::front_of_house::hosting::add_to_waitlist();
   |                                     ^^^^^^^^^^^^^^^ private function
-  |
 note: the function `add_to_waitlist` is defined here
  --> src/lib.rs:3:9
-  |
 3 |         fn add_to_waitlist() {}
   |         ^^^^^^^^^^^^^^^^^^^^
 error[E0603]: function `add_to_waitlist` is private
   --> src/lib.rs:12:30
-   |
 12 |     front_of_house::hosting::add_to_waitlist();
    |                              ^^^^^^^^^^^^^^^ private function
-   |
 note: the function `add_to_waitlist` is defined here
   --> src/lib.rs:3:9
-   |
 3  |         fn add_to_waitlist() {}
    |         ^^^^^^^^^^^^^^^^^^^^
 ```
@@ -5182,15 +5132,12 @@ The compiler error shows that the shortcut no longer applies within the `custome
 ```
 error[E0433]: failed to resolve: use of undeclared crate or module `hosting`
   --> src/lib.rs:11:9
-   |
 11 |         hosting::add_to_waitlist();
    |         ^^^^^^^ use of undeclared crate or module `hosting`
 warning: unused import: `crate::front_of_house::hosting`
  --> src/lib.rs:7:5
-  |
 7 | use crate::front_of_house::hosting;
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  |
   = note: `#[warn(unused_imports)]` on by default
 ```
 
@@ -5603,7 +5550,6 @@ immutable
 
 ```
  --> src/main.rs:6:5
-  |
 4 |     let first = &v[0];
   |                  - immutable borrow occurs here
 5 |
@@ -5859,10 +5805,8 @@ Listing 8-19 _: Attempting to use indexing syntax with a_ _`String`_
 ```
 error[E0277]: the type `String` cannot be indexed by `{integer}`
  --> src/main.rs:3:13
-  |
 3 |     let h = s1[0];
   |             ^^^^^ `String` cannot be indexed by `{integer}`
-  |
   = help: the trait `Index<{integer}>` is not implemented for
 `String`
 ```
@@ -6630,14 +6574,12 @@ type of `()` , not `Result` . When we compile this code, we get the following er
 error[E0277]: the `?` operator can only be used in a function that returns
 `Result` or `Option` (or another type that implements `FromResidual`)
  --> src/main.rs:4:48
-  |
 3 | / fn main() {
 4 | |     let greeting_file = File::open("hello.txt")?;
   | |                                                ^ cannot use the `?`
 operator in a function that returns `()`
 5 | | }
   | |_- this function should return `Result` or `Option` to accept `?`
-  |
   = help: the trait `FromResidual<Result<Infallible, std::io::Error>>` is not
 implemented for `()`
 ```
@@ -6997,14 +6939,10 @@ If we compile this code right now, we’ll get this error:
 ```
 error[E0369]: binary operation `>` cannot be applied to type `&T`
  --> src/main.rs:5:17
-  |
 5 |         if item > largest {
   |            ---- ^ ------- &T
-  |            |
   |            &T
-  |
 help: consider restricting type parameter `T`
-  |
 1 | fn largest<T: std::cmp::PartialOrd>(list: &[T]) -> &T {
   |             ++++++++++++++++++++++
 ```
@@ -7048,7 +6986,6 @@ In this example, when we assign the integer value `5` to `x` , we let the compil
 ```
 error[E0308]: mismatched types
  --> src/main.rs:7:38
-  |
 7 |     let wont_work = Point { x: 5, y: 4.0 };
   |                                      ^^^ expected integer, found floating-
 point number
@@ -7593,7 +7530,6 @@ The outer scope declares a variable named `r` with no initial value ❶ , and th
 ```
 error[E0597]: `x` does not live long enough
  --> src/main.rs:6:13
-  |
 6 |         r = &x;
   |             ^^ borrowed value does not live long enough
 7 |     }
@@ -7688,7 +7624,6 @@ Instead, we get the following error that talks about lifetimes:
 ```
 error[E0106]: missing lifetime specifier
  --> src/main.rs:9:33
-  |
 ```
 
 ```
@@ -7703,7 +7638,6 @@ error[E0106]: missing lifetime specifier
   = help: this function's return type contains a borrowed value,
 but the signature does not say whether it is borrowed from `x` or `y`
 help: consider introducing a named lifetime parameter
-  |
 ```
 
 ```
@@ -7813,7 +7747,6 @@ When we try to compile this code, we get this error:
 ```
 error[E0597]: `string2` does not live long enough
  --> src/main.rs:6:44
-  |
 6 |         result = longest(string1.as_str(), string2.as_str());
   |                                            ^^^^^^^^^^^^^^^^ borrowed value
 does not live long enough
@@ -7861,7 +7794,6 @@ Here, even though we’ve specified a lifetime parameter `'a` for the return typ
 ```
 error[E0515]: cannot return reference to local variable `result`
   --> src/main.rs:11:5
-   |
 11 |     result.as_str()
    |     ^^^^^^^^^^^^^^^ returns a reference to data owned by the
 current function
@@ -9597,10 +9529,8 @@ When you run this code, it will compile but will display a warning:
 ```
 warning: unused `Result` that must be used
   --> src/main.rs:19:5
-   |
 19 |     run(config);
    |     ^^^^^^^^^^^^
-   |
    = note: `#[warn(unused_must_use)]` on by default
    = note: this `Result` may be an `Err` variant, which should be
 handled
@@ -9771,21 +9701,16 @@ If we forget the lifetime annotations and try to compile this function, we’ll 
 ```
 error[E0106]: missing lifetime specifier
   --> src/lib.rs:31:10
-   |
 29 |     query: &str,
-   |            ----
 30 |     contents: &str,
-   |               ----
 31 | ) -> Vec<&str> {
    |          ^ expected named lifetime parameter
-   |
 ```
 
 ```
    = help: this function's return type contains a borrowed value, but the
 signature does not say whether it is borrowed from `query` or `contents`
 help: consider introducing a named lifetime parameter
-   |
 ```
 
 ```
@@ -9796,7 +9721,6 @@ help: consider introducing a named lifetime parameter
 
 ```
 31 ~ ) -> Vec<&'a str> {
-   |
 ```
 
 Rust can’t possibly know which of the two arguments we need, so we need to tell it explicitly. Because `contents` is the argument that contains all of our text and we want to return the parts of that text that match, we know `contents` is the argument that should be connected to the return value using the lifetime syntax.
@@ -10369,11 +10293,9 @@ The compiler gives us this error:
 ```
 error[E0308]: mismatched types
  --> src/main.rs:5:29
-  |
 5 |     let n = example_closure(5);
   |                             ^- help: try using a conversion method:
 `.to_string()`
-  |                             |
   |                             expected struct `String`, found integer
 ```
 
@@ -10591,7 +10513,6 @@ closure
 
 ```
   --> src/main.rs:18:30
-   |
 15 |       let value = String::from("by key called");
    |           ----- captured outer variable
 16 |
@@ -10755,10 +10676,8 @@ However, this code produces a warning:
 ```
 warning: unused `Map` that must be used
  --> src/main.rs:4:5
-  |
 4 |     v1.iter().map(|x| x + 1);
   |     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  |
 ```
 
 ```
@@ -11716,7 +11635,6 @@ $ cargo build
    Compiling adder v0.1.0 (file:///projects/add/adder)
 error[E0432]: unresolved import `rand`
  --> adder/src/main.rs:2:5
-  |
 2 | use rand;
   |     ^^^^ no external crate `rand`
 ```
@@ -11994,15 +11912,12 @@ If we try to compile the code in Listing 15-3, we get the error shown in <u>List
 ```
 error[E0072]: recursive type `List` has infinite size
  --> src/main.rs:1:1
-  |
 1 | enum List {
   | ^^^^^^^^^ recursive type has infinite size
 2 |     Cons(i32, List),
   |               ---- recursive without indirection
-  |
 help: insert some indirection (e.g., a `Box`, `Rc`, or `&`) to make `List`
 representable
-  |
 2 |     Cons(i32, Box<List>),
   |               ++++    +
 ```
@@ -12037,7 +11952,6 @@ Because Rust can’t figure out how much space to allocate for recursively defin
 ```
 help: insert some indirection (e.g., a `Box`, `Rc`, or `&`) to make `List`
 representable
-  |
 2 |     Cons(i32, Box<List>),
   |               ++++    +
 ```
@@ -12109,11 +12023,9 @@ If we tried to write `assert_eq!(5, y);` instead, we would get this compilation 
 ```
 error[E0277]: can't compare `{integer}` with `&{integer}`
  --> src/main.rs:6:5
-  |
 6 |     assert_eq!(5, y);
   |     ^^^^^^^^^^^^^^^^ no implementation for `{integer} ==
 &{integer}`
-  |
   = help: the trait `PartialEq<&{integer}>` is not implemented
 for `{integer}`
 ```
@@ -12171,7 +12083,6 @@ error[E0614]: type `MyBox<{integer}>` cannot be dereferenced
 ```
 
 ```
-   |
 14 |     assert_eq!(5, *y);
    |                   ^^
 ```
@@ -12338,10 +12249,8 @@ When we try to compile this code, we’ll get this error:
 ```
 error[E0040]: explicit use of destructor method
   --> src/main.rs:16:7
-   |
 16 |     c.drop();
    |     --^^^^--
-   |     | |
    |     | explicit destructor calls not allowed
    |     help: consider using `drop` function: `drop(c)`
 ```
@@ -12424,7 +12333,6 @@ Listing 15-17 _: Demonstrating that we’re not allowed to have two lists using_
 ```
 error[E0382]: use of moved value: `a`
   --> src/main.rs:11:30
-   |
 9  |     let a = Cons(5, Box::new(Cons(10, Box::new(Nil))));
    |         - move occurs because `a` has type `List`, which
 does not implement the `Copy` trait
@@ -12666,7 +12574,6 @@ However, there’s one problem with this test, as shown here:
 error[E0596]: cannot borrow `self.sent_messages` as mutable, as it is behind a
 `&` reference
   --> src/lib.rs:58:13
-   |
 2  |     fn send(&self, msg: &str);
    |             ----- help: consider changing that to be a mutable reference:
 `&mut self`
@@ -13180,15 +13087,12 @@ The closure uses `v` , so it will capture `v` and make it part of the closure’
 error[E0373]: closure may outlive the current function, but it borrows `v`,
 which is owned by the current function
  --> src/main.rs:6:32
-  |
 6 |     let handle = thread::spawn(|| {
   |                                ^^ may outlive borrowed value `v`
 7 |         println!("Here's a vector: {:?}", v);
   |                                           - `v` is borrowed here
-  |
 note: function requires argument type to outlive `'static`
  --> src/main.rs:6:18
-  |
 6 |       let handle = thread::spawn(|| {
   |  __________________^
 7 | |         println!("Here's a vector: {:?}", v);
@@ -13196,7 +13100,6 @@ note: function requires argument type to outlive `'static`
   | |______^
 help: to force the closure to take ownership of `v` (and any other referenced
 variables), use the `move` keyword
-  |
 6 |     let handle = thread::spawn(move || {
   |                                ++++
 ```
@@ -13228,7 +13131,6 @@ To fix the compiler error in Listing 16-3, we can use the error message’s advi
 ```
 help: to force the closure to take ownership of `v` (and any other referenced
 variables), use the `move` keyword
-  |
 6 |     let handle = thread::spawn(move || {
   |                                ++++
 ```
@@ -13255,7 +13157,6 @@ We might be tempted to try the same thing to fix the code in Listin <u>g 16-4</u
 ```
 error[E0382]: use of moved value: `v`
   --> src/main.rs:10:10
-   |
 4  |     let v = vec![1, 2, 3];
    |         - move occurs because `v` has type `Vec<i32>`, which does not
 implement the `Copy` trait
@@ -13391,7 +13292,6 @@ Here, we try to print `val` after we’ve sent it down the channel via `tx.send`
 ```
 error[E0382]: borrow of moved value: `val`
   --> src/main.rs:10:31
-   |
 8  |         let val = String::from("hi");
    |             --- move occurs because `val` has type `String`, which does
 not implement the `Copy` trait
@@ -13606,7 +13506,6 @@ We hinted that this example wouldn’t compile. Now let’s find out why!
 ```
 error[E0382]: use of moved value: `counter`
   --> src/main.rs:9:36
-   |
 5  |     let counter = Mutex::new(0);
    |         ------- move occurs because `counter` has type `Mutex<i32>`, which
 does not implement the `Copy` trait
@@ -14054,14 +13953,12 @@ We’ll get this error because `String` doesn’t implement the `Draw` trait:
 ```
 error[E0277]: the trait bound `String: Draw` is not satisfied
  --> src/main.rs:5:26
-  |
 5 |         components: vec![Box::new(String::from("Hi"))],
 ```
 
 ```
   |                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ the trait `Draw` is
 not implemented for `String`
-  |
   = note: required for the cast to the object type `dyn Draw`
 ```
 
@@ -14588,13 +14485,10 @@ Attempting to compile this code results in this type error:
 ```
 error[E0308]: mismatched types
  --> src/main.rs:2:9
-  |
 2 |     let (x, y) = (1, 2, 3);
   |         ^^^^^^   --------- this expression has type `({integer}, {integer},
 {integer})`
-  |         |
   |         expected a tuple with 3 elements, found one with 2 elements
-  |
   = note: expected tuple `({integer}, {integer}, {integer})`
              found tuple `(_, _)`
 ```
@@ -14660,17 +14554,14 @@ If `some_option_value` were a `None` value, it would fail to match the pattern `
 ```
 error[E0005]: refutable pattern in local binding: `None` not covered
    --> src/main.rs:3:9
-    |
 3   |     let Some(x) = some_option_value;
     |         ^^^^^^^ pattern `None` not covered
-    |
     = note: `let` bindings require an "irrefutable pattern", like a `struct` or
 an `enum` with only one variant
     = note: for more information, visit
 https://doc.rust-lang.org/book/ch18-02-refutability.html
     = note: the matched value is of type `Option<i32>`
 help: you might want to use `if let` to ignore the variant that isn't matched
-    |
 3   |     let x = if let Some(x) = some_option_value { x } else { todo!() };
     |     ++++++++++                                 ++++++++++++++++++++++
 ```
@@ -14700,10 +14591,8 @@ Listing 18-10 _: Attempting to use an irrefutable pattern with_ _`if let`_ Rust 
 ```
 warning: irrefutable `if let` pattern
  --> src/main.rs:2:8
-  |
 2 |     if let x = 5 {
   |        ^^^^^^^^^
-  |
   = note: `#[warn(irrefutable_let_patterns)]` on by default
   = note: this pattern will always match, so the `if let` is
 useless
@@ -15158,10 +15047,8 @@ When we compile this example, we get this error:
 ```
 error: `..` can only be used once per tuple pattern
  --> src/main.rs:5:22
-  |
 5 |         (.., second, ..) => {
   |          --          ^^ can only be used once per tuple pattern
-  |          |
   |          previously used here
 ```
 
@@ -15420,10 +15307,8 @@ We must call the `dangerous` function within a separate `unsafe` block. If we tr
 error[E0133]: call to unsafe function is unsafe and requires
 unsafe function or block
  --> src/main.rs:4:5
-  |
 4 |     dangerous();
   |     ^^^^^^^^^^^ call to unsafe function
-  |
   = note: consult the function's documentation for information on
 how to avoid undefined behavior
 ```
@@ -15470,13 +15355,11 @@ When we try to compile the code in Listing 19-5, we’ll get an error:
 ```
 error[E0499]: cannot borrow `*values` as mutable more than once at a time
  --> src/main.rs:9:31
-  |
 2 |     values: &mut [i32],
   |             - let's call the lifetime of this reference `'1`
 ...
 9 |     (&mut values[..mid], &mut values[mid..])
   |     --------------------------^^^^^^--------
-  |     |     |                   |
   |     |     |                   second mutable borrow occurs here
   |     |     first mutable borrow occurs here
   |     returning this value requires that `*values` is borrowed for `'1`
@@ -15905,11 +15788,9 @@ Because `Animal::baby_name` doesn’t have a `self` parameter, and there could b
 ```
 error[E0283]: type annotations needed
   --> src/main.rs:20:43
-   |
 20 |     println!("A baby dog is called a {}", Animal::baby_name());
    |                                           ^^^^^^^^^^^^^^^^^ cannot infer
 type
-   |
    = note: cannot satisfy `_: Animal`
 ```
 
@@ -16004,16 +15885,13 @@ We get an error saying that `Display` is required but not implemented:
 ```
 error[E0277]: `Point` doesn't implement `std::fmt::Display`
   --> src/main.rs:20:6
-   |
 20 | impl OutlinePrint for Point {}
    |      ^^^^^^^^^^^^ `Point` cannot be formatted with the default formatter
-   |
    = help: the trait `std::fmt::Display` is not implemented for `Point`
    = note: in format strings you may be able to use `{:?}` (or {:#?} for
 pretty-print) instead
 note: required by a bound in `OutlinePrint`
   --> src/main.rs:3:21
-   |
 3  | trait OutlinePrint: fmt::Display {
    |                     ^^^^^^^^^^^^ required by this bound in `OutlinePrint`
 ```
@@ -16389,17 +16267,14 @@ The compiler error is as follows:
 ```
 error[E0746]: return type cannot have an unboxed trait object
  --> src/lib.rs:1:25
-  |
 1 | fn returns_closure() -> dyn Fn(i32) -> i32 {
   |                         ^^^^^^^^^^^^^^^^^^ doesn't have a size known at
 compile-time
-  |
   = note: for information on `impl Trait`, see
 <https://doc.rust-lang.org/book/ch10-02-traits.html#returning-types-that-
 implement-traits>
 help: use `impl Fn(i32) -> i32` as the return type, as all return paths are of
 type `[closure@src/lib.rs:2:5: 2:14]`, which implements `Fn(i32) -> i32`
-  |
 1 | fn returns_closure() -> impl Fn(i32) -> i32 {
   |                         ~~~~~~~~~~~~~~~~~~~
 ```
@@ -17231,7 +17106,6 @@ $ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
 error[E0433]: failed to resolve: use of undeclared type `ThreadPool`
   --> src/main.rs:11:16
-   |
 11 |     let pool = ThreadPool::new(4);
    |                ^^^^^^^^^^ use of undeclared type `ThreadPool`
 ```
@@ -17265,7 +17139,6 @@ error[E0599]: no function or associated item named `new` found for struct
 ```
 `ThreadPool` in the current scope
   --> src/main.rs:12:28
-   |
 12 |     let pool = ThreadPool::new(4);
    |                            ^^^ function or associated item not found in
 `ThreadPool`
@@ -17294,7 +17167,6 @@ $ cargo check
 error[E0599]: no method named `execute` found for struct `ThreadPool` in the
 current scope
   --> src/main.rs:17:14
-   |
 17 |         pool.execute(|| {
    |              ^^^^^^^ method not found in `ThreadPool`
 ```
@@ -17505,7 +17377,6 @@ $ cargo check
     Checking hello v0.1.0 (file:///projects/hello)
 error[E0382]: use of moved value: `receiver`
   --> src/lib.rs:26:42
-   |
 21 |         let (sender, receiver) = mpsc::channel();
    |                      -------- move occurs because `receiver` has type
 `std::sync::mpsc::Receiver<Job>`, which does not implement the `Copy` trait
@@ -17584,19 +17455,15 @@ $ cargo run
    Compiling hello v0.1.0 (file:///projects/hello)
 warning: field is never read: `workers`
  --> src/lib.rs:7:5
-  |
 7 |     workers: Vec<Worker>,
   |     ^^^^^^^^^^^^^^^^^^^^
-  |
   = note: `#[warn(dead_code)]` on by default
 warning: field is never read: `id`
   --> src/lib.rs:48:5
-   |
 48 |     id: usize,
    |     ^^^^^^^^^
 warning: field is never read: `thread`
   --> src/lib.rs:49:5
-   |
 49 |     thread: thread::JoinHandle<()>,
    |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 warning: `hello` (lib) generated 3 warnings
@@ -17685,17 +17552,14 @@ Here is the error we get when we compile this code:
 error[E0507]: cannot move out of `worker.thread` which is behind a mutable
 reference
     --> src/lib.rs:52:13
-     |
 52   |             worker.thread.join().unwrap();
      |             ^^^^^^^^^^^^^ ------ `worker.thread` moved due to this
 method call
-     |             |
 ```
 
 ```
      |             move occurs because `worker.thread` has type
 `JoinHandle<()>`, which does not implement the `Copy` trait
-     |
 ```
 
 ```
@@ -17722,24 +17586,20 @@ Now let’s lean on the compiler to find the other places that need to change. C
 error[E0599]: no method named `join` found for enum `Option` in the current
 scope
   --> src/lib.rs:52:27
-   |
 52 |             worker.thread.join().unwrap();
    |                           ^^^^ method not found in
 `Option<JoinHandle<()>>`
 error[E0308]: mismatched types
   --> src/lib.rs:72:22
-   |
 72 |         Worker { id, thread }
    |                      ^^^^^^ expected enum `Option`, found struct
 `JoinHandle`
-   |
    = note: expected enum `Option<JoinHandle<()>>`
             found struct `JoinHandle<_>`
 help: try wrapping the expression in `Some`
 ```
 
 ```
-   |
 72 |         Worker { id, thread: Some(thread) }
    |                      +++++++++++++      +
 ```
@@ -18039,7 +17899,6 @@ you’ll get this error:
 ```
 error: expected identifier, found keyword `match`
  --> src/main.rs:4:4
-  |
 4 | fn match(needle: &str, haystack: &str) -> bool {
   |    ^^^^^ expected identifier, found keyword
 ```
@@ -18399,10 +18258,8 @@ $ cargo build
    Compiling myprogram v0.1.0 (file:///projects/myprogram)
 warning: unused variable: `i`
  --> src/main.rs:4:9
-  |
 4 |     for i in 0..100 {
   |         ^ help: consider using `_i` instead
-  |
   = note: #[warn(unused_variables)] on by default
     Finished dev [unoptimized + debuginfo] target(s) in 0.50s
 ```
@@ -18466,10 +18323,8 @@ error: approximate value of `f{32, 64}::consts::PI` found
 ```
 
 ```
-  |
 2 |     let x = 3.1415;
   |             ^^^^^^
-  |
   = note: `#[deny(clippy::approx_constant)]` on by default
   = help: consider using the constant directly
   = help: for further information visit https://rust-lang.github.io/rust-

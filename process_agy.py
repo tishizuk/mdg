@@ -126,9 +126,63 @@ def format_vertical_markdown_text(content: str) -> str:
     for i, cb in enumerate(code_blocks):
         result = result.replace(f"\x00CODEBLOCK_{i}\x00", cb)
 
-    # 5. 連続改行の正規化
+    # 5. 不要な空テーブル行・孤立した区切り線の除去
+    result = clean_tables_in_text(result)
+
+    # 6. 連続改行の正規化
     result = re.sub(r'\n{3,}', '\n\n', result)
     return result
+
+def is_empty_table_row(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped.startswith("|"):
+        return False
+    inner = stripped
+    if inner.startswith("|"):
+        inner = inner[1:]
+    if inner.endswith("|"):
+        inner = inner[:-1]
+    cells = inner.split("|")
+    return all(c.strip() == "" for c in cells)
+
+def is_table_separator(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped.startswith("|"):
+        return False
+    inner = stripped
+    if inner.startswith("|"):
+        inner = inner[1:]
+    if inner.endswith("|"):
+        inner = inner[:-1]
+    cells = inner.split("|")
+    return bool(cells) and all(bool(re.match(r'^\s*:?-+:?\s*$', c)) for c in cells if c.strip())
+
+def clean_tables_in_text(text: str) -> str:
+    lines = text.splitlines()
+    filtered_lines = [l for l in lines if not is_empty_table_row(l)]
+    
+    result_lines = []
+    i = 0
+    while i < len(filtered_lines):
+        line = filtered_lines[i]
+        if is_table_separator(line):
+            if result_lines and result_lines[-1].strip().startswith("|") and not is_table_separator(result_lines[-1]):
+                result_lines.append(line)
+            else:
+                if i + 1 < len(filtered_lines) and filtered_lines[i+1].strip().startswith("|") and not is_table_separator(filtered_lines[i+1]):
+                    next_row = filtered_lines[i+1]
+                    result_lines.append(next_row)
+                    result_lines.append(line)
+                    i += 2
+                    continue
+                else:
+                    i += 1
+                    continue
+        else:
+            result_lines.append(line)
+        i += 1
+        
+    return "\n".join(result_lines)
 
 def is_vertical_pdf(doc) -> bool:
     """PDFが縦書きかどうか判定する"""
